@@ -1,33 +1,56 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/**
+* layout styles
+*/
+.bg-black {
+  background-color: black;
+}
+.h-full {
+  height: 100dvh;
+}
+.w-full {
+  width: 100dvw;
+}
+.position-absolute {
+  position: absolute;
+}
+.px-8 {
+  padding-left: 8;
+  padding-right: 8;
+}
+.py-2 {
+  padding-top: 2;
+  padding-bottom: 2;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/**
+* cursor styles
+*/
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+.touch-action-none {
+  touch-action: none;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/**
+* text styles
+*/
+.text-cyan {
+  color: cyan;
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.text-uppercase {
+  text-transform: uppercase;
+}
+.text-sans {
+  font-family: sans-serif;
+}
+.text-2xl {
+  font-size: 20;
+}
+.text-decoration-none {
+  text-decoration: none;
 }

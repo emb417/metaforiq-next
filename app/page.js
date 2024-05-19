@@ -1,113 +1,111 @@
-import Image from "next/image";
+import React from 'react';
+import MessagesToCanvas from '@/components/MessagesToCanvas';
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+export const metadata = {
+  title: 'Metaforiq Home',
 }
+
+const welcomeMessages = [
+  "welcome to metaforiq",
+  "inspiring and thought provoking",
+  "a collection of inspiring quotes",
+  "a personal portfolio of projects",
+];
+
+const inspirationalMessages = [ // from:sw:tcw
+  "great leaders inspire greatness in others",
+  "great leaders inspire greatness in others",
+  "belief is not a matter of choice, but of conviction",
+  "easy is the path to wisdom for those not blinded by ego",
+  "a plan is only as good as those who see it through",
+  "the best confidence builder is experience",
+  "trust in your friends, and they’ll have reason to trust in you",
+  "you hold onto friends by keeping your heart a little softer than your head",
+  "heroes are made by the times",
+  "fail with honor rather than succeed by fraud",
+  "greed and fear of loss are the roots that lead to the tree of evil",
+  "arrogance diminishes wisdom",
+  "truth enlightens the mind, but won’t always bring happiness to your heart",
+  "fear is a disease; hope is its only cure",
+  "it is a rough road that leads to the heights of greatness",
+  "compromise is a virtue to be cultivated, not a weakness to be despised",
+  "a secret shared is a trust formed",
+  "a lesson learned is a lesson earned",
+  "overconfidence is the most dangerous form of carelessness",
+  "the first step to correcting a mistake is patience",
+  "a true heart should never be doubted",
+  "believe in yourself or no one else will",
+  "no gift is more precious than trust",
+  "sometimes, accepting help is harder than offering it",
+  "attachment is not compassion",
+  "it is the quest for honor that makes one honorable",
+  "if you ignore the past, you jeopardize the future",
+  "a wise leader knows when to follow",
+  "where there’s a will, there’s a way",
+  "the challenge of hope is to overcome corruption",
+  "those who enforce the law must obey the law",
+  "the future has many paths, choose wisely",
+  "a failure in planning is a plan for failure",
+  "he who seeks to control fate shall never find peace",
+  "adaptation is the key to survival",
+  "anything that can go wrong will",
+  "without honor, victory is hollow",
+  "without humility, courage is a dangerous game",
+  "a great student is what the teacher hopes to be",
+  "when destiny calls, the chosen have no choice",
+  "who a person truly is cannot be seen with the eye",
+  "understanding is honoring the truth beneath the surface",
+  "who’s the more foolish, the fool or the fool who follows him?",
+  "the first step towards loyalty is trust",
+  "the path of ignorance is guided by fear",
+  "the wise man leads, the strong man follows",
+  "our actions define our legacy",
+  "where we are going always reflects where we came from",
+  "keep your friends close, but keep your enemies closer",
+  "trust is the greatest of gifts, but it must be earned",
+  "who we are never changes, who we think we are does",
+  "to seek something is to believe in its possibility",
+  "struggles often begin and end with the truth",
+  "disobedience is a demand for change",
+  "when we rescue others, we rescue ourselves",
+  "choose your enemies wisely, as they may be your last hope",
+  "humility is the only defense against humiliation",
+  "you must trust in others or success is impossible",
+  "one vision can have many interpretations",
+  "courage begins by trusting oneself",
+  "never become desperate enough to trust the untrustworthy",
+  "never give up hope, no matter how dark things seem",
+  "the truth about yourself is always the hardest to accept",
+  "the wise benefit from a second opinion",
+  "when in doubt, go to the source",
+  "the popular belief isn’t always the correct one",
+  "to love, is to trust. to trust is to believe",
+  "jealousy is the path to chaos",
+  "facing all that you fear will free you from yourself",
+];
+
+const HomePage = () => {
+  return (
+    <div>
+      <MessagesToCanvas
+        id="welcome"
+        canvasMaxHeight={100}
+        fontSize={20}
+        messages={welcomeMessages}
+        messageInterval={15000}
+        x={50}
+        y={30}
+        zIndex={2}
+      />
+      <MessagesToCanvas
+        id="main"
+        fontSize={36}
+        messages={inspirationalMessages}
+        messageInterval={7000}
+        zIndex={1}
+      />
+    </div>
+  );
+};
+
+export default HomePage;
