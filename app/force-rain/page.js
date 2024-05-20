@@ -1,5 +1,6 @@
 import React from 'react';
 import MessagesToCanvas from '@/components/MessagesToCanvas';
+import ForceRainOnCanvas from '@/components/ForceRainOnCanvas';
 
 export const metadata = {
   title: 'Metaforiq Force Rain',
@@ -15,6 +16,7 @@ const ForceRainPage = () => {
     <div>
       <MessagesToCanvas
         id="forcerain"
+        bgColor="transparent"
         canvasMaxHeight={100}
         fontSize={20}
         messages={welcomeMessages}
@@ -22,6 +24,7 @@ const ForceRainPage = () => {
         y={30}
         zIndex={2}
       />
+      <ForceRainOnCanvas />
     </div>
   );
 };
