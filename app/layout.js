@@ -1,13 +1,7 @@
 import React from 'react';
 import NavigationLinks from '@/components/NavigationLinks';
 import { GoogleTagManager } from '@next/third-parties/google'
-import localFont from 'next/font/local'
 import './globals.css'
- 
-const aurebeshFont = localFont({
-  src: './AurebeshAF-Canon.otf',
-  display: 'swap',
-})
 
 const RootLayout = ({ children }) => {
   return (
