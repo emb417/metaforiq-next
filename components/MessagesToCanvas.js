@@ -31,7 +31,8 @@ const MessagesToCanvas = ({
   y,
   zIndex,
 }) => {
-  const [currentMessage, setCurrentMessage] = useState(messages[0]);
+  const randomIndex = Math.floor(Math.random() * messages.length);
+  const [currentMessage, setCurrentMessage] = useState(messages[randomIndex]);
 
   useEffect(() => {
     const resetCanvas = () => {

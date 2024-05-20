@@ -1,5 +1,6 @@
 import React from 'react';
 import MessagesToCanvas from '@/components/MessagesToCanvas';
+import ForceRainOnCanvas from '@/components/ForceRainOnCanvas';
 
 export const metadata = {
   title: 'Metaforiq Home',
@@ -7,8 +8,7 @@ export const metadata = {
 
 const welcomeMessages = [
   "welcome to metaforiq",
-  "inspiring and thought provoking",
-  "a collection of inspiring quotes",
+  "a collection of wise and thought provoking quotes",
   "a personal portfolio of projects",
 ];
 
@@ -89,21 +89,24 @@ const HomePage = () => {
     <div>
       <MessagesToCanvas
         id="welcome"
+        bgColor="transparent"
         canvasMaxHeight={100}
         fontSize={20}
         messages={welcomeMessages}
         messageInterval={15000}
         x={50}
         y={30}
-        zIndex={2}
+        zIndex={20}
       />
       <MessagesToCanvas
         id="main"
+        bgColor="transparent"
         fontSize={36}
         messages={inspirationalMessages}
         messageInterval={7000}
-        zIndex={1}
+        zIndex={10}
       />
+      <ForceRainOnCanvas />
     </div>
   );
 };
