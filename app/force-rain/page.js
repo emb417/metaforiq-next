@@ -7,8 +7,11 @@ export const metadata = {
 }
 
 const welcomeMessages = [
-  "welcome to metaforiq",
-  "force rain like the matrix",
+  "press c to change colors",
+  "press g to change gravity",
+  "press t to change 2d/3d effect",
+  "press r to change all rain effects",
+  "press s to stop rain",
 ];
 
 const ForceRainPage = () => {
