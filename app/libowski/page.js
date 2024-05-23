@@ -6,7 +6,6 @@ export const metadata = {
 }
 
 const welcomeMessages = [
-  "welcome to metaforiq",
   "the dude abides",
   "That rug really tied the room together.",
   "I'm the Dude. So that's what you call me.",

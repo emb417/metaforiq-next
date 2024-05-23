@@ -6,8 +6,9 @@ export const metadata = {
 }
 
 const welcomeMessages = [
-  "welcome to metaforiq",
-  "pinball analytics",
+  "pinball analytics coming soon...",
+  "check out virtual pinball chat on discord",
+  "https://virtualpinballchat.com",
 ];
 
 const PinballPage = () => {
