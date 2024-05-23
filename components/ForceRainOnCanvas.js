@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useEffect, useRef, useState } from "react";
 
@@ -41,7 +41,7 @@ const ForceRainOnCanvas = () => {
         { date: "12/31/2021", color: -1 },
         { date: "1/1/2022", color: -1 },
       ];
-      const fontFace = "sans-serif";
+      const fontFace = ' sans-serif';
       const fontFadeSpeed = 0.15;
       const fontRenderSpeed = 100;
       const fontSizeOffsets = [0.2, 0.5, 1.0, 1.5, 2.0];

@@ -3,7 +3,7 @@ import MessagesToCanvas from '@/components/MessagesToCanvas';
 import ForceRainOnCanvas from '@/components/ForceRainOnCanvas';
 
 export const metadata = {
-  title: 'Metaforiq Home',
+  title: 'Home',
 }
 
 const welcomeMessages = [

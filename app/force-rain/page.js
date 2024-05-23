@@ -3,10 +3,10 @@ import MessagesToCanvas from '@/components/MessagesToCanvas';
 import ForceRainOnCanvas from '@/components/ForceRainOnCanvas';
 
 export const metadata = {
-  title: 'Metaforiq Force Rain',
+  title: 'Force Rain',
 }
 
-const welcomeMessages = [
+const helpMessages = [
   "press c to change colors",
   "press g to change gravity",
   "press t to change 2d/3d effect",
@@ -22,7 +22,7 @@ const ForceRainPage = () => {
         bgColor="transparent"
         canvasMaxHeight={100}
         fontSize={20}
-        messages={welcomeMessages}
+        messages={helpMessages}
         x={50}
         y={30}
         zIndex={2}

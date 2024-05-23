@@ -14,7 +14,7 @@ const Canvas = ({ id, bgColor = 'black', canvasMaxHeight, canvasMaxWidth, fontSi
     const context = canvas.getContext('2d');
     context.imageSmoothingEnabled = true;
     context.imageSmoothingQuality = 'high';
-    context.textRendering = "geometricPrecision";
+    context.textRendering = 'geometricPrecision';
     context.fillStyle = 'white';
     context.font = `small-caps ${ fontSize }px sans-serif`;
     const lineHeight = fontSize * 1.2;
@@ -60,7 +60,7 @@ const Canvas = ({ id, bgColor = 'black', canvasMaxHeight, canvasMaxWidth, fontSi
     };
   }, [message, bgColor, canvasMaxHeight, canvasMaxWidth, fontSize, x, y, zIndex]);
 
-  return <canvas id={id} ref={canvasRef} className='position-absolute cursor-not-allowed touch-action-none' />;
+  return <canvas id={id} ref={canvasRef} className='position-absolute' />;
 };
 
 export default Canvas;

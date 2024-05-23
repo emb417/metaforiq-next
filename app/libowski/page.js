@@ -2,10 +2,10 @@ import React from 'react';
 import MessagesToCanvas from '@/components/MessagesToCanvas';
 
 export const metadata = {
-  title: 'Metaforiq Libowski',
+  title: 'Libowski',
 }
 
-const welcomeMessages = [
+const theDudeMessages = [
   "the dude abides",
   "That rug really tied the room together.",
   "I'm the Dude. So that's what you call me.",
@@ -22,7 +22,7 @@ const LibowskiPage = () => {
       <MessagesToCanvas
         id="libowski"
         fontSize={40}
-        messages={welcomeMessages}
+        messages={theDudeMessages}
       />
     </div>
   );

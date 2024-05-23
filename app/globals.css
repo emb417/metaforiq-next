@@ -27,16 +27,6 @@
 }
 
 /**
-* cursor styles
-*/
-.cursor-not-allowed {
-  cursor: not-allowed;
-}
-.touch-action-none {
-  touch-action: none;
-}
-
-/**
 * text styles
 */
 .text-cyan {
@@ -53,4 +43,9 @@
 }
 .text-decoration-none {
   text-decoration: none;
+}
+
+/* Turn links white when hovering */
+a:hover {
+  color: white;
 }

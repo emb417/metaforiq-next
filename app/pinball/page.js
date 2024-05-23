@@ -2,7 +2,7 @@ import React from 'react';
 import MessagesToCanvas from '@/components/MessagesToCanvas';
 
 export const metadata = {
-  title: 'Metaforiq Pinball',
+  title: 'Pinball',
 }
 
 const welcomeMessages = [
