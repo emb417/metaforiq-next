@@ -184,7 +184,7 @@ const ForceRainOnCanvas = () => {
       clearInterval(rainDrops);
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [threeDee, gravity, colorsIndex]);
+  });
 
   return <canvas ref={canvasRef} id="force-rain" />;
 };

@@ -58,7 +58,7 @@ const Canvas = ({ id, bgColor = 'black', canvasMaxHeight, canvasMaxWidth, fontSi
     return () => {
       clearInterval(typing);
     };
-  }, [message]);
+  }, [message, bgColor, canvasMaxHeight, canvasMaxWidth, fontSize, x, y, zIndex]);
 
   return <canvas id={id} ref={canvasRef} className='position-absolute cursor-not-allowed touch-action-none' />;
 };

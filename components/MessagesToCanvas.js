@@ -57,7 +57,7 @@ const MessagesToCanvas = ({
     return () => {
       clearInterval(intervalId);
     };
-  }, [messages, canvasResetInterval, messageInterval]);
+  }, [id, messages, canvasResetInterval, messageInterval]);
 
   return (
     <CanvasTypewriter
