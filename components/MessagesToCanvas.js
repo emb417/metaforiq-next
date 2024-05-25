@@ -24,8 +24,7 @@ const MessagesToCanvas = ({
   fontSize,
   canvasMaxHeight,
   canvasMaxWidth,
-  messageInterval = 10000,
-  canvasResetInterval = 5000,
+  messageInterval = 6000,
   messages = [],
   x,
   y,
@@ -35,29 +34,15 @@ const MessagesToCanvas = ({
   const [currentMessage, setCurrentMessage] = useState(messages[randomIndex]);
 
   useEffect(() => {
-    const resetCanvas = () => {
-      const canvas = document.getElementById(id);
-      if (canvas) {
-        const context = canvas.getContext("2d");
-        context.clearRect(0, 0, canvas.width, canvas.height);
-      }
-    };
-  
     const intervalId = setInterval(() => {
-      const randomIndex = Math.floor(Math.random() * messages.length);
       const message = messages[randomIndex];
       setCurrentMessage(message);
-  
-      setTimeout(() => {
-        resetCanvas();
-      }, canvasResetInterval);
     }, messageInterval);
 
-    // Cleanup function to stop the interval
     return () => {
       clearInterval(intervalId);
     };
-  }, [id, messages, canvasResetInterval, messageInterval]);
+  }, [currentMessage]);
 
   return (
     <CanvasTypewriter

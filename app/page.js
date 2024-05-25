@@ -9,7 +9,7 @@ export const metadata = {
 const welcomeMessages = [
   "welcome to metaforiq",
   "a collection of wise and thought provoking quotes",
-  "a personal portfolio of projects",
+  "a personal portfolio of projects"
 ];
 
 const inspirationalMessages = [ // from:sw:tcw
@@ -93,7 +93,7 @@ const HomePage = () => {
         canvasMaxHeight={100}
         fontSize={20}
         messages={welcomeMessages}
-        messageInterval={15000}
+        messageInterval={12000}
         x={50}
         y={30}
         zIndex={20}
@@ -103,7 +103,6 @@ const HomePage = () => {
         bgColor="transparent"
         fontSize={36}
         messages={inspirationalMessages}
-        messageInterval={7000}
         zIndex={10}
       />
       <ForceRainOnCanvas />
