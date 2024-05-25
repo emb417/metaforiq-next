@@ -8,15 +8,28 @@ const Canvas = ({ id, bgColor = 'black', canvasMaxHeight, canvasMaxWidth, fontSi
   useEffect(() => {
     // Access the canvas element using the ref
     const canvas = canvasRef.current;
-    canvas.setAttribute( 'style', `z-index: ${zIndex}; background: ${bgColor};` );
-    canvas.setAttribute( 'height', canvasMaxHeight || window.innerHeight );
-    canvas.setAttribute( 'width', canvasMaxWidth || window.innerWidth );
+
+    if (!canvas) {
+      console.error('No canvas element found');
+      return;
+    }
+
+    canvas.setAttribute('style', `z-index: ${zIndex}; background: ${bgColor};`);
+    canvas.setAttribute('height', canvasMaxHeight || window.innerHeight);
+    canvas.setAttribute('width', canvasMaxWidth || window.innerWidth);
+
     const context = canvas.getContext('2d');
+
+    if (!context) {
+      console.error('Canvas context not available');
+      return;
+    }
+
     context.imageSmoothingEnabled = true;
     context.imageSmoothingQuality = 'high';
     context.textRendering = 'geometricPrecision';
     context.fillStyle = 'white';
-    context.font = `small-caps ${ fontSize }px sans-serif`;
+    context.font = `small-caps ${fontSize}px sans-serif`;
     const lineHeight = fontSize * 1.2;
 
     const startX = x === 0 ? window.innerWidth * 0.2 : x;
@@ -26,10 +39,8 @@ const Canvas = ({ id, bgColor = 'black', canvasMaxHeight, canvasMaxWidth, fontSi
     // sets initial x/y for typing
     let cursorX = startX;
     let cursorY = startY;
-    
-    // start at the beginning
-    let i = 0;
-    let typing = () => {
+
+    const typing = () => {
       if (message === null) {
         return;
       }
@@ -48,15 +59,27 @@ const Canvas = ({ id, bgColor = 'black', canvasMaxHeight, canvasMaxWidth, fontSi
       context.fillText( message.charAt( i ), cursorX, cursorY );
       // move cursor
       cursorX += charWidth;
-      i++;
-      if (i < message.length) {
-        setTimeout(typing, 42);
+    }
+
+    let i = 0;
+    let lastTime = 0;
+    const animate = (timestamp) => {
+      const deltaTime = timestamp - lastTime;
+      if (deltaTime >= 42) {
+        typing();
+        i++;
+        if (i < message.length) {
+          lastTime = timestamp;
+          requestAnimationFrame(animate);
+        }
+      } else {
+        requestAnimationFrame(animate);
       }
     }
-    typing();
+    requestAnimationFrame(animate);
 
     return () => {
-      clearInterval(typing);
+      cancelAnimationFrame(animate);
     };
   }, [message, bgColor, canvasMaxHeight, canvasMaxWidth, fontSize, x, y, zIndex]);
 
