@@ -3,6 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import CanvasTypewriter from '@/components/CanvasTypewriter';
 
+const getRandomMessage = (messages) => {
+  const randomIndex = Math.floor(Math.random() * messages.length);
+  return messages[randomIndex];
+};
+
 const MessagesToCanvas = ({
   id,
   bgColor,
@@ -15,12 +20,11 @@ const MessagesToCanvas = ({
   y,
   zIndex,
 }) => {
-  const randomIndex = Math.floor(Math.random() * messages.length);
-  const [currentMessage, setCurrentMessage] = useState(messages[randomIndex]);
+  const [currentMessage, setCurrentMessage] = useState(getRandomMessage(messages));
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const message = messages[randomIndex];
+      const message = getRandomMessage(messages);
       setCurrentMessage(message);
     }, messageInterval);
 
