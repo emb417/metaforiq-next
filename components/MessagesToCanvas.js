@@ -31,7 +31,7 @@ const MessagesToCanvas = ({
     return () => {
       clearInterval(intervalId);
     };
-  }, [currentMessage]);
+  }, [currentMessage, messageInterval, messages]);
 
   return (
     <CanvasTypewriter
