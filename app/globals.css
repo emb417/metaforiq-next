@@ -2,35 +2,19 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/**
-* layout styles
-*/
-.bg-black {
-  background-color: black;
-}
-.h-full {
-  height: 100dvh;
-}
-.w-full {
-  width: 100dvw;
-}
 .position-absolute {
   position: absolute;
 }
-.px-8 {
-  padding-left: 8;
-  padding-right: 8;
-}
-.py-2 {
-  padding-top: 2;
-  padding-bottom: 2;
+
+.z-100 {
+  z-index: 100;
 }
 
 /**
 * text styles
 */
-.text-cyan {
-  color: cyan;
+.text-aqua {
+  color: aqua;
 }
 .text-uppercase {
   text-transform: uppercase;

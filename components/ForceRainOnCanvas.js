@@ -13,22 +13,22 @@ const ForceRainOnCanvas = () => {
         String.fromCharCode(i + 65393)
       );
       const colors = [
-        ["255,0,0", "248,36,164"], // 0 - red, pink
-        ["0,255,255", "255,0,255", "255,95,31"], // 1 - aqua, purple, orange
-        ["255,0,0"], // 2 - red
-        ["255,95,31", "255,255,255", "255,255,0"], // 3 - orange, white, yellow
-        ["255,0,0", "0,0,255"], // 4 - red, blue
-        ["255,0,255"], // 5 - purple
-        ["0,255,0", "255,255,0"], // 6 - green, yellow
-        ["0,0,255"], // 7 - blue
-        ["0,255,0", "255,255,255"], // 8 - green, white
-        ["255,0,255", "255,255,0"], // 9 - purple, yellow
-        ["0,255,0"], // 10 - green
-        ["255,0,0", "255,255,255", "0,0,255"], // 11 - red, white, blue
-        ["255,255,0"], // 12 - yellow
-        ["0,255,0", "255,0,255"], // 13 - green, purple
-        ["0,255,255"], // 14 - aqua
-        ["0,255,0", "255,0,0"], // 15 - green, red
+        ['red', 'pink'],
+        ['aqua', 'purple', 'orange'],
+        ['red'],
+        ['orange', 'white', 'yellow'],
+        ['red', 'blue'],
+        ['purple'],
+        ['green', 'yellow'],
+        ['blue'],
+        ['green', 'white'],
+        ['purple', 'yellow'],
+        ['green'],
+        ['red', 'white', 'blue'],
+        ['yellow'],
+        ['green', 'purple'],
+        ['aqua'],
+        ['green', 'red'],
       ];
       const colorHolidays = [
         { date: "2/14/2022", color: 0 },
@@ -41,7 +41,7 @@ const ForceRainOnCanvas = () => {
         { date: "12/31/2021", color: -1 },
         { date: "1/1/2022", color: -1 },
       ];
-      const fontFace = ' sans-serif';
+      const fontFace = 'sans-serif';
       const fontFadeSpeed = 0.12;
       const fontRenderSpeed = 120;
       const fontSizeOffsets = [0.2, 0.5, 1.0, 1.5, 2.0];
@@ -125,7 +125,7 @@ const ForceRainOnCanvas = () => {
       // what is the matrix, columns of chaotic beauty
       columns.forEach((column) => {
         // set font color, size and face
-        context.fillStyle = `rgba( ${column.fontColor} ) `;
+        context.fillStyle = `${column.fontColor}`;
         context.font = `${column.fontSize}pt ${fontFace}`;
         // grab a random character from the charset and draw in column x at position y
         const randomIndex = randomArrayIndex(charset.length);

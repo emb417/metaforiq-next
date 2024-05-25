@@ -89,7 +89,6 @@ const HomePage = () => {
       <MessagesToCanvas
         id="welcome"
         bgColor="transparent"
-        canvasMaxHeight={100}
         fontSize={20}
         messages={welcomeMessages}
         messageInterval={12000}

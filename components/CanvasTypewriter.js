@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 
-const Canvas = ({ id, bgColor = 'black', canvasMaxHeight, canvasMaxWidth, fontSize = 40, message = ' ', x = 0, y = 0, zIndex = 1 }) => {
+const Canvas = ({ id, bgColor = 'black', fontSize = 40, message = ' ', x = 0, y = 0, zIndex = 1 }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -15,8 +15,8 @@ const Canvas = ({ id, bgColor = 'black', canvasMaxHeight, canvasMaxWidth, fontSi
     }
 
     canvas.setAttribute('style', `z-index: ${zIndex}; background: ${bgColor};`);
-    canvas.setAttribute('height', canvasMaxHeight || window.innerHeight);
-    canvas.setAttribute('width', canvasMaxWidth || window.innerWidth);
+    canvas.setAttribute('height', window.innerHeight);
+    canvas.setAttribute('width', window.innerWidth);
 
     const context = canvas.getContext('2d');
 
@@ -33,7 +33,7 @@ const Canvas = ({ id, bgColor = 'black', canvasMaxHeight, canvasMaxWidth, fontSi
     const lineHeight = fontSize * 1.2;
 
     const startX = x === 0 ? window.innerWidth * 0.2 : x;
-    const startY = y === 0 ? window.innerHeight * 0.3 : y;
+    const startY = y === 0 ? window.innerHeight * 0.3 : window.innerHeight * 0.85;
     const endX = window.innerWidth * 0.7;
   
     // sets initial x/y for typing
@@ -81,9 +81,9 @@ const Canvas = ({ id, bgColor = 'black', canvasMaxHeight, canvasMaxWidth, fontSi
     return () => {
       cancelAnimationFrame(animate);
     };
-  }, [message, bgColor, canvasMaxHeight, canvasMaxWidth, fontSize, x, y, zIndex]);
+  }, [message, bgColor, fontSize, x, y, zIndex]);
 
-  return <canvas id={id} ref={canvasRef} className='position-absolute' />;
+  return <canvas id={id} ref={canvasRef} className="position-absolute" />;
 };
 
 export default Canvas;
