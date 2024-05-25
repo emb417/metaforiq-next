@@ -107,23 +107,31 @@ const ForceRainOnCanvas = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
+    if (!canvas) {
+      return;
+    }
     canvas.setAttribute("height", window.innerHeight);
     canvas.setAttribute("width", window.innerWidth);
     const columns = makeColumns(canvas.height);
 
     const drawColumns = () => {
       const context = canvas.getContext("2d");
+      if (!context) {
+        return;
+      }
       // overlays transparent background color for fade effect
       context.fillStyle = `rgba( 0, 0, 0, ${fontFadeSpeed} )`;
       context.fillRect(0, 0, canvas.width, canvas.height);
       // what is the matrix, columns of chaotic beauty
-      columns.map((column) => {
+      columns.forEach((column) => {
         // set font color, size and face
         context.fillStyle = `rgba( ${column.fontColor} ) `;
         context.font = `${column.fontSize}pt ${fontFace}`;
         // grab a random character from the charset and draw in column x at position y
+        const randomIndex = randomArrayIndex(charset.length);
+        const character = charset[randomIndex];
         context.fillText(
-          charset[randomArrayIndex(charset.length)],
+          character,
           column.xPosition,
           column.yPosition
         );
@@ -140,11 +148,10 @@ const ForceRainOnCanvas = () => {
           column.fontSize = selectFontSize();
           column.yPosition = randomRoll(canvas.height);
         } else {
+          const direction = column.gravity ? 1 : -1;
           column.yPosition = Math.abs(
             column.yPosition +
-              (column.gravity
-                ? column.fontSize + fontSpacing
-                : -column.fontSize - fontSpacing)
+              direction * (column.fontSize + fontSpacing)
           );
         }
       });
