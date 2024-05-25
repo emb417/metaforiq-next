@@ -42,7 +42,7 @@ const ForceRainOnCanvas = () => {
         { date: "1/1/2022", color: -1 },
       ];
       const fontFace = ' sans-serif';
-      const fontFadeSpeed = 0.15;
+      const fontFadeSpeed = 0.12;
       const fontRenderSpeed = 120;
       const fontSizeOffsets = [0.2, 0.5, 1.0, 1.5, 2.0];
       const fontSpacing = 4;
