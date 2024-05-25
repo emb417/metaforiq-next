@@ -1,6 +1,5 @@
 import React from 'react';
 import MessagesToCanvas from '@/components/MessagesToCanvas';
-import ForceRainOnCanvas from '@/components/ForceRainOnCanvas';
 
 export const metadata = {
   title: 'Home',
@@ -105,7 +104,6 @@ const HomePage = () => {
         messages={inspirationalMessages}
         zIndex={10}
       />
-      <ForceRainOnCanvas />
     </div>
   );
 };
