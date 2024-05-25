@@ -4,7 +4,7 @@ import { GiHeavyRain, GiPinballFlipper, GiBlackball, GiBrain } from "react-icons
 
 const NavigationLinks = () => {
   return (
-    <div className="pl-4 flex space-x-4">
+    <div className="flex flex-wrap justify-center">
       {Object.entries({
         '/': {
           icon: <GiBrain className="mr-1" size={20} />,
@@ -29,14 +29,15 @@ const NavigationLinks = () => {
       }).map(([href, text], index) => {
         const item = typeof text === 'string' ? { href, text } : text;
         return (
-          <Link
-            key={index}
-            href={item.href}
-            className="text-cyan text-uppercase text-sans text-2xl text-decoration-none flex items-center"
-          >
-            {item.icon}
-            {item.text}
-          </Link>
+          <div className="w-full sm:w-auto" key={index}>
+            <Link
+              href={item.href}
+              className="text-cyan text-uppercase text-sans text-2xl text-decoration-none flex items-center justify-center ml-2 mr-2"
+            >
+              {item.icon}
+              {item.text}
+            </Link>
+          </div>
         );
       })}
     </div>

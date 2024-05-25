@@ -8,7 +8,7 @@ export const metadata = {
 const welcomeMessages = [
   "pinball analytics coming soon...",
   "check out virtual pinball chat on discord",
-  "https://virtualpinballchat.com",
+  "check out the weekly scoreboard on virtualpinballchat.com",
 ];
 
 const PinballPage = () => {

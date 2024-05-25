@@ -13,7 +13,6 @@ const theDudeMessages = [
   "Obviously you're not a golfer.",
   "Yeah, well, you know, that's just like, uh, your opinion, man.",
   "I do mind, the Dude minds. This will not stand, ya know, this aggression will not stand, man.",
-
 ];
 
 const LibowskiPage = () => {
