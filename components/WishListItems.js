@@ -4,7 +4,7 @@ import { GiTrashCan } from 'react-icons/gi';
 
 const getData = async () => {
     try {
-        const response = await fetch(`${process.env.LIBOWSKI_API_URL}/wish-list`, { cache: 'no-store' });
+        const response = await fetch(`${process.env.LIBOWSKI_API_URL}/wish-list`);
         const data = await response.json();
         return { props: { items: data } };
     } catch (error) {
