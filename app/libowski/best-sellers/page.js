@@ -1,5 +1,9 @@
 import React from 'react';
 
+export const metadata = {
+  title: 'Recent Best Seller Titles',
+}
+
 async function getData() {
   try {
     const response = await fetch(`${process.env.LIBOWSKI_API_URL}/all-best-sellers`);
