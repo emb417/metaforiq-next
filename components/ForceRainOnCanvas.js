@@ -14,7 +14,7 @@ const ForceRainOnCanvas = () => {
       );
       const colors = [
         ['red', 'pink'],
-        ['aqua', 'purple', 'orange'],
+        ['#5eead4', 'purple', 'orange'],
         ['red'],
         ['orange', 'white', 'yellow'],
         ['red', 'blue'],
@@ -27,7 +27,7 @@ const ForceRainOnCanvas = () => {
         ['red', 'white', 'blue'],
         ['yellow'],
         ['green', 'purple'],
-        ['aqua'],
+        ['#5eead4'],
         ['green', 'red'],
       ];
       const colorHolidays = [

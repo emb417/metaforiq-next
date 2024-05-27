@@ -33,7 +33,7 @@ const Canvas = ({ id, bgColor = 'black', fontSize = 40, message = ' ', x = 0, y 
     const lineHeight = fontSize * 1.2;
 
     const startX = x === 0 ? window.innerWidth * 0.2 : x;
-    const startY = y === 0 ? window.innerHeight * 0.3 : window.innerHeight * 0.85;
+    const startY = y === 0 ? window.innerHeight * 0.3 : y;
     const endX = window.innerWidth * 0.7;
   
     // sets initial x/y for typing
@@ -83,7 +83,7 @@ const Canvas = ({ id, bgColor = 'black', fontSize = 40, message = ' ', x = 0, y 
     };
   }, [message, bgColor, fontSize, x, y, zIndex]);
 
-  return <canvas id={id} ref={canvasRef} className="position-absolute" />;
+  return <canvas id={id} ref={canvasRef} className='absolute' />;
 };
 
 export default Canvas;
