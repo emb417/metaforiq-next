@@ -1,30 +1,37 @@
-import React from 'react';
-import MessagesToCanvas from '@/components/MessagesToCanvas';
-
-export const metadata = {
-  title: 'Libowski',
-}
-
-const theDudeMessages = [
-  "the dude abides",
-  "That rug really tied the room together.",
-  "I'm the Dude. So that's what you call me.",
-  "Or, uh, His Dudeness, or uh, Duder, or El Duderino",
-  "Obviously you're not a golfer.",
-  "Yeah, well, you know, that's just like, uh, your opinion, man.",
-  "I do mind, the Dude minds. This will not stand, ya know, this aggression will not stand, man.",
-];
+import Link from 'next/link';
+import React, { Button } from 'react';
+import { GiPayMoney, GiTakeMyMoney } from "react-icons/gi";
 
 const LibowskiPage = () => {
-  return (
-    <div>
-      <MessagesToCanvas
-        id="libowski"
-        fontSize={40}
-        messages={theDudeMessages}
-      />
-    </div>
-  );
-};
+  // Array containing navigation items
+  const navItems = [
+    {
+        id: 1,
+        icon: <GiPayMoney />,
+        href: '/libowski/on-order',
+        text: 'Recent On Order Items',
+      },
+      {
+        id: 2,
+        icon: <GiTakeMyMoney />,
+        href: '/libowski/available-now',
+        text: 'Recent Best Seller Items',
+      },
+  ];
+
+    return (
+      <div className="flex items-center text-2xl text-white m-4">
+        <ul className="flex flex-wrap w-full gap-4">
+          {navItems.map(item => (
+            <Link href="/libowski/on-order" className='w-full md:w-[max-content] hover:text-teal-300 duration-300'>
+              <li className='flex items-center justify-center gap-1 bg-slate-950 p-4 rounded-lg border-2 border-teal-950'>
+                  {item.icon}{item.text}
+              </li>
+            </Link>
+          ))}
+        </ul>
+      </div>
+    );
+  };
 
 export default LibowskiPage;

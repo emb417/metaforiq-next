@@ -42,25 +42,25 @@ const Navbar = () => {
   ];
 
   return (
-    <div className='bg-slate-950 border-b border-b-teal-950 flex justify-start items-start max-w-full mx-auto text-white'>
+    <div className='bg-slate-950 border-b border-b-teal-950 flex justify-start items-start max-w-full mx-auto text-white uppercase sans'>
       {/* Logo */}
-      <h1 className='w-full uppercase text-3xl font-bold text-teal-300 pl-4 p-1'>MetaForIQ</h1>
+      <h1 className='w-full text-3xl font-bold text-teal-300 pl-4 p-1'>MetaForIQ</h1>
 
       {/* Desktop Navigation */}
       <ul className='hidden md:flex items-center pt-1'>
         {navItems.map(item => (
-          <li
-            key={item.id}
-            className='cursor-pointer duration-300 hover:text-teal-300 min-w-[max-content] mr-4 p-2'
+          <Link
+            href={item.href}
+            className=""
           >
-            <Link
-              href={item.href}
-              className="uppercase sans flex items-center gap-1"
+            <li
+              key={item.id}
+              className='flex items-center cursor-pointer duration-300 hover:text-teal-300 min-w-[max-content] mr-4 p-2 gap-1'
             >
               {item.icon}
               {item.text}
-            </Link>
-          </li>
+            </li>
+          </Link>
         ))}
       </ul>
 
@@ -78,23 +78,23 @@ const Navbar = () => {
         }
       >
         {/* Mobile Logo */}
-        <h1 className='w-full uppercase text-3xl font-bold text-teal-300 pl-4 pt-1'>MetaForIQ</h1>
+        <h1 className='w-full uppercase text-3xl font-bold text-teal-300 pl-4 py-1'>MetaForIQ</h1>
 
         {/* Mobile Navigation Items */}
         {navItems.map(item => (
-          <li
-          key={item.id}
-          className='cursor-pointer duration-300 hover:text-teal-300 min-w-[max-content] ml-4 p-2'
-        >
           <Link
             href={item.href}
             onClick={handleNav}
-            className="uppercase sans flex items-center gap-1"
+            className="flex my-4 text-xl cursor-pointer duration-300 hover:text-teal-300"
           >
-            {item.icon}
-            {item.text}
+            <li
+              key={item.id}
+              className='flex ml-4 items-center gap-x-1 min-w-[max-content]'
+            >
+              {item.icon}
+              {item.text}
+            </li>
           </Link>
-        </li>
         ))}
       </ul>
     </div>
