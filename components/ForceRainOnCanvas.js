@@ -14,21 +14,21 @@ const ForceRainOnCanvas = () => {
       );
       const colors = [
         ['red', 'pink'],
-        ['#5eead4', 'purple', 'orange'],
+        ['#5eead4', '#6d28d9', '#f59e0b'], // teal, purple, orange
         ['red'],
         ['orange', 'white', 'yellow'],
         ['red', 'blue'],
-        ['purple'],
-        ['green', 'yellow'],
+        ['#6d28d9'], // purple
+        ['#00FF00', 'yellow'], // green, yellow
         ['blue'],
-        ['green', 'white'],
-        ['purple', 'yellow'],
-        ['green'],
+        ['#00FF00', 'white'], // green, white
+        ['#6d28d9', 'yellow'], // purple, yellow
+        ['#00FF00'], // green
         ['red', 'white', 'blue'],
         ['yellow'],
-        ['green', 'purple'],
-        ['#5eead4'],
-        ['green', 'red'],
+        ['#00FF00', '#6d28d9'], // green, purple
+        ['#5eead4'], // teal
+        ['#00FF00', 'red'], // green, red
       ];
       const colorHolidays = [
         { date: "2/14/2022", color: 0 },
