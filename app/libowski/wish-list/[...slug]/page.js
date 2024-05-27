@@ -7,7 +7,7 @@ export const metadata = {
 
 async function getData( slug ) {
     try {
-        const response = await fetch(`${process.env.LIBOWSKI_API_URL}/${slug[0]}-wish-list/${slug[1]}`);
+        const response = await fetch(`${process.env.LIBOWSKI_API_URL}/${slug[0]}-wish-list/${slug[1]}`, { next: { revalidate: 0 } });
         const data = await response.text();
         return { props: { message: data } };
     } catch (error) {
