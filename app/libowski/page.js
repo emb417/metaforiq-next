@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import React, { Button } from 'react';
-import { GiPayMoney, GiTakeMyMoney } from "react-icons/gi";
+import React from 'react';
+import { GiPayMoney, GiSmallFire } from "react-icons/gi";
+import { CgPlayList } from "react-icons/cg";
 
 export const metadata = {
   title: 'Libowski',
@@ -17,9 +18,15 @@ const LibowskiPage = () => {
       },
       {
         id: 2,
-        icon: <GiTakeMyMoney />,
+        icon: <GiSmallFire />,
         href: '/libowski/best-sellers',
         text: 'Recent Best Seller Items',
+      },
+      {
+        id: 3,
+        icon: <CgPlayList />,
+        href: '/libowski/wish-list',
+        text: 'Wish List',
       },
   ];
 
