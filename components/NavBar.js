@@ -50,11 +50,11 @@ const Navbar = () => {
       <ul className='hidden md:flex items-center pt-1'>
         {navItems.map(item => (
           <Link
+            key={item.id}
             href={item.href}
             className=""
           >
             <li
-              key={item.id}
               className='flex items-center cursor-pointer duration-300 hover:text-teal-300 min-w-[max-content] mr-4 p-2 gap-1'
             >
               {item.icon}
@@ -83,12 +83,12 @@ const Navbar = () => {
         {/* Mobile Navigation Items */}
         {navItems.map(item => (
           <Link
+            key={item.id}
             href={item.href}
             onClick={handleNav}
             className="flex my-4 text-xl cursor-pointer duration-300 hover:text-teal-300"
           >
             <li
-              key={item.id}
               className='flex ml-4 items-center gap-x-1 min-w-[max-content]'
             >
               {item.icon}
