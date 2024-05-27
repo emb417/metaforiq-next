@@ -2,6 +2,10 @@ import Link from 'next/link';
 import React, { Button } from 'react';
 import { GiPayMoney, GiTakeMyMoney } from "react-icons/gi";
 
+export const metadata = {
+  title: 'Libowski',
+}
+
 const LibowskiPage = () => {
   // Array containing navigation items
   const navItems = [
