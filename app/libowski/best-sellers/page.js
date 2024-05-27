@@ -16,30 +16,27 @@ async function getData() {
   }
 }
 
-export default async function LibowskiPage () {
+export default async function BestSellersPage () {
   const { props } = await getData();
   const { items } = props;
     return (
-<table className="table-auto w-full mb-10">
+<table className="table-auto w-full mb-10 border-y-2 border-teal-900 divide-y divide-teal-900">
   <thead className='bg-gray-800 text-gray-300'>
     <tr>
-      <th className="px-4 text-left">Recent Best Seller Titles</th>
-      <th className='text-left'>Edition</th>
-      <th className='text-left'>Year</th>
-      <th className='text-left'>Format</th>
-      <th className='text-left'>Updated</th>
-      <th className='text-left'>Notified</th>
-      <th className='text-left'>Locations</th>
+      <th className="text-left px-2">Recent Best Seller Titles</th>
+      <th className='text-left px-2'>Notified</th>
+      <th className='text-left px-2'>Locations</th>
     </tr>
   </thead>
-  <tbody className="text-gray-400">
+  <tbody className="text-gray-400 divide-y divide-teal-900">
     {items.map((item) => (
       <tr key={item.id} className="even:bg-gray-900">
-        <td className="px-4"><a href={item.url} target="_blank" rel="noreferrer" className='hover:text-teal-300 duration-300'>{item.title}<br/>{item.subtitle}</a></td>
-        <td>{item.edition}</td>
-        <td className="text-center">{item.publicationYear.substring(0, 4)}</td>
-        <td>{item.format}</td>
-        {item.updateDate ? <td>{new Date(item.updateDate*1000).toLocaleString()}</td> : <td></td>}
+        <td className="px-2"><a href={item.url} target="_blank" rel="noreferrer" className='hover:text-teal-300 duration-300'>
+          <p>{item.title}</p>
+          {item.subtitle ? <p>{item.subtitle}</p> : ''}
+          <p>{item.publicationYear.substring(0, 4)} {item.format} {item.edition}</p>
+          {item.updateDate ? <p>{new Date(item.updateDate*1000).toLocaleString()}</p> : ''}
+        </a></td>
         {item.notifyDate ? <td>{new Date(item.notifyDate*1000).toLocaleString()}</td> : <td></td>}
         <td>{item.locations}</td>
       </tr>
