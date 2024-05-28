@@ -2,54 +2,24 @@
 
 import React, { useEffect, useRef, useState } from "react";
 
-const ForceRainOnCanvas = () => {
+const ForceRainOnCanvas = ({
+  charset,
+  colors,
+  colorHolidays,
+  fontFadeSpeed,
+  fontRenderSpeed,
+  fontFace,
+  fontSizeOffsets,
+  fontSpacing,
+  initialFontSize,
+}) => {
+
   const canvasRef = useRef(null);
+  const startXRef = useRef(null);
+  const startYRef = useRef(null);
   const [threeDee, setThreeDee] = useState(0);
   const [gravity, setGravity] = useState(0);
   const [colorsIndex, setColorsIndex] = useState(1);
-  const [startX, setStartX] = useState(null);
-  const [startY, setStartY] = useState(null);
-  const [isDragging, setIsDragging] = useState(false);
-
-      // constants
-      const charset = Array.from(new Array(42), (x, i) =>
-        String.fromCharCode(i + 65393)
-      );
-      const colors = [
-        ['red', 'pink'],
-        ['#5eead4', '#6d28d9', '#f59e0b'], // teal, purple, orange
-        ['red'],
-        ['orange', 'white', 'yellow'],
-        ['red', 'blue'],
-        ['#6d28d9'], // purple
-        ['#00FF00', 'yellow'], // green, yellow
-        ['blue'],
-        ['#00FF00', 'white'], // green, white
-        ['#6d28d9', 'yellow'], // purple, yellow
-        ['#00FF00'], // green
-        ['red', 'white', 'blue'],
-        ['yellow'],
-        ['#00FF00', '#6d28d9'], // green, purple
-        ['#5eead4'], // teal
-        ['#00FF00', 'red'], // green, red
-      ];
-      const colorHolidays = [
-        { date: "2/14/2022", color: 0 },
-        { date: "3/17/2022", color: 6 },
-        { date: "7/4/2022", color: 11 },
-        { date: "10/31/2021", color: 13 },
-        { date: "11/25/2021", color: 3 },
-        { date: "12/24/2021", color: 15 },
-        { date: "12/25/2021", color: 15 },
-        { date: "12/31/2021", color: -1 },
-        { date: "1/1/2022", color: -1 },
-      ];
-      const fontFace = 'sans-serif';
-      const fontFadeSpeed = 0.12;
-      const fontRenderSpeed = 120;
-      const fontSizeOffsets = [0.2, 0.5, 1.0, 1.5, 2.0];
-      const fontSpacing = 4;
-      const initialFontSize = 12;
 
     /****
      ** create array of columns based on canvas width and font size
@@ -185,27 +155,33 @@ const ForceRainOnCanvas = () => {
     document.addEventListener("keydown", handleKeyDown);
     
     document.addEventListener('touchstart', (event) => {
-      setStartX(event.touches[0].clientX);
-      setStartY(event.touches[0].clientY);
+      if(event.touches.length > 1){
+        clearInterval(rainDrops);
+        const context = canvas.getContext("2d");
+        context.reset();
+        return;
+      }
+      startXRef.current = event.touches[0].clientX;
+      startYRef.current = event.touches[0].clientY;
     }, false);
 
     document.addEventListener('touchmove', (event) =>  {
-      if (!startX || !startY) {
+      if (!startXRef.current || !startYRef.current) {
         return;
       }
       const currentX = event.touches[0].clientX;
       const currentY = event.touches[0].clientY;
     
-      const deltaX = startX - currentX;
-      const deltaY = startY - currentY;
+      const deltaX = currentX - startXRef.current;
+      const deltaY = currentY - startYRef.current;
     
       if (Math.abs(deltaX) > Math.abs(deltaY)) {
         if (deltaX > 0) {
           setColorsIndex(prevColorsIndex => prevColorsIndex < colors.length - 1 ? prevColorsIndex + 1 : -1);
         } else {
-          clearInterval(rainDrops);
-          const context = canvas.getContext("2d");
-          context.reset();
+          setColorsIndex(prevColorsIndex => prevColorsIndex < colors.length - 1 ? prevColorsIndex + 1 : -1);
+          setThreeDee(prevThreeDee => (prevThreeDee === 1 ? 0 : 1));
+          setGravity(prevGravity => (prevGravity === 2 ? 0 : prevGravity + 1));
         }
       } else {
         if (deltaY > 0) {
@@ -214,17 +190,13 @@ const ForceRainOnCanvas = () => {
           setThreeDee(prevThreeDee => (prevThreeDee === 1 ? 0 : 1));
         }
       }
-          
-      setStartX(null);
-      setStartY(null);
+      startXRef.current = null;
+      startYRef.current = null;
     }, false);
 
     return () => {
       clearInterval(rainDrops);
       document.removeEventListener("keydown", handleKeyDown);
-      document.removeEventListener('touchstart', {});
-      document.removeEventListener('touchmove', {});
-      document.removeEventListener('touchend', {});
     };
   });
 
