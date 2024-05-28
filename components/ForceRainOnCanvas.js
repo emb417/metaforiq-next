@@ -7,6 +7,9 @@ const ForceRainOnCanvas = () => {
   const [threeDee, setThreeDee] = useState(0);
   const [gravity, setGravity] = useState(0);
   const [colorsIndex, setColorsIndex] = useState(1);
+  const [startX, setStartX] = useState(null);
+  const [startY, setStartY] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
 
       // constants
       const charset = Array.from(new Array(42), (x, i) =>
@@ -160,36 +163,68 @@ const ForceRainOnCanvas = () => {
     const rainDrops = setInterval(drawColumns, fontRenderSpeed);
 
     const handleKeyDown = (event) => {
-        switch (event.key) {
-          case "t":
-            setThreeDee((prevThreeDee) => (prevThreeDee === 1 ? 0 : 1));
-            break;
-          case "g":
-            setGravity((prevGravity) => (prevGravity === 2 ? 0 : prevGravity + 1));
-            break;
-          case "c":
-            setColorsIndex((prevColorsIndex) => prevColorsIndex < colors.length - 1 ? prevColorsIndex + 1 : -1);
-            break;
-          case "r":
-            setThreeDee((prevThreeDee) => (prevThreeDee === 1 ? 0 : 1));
-            setGravity((prevGravity) => (prevGravity === 2 ? 0 : prevGravity + 1));
-            setColorsIndex((prevColorsIndex) => prevColorsIndex < colors.length - 1 ? prevColorsIndex + 1 : -1);
-            break;
-          case "s":
-            clearInterval(rainDrops);
-            const context = canvas.getContext("2d");
-            context.reset();
-            break;
-          default:
-            break;
-        }
+      const actions = {
+        t: () => setThreeDee(prevThreeDee => (prevThreeDee === 1 ? 0 : 1)),
+        g: () => setGravity(prevGravity => (prevGravity === 2 ? 0 : prevGravity + 1)),
+        c: () => setColorsIndex(prevColorsIndex => prevColorsIndex < colors.length - 1 ? prevColorsIndex + 1 : -1),
+        r: () => {
+          setThreeDee(prevThreeDee => (prevThreeDee === 1 ? 0 : 1));
+          setGravity(prevGravity => (prevGravity === 2 ? 0 : prevGravity + 1));
+          setColorsIndex(prevColorsIndex => prevColorsIndex < colors.length - 1 ? prevColorsIndex + 1 : -1);
+        },
+        s: () => {
+          clearInterval(rainDrops);
+          const context = canvas.getContext("2d");
+          context.reset();
+        },
       };
-
+    
+      actions[event.key]?.();
+    };
+    
     document.addEventListener("keydown", handleKeyDown);
+    
+    document.addEventListener('touchstart', (event) => {
+      setStartX(event.touches[0].clientX);
+      setStartY(event.touches[0].clientY);
+    }, false);
+
+    document.addEventListener('touchmove', (event) =>  {
+      if (!startX || !startY) {
+        return;
+      }
+      const currentX = event.touches[0].clientX;
+      const currentY = event.touches[0].clientY;
+    
+      const deltaX = startX - currentX;
+      const deltaY = startY - currentY;
+    
+      if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        if (deltaX > 0) {
+          setColorsIndex(prevColorsIndex => prevColorsIndex < colors.length - 1 ? prevColorsIndex + 1 : -1);
+        } else {
+          clearInterval(rainDrops);
+          const context = canvas.getContext("2d");
+          context.reset();
+        }
+      } else {
+        if (deltaY > 0) {
+          setGravity(prevGravity => (prevGravity === 2 ? 0 : prevGravity + 1));
+        } else {
+          setThreeDee(prevThreeDee => (prevThreeDee === 1 ? 0 : 1));
+        }
+      }
+          
+      setStartX(null);
+      setStartY(null);
+    }, false);
 
     return () => {
       clearInterval(rainDrops);
       document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener('touchstart', {});
+      document.removeEventListener('touchmove', {});
+      document.removeEventListener('touchend', {});
     };
   });
 
