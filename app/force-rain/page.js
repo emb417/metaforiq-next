@@ -11,7 +11,7 @@ const helpMessages = [
   "press g / swipe down to change gravity",
   "press t / swipe up to change 2d/3d effect",
   "press r / swipe left to change all rain effects",
-  "press s to stop rain",
+  "press s / two finger tap to stop rain",
 ];
 
 const charset = Array.from(new Array(42), (x, i) =>
