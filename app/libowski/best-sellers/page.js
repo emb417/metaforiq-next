@@ -38,7 +38,7 @@ export default async function BestSellersPage () {
           {item.updateDate ? <p>{new Date(item.updateDate*1000).toLocaleString()}</p> : ''}
         </a></td>
         {item.notifyDate ? <td>{new Date(item.notifyDate*1000).toLocaleString()}</td> : <td></td>}
-        {item.locations ? <td>{item.locations.join(',')}</td> : <td></td>}
+        {item.locations ? <td>{item.locations.join(', ')}</td> : <td></td>}
       </tr>
     ))}
   </tbody>
