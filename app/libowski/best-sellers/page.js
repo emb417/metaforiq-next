@@ -6,7 +6,7 @@ export const metadata = {
 
 async function getData() {
   try {
-    const response = await fetch(`${process.env.LIBOWSKI_API_URL}/all-best-sellers`);
+    const response = await fetch(`${process.env.LIBOWSKI_API_URL}/all-best-sellers`, { next: { revalidate: 0 } });
     const data = await response.json();
     const sortedItems = data.sort((a, b) => a.title.localeCompare(b.title));
     return { props: { items: sortedItems } };

@@ -6,7 +6,9 @@ import './globals.css'
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+      {process.env.NEXT_PUBLIC_GTM_ID && (
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+      )}
       <body className='bg-black'>
         <NavBar />
         {children}
