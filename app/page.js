@@ -1,17 +1,18 @@
-import React from 'react';
-import MessagesToCanvas from '@/components/MessagesToCanvas';
+import React from "react";
+import MessagesToCanvas from "@/components/MessagesToCanvas";
 
 export const metadata = {
-  title: 'Home',
-}
+  title: "Home",
+};
 
 const welcomeMessages = [
   "welcome to metaforiq",
   "a collection of wise and thought provoking quotes",
-  "a personal portfolio of projects"
+  "a personal portfolio of projects",
 ];
 
-const inspirationalMessages = [ // from:sw:tcw
+const inspirationalMessages = [
+  // from:sw:tcw
   "great leaders inspire greatness in others",
   "great leaders inspire greatness in others",
   "belief is not a matter of choice, but of conviction",

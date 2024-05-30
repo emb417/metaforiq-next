@@ -1,9 +1,9 @@
-import React from 'react';
-import MessagesToCanvas from '@/components/MessagesToCanvas';
+import React from "react";
+import MessagesToCanvas from "@/components/MessagesToCanvas";
 
 export const metadata = {
-  title: 'Pinball',
-}
+  title: "Pinball",
+};
 
 const welcomeMessages = [
   "pinball analytics coming soon...",

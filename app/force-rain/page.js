@@ -1,10 +1,10 @@
-import React from 'react';
-import MessagesToCanvas from '@/components/MessagesToCanvas';
-import ForceRainOnCanvas from '@/components/ForceRainOnCanvas';
+import React from "react";
+import MessagesToCanvas from "@/components/MessagesToCanvas";
+import ForceRainOnCanvas from "@/components/ForceRainOnCanvas";
 
 export const metadata = {
-  title: 'Force Rain',
-}
+  title: "Force Rain",
+};
 
 const helpMessages = [
   "press c / swipe right to change colors",
@@ -18,22 +18,22 @@ const charset = Array.from(new Array(42), (x, i) =>
   String.fromCharCode(i + 65393)
 );
 const colors = [
-  ['red', 'pink'],
-  ['#5eead4', '#6d28d9', '#f59e0b'], // teal, purple, orange
-  ['red'],
-  ['orange', 'white', 'yellow'],
-  ['red', 'blue'],
-  ['#6d28d9'], // purple
-  ['#00FF00', 'yellow'], // green, yellow
-  ['blue'],
-  ['#00FF00', 'white'], // green, white
-  ['#6d28d9', 'yellow'], // purple, yellow
-  ['#00FF00'], // green
-  ['red', 'white', 'blue'],
-  ['yellow'],
-  ['#00FF00', '#6d28d9'], // green, purple
-  ['#5eead4'], // teal
-  ['#00FF00', 'red'], // green, red
+  ["red", "pink"],
+  ["#5eead4", "#6d28d9", "#f59e0b"], // teal, purple, orange
+  ["red"],
+  ["orange", "white", "yellow"],
+  ["red", "blue"],
+  ["#6d28d9"], // purple
+  ["#00FF00", "yellow"], // green, yellow
+  ["blue"],
+  ["#00FF00", "white"], // green, white
+  ["#6d28d9", "yellow"], // purple, yellow
+  ["#00FF00"], // green
+  ["red", "white", "blue"],
+  ["yellow"],
+  ["#00FF00", "#6d28d9"], // green, purple
+  ["#5eead4"], // teal
+  ["#00FF00", "red"], // green, red
 ];
 const colorHolidays = [
   { date: "2/14/2022", color: 0 },
@@ -46,7 +46,7 @@ const colorHolidays = [
   { date: "12/31/2021", color: -1 },
   { date: "1/1/2022", color: -1 },
 ];
-const fontFace = 'sans-serif';
+const fontFace = "sans-serif";
 const fontFadeSpeed = 0.12;
 const fontRenderSpeed = 120;
 const fontSizeOffsets = [0.2, 0.5, 1.0, 1.5, 2.0];

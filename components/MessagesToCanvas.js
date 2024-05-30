@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import CanvasTypewriter from '@/components/CanvasTypewriter';
+import React, { useState, useEffect } from "react";
+import CanvasTypewriter from "@/components/CanvasTypewriter";
 
 const getRandomMessage = (messages) => {
   const randomIndex = Math.floor(Math.random() * messages.length);
@@ -20,7 +20,9 @@ const MessagesToCanvas = ({
   y,
   zIndex,
 }) => {
-  const [currentMessage, setCurrentMessage] = useState(getRandomMessage(messages));
+  const [currentMessage, setCurrentMessage] = useState(
+    getRandomMessage(messages)
+  );
 
   useEffect(() => {
     const intervalId = setInterval(() => {
