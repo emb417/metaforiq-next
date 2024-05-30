@@ -1,4 +1,5 @@
 import React from 'react';
+import { GiPayMoney } from "react-icons/gi";
 
 export const metadata = {
   title: 'Recent On-Order Titles',
@@ -27,25 +28,18 @@ export default async function OnOrderPage () {
   const { props } = await getData();
   const { items } = props;
     return (
-<table className="table-auto w-full mb-10 border-y-2 border-teal-900 divide-y divide-teal-900">
-  <thead className='bg-gray-800 text-gray-300'>
-    <tr>
-      <th className='text-left px-2'>Recent On-Order Titles</th>
-      <th className='text-left px-2'>Notified</th>
-    </tr>
-  </thead>
-  <tbody className="text-gray-400 divide-y divide-teal-900">
-    {items.map((item) => (
-      <tr key={item.id} className="even:bg-gray-900">
-        <td className="px-2"><a href={item.url} target="_blank" rel="noreferrer" className='hover:text-teal-300 duration-300'>
-          <p>{item.title}</p>
-          {item.subtitle ? <p>{item.subtitle}</p> : ''}
-          <p>{item.publicationYear.substring(0, 4)} {item.format} {item.edition}</p>
-        </a></td>
-        {item.notifyDate ? <td className="px-2">{new Date(item.notifyDate*1000).toLocaleString()}</td> : <td></td>}
-      </tr>
-    ))}
-  </tbody>
-</table>
+<div className='w-full'>
+<h1 className="flex text-2xl text-white m-4 min-w-[max-content]"><GiPayMoney className='text-3xl mr-1 mt-1' />Recent On Order Titles</h1>
+<div className="grid grid-cols-1 sm:grid-cols-3 gap-4 m-4">
+  {items.map((item) => (
+    <a key={item.id} href={item.url} target="_blank" rel="noreferrer" className="bg-slate-950 hover:bg-slate-900 p-4 rounded-lg border-2 border-teal-950 w-full hover:text-teal-300 duration-300">
+      <p className="text-white">{item.title}</p>
+      {item.subtitle ? <p className="text-white">{item.subtitle}</p> : null}
+      <p className="text-teal-300">{item.publicationYear.substring(0, 4)} {item.format} {item.edition}</p>
+      {item.notifyDate ? <p className="text-gray-400">Notified: {new Date(item.notifyDate*1000).toLocaleString()}</p> : null}
+    </a>
+  ))}
+</div>
+</div>
     );
   };
