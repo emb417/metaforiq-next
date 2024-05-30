@@ -14,13 +14,13 @@ const LibowskiPage = () => {
         id: 1,
         icon: <GiPayMoney />,
         href: '/libowski/on-order',
-        text: 'Recent On Order Items',
+        text: 'Recent On Order Titles',
       },
       {
         id: 2,
         icon: <GiSmallFire />,
         href: '/libowski/best-sellers',
-        text: 'Recent Best Seller Items',
+        text: 'Recent Best Seller Titles',
       },
       {
         id: 3,

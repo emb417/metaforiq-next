@@ -2,7 +2,7 @@ import React from 'react';
 import { GiPayMoney } from "react-icons/gi";
 
 export const metadata = {
-  title: 'Recent On-Order Titles',
+  title: 'Recent On Order Titles',
 }
 
 async function getData() {
@@ -29,7 +29,7 @@ export default async function OnOrderPage () {
   const { items } = props;
     return (
 <div className='w-full'>
-<h1 className="flex text-2xl text-white m-4 min-w-[max-content]"><GiPayMoney className='text-3xl mr-1 mt-1' />Recent On Order Titles</h1>
+<h1 className="flex text-2xl text-white m-4 min-w-[max-content]"><GiPayMoney className='text-3xl mr-1 mt-1' />{metadata.title}</h1>
 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 m-4">
   {items.map((item) => (
     <a key={item.id} href={item.url} target="_blank" rel="noreferrer" className="bg-slate-950 hover:bg-slate-900 p-4 rounded-lg border-2 border-teal-950 w-full hover:text-teal-300 duration-300">
