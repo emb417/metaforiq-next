@@ -30,10 +30,10 @@ export default async function OnOrderPage () {
     return (
 <div className='w-full'>
 <h1 className="flex text-2xl text-white m-4 min-w-[max-content]"><GiPayMoney className='text-3xl mr-1 mt-1' />{metadata.title}</h1>
-<div className="grid grid-cols-1 sm:grid-cols-3 gap-4 m-4">
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 m-4">
   {items.map((item) => (
     <a key={item.id} href={item.url} target="_blank" rel="noreferrer" className="bg-slate-950 hover:bg-slate-900 p-4 rounded-lg border-2 border-teal-950 w-full hover:text-teal-300 duration-300">
-      <p className="text-white">{item.title}</p>
+      <p className="text-white text-xl">{item.title}</p>
       {item.subtitle ? <p className="text-white">{item.subtitle}</p> : null}
       <p className="text-teal-300">{item.publicationYear.substring(0, 4)} {item.format} {item.edition}</p>
       {item.notifyDate ? <p className="text-gray-400">Notified: {new Date(item.notifyDate*1000).toLocaleString()}</p> : null}
