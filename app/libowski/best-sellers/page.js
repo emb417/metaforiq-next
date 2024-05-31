@@ -51,16 +51,12 @@ export default async function BestSellersPage() {
                 Updated: {new Date(item.updateDate * 1000).toLocaleString()}
               </p>
             ) : null}
-            {item.notifyDate ? (
-              <p className="text-teal-300">
-                Notified: {new Date(item.notifyDate * 1000).toLocaleString()}
+            {Object.values(item.availability || {}).map((avail, i) => (
+              <p className="text-white" key={Object.keys(avail)[i]}>
+                {avail.location && `${avail.location}`}
+                {avail.notifyDate && ` ${new Date(avail.notifyDate * 1000).toLocaleString()}`}
               </p>
-            ) : null}
-            {item.locations && item.locations.length > 0 ? (
-              <p className="text-white">
-                Locations: {item.locations.join(", ")}
-              </p>
-            ) : null}
+            ))}
           </a>
         ))}
       </div>
