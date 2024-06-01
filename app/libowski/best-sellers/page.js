@@ -1,3 +1,4 @@
+import Availability from "@/components/Availability";
 import React from "react";
 import { GiSmallFire } from "react-icons/gi";
 
@@ -12,7 +13,17 @@ async function getData() {
       { next: { revalidate: 0 } }
     );
     const data = await response.json();
-    const sortedItems = data.sort((a, b) => a.title.localeCompare(b.title));
+
+    const sortedItems = [...data]
+      .sort((a, b) => (b.updateDate || 0) - (a.updateDate || 0))
+      .sort((a, b) => {
+        const aHasAvailability = Object.keys(a.availability || {}).length > 0;
+        const bHasAvailability = Object.keys(b.availability || {}).length > 0;
+        if (aHasAvailability && !bHasAvailability) return -1;
+        if (!aHasAvailability && bHasAvailability) return 1;
+        return 0;
+      });
+
     return { props: { items: sortedItems } };
   } catch (error) {
     console.error(error);
@@ -36,7 +47,7 @@ export default async function BestSellersPage() {
             href={item.url}
             target="_blank"
             rel="noreferrer"
-            className="bg-slate-950 hover:bg-slate-900 p-4 rounded-lg border-2 border-teal-950 w-full hover:text-teal-300 duration-300"
+            className="bg-slate-950 hover:bg-slate-900 p-2 rounded-lg border-2 border-teal-950 w-full hover:text-teal-300 duration-300"
           >
             <p className="text-white text-xl">{item.title}</p>
             {item.subtitle ? (
@@ -51,12 +62,7 @@ export default async function BestSellersPage() {
                 Updated: {new Date(item.updateDate * 1000).toLocaleString()}
               </p>
             ) : null}
-            {Object.values(item.availability || {}).map((avail, i) => (
-              <p className="text-white" key={Object.keys(avail)[i]}>
-                {avail.location && `${avail.location}`}
-                {avail.notifyDate && ` ${new Date(avail.notifyDate * 1000).toLocaleString()}`}
-              </p>
-            ))}
+            <Availability availability={item.availability} />
           </a>
         ))}
       </div>
