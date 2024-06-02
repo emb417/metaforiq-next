@@ -1,30 +1,36 @@
 import React from "react";
-import MessagesToCanvas from "@/components/MessagesToCanvas";
+import PinballChart from "@/components/PinballChart";
 
 export const metadata = {
   title: "Pinball",
 };
 
-const welcomeMessages = [
-  "pinball analytics coming soon...",
-  "check out virtual pinball chat on discord",
-  "check out the weekly scoreboard on virtualpinballchat.com",
-];
+async function getData() {
+  try {
+    const response = await fetch(
+      `${process.env.VPC_API_URL}`
+      // { next: { revalidate: 0 } }
+    );
+    const data = await response.json();
+    const sortedWeeks = data
+      .find((obj) => obj.channelName === "competition-corner")
+      .weeks.sort((a, b) => new Date(b.periodStart) - new Date(a.periodStart));
+    return { props: { weeks: sortedWeeks } };
+  } catch (error) {
+    console.error(error);
+    return { props: { message: "Server Error" } };
+  }
+}
 
-const PinballPage = () => {
+export default async function PinballPage() {
+  const { props } = await getData();
+  const { weeks } = props;
   return (
     <div>
-      <MessagesToCanvas
-        id="pinball"
-        canvasMaxHeight={100}
-        fontSize={20}
-        messages={welcomeMessages}
-        x={50}
-        y={30}
-        zIndex={2}
-      />
+      <h1 className="text-xl font-bold my-4 ml-4 text-white">
+        {metadata.title}
+      </h1>
+      <PinballChart weeks={weeks} />
     </div>
   );
-};
-
-export default PinballPage;
+}
