@@ -29,26 +29,34 @@ function getScores(item, selectedUsernames) {
 
 export default function PinballChart({ weeks }) {
   const [selectedUsernames, setSelectedUsernames] = useState([]);
-  const usernames = [...new Set(weeks.flatMap(getUsernames))];
-  const selectOptions = usernames.map((username, index) => ({
-    value: username,
-    label: username,
-    color: `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(
+  const usernames = [...new Set(weeks.slice(0, 100).flatMap(getUsernames))];
+  const selectOptions = usernames.reduce((acc, username, index) => {
+    const color = `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(
       Math.random() * 256
-    )}, ${Math.floor(Math.random() * 256)}, 0.5)`,
-  }));
+    )}, ${Math.floor(Math.random() * 256)}, 0.5)`;
+    return acc.concat({
+      value: username,
+      label: username,
+      color,
+    });
+  }, []);
 
   const [data, setData] = useState({ datasets: [] });
 
   useEffect(() => {
-    const datasets = weeks.map((item) => ({
-      label: item.weekNumber,
-      data: getScores(item, selectedUsernames),
-      backgroundColor: selectOptions.find(
-        (option) => option.value === selectedUsernames[0]
-      )?.color,
+    const datasets = selectedUsernames.map((username) => ({
+      label: username,
+      data: weeks
+        .slice(0, 100)
+        .map((item) => ({
+          x: item.weekNumber,
+          y: getScores(item, [username])[0]?.y || 0,
+        })),
+      backgroundColor: selectOptions.find((option) => option.value === username)
+        ?.color,
     }));
-    setData({ datasets });
+    const label = weeks.slice(0, 100).map((item) => item.weekNumber);
+    setData({ label, datasets });
   }, [selectedUsernames, weeks]);
 
   const bubbleOptions = {
@@ -57,6 +65,13 @@ export default function PinballChart({ weeks }) {
       point: {
         pointStyle: "circle",
         borderWidth: 1,
+      },
+    },
+    scales: {
+      y: {
+        type: "linear",
+        min: 0,
+        max: 12,
       },
     },
   };
@@ -75,3 +90,5 @@ export default function PinballChart({ weeks }) {
     </div>
   );
 }
+
+
