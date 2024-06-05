@@ -2,9 +2,26 @@
 import React, { useState, useEffect } from "react";
 import { Bubble } from "react-chartjs-2";
 import { Chart, CategoryScale, LinearScale, PointElement } from "chart.js";
-import { Select } from "antd";
+import { Select, Tag } from "antd";
 
 Chart.register(CategoryScale, LinearScale, PointElement);
+
+const tagRender = ({ label, value, closable, onClose }) => {
+  const onPreventMouseDown = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+  };
+  return (
+    <Tag
+      color={value}
+      onMouseDown={onPreventMouseDown}
+      closable={closable}
+      onClose={onClose}
+    >
+      {label}
+    </Tag>
+  );
+};
 
 /**********************
  * Helpers
@@ -29,11 +46,31 @@ function getScores(item, selectedUsernames) {
 
 export default function PinballChart({ weeks }) {
   const [selectedUsernames, setSelectedUsernames] = useState([]);
-  const usernames = [...new Set(weeks.slice(0, 100).flatMap(getUsernames))];
+  const usernames = [...new Set(weeks.slice(0, 53).flatMap(getUsernames))];
   const selectOptions = usernames.reduce((acc, username, index) => {
-    const color = `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(
-      Math.random() * 256
-    )}, ${Math.floor(Math.random() * 256)}, 0.5)`;
+    const colors = [
+      "red",
+      "blue",
+      "green",
+      "gray",
+      "cyan",
+      "purple",
+      "orange",
+      "black",
+      "aqua",
+      "magenta",
+      "yellow",
+      "lime",
+      "teal",
+      "indigo",
+      "violet",
+      "pink",
+      "brown",
+      "maroon",
+      "olive",
+      "navy",
+    ];
+    const color = colors[index % colors.length];
     return acc.concat({
       value: username,
       label: username,
@@ -46,16 +83,14 @@ export default function PinballChart({ weeks }) {
   useEffect(() => {
     const datasets = selectedUsernames.map((username) => ({
       label: username,
-      data: weeks
-        .slice(0, 100)
-        .map((item) => ({
-          x: item.weekNumber,
-          y: getScores(item, [username])[0]?.y || 0,
-        })),
+      data: weeks.slice(0, 52).map((item) => ({
+        x: item.weekNumber,
+        y: getScores(item, [username])[0]?.y || 0,
+      })),
       backgroundColor: selectOptions.find((option) => option.value === username)
         ?.color,
     }));
-    const label = weeks.slice(0, 100).map((item) => item.weekNumber);
+    const label = weeks.slice(0, 52).map((item) => item.weekNumber);
     setData({ label, datasets });
   }, [selectedUsernames, weeks]);
 
@@ -80,15 +115,19 @@ export default function PinballChart({ weeks }) {
     <div className="bg-black m-4 p-2 h-[800px]">
       <Select
         mode="multiple"
+        tagRender={({ label, value }) => tagRender({ label, value: selectOptions.find((option) => option.value === value) ?.color, closable: true, onClose: () => setSelectedUsernames(selectedUsernames.filter((username) => username !== value)) })}
         placeholder="Select users"
         options={selectOptions}
+        optionFilterProp="label"
         onChange={setSelectedUsernames}
         value={selectedUsernames}
         className="w-1/2"
       />
-      <Bubble options={bubbleOptions} data={data} className="bg-white m-4 p-4" />
+      <Bubble
+        options={bubbleOptions}
+        data={data}
+        className="bg-slate-200 m-4 p-4"
+      />
     </div>
   );
 }
-
-
