@@ -38,9 +38,7 @@ function getScores(item, selectedUsernames) {
   return item.scores
     .filter((score) => selectedUsernames.includes(score.username))
     .map((score) => ({
-      x: item.weekNumber,
       y: score.points,
-      r: 10,
     }));
 }
 
@@ -96,19 +94,25 @@ export default function PinballChart({ weeks }) {
 
   const bubbleOptions = {
     animation: true,
-    elements: {
-      point: {
-        pointStyle: "circle",
-        borderWidth: 1,
-      },
-    },
+    responsive: true,
+    radius: 8,
     scales: {
+      x: {
+        type: "linear",
+        title: {
+          display: true,
+          text: "Week",
+        },
+      },
       y: {
         type: "linear",
-        min: 0,
-        max: 12,
+        title: {
+          display: true,
+          text: "Points",
+        },
       },
     },
+
   };
 
   return (
@@ -126,7 +130,7 @@ export default function PinballChart({ weeks }) {
       <Bubble
         options={bubbleOptions}
         data={data}
-        className="bg-slate-200 m-4 p-4"
+        className="bg-slate-200 m-4 p-2"
       />
     </div>
   );
