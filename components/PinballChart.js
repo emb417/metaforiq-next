@@ -1,10 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Bubble } from "react-chartjs-2";
-import { Chart, CategoryScale, LinearScale, PointElement } from "chart.js";
+import { Bubble, Bar, Line } from "react-chartjs-2";
+import { Chart, BarElement,CategoryScale, LinearScale, LineElement, PointElement } from "chart.js";
 import { Select, Tag } from "antd";
+import { reverse } from "lodash";
+import { Overlay } from "antd/es/popconfirm/PurePanel";
 
-Chart.register(CategoryScale, LinearScale, PointElement);
+Chart.register(CategoryScale, LinearScale, BarElement, LineElement, PointElement);
 
 const tagRender = ({ label, value, closable, onClose }) => {
   const onPreventMouseDown = (event) => {
@@ -38,13 +40,27 @@ function getScores(item, selectedUsernames) {
   return item.scores
     .filter((score) => selectedUsernames.includes(score.username))
     .map((score) => ({
-      y: score.points,
+      y: score.position,
     }));
 }
 
 export default function PinballChart({ weeks }) {
   const [selectedUsernames, setSelectedUsernames] = useState([]);
-  const usernames = [...new Set(weeks.slice(0, 53).flatMap(getUsernames))];
+  const usernames = [...new Set(weeks.slice(0, 52).flatMap(getUsernames))];
+
+  const weeksData = weeks.slice(0, 52).map((week, weekIndex) => {
+    const scoresData = week.scores.map((score, scoreIndex) => ({
+      ...score,
+      position: scoreIndex + 1,
+    }));
+    return {
+      ...week,
+      scores: scoresData,
+      position: weekIndex + 1,
+    };
+  });
+
+
   const selectOptions = usernames.reduce((acc, username, index) => {
     const colors = [
       "red",
@@ -81,7 +97,7 @@ export default function PinballChart({ weeks }) {
   useEffect(() => {
     const datasets = selectedUsernames.map((username) => ({
       label: username,
-      data: weeks.slice(0, 52).map((item) => ({
+      data: weeksData.map((item) => ({
         x: item.weekNumber,
         y: getScores(item, [username])[0]?.y || 0,
       })),
@@ -90,11 +106,10 @@ export default function PinballChart({ weeks }) {
     }));
     const label = weeks.slice(0, 52).map((item) => item.weekNumber);
     setData({ label, datasets });
-  }, [selectedUsernames, weeks]);
+  }, [selectedUsernames, weeksData]);
 
   const bubbleOptions = {
-    animation: true,
-    responsive: true,
+    animation: false,
     radius: 8,
     scales: {
       x: {
@@ -106,10 +121,12 @@ export default function PinballChart({ weeks }) {
       },
       y: {
         type: "linear",
+        reverse: true,
         title: {
           display: true,
-          text: "Points",
+          text: "Position",
         },
+        min: 1,
       },
     },
 
@@ -130,7 +147,7 @@ export default function PinballChart({ weeks }) {
       <Bubble
         options={bubbleOptions}
         data={data}
-        className="bg-slate-200 m-4 p-2"
+        className="bg-slate-200 m-4 p-2 z-10"
       />
     </div>
   );
