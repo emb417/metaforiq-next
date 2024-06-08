@@ -1,5 +1,6 @@
 import React from "react";
 import PinballChart from "@/components/PinballChart";
+import { GiPinballFlipper } from "react-icons/gi";
 
 export const metadata = {
   title: "Pinball",
@@ -27,8 +28,8 @@ export default async function PinballPage() {
   const { weeks } = props;
   return (
     <div>
-      <h1 className="text-xl font-bold my-4 ml-4 text-white">
-        {metadata.title}
+      <h1 className="flex text-xl font-bold my-4 ml-4 justify-center text-white uppercase">
+        <GiPinballFlipper className="text-2xl mr-1" /> {metadata.title}
       </h1>
       <PinballChart weeks={weeks} />
     </div>
