@@ -9,6 +9,7 @@ import {
   Tooltip,
   Title,
   Legend,
+  elements,
 } from "chart.js";
 import { Select, Tag } from "antd";
 
@@ -63,6 +64,9 @@ export default function PinballChart({ weeks }) {
   const [data, setData] = useState({ datasets: [] });
 
   const bubbleOptions = {
+    layout: {
+      padding: 4
+    },
     clip: false,
     responsive: true,
     animation: {
@@ -74,19 +78,53 @@ export default function PinballChart({ weeks }) {
     scales: {
       x: {
         type: "linear",
+        min: 150,
+        suggestedMax: 200,
         title: {
           display: true,
           text: "Week",
+          font: {
+            size: 16,
+          },
+          color: "#AAAAAA",
+        },
+        grid: {
+          display: false,
+          drawTicks: true,
+        },
+        ticks: {
+          color: "#AAAAAA",
+          font: {
+            size: 16,
+          },
+          padding: 10,
         },
       },
       y: {
         type: "linear",
         reverse: true,
+        min: 1,
+        suggestedMax: 10,
         title: {
           display: true,
           text: "Leaderboard Position",
+          font: {
+            size: 16,
+          },
+          color: "#AAAAAA",
+          padding: 10,
         },
-        min: 1,
+        grid: {
+          color: "#AAAAAA",
+          drawTicks: false,
+        },
+        ticks: {
+          color: "#AAAAAA",
+          font: {
+            size: 16,
+          },
+          padding: 10,
+        },
       },
     },
     plugins: {
@@ -94,6 +132,15 @@ export default function PinballChart({ weeks }) {
         display: true,
         text: "Virtual Pinball League",
         position: "top",
+        font: {
+          size: 24,
+          lineHeight: .5,
+        },
+        color: "#AAAAAA",
+        padding: {
+          top: 8,
+          bottom: 16,
+        },
       },
       legend: {
         display: false,
@@ -118,7 +165,7 @@ export default function PinballChart({ weeks }) {
   };
 
   const weeksData = useMemo(() => {
-    return weeks.slice(0, 52).map((week, weekIndex) => {
+    return weeks.map((week, weekIndex) => {
       const scoresData = week.scores.map((score, scoreIndex) => ({
         ...score,
         position: scoreIndex + 1,
@@ -132,7 +179,7 @@ export default function PinballChart({ weeks }) {
   }, [weeks]);
   
   const usernames = useMemo(() => {
-    const usernamesSet = new Set(weeksData.slice(0, 52).flatMap((item) =>
+    const usernamesSet = new Set(weeksData.flatMap((item) =>
       item.scores.map((score) => score.username)));
     return Array.from(usernamesSet);
   }, [weeksData]);
@@ -143,14 +190,13 @@ export default function PinballChart({ weeks }) {
         "red",
         "blue",
         "green",
+        "yellow",
+        "magenta",
+        "teal",
         "gray",
         "cyan",
         "purple",
         "orange",
-        "black",
-        "aqua",
-        "magenta",
-        "yellow",
         "lime",
         "teal",
         "indigo",
@@ -159,7 +205,10 @@ export default function PinballChart({ weeks }) {
         "brown",
         "maroon",
         "olive",
-        "navy",
+        "fuchsia",
+        "silver",
+        "gold",
+        "aqua",
       ][index % 20];
       return acc.concat({
         value: username,
@@ -191,7 +240,7 @@ export default function PinballChart({ weeks }) {
     <div className="flex flex-col items-center mt-4 ml-4 w-full">
       <div className="flex justify-center w-full">
         <Select
-          className="min-w-[300px]"
+          className="min-w-[300px] p-1 rounded-xl border-2 border-teal-950"
           mode="multiple"
           tagRender={({ label, value }) =>
             tagRender({
@@ -212,17 +261,17 @@ export default function PinballChart({ weeks }) {
           value={selectedUsernames}
         />
         <button
-          className="bg-red-500 text-white px-2 py-1 ml-2 rounded min-w-[max-content]"
+          className="bg-red-700 text-white px-2 ml-2 rounded min-w-[max-content] self-center hover:bg-red-500 duration-300"
           onClick={() => setSelectedUsernames([])}
         >
           Clear All
         </button>
       </div>
-      <div className="w-4/5">
+      <div className="w-4/5 h-dvh">
         <Bubble
           options={bubbleOptions}
           data={data}
-          className="bg-slate-200 my-4 p-2"
+          className="bg-slate-900 my-4 rounded-2xl border-2 border-teal-950"
         />
       </div>
     </div>

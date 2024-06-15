@@ -15,7 +15,8 @@ async function getData() {
     const data = await response.json();
     const sortedWeeks = data
       .find((obj) => obj.channelName === "competition-corner")
-      .weeks.sort((a, b) => new Date(b.periodStart) - new Date(a.periodStart));
+      .weeks.map((week) => ({ ...week, weekNumber: parseInt(week.weekNumber) }))
+      .sort((a, b) => b.weekNumber - a.weekNumber);
     return { props: { weeks: sortedWeeks } };
   } catch (error) {
     console.error(error);
