@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Bubble } from "react-chartjs-2";
 import {
   Chart,
@@ -9,7 +9,6 @@ import {
   Tooltip,
   Title,
   Legend,
-  elements,
 } from "chart.js";
 import { Select, Tag } from "antd";
 
@@ -38,14 +37,6 @@ const tagRender = ({ label, value, closable, onClose }) => {
     </Tag>
   );
 };
-
-/**********************
- * Helpers
- */
-
-function getUsernames(item) {
-  return item.scores.map((score) => score.username);
-}
 
 function getScores(item, selectedUsernames) {
   if (!item || !item.scores) {

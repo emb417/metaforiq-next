@@ -1,5 +1,4 @@
 import Availability from "@/components/Availability";
-import React from "react";
 import { GiSmallFire } from "react-icons/gi";
 
 export const metadata = {

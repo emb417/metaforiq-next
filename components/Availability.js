@@ -1,7 +1,5 @@
 'use client';
 
-import React from "react";
-
 export default function Availability( { availability } ) {
     const formatTime = (minutes) => {
         const hours = Math.floor(minutes / 60);

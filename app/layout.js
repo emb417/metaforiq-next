@@ -1,4 +1,3 @@
-import React from "react";
 import NavBar from "@/components/NavBar";
 import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";

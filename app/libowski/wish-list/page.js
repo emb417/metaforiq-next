@@ -1,4 +1,3 @@
-import React from "react";
 import AddItem from "@/components/AddIem";
 import WishListItems from "@/components/WishListItems";
 import { CgPlayList } from "react-icons/cg";

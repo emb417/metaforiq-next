@@ -1,4 +1,3 @@
-import React from "react";
 import MessagesToCanvas from "@/components/MessagesToCanvas";
 import ForceRainOnCanvas from "@/components/ForceRainOnCanvas";
 

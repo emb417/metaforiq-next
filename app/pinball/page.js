@@ -1,4 +1,3 @@
-import React from "react";
 import PinballChart from "@/components/PinballChart";
 import { GiPinballFlipper } from "react-icons/gi";
 

@@ -1,4 +1,3 @@
-import React from "react";
 import { GiPayMoney } from "react-icons/gi";
 
 export const metadata = {
