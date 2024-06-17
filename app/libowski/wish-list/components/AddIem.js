@@ -14,7 +14,7 @@ const AddItem = () => {
 
   return (
     <div className="flex w-full items-center m-4 gap-4">
-      <p className="text-white text-xl min-w-[max-content] ml-4">Add Item</p>
+      <label htmlFor="inputTitle" className="text-white text-xl min-w-[max-content] ml-4">Add Item</label>
       <input
         type="text"
         name="inputTitle"

@@ -1,4 +1,4 @@
-import MessagesToCanvas from "@/components/MessagesToCanvas";
+import MessagesToCanvas from "@/app/components/MessagesToCanvas";
 
 export const metadata = {
   title: "Home",

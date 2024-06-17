@@ -1,4 +1,4 @@
-import PinballChart from "@/components/PinballChart";
+import PinballChart from "@/app/pinball/components/Chart";
 import { GiPinballFlipper } from "react-icons/gi";
 
 export const metadata = {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import CanvasTypewriter from "@/components/CanvasTypewriter";
+import CanvasTypewriter from "@/app/components/CanvasTypewriter";
 
 const getRandomMessage = (messages) => {
   const randomIndex = Math.floor(Math.random() * messages.length);

@@ -1,4 +1,4 @@
-import NavBar from "@/components/NavBar";
+import NavBar from "@/app/components/NavBar";
 import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 

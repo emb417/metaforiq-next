@@ -18,7 +18,7 @@ async function getData(slug) {
   }
 }
 
-export default async function RemoveItemPage({ params }) {
+export default async function WishListItemPage({ params }) {
   const { props } = await getData(params.slug);
   const { message } = props;
   return (

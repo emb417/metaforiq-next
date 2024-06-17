@@ -1,4 +1,4 @@
-import Availability from "@/components/Availability";
+import WishListAvailability from "@/app/libowski/wish-list/components/Availability";
 import { GiSmallFire } from "react-icons/gi";
 
 export const metadata = {
@@ -61,7 +61,7 @@ export default async function BestSellersPage() {
                 Updated: {new Date(item.updateDate * 1000).toLocaleString()}
               </p>
             ) : null}
-            <Availability availability={item.availability} />
+            <WishListAvailability availability={item.availability} />
           </a>
         ))}
       </div>
