@@ -1,4 +1,5 @@
 import Link from "next/link";
+import PageTitle from "@/components/PageTitle";
 import {
   GiPayMoney,
   GiSmallFire,
@@ -11,7 +12,7 @@ export const metadata = {
   title: "Libowski",
 };
 
-const LibowskiPage = () => {
+export default function LibowskiPage() {
   // Array containing navigation items
   const navItems = [
     {
@@ -36,12 +37,12 @@ const LibowskiPage = () => {
 
   return (
     <div className="w-full">
-      <h1 className="flex text-2xl text-white m-4 min-w-[max-content]">
+      <PageTitle>
         <GiBlackball className="text-3xl mr-2" />
         Libowski
         <GiBowlingPin className="text-3xl mx-1" />
         The Library Dude
-      </h1>
+      </PageTitle>
       <div className="flex items-center text-2xl text-white m-4">
         <ul className="flex flex-wrap w-full gap-4">
           {navItems.map((item) => (
@@ -61,5 +62,3 @@ const LibowskiPage = () => {
     </div>
   );
 };
-
-export default LibowskiPage;

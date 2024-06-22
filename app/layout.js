@@ -2,7 +2,7 @@ import TopBar from "@/components/nav/TopBar";
 import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 
-const RootLayout = ({ children }) => {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       {process.env.NEXT_PUBLIC_GTM_ID && (
@@ -15,5 +15,3 @@ const RootLayout = ({ children }) => {
     </html>
   );
 };
-
-export default RootLayout;

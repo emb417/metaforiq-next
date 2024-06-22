@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-const Canvas = ({
+export default function Canvas({
   id,
   bgColor = "black",
   fontSize = 40,
@@ -10,7 +10,7 @@ const Canvas = ({
   x = 0,
   y = 0,
   zIndex = 1,
-}) => {
+}) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -92,6 +92,4 @@ const Canvas = ({
   }, [message, bgColor, fontSize, x, y, zIndex]);
 
   return <canvas id={id} ref={canvasRef} className="absolute" />;
-};
-
-export default Canvas;
+}

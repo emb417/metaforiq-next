@@ -9,7 +9,7 @@ import {
   GiBrain,
 } from "react-icons/gi";
 
-const Navbar = () => {
+export default function Navbar() {
   // State to manage the navbar's visibility
   const [nav, setNav] = useState(false);
 
@@ -50,13 +50,13 @@ const Navbar = () => {
     <div className="bg-slate-950 border-b border-b-teal-950 flex justify-start items-start max-w-full mx-auto text-white uppercase sans">
       {/* Logo */}
       <h1 className="w-full text-3xl font-bold text-teal-300 pl-4 p-1">
-        MetaForIQ
+        <Link href="/">MetaForIQ</Link>
       </h1>
 
       {/* Desktop Navigation */}
       <ul className="hidden md:flex items-center pt-1">
         {navItems.map((item) => (
-          <Link key={item.id} href={item.href} className="">
+          <Link key={item.id} href={item.href}>
             <li className="flex items-center cursor-pointer duration-300 hover:text-teal-300 min-w-[max-content] mr-4 p-2 gap-1">
               {item.icon}
               {item.text}
@@ -80,7 +80,7 @@ const Navbar = () => {
       >
         {/* Mobile Logo */}
         <h1 className="w-full uppercase text-3xl font-bold text-teal-300 pl-4 py-1">
-          MetaForIQ
+          <Link href="/" onClick={handleNav}>MetaForIQ</Link>
         </h1>
 
         {/* Mobile Navigation Items */}
@@ -100,6 +100,4 @@ const Navbar = () => {
       </ul>
     </div>
   );
-};
-
-export default Navbar;
+}

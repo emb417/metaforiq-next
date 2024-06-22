@@ -52,7 +52,7 @@ const fontSizeOffsets = [0.2, 0.5, 1.0, 1.5, 2.0];
 const fontSpacing = 4;
 const initialFontSize = 12;
 
-const ForceRainPage = () => {
+export default function ForceRainPage() {
   return (
     <div>
       <MessagesToCanvas
@@ -79,5 +79,3 @@ const ForceRainPage = () => {
     </div>
   );
 };
-
-export default ForceRainPage;

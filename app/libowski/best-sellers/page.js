@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { GiSmallFire } from "react-icons/gi";
 import BestSellerItems from "@/components/libowski/best-sellers/BestSellerItems";
+import PageTitle from "@/components/PageTitle";
 
 export const metadata = {
   title: "Recent Best Seller Titles",
@@ -9,11 +10,13 @@ export const metadata = {
 export default function BestSellersPage() {
   return (
     <div className="w-full">
-      <h1 className="flex text-2xl text-white font-bold m-4 min-w-[max-content]">
+      <PageTitle>
         <GiSmallFire className="text-2xl mr-2 mt-1" />
         {metadata.title}
-      </h1>
-      <Suspense fallback={<div className="text-2xl text-white m-8">Loading...</div>}>
+      </PageTitle>
+      <Suspense
+        fallback={<div className="text-2xl text-white m-8">Loading...</div>}
+      >
         <BestSellerItems />
       </Suspense>
     </div>

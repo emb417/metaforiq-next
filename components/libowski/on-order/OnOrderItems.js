@@ -43,7 +43,10 @@ export default async function Items() {
                 <p className="text-white">{item.subtitle}</p>
               ) : null}
               <p className="text-teal-300">
-                {item.publicationYear ? item.publicationYear.substring(0, 4) : ""} {item.format}
+                {item.publicationYear
+                  ? item.publicationYear.substring(0, 4)
+                  : ""}{" "}
+                {item.format}
                 {item.edition ? ` ${item.edition}` : ""}
               </p>
               {item.notifyDate ? (

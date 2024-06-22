@@ -83,7 +83,7 @@ const inspirationalMessages = [
   "facing all that you fear will free you from yourself",
 ];
 
-const HomePage = () => {
+export default function HomePage() {
   return (
     <div>
       <Messages
@@ -106,5 +106,3 @@ const HomePage = () => {
     </div>
   );
 };
-
-export default HomePage;

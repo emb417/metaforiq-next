@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const ForceRainOnCanvas = ({
+export default function ForceRainOnCanvas({
   charset,
   colors,
   colorHolidays,
@@ -12,7 +12,7 @@ const ForceRainOnCanvas = ({
   fontSizeOffsets,
   fontSpacing,
   initialFontSize,
-}) => {
+}) {
   const canvasRef = useRef(null);
   const startXRef = useRef(null);
   const startYRef = useRef(null);
@@ -218,6 +218,4 @@ const ForceRainOnCanvas = ({
   });
 
   return <canvas ref={canvasRef} id="force-rain" />;
-};
-
-export default ForceRainOnCanvas;
+}

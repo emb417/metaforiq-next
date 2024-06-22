@@ -8,7 +8,7 @@ const getRandomMessage = (messages) => {
   return messages[randomIndex];
 };
 
-const MessagesToCanvas = ({
+export default function MessagesToCanvas({
   id,
   bgColor,
   fontSize,
@@ -19,7 +19,7 @@ const MessagesToCanvas = ({
   x,
   y,
   zIndex,
-}) => {
+}) {
   const [currentMessage, setCurrentMessage] = useState(
     getRandomMessage(messages)
   );
@@ -49,5 +49,3 @@ const MessagesToCanvas = ({
     />
   );
 };
-
-export default MessagesToCanvas;

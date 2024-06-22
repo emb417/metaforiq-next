@@ -2,10 +2,9 @@ import PinballChart from "@/components/pinball/Chart";
 
 async function getData() {
   try {
-    const response = await fetch(
-      `${process.env.VPC_API_URL}`,
-      { next: { revalidate: 300 } }
-    );
+    const response = await fetch(`${process.env.VPC_API_URL}`, {
+      next: { revalidate: 300 },
+    });
     const data = await response.json();
     const sortedWeeks = data
       .find((obj) => obj.channelName === "competition-corner")
