@@ -1,18 +1,9 @@
 "use server";
 
-import { z } from "zod";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { login } from "@/app/lib";
-
-const loginFormSchema = z.object({
-  username: z.string(),
-  password: z.string(),
-});
-
-const wishListFormSchema = z.object({
-  inputTitle: z.string(),
-});
+import { login } from "@/lib/Session";
+import { loginFormSchema, wishListFormSchema } from "@/lib/Schema";
 
 export async function authenticate(formData) {
   const data = loginFormSchema.parse(Object.fromEntries(formData));

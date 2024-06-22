@@ -11,6 +11,8 @@ import {
   Legend,
 } from "chart.js";
 import { Select, Tag } from "antd";
+import colors from "@/lib/Colors";
+import bubbleOptions from "@/lib/BubbleOptions";
 
 Chart.register(
   CategoryScale,
@@ -54,109 +56,6 @@ export default function PinballChart({ weeks }) {
   const [selectedUsernames, setSelectedUsernames] = useState([]);
   const [data, setData] = useState({ datasets: [] });
 
-  const bubbleOptions = {
-    layout: {
-      padding: 4,
-    },
-    clip: false,
-    responsive: true,
-    animation: {
-      duration: 1000,
-    },
-    interaction: {
-      mode: "point",
-    },
-    scales: {
-      x: {
-        type: "linear",
-        min: 150,
-        suggestedMax: 200,
-        title: {
-          display: true,
-          text: "Week",
-          font: {
-            size: 16,
-          },
-          color: "#AAAAAA",
-        },
-        grid: {
-          display: false,
-          drawTicks: true,
-        },
-        ticks: {
-          color: "#AAAAAA",
-          font: {
-            size: 16,
-          },
-          padding: 10,
-        },
-      },
-      y: {
-        type: "linear",
-        reverse: true,
-        min: 1,
-        suggestedMax: 10,
-        title: {
-          display: true,
-          text: "Leaderboard Position",
-          font: {
-            size: 16,
-          },
-          color: "#AAAAAA",
-          padding: 10,
-        },
-        grid: {
-          color: "#AAAAAA",
-          drawTicks: false,
-        },
-        ticks: {
-          color: "#AAAAAA",
-          font: {
-            size: 16,
-          },
-          padding: 10,
-        },
-      },
-    },
-    plugins: {
-      title: {
-        display: true,
-        text: "Virtual Pinball League",
-        position: "top",
-        font: {
-          size: 24,
-          lineHeight: 0.5,
-        },
-        color: "#AAAAAA",
-        padding: {
-          top: 8,
-          bottom: 16,
-        },
-      },
-      legend: {
-        display: false,
-      },
-      tooltip: {
-        enabled: true,
-        callbacks: {
-          label: (context) => {
-            const formattedScore = new Intl.NumberFormat("en-US").format(
-              context.raw.score
-            );
-            return [
-              `${context.dataset.label} P${context.parsed.y} of ${
-                context.raw.r * 5
-              }`,
-              `Week #${context.parsed.x}`,
-              `${context.raw.table}`,
-              `${formattedScore}`,
-            ];
-          },
-        },
-      },
-    },
-  };
-
   const weeksData = useMemo(() => {
     return weeks.map((week, weekIndex) => {
       const scoresData = week.scores.map((score, scoreIndex) => ({
@@ -180,30 +79,7 @@ export default function PinballChart({ weeks }) {
 
   const selectOptions = useMemo(() => {
     return usernames.reduce((acc, username, index) => {
-      const color = [
-        "blue",
-        "red",
-        "silver",
-        "yellow",
-        "pink",
-        "green",
-        "gray",
-        "cyan",
-        "purple",
-        "orange",
-        "lime",
-        "teal",
-        "indigo",
-        "violet",
-        "majenta",
-        "brown",
-        "maroon",
-        "olive",
-        "fuchsia",
-        "teal",
-        "gold",
-        "aqua",
-      ][index % 20];
+      const color = colors[index % 20];
       return acc.concat({
         value: username,
         label: username,
@@ -232,6 +108,9 @@ export default function PinballChart({ weeks }) {
 
   return (
     <div className="flex flex-col items-center mt-4 ml-4 w-full">
+      <div className="text-center text-red-700 mb-4 sm:hidden">
+        Rotate screen for better view.
+      </div>
       <div className="flex justify-center w-full">
         <Select
           className="min-w-[300px] p-1 rounded-xl border-2 border-teal-950"
