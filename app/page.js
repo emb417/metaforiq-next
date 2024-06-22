@@ -1,7 +1,7 @@
-import MessagesToCanvas from "@/app/components/MessagesToCanvas";
+import Messages from "@/components/canvas/Messages";
 
 export const metadata = {
-  title: "Home",
+  title: "Metaforiq Home",
 };
 
 const welcomeMessages = [
@@ -86,7 +86,7 @@ const inspirationalMessages = [
 const HomePage = () => {
   return (
     <div>
-      <MessagesToCanvas
+      <Messages
         id="welcome"
         bgColor="transparent"
         fontSize={20}
@@ -96,7 +96,7 @@ const HomePage = () => {
         y={30}
         zIndex={20}
       />
-      <MessagesToCanvas
+      <Messages
         id="main"
         bgColor="transparent"
         fontSize={36}

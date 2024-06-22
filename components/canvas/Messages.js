@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import CanvasTypewriter from "@/app/components/CanvasTypewriter";
+import Typewriter from "@/components/canvas/Typewriter";
 
 const getRandomMessage = (messages) => {
   const randomIndex = Math.floor(Math.random() * messages.length);
@@ -36,7 +36,7 @@ const MessagesToCanvas = ({
   }, [currentMessage, messageInterval, messages]);
 
   return (
-    <CanvasTypewriter
+    <Typewriter
       id={id}
       bgColor={bgColor}
       canvasMaxHeight={canvasMaxHeight}

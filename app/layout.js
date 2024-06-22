@@ -1,4 +1,4 @@
-import NavBar from "@/app/components/NavBar";
+import TopBar from "@/components/nav/TopBar";
 import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 
@@ -9,7 +9,7 @@ const RootLayout = ({ children }) => {
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
       )}
       <body className="bg-black">
-        <NavBar />
+        <TopBar />
         {children}
       </body>
     </html>

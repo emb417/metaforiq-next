@@ -56,7 +56,7 @@ export default function PinballChart({ weeks }) {
 
   const bubbleOptions = {
     layout: {
-      padding: 4
+      padding: 4,
     },
     clip: false,
     responsive: true,
@@ -125,7 +125,7 @@ export default function PinballChart({ weeks }) {
         position: "top",
         font: {
           size: 24,
-          lineHeight: .5,
+          lineHeight: 0.5,
         },
         color: "#AAAAAA",
         padding: {
@@ -144,7 +144,9 @@ export default function PinballChart({ weeks }) {
               context.raw.score
             );
             return [
-              `${context.dataset.label} P${context.parsed.y} of ${context.raw.r * 5}`,
+              `${context.dataset.label} P${context.parsed.y} of ${
+                context.raw.r * 5
+              }`,
               `Week #${context.parsed.x}`,
               `${context.raw.table}`,
               `${formattedScore}`,
@@ -168,22 +170,23 @@ export default function PinballChart({ weeks }) {
       };
     });
   }, [weeks]);
-  
+
   const usernames = useMemo(() => {
-    const usernamesSet = new Set(weeksData.flatMap((item) =>
-      item.scores.map((score) => score.username)));
+    const usernamesSet = new Set(
+      weeksData.flatMap((item) => item.scores.map((score) => score.username))
+    );
     return Array.from(usernamesSet);
   }, [weeksData]);
 
   const selectOptions = useMemo(() => {
     return usernames.reduce((acc, username, index) => {
       const color = [
-        "red",
         "blue",
-        "green",
+        "red",
+        "silver",
         "yellow",
-        "magenta",
-        "teal",
+        "pink",
+        "green",
         "gray",
         "cyan",
         "purple",
@@ -192,12 +195,12 @@ export default function PinballChart({ weeks }) {
         "teal",
         "indigo",
         "violet",
-        "pink",
+        "majenta",
         "brown",
         "maroon",
         "olive",
         "fuchsia",
-        "silver",
+        "teal",
         "gold",
         "aqua",
       ][index % 20];

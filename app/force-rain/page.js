@@ -1,5 +1,5 @@
-import MessagesToCanvas from "@/app/components/MessagesToCanvas";
-import ForceRainOnCanvas from "@/app/force-rain/components/ForceRainOnCanvas";
+import MessagesToCanvas from "@/components/canvas/Messages";
+import ForceRainOnCanvas from "@/components/force-rain/ForceRainOnCanvas";
 
 export const metadata = {
   title: "Force Rain",

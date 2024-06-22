@@ -1,6 +1,6 @@
 'use client';
 
-export default function WishListAvailability( { availability } ) {
+export default function Availability( { availability } ) {
     const formatTime = (minutes) => {
         const hours = Math.floor(minutes / 60);
         const remainingMinutes = minutes % 60;
