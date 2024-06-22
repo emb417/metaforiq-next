@@ -1,12 +1,21 @@
 "use server";
 
+import { z } from "zod";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { login } from "@/app/lib";
 
+const loginFormSchema = z.object({
+  username: z.string(),
+  password: z.string(),
+});
+
+const wishListFormSchema = z.object({
+  inputTitle: z.string(),
+});
+
 export async function authenticate(formData) {
-  const username = formData.get("username");
-  const password = formData.get("password");
+  const data = loginFormSchema.parse(Object.fromEntries(formData));
 
   const response = await fetch(process.env.LIBOWSKI_API_URL + "/auth", {
     method: "POST",
@@ -14,8 +23,8 @@ export async function authenticate(formData) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      username: username,
-      password: password,
+      username: data.username,
+      password: data.password,
     }),
   });
 
@@ -28,7 +37,7 @@ export async function authenticate(formData) {
 }
 
 export async function addWishListItem(formData) {
-  const title = formData.get("inputTitle");
+  const data = wishListFormSchema.parse(Object.fromEntries(formData));
 
   const response = await fetch(process.env.LIBOWSKI_API_URL + "/wish-list", {
     method: "POST",
@@ -36,7 +45,7 @@ export async function addWishListItem(formData) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      title: title,
+      title: data.inputTitle,
     }),
   });
 
@@ -44,7 +53,7 @@ export async function addWishListItem(formData) {
 }
 
 export async function removeWishListItem(formData) {
-  const title = formData.get("inputTitle");
+  const data = wishListFormSchema.parse(Object.fromEntries(formData));
 
   const response = await fetch(process.env.LIBOWSKI_API_URL + "/wish-list", {
     method: "DELETE",
@@ -52,7 +61,7 @@ export async function removeWishListItem(formData) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      title: title,
+      title: data.inputTitle,
     }),
   });
 
