@@ -4,10 +4,14 @@ Personal portfolio and app to demo fun projects: canvas typewriter, canvas force
 
 ## Getting Started with Developing
 
-This project uses a .env file for two main use cases:
+This project uses a .env file for a few use cases:
 
 1. Libowski base URL used on Libowski pages
     * LIBOWSKI_API_URL=[BASE URL]
+1. Libowski session management
+    * SECRET_KEY=[32 random characters]
+1. Virtual Pinball Chat API
+    * VPC_API_URL=[API URL]
 1. (Optional) Google Tag Manager ID
     * NEXT_PUBLIC_GTM_ID=[Container ID]
 
@@ -55,3 +59,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 * [Chart.js](https://www.chartjs.org/docs/latest/) - Chart.js provides a set of frequently used chart types, plugins, and customization options.
 * [react-chartjs-v2](https://react-chartjs-2.js.org/) - React components for Chart.js, the most popular charting library.
 * [antd](https://ant.design/docs/spec/introduce) - Help designers/developers building beautiful products more flexible and working with happiness
+* [jose](https://github.com/panva/jose) - A JavaScript module for JSON Object Signing and Encryption.
+* [zod](https://github.com/colinhacks/zod) - A TypeScript-first schema declaration and validation library.
