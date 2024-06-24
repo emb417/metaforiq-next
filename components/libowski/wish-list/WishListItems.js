@@ -3,7 +3,7 @@ import WishListRemoveItem from "@/components/libowski/wish-list/WishListRemoveIt
 const getData = async () => {
   try {
     const response = await fetch(`${process.env.LIBOWSKI_API_URL}/wish-list`, {
-      next: { revalidate: 0 },
+      next: { revalidate: 300 },
     });
     const data = await response.json();
     return { props: { items: data } };
