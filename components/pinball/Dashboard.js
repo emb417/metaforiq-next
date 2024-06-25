@@ -1,4 +1,5 @@
-import PinballChart from "@/components/pinball/Chart";
+import _ from "lodash";
+import PinballChart from "@/components/pinball/ComboChart";
 
 async function getData() {
   try {
@@ -6,10 +7,16 @@ async function getData() {
       next: { revalidate: 300 },
     });
     const data = await response.json();
-    const sortedWeeks = data
-      .find((obj) => obj.channelName === "competition-corner")
-      .weeks.map((week) => ({ ...week, weekNumber: parseInt(week.weekNumber) }))
-      .sort((a, b) => b.weekNumber - a.weekNumber);
+    const sortedWeeks = _.chain(
+      data
+        .find((obj) => obj.channelName === "competition-corner")
+        .weeks
+    )
+      .filter((week) => !isNaN(parseInt(week.weekNumber)))
+      .orderBy(["weekNumber"], ["desc"])
+      .take(52)
+      .value()
+      .map((week) => ({ ...week, weekNumber: parseInt(week.weekNumber) }));
     return { props: { weeks: sortedWeeks } };
   } catch (error) {
     console.error(error);

@@ -1,23 +1,25 @@
 "use client";
 import { useState, useEffect, useMemo } from "react";
-import { Bubble } from "react-chartjs-2";
+import { Chart } from "react-chartjs-2";
 import {
-  Chart,
+  Chart as ChartJS,
   CategoryScale,
   LinearScale,
   PointElement,
+  LineElement,
   Tooltip,
   Title,
   Legend,
 } from "chart.js";
 import { Select, Tag } from "antd";
 import colors from "@/lib/Colors";
-import bubbleOptions from "@/lib/BubbleOptions";
+import comboOptions from "@/lib/ComboChartOptions";
 
-Chart.register(
+ChartJS.register(
   CategoryScale,
   LinearScale,
   PointElement,
+  LineElement,
   Tooltip,
   Title,
   Legend
@@ -89,7 +91,8 @@ export default function PinballChart({ weeks }) {
   }, [usernames]);
 
   useEffect(() => {
-    const datasets = selectedUsernames.map((username) => ({
+    const bubbleDatasets = selectedUsernames.map((username) => ({
+      type: "bubble",
       label: username,
       data: weeksData.map((item) => ({
         x: item.weekNumber,
@@ -102,6 +105,7 @@ export default function PinballChart({ weeks }) {
       backgroundColor: selectOptions.find((option) => option.value === username)
         ?.color,
     }));
+    const datasets = [...bubbleDatasets];
     const label = weeksData.map((item) => item.weekNumber);
     setData({ label, datasets });
   }, [selectedUsernames, weeksData, selectOptions]);
@@ -141,8 +145,8 @@ export default function PinballChart({ weeks }) {
         </button>
       </div>
       <div className="w-4/5 h-dvh">
-        <Bubble
-          options={bubbleOptions}
+        <Chart
+          options={comboOptions}
           data={data}
           className="bg-slate-900 my-4 rounded-2xl border-2 border-teal-950"
         />
