@@ -1,5 +1,6 @@
 import PageTitle from "@/components/PageTitle";
 import LoginForm from "@/components/auth/LoginForm";
+import { GiKeyLock } from "react-icons/gi";
 
 const metadata = {
   title: "Login",
@@ -8,7 +9,7 @@ const metadata = {
 export default function LoginPage() {
   return (
     <div>
-      <PageTitle>{metadata.title}</PageTitle>
+      <PageTitle><GiKeyLock className="text-3xl mr-2" />{metadata.title}</PageTitle>
       <LoginForm />
     </div>
   );
