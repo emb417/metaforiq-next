@@ -61,3 +61,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 * [antd](https://ant.design/docs/spec/introduce) - Help designers/developers building beautiful products more flexible and working with happiness
 * [jose](https://github.com/panva/jose) - A JavaScript module for JSON Object Signing and Encryption.
 * [zod](https://github.com/colinhacks/zod) - A TypeScript-first schema declaration and validation library.
+* [lodash](https://github.com/lodash/lodash) - Lodash makes JavaScript easier by taking the hassle out of working with arrays,
+numbers, objects, strings, etc.

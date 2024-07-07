@@ -3,7 +3,6 @@ import { useState, useEffect, useMemo } from "react";
 import { Chart } from "react-chartjs-2";
 import {
   Chart as ChartJS,
-  CategoryScale,
   LinearScale,
   PointElement,
   LineElement,
@@ -16,7 +15,6 @@ import colors from "@/lib/Colors";
 import comboOptions from "@/lib/ComboChartOptions";
 
 ChartJS.register(
-  CategoryScale,
   LinearScale,
   PointElement,
   LineElement,
@@ -51,26 +49,13 @@ function getScores(item, selectedUsernames) {
     .map((score) => ({
       position: score.position,
       score: score.score,
+      rollingAveragePosition: score.rollingAveragePosition,
     }));
 }
 
-export default function PinballChart({ weeks }) {
+export default function PinballChart({ weeksData }) {
   const [selectedUsernames, setSelectedUsernames] = useState([]);
   const [data, setData] = useState({ datasets: [] });
-
-  const weeksData = useMemo(() => {
-    return weeks.map((week, weekIndex) => {
-      const scoresData = week.scores.map((score, scoreIndex) => ({
-        ...score,
-        position: scoreIndex + 1,
-      }));
-      return {
-        ...week,
-        scores: scoresData,
-        position: weekIndex + 1,
-      };
-    });
-  }, [weeks]);
 
   const usernames = useMemo(() => {
     const usernamesSet = new Set(
@@ -91,6 +76,25 @@ export default function PinballChart({ weeks }) {
   }, [usernames]);
 
   useEffect(() => {
+      const rollingAverageDatasets = selectedUsernames.map((username) => ({
+      type: "line",
+      label: username,
+      data: weeksData.map((item) => {
+        return {
+          x: item.weekNumber,
+          y: getScores(item, [username])[0]?.rollingAveragePosition || null,
+        };
+      }),
+      backgroundColor: selectOptions.find((option) => option.value === username)
+        ?.color,
+      borderColor: selectOptions.find((option) => option.value === username)
+        ?.color,
+      borderWidth: 1,
+      radius: 4,
+      hoverRadius: 8,
+      pointStyle: 'triangle',
+      rotation: 270,
+    }));
     const bubbleDatasets = selectedUsernames.map((username) => ({
       type: "bubble",
       label: username,
@@ -101,11 +105,14 @@ export default function PinballChart({ weeks }) {
         score: getScores(item, [username])[0]?.score || null,
         participants: item.scores.length,
         table: item.table,
+        periodStart: item.periodStart,
+        periodEnd: item.periodEnd,
       })),
       backgroundColor: selectOptions.find((option) => option.value === username)
         ?.color,
     }));
-    const datasets = [...bubbleDatasets];
+
+    const datasets = [...rollingAverageDatasets, ...bubbleDatasets];
     const label = weeksData.map((item) => item.weekNumber);
     setData({ label, datasets });
   }, [selectedUsernames, weeksData, selectOptions]);
