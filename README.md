@@ -57,7 +57,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 * [React-Icons](https://react-icons.github.io/react-icons/) - Include popular icons in your React projects easily with react-icons, which utilizes ES6 imports that allows you to include only the icons that your project is using.
 * [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) - The Canvas API provides a means for drawing graphics via JavaScript and the HTML `<canvas>` element. Among other things, it can be used for animation, game graphics, data visualization, photo manipulation, and real-time video processing
 * [Chart.js](https://www.chartjs.org/docs/latest/) - Chart.js provides a set of frequently used chart types, plugins, and customization options.
-* [react-chartjs-v2](https://react-chartjs-2.js.org/) - React components for Chart.js, the most popular charting library.
+* [react-chartjs-v2](https://github.com/reactchartjs/react-chartjs-2) - React components for Chart.js, the most popular charting library.
 * [antd](https://ant.design/docs/spec/introduce) - Help designers/developers building beautiful products more flexible and working with happiness
 * [jose](https://github.com/panva/jose) - A JavaScript module for JSON Object Signing and Encryption.
 * [zod](https://github.com/colinhacks/zod) - A TypeScript-first schema declaration and validation library.

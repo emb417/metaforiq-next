@@ -3,24 +3,28 @@ import { useState, useEffect, useMemo } from "react";
 import { Chart } from "react-chartjs-2";
 import {
   Chart as ChartJS,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Tooltip,
   Title,
   Legend,
+  BubbleController,
+  LineController,
+  LineElement,
+  PointElement,
+  LinearScale,
+  Tooltip,
 } from "chart.js";
 import { Select, Tag } from "antd";
 import colors from "@/lib/Colors";
 import comboOptions from "@/lib/ComboChartOptions";
 
 ChartJS.register(
-  LinearScale,
-  PointElement,
-  LineElement,
-  Tooltip,
   Title,
-  Legend
+  Legend,
+  BubbleController,
+  LineController,
+  LineElement,
+  PointElement,
+  LinearScale,
+  Tooltip
 );
 
 const tagRender = ({ label, value, closable, onClose }) => {
@@ -76,7 +80,7 @@ export default function PinballChart({ weeksData }) {
   }, [usernames]);
 
   useEffect(() => {
-      const rollingAverageDatasets = selectedUsernames.map((username) => ({
+    const rollingAverageDatasets = selectedUsernames.map((username) => ({
       type: "line",
       label: username,
       data: weeksData.map((item) => {
@@ -92,7 +96,7 @@ export default function PinballChart({ weeksData }) {
       borderWidth: 1,
       radius: 4,
       hoverRadius: 8,
-      pointStyle: 'triangle',
+      pointStyle: "triangle",
       rotation: 270,
     }));
     const bubbleDatasets = selectedUsernames.map((username) => ({
