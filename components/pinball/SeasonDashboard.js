@@ -17,9 +17,18 @@ async function getData() {
       .value()
       .map((week) => ({ ...week, currentSeasonWeekNumber: parseInt(week.currentSeasonWeekNumber) }));
 
+    const allUsernames = new Set(
+      sortedWeeks.flatMap((week) => week.scores.map((score) => score.username))
+    );
+
     // console.log(sortedWeeks[0]);
     const weeksData = sortedWeeks.map((week, index) => {
-      const nextWeek = sortedWeeks[index + 1];
+      // add a score of 0 for any username in allUsernames but not in the scores
+      allUsernames.forEach((username) => {
+        if (!week.scores.find((s) => s.username === username)) {
+          week.scores.push({ username, points: 0 });
+        }
+      });
       const scores = week.scores.map((score) => {
         let cumulativePoints = 0;
         for (let i = index; i < sortedWeeks.length; i++) {

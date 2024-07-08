@@ -4,7 +4,7 @@ import PositionDashboard from "@/components/pinball/PositionDashboard";
 import { Suspense } from "react";
 
 export const metadata = {
-  title: "Position Dashboard",
+  title: "Position Trends",
 };
 
 export default function PinballPage() {
@@ -16,7 +16,7 @@ export default function PinballPage() {
       <Suspense
           fallback={
             <div className="text-2xl text-white flex justify-center items-center">
-              Loading Position Dashboard...
+              Loading Position Trends...
             </div>
           }
         >

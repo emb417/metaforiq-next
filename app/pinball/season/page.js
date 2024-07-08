@@ -4,7 +4,7 @@ import SeasonDashboard from "@/components/pinball/SeasonDashboard";
 import { Suspense } from "react";
 
 export const metadata = {
-  title: "Season Dashboard",
+  title: "Season Leaderboard",
 };
 
 export default function PinballPage() {
@@ -16,7 +16,7 @@ export default function PinballPage() {
       <Suspense
           fallback={
             <div className="text-2xl text-white flex justify-center items-center">
-              Loading Season Dashboard...
+              Loading Season Leaderboard...
             </div>
           }
         >

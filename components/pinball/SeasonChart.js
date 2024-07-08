@@ -73,8 +73,8 @@ export default function PinballChart({ weeksData }) {
         borderColor: usernameOptions.find((option) => option.value === score.username)
           ?.color,
         borderWidth: 1,
-        radius: 4,
-        hoverRadius: 8,
+        radius: 5,
+        hoverRadius: 10,
       };
     });
 
