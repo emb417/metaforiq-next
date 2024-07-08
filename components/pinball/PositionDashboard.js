@@ -1,5 +1,5 @@
 import _ from "lodash";
-import PinballChart from "@/components/pinball/ComboChart";
+import PositionChart from "@/components/pinball/PositionChart";
 
 async function getData() {
   try {
@@ -69,5 +69,5 @@ async function getData() {
 export default async function PinballDashboard() {
   const { props } = await getData();
   const { weeksData } = props;
-  return <PinballChart weeksData={weeksData} />;
+  return <PositionChart weeksData={weeksData} />;
 }

@@ -14,7 +14,7 @@ import {
 } from "chart.js";
 import { Select, Tag } from "antd";
 import colors from "@/lib/Colors";
-import comboOptions from "@/lib/ComboChartOptions";
+import positionOptions from "@/lib/PositionChartOptions";
 
 ChartJS.register(
   Title,
@@ -57,7 +57,7 @@ function getScores(item, selectedUsernames) {
     }));
 }
 
-export default function PinballChart({ weeksData }) {
+export default function PositionChart({ weeksData }) {
   const [selectedUsernames, setSelectedUsernames] = useState([]);
   const [data, setData] = useState({ datasets: [] });
 
@@ -157,7 +157,7 @@ export default function PinballChart({ weeksData }) {
       </div>
       <div className="w-4/5 h-dvh">
         <Chart
-          options={comboOptions}
+          options={positionOptions}
           data={data}
           className="bg-slate-900 my-4 rounded-2xl border-2 border-teal-950"
         />

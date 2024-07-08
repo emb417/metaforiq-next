@@ -1,27 +1,18 @@
 import PageTitle from "@/components/PageTitle";
-import PinballDashboard from "@/components/pinball/Dashboard";
-import { Suspense } from "react";
 import { GiPinballFlipper } from "react-icons/gi";
+import NavItems from "@/components/pinball/NavItems";
 
 export const metadata = {
-  title: "Pinball Dashboard",
+  title: "Pinball Dashboards",
 };
 
 export default function PinballPage() {
   return (
     <div>
       <PageTitle>
-        <GiPinballFlipper className="text-2xl mr-1" /> {metadata.title}
+        <GiPinballFlipper className="text-2xl mr-1 mt-1" /> {metadata.title}
       </PageTitle>
-      <Suspense
-        fallback={
-          <div className="text-2xl text-white flex justify-center items-center">
-            Loading...
-          </div>
-        }
-      >
-        <PinballDashboard />
-      </Suspense>
+      <NavItems />
     </div>
   );
 }
