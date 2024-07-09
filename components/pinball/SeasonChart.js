@@ -83,15 +83,15 @@ export default function PinballChart({ weeksData }) {
   }, [weeksData, usernameOptions]);
 
   return (
-    <div className="flex flex-col items-center mt-4 ml-4 w-full">
+    <div className="flex flex-col items-center w-full">
       <div className="text-center text-red-700 mb-4 sm:hidden">
         Rotate screen for better view.
       </div>
-      <div className="w-4/5 h-dvh">
+      <div className="w-full h-dvh">
         <Chart
           options={seasonOptions}
           data={data}
-          className="bg-slate-900 my-4 rounded-2xl border-2 border-teal-950"
+          className="bg-slate-900 mx-4 rounded-2xl border-2 border-teal-950"
         />
       </div>
     </div>

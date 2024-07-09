@@ -1,5 +1,6 @@
 import _ from "lodash";
 import SeasonChart from "@/components/pinball/SeasonChart";
+import SeasonLeaderboard from "@/components/pinball/SeasonLeaderboard";
 
 async function getData() {
   try {
@@ -53,5 +54,14 @@ async function getData() {
 export default async function SeasonDashboard() {
   const { props } = await getData();
   const { weeksData } = props;
-  return <SeasonChart weeksData={weeksData} />;
+  return (
+    <div className="grid grid-cols-5">
+      <div className="col-span-1">
+        <SeasonLeaderboard weeksData={weeksData} />
+      </div>
+      <div className="col-span-4">
+        <SeasonChart weeksData={weeksData} />
+      </div>
+    </div>
+  );
 }
