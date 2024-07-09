@@ -56,7 +56,7 @@ export default async function SeasonDashboard() {
   const { weeksData } = props;
   return (
     <div className="grid grid-cols-5">
-      <div className="col-span-1">
+      <div className="col-span-1 mb-14">
         <SeasonLeaderboard weeksData={weeksData} />
       </div>
       <div className="col-span-4">
