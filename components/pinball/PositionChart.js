@@ -105,7 +105,7 @@ export default function PositionChart({ weeksData }) {
       data: weeksData.map((item) => ({
         x: item.weekNumber,
         y: getScores(item, [username])[0]?.position || null,
-        r: item.scores.length / 5,
+        r: Math.max(item.scores.length / 5, 4),
         score: getScores(item, [username])[0]?.score || null,
         participants: item.scores.length,
         table: item.table,
