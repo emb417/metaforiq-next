@@ -58,7 +58,7 @@ function getScores(item, selectedUsernames) {
 }
 
 export default function PositionChart({ weeksData }) {
-  const [selectedUsernames, setSelectedUsernames] = useState([]);
+  const [selectedUsernames, setSelectedUsernames] = useState(['primetime5k','tastywasps','mikepmcs','ballmrk']);
   const [data, setData] = useState({ datasets: [] });
 
   const usernames = useMemo(() => {
