@@ -1,5 +1,6 @@
 import _ from "lodash";
 import PositionChart from "@/components/pinball/PositionChart";
+import PositionLeaderboard from "@/components/pinball/PositionLeaderboard";
 
 async function getData() {
   try {
@@ -35,28 +36,21 @@ async function getData() {
     weeksData.forEach((week, weekIndex) => {
       week.scores.forEach((score) => {
         const startIndex = weekIndex;
-        const endIndex = Math.min(
-          weeksData.length,
-          weekIndex + 13
-        );
+        const endIndex = Math.min(weeksData.length, weekIndex + 13);
         const scores = weeksData
           .slice(startIndex, endIndex)
           .flatMap((w) => w.scores.filter((s) => s.username === score.username))
           .reverse();
-        const validScores = scores.filter(
-          (s) => s.position !== null
-        );
+        const validScores = scores.filter((s) => s.position !== null);
         score.rollingAveragePosition =
           validScores.length > 0
-            ? Math.round((validScores.reduce((sum, s) => sum + s.position, 0) /
-              validScores.length) * 1000) / 1000
+            ? Math.round(
+                (validScores.reduce((sum, s) => sum + s.position, 0) /
+                  validScores.length) *
+                  1000
+              ) / 1000
             : null;
       });
-    });
-
-    const statsData = weeksData.map((week) => {
-      const usernames = week.scores.map((score) => score.username);
-      return { weekNumber: week.weekNumber, scores: [...usernames] };
     });
 
     return { props: { weeksData } };
@@ -69,5 +63,14 @@ async function getData() {
 export default async function PinballDashboard() {
   const { props } = await getData();
   const { weeksData } = props;
-  return <PositionChart weeksData={weeksData} />;
+  return (
+    <div className="grid grid-cols-5">
+      <div className="col-span-4">
+        <PositionChart weeksData={weeksData} />
+      </div>
+      <div className="col-span-1 mb-14">
+        <PositionLeaderboard weekData={weeksData[0]} />
+      </div>
+    </div>
+  );
 }
