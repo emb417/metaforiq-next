@@ -65,10 +65,10 @@ export default async function PinballDashboard() {
   const { weeksData } = props;
   return (
     <div className="grid grid-cols-5">
-      <div className="col-span-4 sm:col-span-3">
+      <div className="sm:col-span-3 lg:col-span-4">
         <PositionChart weeksData={weeksData} />
       </div>
-      <div className="col-span-1 sm:col-span-2 mb-14">
+      <div className="sm:col-span-2 lg:col-span-1 mb-14">
         <PositionLeaderboard weekData={weeksData[0]} />
       </div>
     </div>
