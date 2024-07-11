@@ -22,7 +22,6 @@ async function getData() {
       sortedWeeks.flatMap((week) => week.scores.map((score) => score.username))
     );
 
-    // console.log(sortedWeeks[0]);
     const weeksData = sortedWeeks.map((week, index) => {
       // add a score of 0 for any username in allUsernames but not in the scores
       allUsernames.forEach((username) => {
@@ -59,7 +58,7 @@ export default async function SeasonDashboard() {
       <div className="col-span-1 mb-14">
         <SeasonLeaderboard weeksData={weeksData} />
       </div>
-      <div className="col-span-4">
+      <div className="col-span-4 mt-9">
         <SeasonChart weeksData={weeksData} />
       </div>
     </div>
