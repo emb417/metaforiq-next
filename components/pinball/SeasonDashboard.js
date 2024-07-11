@@ -55,10 +55,10 @@ export default async function SeasonDashboard() {
   const { weeksData } = props;
   return (
     <div className="grid grid-cols-5">
-      <div className="col-span-1 mb-14">
+      <div className="col-span-1 sm:col-span-2 mb-14">
         <SeasonLeaderboard weeksData={weeksData} />
       </div>
-      <div className="col-span-4 mt-9">
+      <div className="col-span-4 sm:col-span-3 mt-9">
         <SeasonChart weeksData={weeksData} />
       </div>
     </div>
