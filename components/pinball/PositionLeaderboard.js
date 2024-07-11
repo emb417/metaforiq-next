@@ -40,7 +40,7 @@ export default function PositionLeaderboard({ weekData }) {
             ></span>
             {score.position}.
           </div>
-          <div>{score.username}</div>
+          <div className="truncate">{score.username}</div>
           <div className="ml-auto mr-1">
             {score.score.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             &nbsp;({score.points})

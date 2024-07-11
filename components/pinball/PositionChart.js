@@ -128,7 +128,7 @@ export default function PositionChart({ weeksData }) {
       </div>
       <div className="flex justify-center w-full">
         <Select
-          className="min-w-[300px] p-1 rounded-xl border-2 border-teal-950"
+          className="min-w-[250px] p-1 rounded-xl border-2 border-teal-950"
           mode="multiple"
           tagRender={({ label, value }) =>
             tagRender({
@@ -149,17 +149,17 @@ export default function PositionChart({ weeksData }) {
           value={selectedUsernames}
         />
         <button
-          className="bg-red-700 text-white px-2 ml-2 rounded min-w-[max-content] self-center hover:bg-red-500 duration-300"
+          className="bg-red-700 text-white px-2 m-2 rounded min-w-[max-content] self-center hover:bg-red-500 duration-300"
           onClick={() => setSelectedUsernames([])}
         >
           Clear All
         </button>
       </div>
-      <div className="flex w-full h-[80vh] my-4 justify-center">
+      <div className="flex w-full sm:h-dvh justify-center">
         <Chart
           options={positionOptions}
           data={data}
-          className="bg-slate-900 mx-4 rounded-2xl border-2 border-teal-950"
+          className="bg-slate-900 rounded-2xl border-2 border-teal-950 mt-2 mb-4 ml-4 mr-4"
         />
       </div>
     </div>
