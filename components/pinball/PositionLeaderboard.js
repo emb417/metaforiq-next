@@ -21,10 +21,9 @@ export default function PositionLeaderboard({ weekData }) {
   }, [usernames]);
 
   return (
-    <div className="flex flex-col items-center mr-4 mt-5">
-      <div className="text-2xl text-white mb-2">
-        Week #{weekData.weekNumber}
-      </div>
+    <div className="flex flex-col items-center mr-4 mt-1">
+      <div className="text-xl text-white">{weekData.table}</div>
+      <div className="text-white mb-2">Week #{weekData.weekNumber}</div>
       {weekData.scores.map((score) => (
         <div
           key={score.username}
