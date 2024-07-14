@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { MdLeaderboard } from "react-icons/md";
 import { GiPinballFlipper, GiPositionMarker } from "react-icons/gi";
 import PageTitle from "@/components/nav/PageTitle";
@@ -33,7 +34,15 @@ export default function PinballPage() {
         <SubNav navItems={navItems} />
       </div>
       <div className="flex w-full justify-center items-start">
+      <Suspense
+        fallback={
+          <div className="w-full text-2xl text-white flex justify-center items-center">
+            Loading Pinball Leaderboards...
+          </div>
+        }
+      >
         <Leaderboards />
+      </Suspense>
       </div>
     </div>
   );
