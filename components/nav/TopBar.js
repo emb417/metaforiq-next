@@ -54,10 +54,10 @@ export default function Navbar() {
       </h1>
 
       {/* Desktop Navigation */}
-      <ul className="hidden sm:flex items-center pt-1">
+      <ul className="hidden sm:flex items-center px-4">
         {navItems.map((item) => (
           <Link key={item.id} href={item.href}>
-            <li className="flex items-center cursor-pointer duration-300 hover:text-teal-300 min-w-[max-content] mr-4 p-2 gap-1">
+            <li className="flex items-center cursor-pointer duration-300 hover:text-teal-300 min-w-[max-content] p-2 gap-1">
               {item.icon}
               {item.text}
             </li>
