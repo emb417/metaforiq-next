@@ -9,7 +9,7 @@ const metadata = {
 export default function LoginPage() {
   return (
     <div>
-      <PageTitle><GiKeyLock className="text-3xl mr-2" />{metadata.title}</PageTitle>
+      <PageTitle><GiKeyLock />{metadata.title}</PageTitle>
       <LoginForm />
     </div>
   );
