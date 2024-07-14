@@ -126,7 +126,7 @@ export default function PositionChart({ weeksData }) {
       <div className="text-center text-red-700 mb-4 sm:hidden">
         Rotate screen for better view.
       </div>
-      <div className="flex justify-center w-full">
+      <div className="flex justify-center w-full mb-4">
         <Select
           className="min-w-[250px] p-1 rounded-xl border-2 border-teal-950"
           mode="multiple"
@@ -159,7 +159,7 @@ export default function PositionChart({ weeksData }) {
         <Chart
           options={positionOptions}
           data={data}
-          className="bg-slate-900 rounded-2xl border-2 border-teal-950 mt-2 mb-4 ml-4 mr-4"
+          className="bg-slate-900 rounded-2xl border-2 border-teal-950"
         />
       </div>
     </div>

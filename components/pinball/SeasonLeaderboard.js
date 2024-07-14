@@ -38,8 +38,8 @@ export default function SeasonLeaderboard({ weeksData }) {
     .map((user) => user.username);
 
   return (
-    <div className="flex flex-col items-start ml-4">
-      <div className="flex mb-2 text-2xl text-white mr-2">
+    <div className="flex flex-col items-start">
+      <div className="flex mb-2 text-2xl text-white">
           As of Week #{weeksData[0].currentSeasonWeekNumber}
       </div>
       {sortedUsernames.map((username, index) => (
@@ -58,7 +58,7 @@ export default function SeasonLeaderboard({ weeksData }) {
             ></span>
             {index + 1}.
           </div>
-          <div>{username}</div>
+          <div className="truncate">{username}</div>
           <div className="ml-auto mr-1">
             {
               weeksData[0].scores.find((score) => score.username === username)

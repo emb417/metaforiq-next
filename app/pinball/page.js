@@ -1,6 +1,6 @@
 import PageTitle from "@/components/PageTitle";
 import { GiPinballFlipper } from "react-icons/gi";
-import NavItems from "@/components/pinball/NavItems";
+import Leaderboards from "@/components/pinball/Leaderboards";
 
 export const metadata = {
   title: "Pinball Dashboards",
@@ -12,7 +12,7 @@ export default function PinballPage() {
       <PageTitle>
         <GiPinballFlipper className="text-2xl mr-1 mt-1" /> {metadata.title}
       </PageTitle>
-      <NavItems />
+      <Leaderboards />
     </div>
   );
 }
