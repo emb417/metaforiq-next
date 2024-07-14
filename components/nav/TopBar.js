@@ -49,12 +49,12 @@ export default function Navbar() {
   return (
     <div className="bg-slate-950 border-b border-b-teal-950 flex justify-start items-start max-w-full mx-auto text-white uppercase sans">
       {/* Logo */}
-      <h1 className="w-full text-3xl font-bold text-teal-300 pl-4 p-1">
+      <h1 className="text-3xl font-bold text-teal-300 pl-4 p-1">
         <Link href="/">MetaForIQ</Link>
       </h1>
 
       {/* Desktop Navigation */}
-      <ul className="hidden sm:flex items-center px-4">
+      <ul className="hidden sm:flex items-center px-4 ml-auto">
         {navItems.map((item) => (
           <Link key={item.id} href={item.href}>
             <li className="flex items-center cursor-pointer duration-300 hover:text-teal-300 min-w-[max-content] p-2 gap-1">
@@ -66,7 +66,7 @@ export default function Navbar() {
       </ul>
 
       {/* Mobile Navigation Icon */}
-      <div onClick={handleNav} className="block sm:hidden pr-4 pt-3">
+      <div onClick={handleNav} className="block sm:hidden pr-4 pt-3 ml-auto">
         {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
       </div>
 
