@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { GiPayMoney } from "react-icons/gi";
 import OnOrderItems from "@/components/libowski/on-order/OnOrderItems";
-import PageTitle from "@/components/PageTitle";
+import PageTitle from "@/components/nav/PageTitle";
 
 export const metadata = {
   title: "Recent On Order Titles",

@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { GiSmallFire } from "react-icons/gi";
 import BestSellerItems from "@/components/libowski/best-sellers/BestSellerItems";
-import PageTitle from "@/components/PageTitle";
+import PageTitle from "@/components/nav/PageTitle";
 
 export const metadata = {
   title: "Recent Best Seller Titles",

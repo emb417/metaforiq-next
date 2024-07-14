@@ -87,28 +87,12 @@ export default async function Leaderboards() {
   const { props } = await getData();
   const { positionWeeksData, seasonWeeksData } = props;
   return (
-    <div className="grid grid-cols-2 gap-10 mx-4 mb-14 max-w-[900px] text-white text-2xl">
-      <div className="col-span-2 md:col-span-1 md:max-w-[360px]">
-        <Link
-          href="/pinball/season"
-          className="flex items-center justify-center mb-2 px-8 py-1 w-full h-[max-content] rounded-lg border-2 bg-slate-950 border-teal-950 hover:text-teal-300 hover:bg-slate-900 duration-300"
-        >
-          <MdLeaderboard className="mr-1" /> Season Leaderboard
-        </Link>
-        <SeasonLeaderboard
-          weeksData={seasonWeeksData}
-        />
+    <div className="grid grid-cols-10 gap-8 mx-4 mb-14 max-w-3xl">
+      <div className="col-span-10 sm:col-span-4">
+        <SeasonLeaderboard weeksData={seasonWeeksData} />
       </div>
-      <div className="col-span-2 md:col-span-1 md:max-w-[540px]">
-        <Link
-          href="/pinball/position"
-          className="flex items-center justify-center mb-2 px-8 py-1 w-full h-[max-content] rounded-lg border-2 bg-slate-950 border-teal-950 hover:text-teal-300 hover:bg-slate-900 duration-300"
-        >
-          <GiPositionMarker className="mr-1" /> Position Trends
-        </Link>
-        <PositionLeaderboard
-          weekData={positionWeeksData[0]}
-        />
+      <div className="col-span-10 sm:col-span-6">
+        <PositionLeaderboard weekData={positionWeeksData[0]} />
       </div>
     </div>
   );

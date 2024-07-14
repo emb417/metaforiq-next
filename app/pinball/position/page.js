@@ -1,32 +1,38 @@
-import Link from "next/link";
 import { Suspense } from "react";
-import { GiPositionMarker } from "react-icons/gi";
+import { GiPinballFlipper, GiPositionMarker } from "react-icons/gi";
 import { MdLeaderboard } from "react-icons/md";
-import PageTitle from "@/components/PageTitle";
+import PageTitle from "@/components/nav/PageTitle";
+import SubNav from "@/components/nav/SubNav";
 import PositionDashboard from "@/components/pinball/PositionDashboard";
 
 export const metadata = {
   title: "Position Trends",
 };
 
+const navItems = [
+  {
+    id: 1,
+    icon: <GiPinballFlipper className="mb-1 mr-1" />,
+    href: "/pinball",
+    text: "Pinball Dashboards",
+  },
+  {
+    id: 2,
+    icon: <MdLeaderboard className="mb-1 mr-1" />,
+    href: "/pinball/season",
+    text: "Season Leaderboard",
+  },
+];
+
 export default function PositionPage() {
   return (
     <div className="flex flex-wrap w-full">
-      <PageTitle>
-        <div className="flex p-2 items-center min-w-[max-content]">
-          <GiPositionMarker className="mr-1" />
-          {metadata.title}
-        </div>
-        <div className="flex items-center ml-auto">
-          <Link
-            href="/pinball/season"
-            className="flex p-2 ml-auto text-sm text-white items-end border-l-2 border-teal-950 hover:text-teal-300 duration-300 cursor-pointer"
-          >
-            <MdLeaderboard className="mb-1 mr-1" />
-            Season Leaderboard
-          </Link>
-        </div>
-      </PageTitle>
+      <div className="flex flex-wrap w-full mx-4 mb-4 items-center">
+        <PageTitle>
+          <GiPositionMarker className="mr-1" /> {metadata.title}
+        </PageTitle>
+        <SubNav navItems={navItems} />
+      </div>
       <Suspense
         fallback={
           <div className="w-full text-2xl text-white flex justify-center items-center">

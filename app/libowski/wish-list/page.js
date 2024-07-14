@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { CgPlayList } from "react-icons/cg";
-import PageTitle from "@/components/PageTitle";
+import PageTitle from "@/components/nav/PageTitle";
 import WishListAddItem from "@/components/libowski/wish-list/WishListAddItem";
 import WishListItems from "@/components/libowski/wish-list/WishListItems";
 

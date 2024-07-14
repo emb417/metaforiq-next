@@ -1,5 +1,5 @@
 
-import PageTitle from "@/components/PageTitle";
+import PageTitle from "@/components/nav/PageTitle";
 import NavItems from "@/components/libowski/NavItems";
 import {
   GiBlackball,

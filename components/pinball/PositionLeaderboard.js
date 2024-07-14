@@ -21,7 +21,7 @@ export default function PositionLeaderboard({ weekData }) {
   }, [usernames]);
 
   return (
-    <div className="flex flex-col items-center mt-1">
+    <div className="flex flex-col items-center">
       <div className="text-xl text-white">{weekData.table}</div>
       <div className="text-white mb-2">Week #{weekData.weekNumber}</div>
       {weekData.scores.map((score) => (

@@ -38,9 +38,9 @@ export default function SeasonLeaderboard({ weeksData }) {
     .map((user) => user.username);
 
   return (
-    <div className="flex flex-col items-start">
-      <div className="flex mb-2 text-2xl text-white">
-          As of Week #{weeksData[0].currentSeasonWeekNumber}
+    <div className="flex flex-wrap items-center justify-center">
+      <div className="flex mb-2 text-xl text-white">
+          Season {weeksData[0].season} - Week {weeksData[0].currentSeasonWeekNumber}
       </div>
       {sortedUsernames.map((username, index) => (
         <div

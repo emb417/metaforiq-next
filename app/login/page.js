@@ -1,4 +1,4 @@
-import PageTitle from "@/components/PageTitle";
+import PageTitle from "@/components/nav/PageTitle";
 import LoginForm from "@/components/auth/LoginForm";
 import { GiKeyLock } from "react-icons/gi";
 
