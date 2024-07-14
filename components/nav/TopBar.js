@@ -54,7 +54,7 @@ export default function Navbar() {
       </h1>
 
       {/* Desktop Navigation */}
-      <ul className="hidden md:flex items-center pt-1">
+      <ul className="hidden sm:flex items-center pt-1">
         {navItems.map((item) => (
           <Link key={item.id} href={item.href}>
             <li className="flex items-center cursor-pointer duration-300 hover:text-teal-300 min-w-[max-content] mr-4 p-2 gap-1">
@@ -66,7 +66,7 @@ export default function Navbar() {
       </ul>
 
       {/* Mobile Navigation Icon */}
-      <div onClick={handleNav} className="block md:hidden pr-4 pt-3">
+      <div onClick={handleNav} className="block sm:hidden pr-4 pt-3">
         {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
       </div>
 
@@ -74,7 +74,7 @@ export default function Navbar() {
       <ul
         className={
           nav
-            ? "fixed md:hidden left-0 top-0 w-[60%] h-full border-r border-r-teal-950 bg-slate-950 ease-in-out duration-500 z-50"
+            ? "fixed sm:hidden left-0 top-0 w-[60%] h-full border-r border-r-teal-950 bg-slate-950 ease-in-out duration-500 z-50"
             : "ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]"
         }
       >
