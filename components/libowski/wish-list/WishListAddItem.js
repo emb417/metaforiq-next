@@ -1,12 +1,12 @@
-import { addWishListItem } from "@/actions/actions";
 import { CgPlayListAdd } from "react-icons/cg";
+import { addWishListItem } from "@/actions/actions";
 
 export default function WishListAddItem() {
   return (
-    <form action={addWishListItem} className="flex ml-4 gap-4 w-full">
+    <form action={addWishListItem} className="flex py-4 gap-4 w-full text-white">
       <label
         htmlFor="inputTitle"
-        className="text-white text-xl min-w-[max-content] ml-4"
+        className="text-white text-xl min-w-[max-content]"
       >
         Add Item
       </label>

@@ -12,13 +12,13 @@ export const metadata = {
 const navItems = [
   {
     id: 1,
-    icon: <GiPinballFlipper className="mb-1 mr-1" />,
+    icon: <GiPinballFlipper />,
     href: "/pinball",
     text: "Pinball Dashboards",
   },
   {
     id: 2,
-    icon: <MdLeaderboard className="mb-1 mr-1" />,
+    icon: <MdLeaderboard />,
     href: "/pinball/season",
     text: "Season Leaderboard",
   },
@@ -26,10 +26,10 @@ const navItems = [
 
 export default function PositionPage() {
   return (
-    <div className="flex flex-wrap w-full">
-      <div className="flex flex-wrap w-full mx-4 mb-4 items-center">
+    <div className="flex flex-wrap w-full px-4">
+      <div className="flex flex-wrap w-full mb-4 items-center">
         <PageTitle>
-          <GiPositionMarker className="mr-1" /> {metadata.title}
+          <GiPositionMarker /> {metadata.title}
         </PageTitle>
         <SubNav navItems={navItems} />
       </div>

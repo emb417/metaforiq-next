@@ -18,7 +18,7 @@ export default async function WishListItems() {
   const { items } = props;
 
   return (
-    <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full m-4">
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
       {items.length > 0 ? (
         items.map((item, index) => (
           <div

@@ -87,7 +87,7 @@ export default async function Leaderboards() {
   const { props } = await getData();
   const { positionWeeksData, seasonWeeksData } = props;
   return (
-    <div className="grid grid-cols-10 gap-8 mx-4 mb-14 max-w-3xl">
+    <div className="grid grid-cols-10 gap-8 mb-14 max-w-3xl">
       <div className="col-span-10 sm:col-span-4">
         <SeasonLeaderboard weeksData={seasonWeeksData} />
       </div>

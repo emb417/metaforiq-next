@@ -3,7 +3,7 @@ import { GiTrashCan } from "react-icons/gi";
 
 export default function WishListRemoveItem({ index, title }) {
   return (
-    <form action={removeWishListItem} key={index} className="ml-4">
+    <form action={removeWishListItem} key={index} className="ml-0">
       <input
         hidden
         type="text"
