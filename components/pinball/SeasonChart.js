@@ -11,8 +11,8 @@ import {
   LinearScale,
   Tooltip,
 } from "chart.js";
-import colors from "@/lib/Colors";
-import seasonOptions from "@/lib/SeasonChartOptions";
+import colors from "@/lib/pinball/Colors";
+import seasonOptions from "@/lib/pinball/SeasonChartOptions";
 
 ChartJS.register(
   Title,
@@ -40,9 +40,10 @@ export default function PinballChart({ weeksData }) {
   const [data, setData] = useState({ datasets: [] });
 
   const usernames = useMemo(() => {
-    const usernamesSet = new Set(
-      weeksData.flatMap((item) => item.scores.map((score) => score.username))
+    const sortedScores = weeksData[0].scores.sort(
+      (a, b) => b.cumulativePoints - a.cumulativePoints
     );
+    const usernamesSet = new Set(sortedScores.map((score) => score.username));
     return Array.from(usernamesSet);
   }, [weeksData]);
 
@@ -70,8 +71,9 @@ export default function PinballChart({ weeksData }) {
         backgroundColor: usernameOptions.find(
           (option) => option.value === score.username
         )?.color,
-        borderColor: usernameOptions.find((option) => option.value === score.username)
-          ?.color,
+        borderColor: usernameOptions.find(
+          (option) => option.value === score.username
+        )?.color,
         borderWidth: 1,
         radius: 5,
         hoverRadius: 10,

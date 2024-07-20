@@ -13,8 +13,8 @@ import {
   Tooltip,
 } from "chart.js";
 import { Select, Tag } from "antd";
-import colors from "@/lib/Colors";
-import positionOptions from "@/lib/PositionChartOptions";
+import colors from "@/lib/pinball/Colors";
+import positionOptions from "@/lib/pinball/PositionChartOptions";
 
 ChartJS.register(
   Title,

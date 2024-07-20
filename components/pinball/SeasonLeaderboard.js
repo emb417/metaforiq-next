@@ -1,61 +1,40 @@
-import { useMemo } from "react";
-import colors from "@/lib/Colors";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function SeasonLeaderboard({ weeksData }) {
-  const usernames = useMemo(() => {
-    const usernamesSet = new Set(
-      weeksData.flatMap((item) => item.scores.map((score) => score.username))
-    );
-    return Array.from(usernamesSet);
-  }, [weeksData]);
-
-  const userColors = useMemo(() => {
-    return usernames.reduce((acc, username, index) => {
-      const color = colors[index % 20];
-      return acc.concat({
-        value: username,
-        label: username,
-        color,
-      });
-    }, []);
-  }, [usernames]);
-
   const sortedUsernames = weeksData[0].scores
-    .filter((score) => score.cumulativePoints !== null)
-    .reduce((acc, score) => {
-      if (!acc.some((item) => item.username === score.username)) {
-        acc.push({
-          username: score.username,
-          cumulativePoints: score.cumulativePoints,
-        });
-      } else {
-        const user = acc.find((item) => item.username === score.username);
-        user.cumulativePoints += score.cumulativePoints;
-      }
-      return acc;
-    }, [])
     .sort((a, b) => b.cumulativePoints - a.cumulativePoints)
     .map((user) => user.username);
 
   return (
     <div className="flex flex-wrap items-center justify-center">
       <div className="flex mb-2 text-xl text-white">
-          Season {weeksData[0].season} - Week {weeksData[0].currentSeasonWeekNumber}
+        Season {weeksData[0].season} - Week{" "}
+        {weeksData[0].currentSeasonWeekNumber}
       </div>
       {sortedUsernames.map((username, index) => (
-        <div
+        <Link
+          href={`/pinball/player/${username}`}
           key={username}
-          className="flex items-center gap-2 mb-1 text-white text-sm justify-left border-2 border-teal-950 rounded-lg px-1 w-full bg-slate-900"
+          className="flex items-center gap-2 mb-1 text-white justify-left border-2 border-teal-950 rounded-full pr-2 w-full bg-slate-900 hover:text-teal-300 hover:bg-slate-950 duration-300"
         >
-          <div className="flex items-center ml-1">
-            <span
-              className="w-3 h-3 mr-2 rounded-full"
-              style={{
-                backgroundColor: userColors.find(
-                  (user) => user.value === username
-                ).color,
-              }}
-            ></span>
+          <div className="flex items-center gap-2">
+            {weeksData[0].scores.find((score) => score.username === username)
+              .userAvatarUrl ? (
+              <Image
+                src={
+                  weeksData[0].scores.find(
+                    (score) => score.username === username
+                  ).userAvatarUrl
+                }
+                width={32}
+                height={32}
+                alt={username}
+                className="rounded-full"
+              />
+            ) : (
+              <div className="w-8 h-8 rounded-full bg-teal-950" />
+            )}
             {index + 1}.
           </div>
           <div className="truncate">{username}</div>
@@ -65,7 +44,7 @@ export default function SeasonLeaderboard({ weeksData }) {
                 .cumulativePoints
             }
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );

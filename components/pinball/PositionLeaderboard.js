@@ -1,5 +1,6 @@
 import { useMemo } from "react";
-import colors from "@/lib/Colors";
+import colors from "@/lib/pinball/Colors";
+import Link from "next/link";
 
 export default function PositionLeaderboard({ weekData }) {
   const usernames = useMemo(() => {
@@ -25,13 +26,14 @@ export default function PositionLeaderboard({ weekData }) {
       <div className="text-xl text-white">{weekData.table}</div>
       <div className="text-white mb-2">Week #{weekData.weekNumber}</div>
       {weekData.scores.map((score) => (
-        <div
+        <Link
+          href={`/pinball/player/${score.username}`}
           key={score.username}
-          className="flex items-center gap-2 mb-1 text-white text-sm justify-left border-2 border-teal-950 rounded-lg px-1 w-full bg-slate-900"
+          className="flex items-center gap-2 mb-1 text-white justify-left border-2 border-teal-950 rounded-lg px-1 w-full bg-slate-900 hover:text-teal-300 hover:bg-slate-950 duration-300"
         >
           <div className="flex items-center ml-1">
             <span
-              className="w-3 h-3 mr-2 rounded-full"
+              className="w-4 h-4 mr-2 rounded-full"
               style={{
                 backgroundColor: userColors.find(
                   (user) => user.value === score.username
@@ -45,7 +47,7 @@ export default function PositionLeaderboard({ weekData }) {
             {score.score.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             &nbsp;({score.points})
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );

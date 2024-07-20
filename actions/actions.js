@@ -2,8 +2,8 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { login } from "@/lib/Session";
-import { loginFormSchema, wishListFormSchema } from "@/lib/Schema";
+import { login } from "@/lib/auth/Session";
+import { loginFormSchema, wishListFormSchema } from "@/lib/auth/Schema";
 
 export async function authenticate(formData) {
   const data = loginFormSchema.parse(Object.fromEntries(formData));

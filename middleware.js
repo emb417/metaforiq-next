@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { updateSession } from "@/lib/Session";
+import { updateSession } from "@/lib/auth/Session";
 
 export default async function middleware(request) {
   const response = await updateSession(request);
