@@ -6,7 +6,7 @@ import SubNav from "@/components/nav/SubNav";
 import Leaderboards from "@/components/pinball/Leaderboards";
 
 export const metadata = {
-  title: "Pinball Dashboards",
+  title: "Pinball Leaderboards",
 };
 
 const navItems = [

@@ -57,8 +57,8 @@ function getScores(item, selectedUsernames) {
     }));
 }
 
-export default function PositionChart({ weeksData }) {
-  const [selectedUsernames, setSelectedUsernames] = useState(['primetime5k','tastywasps','mikepmcs','ballmrk']);
+export default function PositionChart({ weeksData, topPlayers }) {
+  const [selectedUsernames, setSelectedUsernames] = useState(topPlayers);
   const [data, setData] = useState({ datasets: [] });
 
   const usernames = useMemo(() => {

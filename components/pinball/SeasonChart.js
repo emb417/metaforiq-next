@@ -60,7 +60,8 @@ export default function PinballChart({ weeksData }) {
 
   useEffect(() => {
     const filteredWeeksData = weeksData.filter((item) => item.season === 5);
-    const datasets = weeksData[0].scores.map((score) => {
+    const topScores = weeksData[0].scores.slice(0, 20);
+    const datasets = topScores.map((score) => {
       return {
         type: "line",
         label: score.username,
