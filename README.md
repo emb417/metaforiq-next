@@ -63,3 +63,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 * [zod](https://github.com/colinhacks/zod) - A TypeScript-first schema declaration and validation library.
 * [lodash](https://github.com/lodash/lodash) - Lodash makes JavaScript easier by taking the hassle out of working with arrays,
 numbers, objects, strings, etc.
+* [sharp](https://github.com/lovell/sharp) - The typical use case for this high speed Node-API module is to convert large images in common formats to smaller, web-friendly JPEG, PNG, WebP, GIF and AVIF images of varying dimensions.
