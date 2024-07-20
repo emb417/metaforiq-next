@@ -22,14 +22,14 @@ export default function PositionLeaderboard({ weekData }) {
   }, [usernames]);
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="text-xl text-white">{weekData.table}</div>
-      <div className="text-white mb-2">Week #{weekData.weekNumber}</div>
+    <div className="flex flex-col items-center text-white">
+      <div>Week #{weekData.weekNumber}</div>
+      <div className="text-xl  mb-2">{weekData.table}</div>
       {weekData.scores.map((score) => (
         <Link
           href={`/pinball/player/${score.username}`}
           key={score.username}
-          className="flex items-center gap-2 mb-1 text-white justify-left border-2 border-teal-950 rounded-lg px-1 w-full bg-slate-900 hover:text-teal-300 hover:bg-slate-950 duration-300"
+          className="flex items-center gap-2 mb-1  justify-left border-2 border-teal-950 rounded-lg px-1 w-full bg-slate-900 hover:text-teal-300 hover:bg-slate-950 duration-300"
         >
           <div className="flex items-center ml-1">
             <span

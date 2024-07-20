@@ -1,5 +1,7 @@
 import _ from "lodash";
-import PlayerAvatar from "@/components/pinball/player/PlayerAvatar";
+import PlayerBio from "@/components/pinball/player/PlayerBio";
+import PlayerSeasonStats from "@/components/pinball/player/PlayerSeasonStats";
+import PlayerWeekStats from "@/components/pinball/player/PlayerWeekStats";
 import LeaderboardStats from "@/lib/pinball/PlayerStats";
 
 async function getData(username) {
@@ -17,6 +19,7 @@ async function getData(username) {
         username: score.username,
         userAvatarUrl: score.userAvatarUrl,
         posted: score.posted,
+        rollingAveragePosition: score.rollingAveragePosition,
       }))
       .find((user) => user.username === username);
 
@@ -39,7 +42,7 @@ async function getData(username) {
     userSeasonDetails.position = sortedUsernames.indexOf(username) + 1;
 
     return {
-      props: { userPositionDetails, userSeasonDetails, user },
+      props: { user, userPositionDetails, userSeasonDetails },
     };
   } catch (error) {
     console.error(error);
@@ -49,48 +52,17 @@ async function getData(username) {
 
 export default async function PlayerProfile({ username }) {
   const { props } = await getData(username);
-  const { userPositionDetails, userSeasonDetails, user } = props;
+  const { user, userPositionDetails, userSeasonDetails } = props;
 
   // TODO: show table history
   // TODO: show participation streak
   // TODO: show participation rate over past 52 weeks
   return (
-    <div className="flex flex-col w-[max-content] gap-4 p-4 text-white">
-      <div className="flex justify-center">
-        <PlayerAvatar user={user} />
-      </div>
-      {userPositionDetails.rollingAveragePosition && (
-        <div className="flex justify-center text-2xl">
-          P{userPositionDetails.rollingAveragePosition} Average
-        </div>
-      )}
-      <div className="border-t-2 border-teal-950 p-2 mt-4">
-        <div className="flex justify-center text-xl">Season 5</div>
-        <div className="flex justify-center text-2xl">
-          P{userSeasonDetails.position} of {userSeasonDetails.numberOfPlayers}
-        </div>
-        <div className="flex justify-center text-xl">
-          {userSeasonDetails.cumulativePoints} Points
-        </div>
-      </div>
-      <div className="border-t-2 border-teal-950 p-2 mt-4">
-        <div className="flex justify-center">
-          Week #{userPositionDetails.weekNumber}
-        </div>
-        {userPositionDetails.position && (
-          <div className="flex justify-center text-2xl">
-            P{userPositionDetails.position} of{" "}
-            {userPositionDetails.numberOfParticipants}
-          </div>
-        )}
-        <div className="flex justify-center">{userPositionDetails.table}</div>
-        <div className="flex justify-center text-2xl">
-          {userPositionDetails.score &&
-            userPositionDetails.score.toLocaleString("en-US")}
-        </div>
-        <div className="flex justify-center text-xl">
-          {userPositionDetails.points || 0} Points
-        </div>
+    <div className="flex flex-wrap w-full gap-8 p-4 items-start">
+      <PlayerBio user={user} />
+      <div className="flex flex-wrap pl-16 md:pl-4 gap-8 items-start">
+        <PlayerSeasonStats userSeasonDetails={userSeasonDetails} />
+        <PlayerWeekStats userPositionDetails={userPositionDetails} />
       </div>
     </div>
   );
