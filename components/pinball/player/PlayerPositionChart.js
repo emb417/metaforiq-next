@@ -25,23 +25,6 @@ ChartJS.register(
   Tooltip
 );
 
-const tagRender = ({ label, value, closable, onClose }) => {
-  const onPreventMouseDown = (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-  };
-  return (
-    <Tag
-      color={value}
-      onMouseDown={onPreventMouseDown}
-      closable={closable}
-      onClose={onClose}
-    >
-      {label}
-    </Tag>
-  );
-};
-
 function getScores(item, selectedUsernames) {
   if (!item || !item.scores) {
     return [];
