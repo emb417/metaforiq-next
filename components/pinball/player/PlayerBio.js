@@ -8,7 +8,7 @@ export default function PlayerBio({
   userSeasonDetails,
 }) {
   return (
-    <div className="flex flex-col w-full text-white text-xl gap-4">
+    <div className="flex flex-col sm:flex-row md:flex-col w-full text-white text-xl gap-4">
       <div className="flex items-center gap-2">
         <Image
           src={user.userAvatarUrl}
