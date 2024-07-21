@@ -1,8 +1,9 @@
 import _ from "lodash";
-import PlayerBio from "@/components/pinball/player/PlayerBio";
-import PlayerSeasonStats from "@/components/pinball/player/PlayerSeasonStats";
-import PlayerWeekStats from "@/components/pinball/player/PlayerWeekStats";
 import LeaderboardStats from "@/lib/pinball/PlayerStats";
+import PlayerBio from "@/components/pinball/player/PlayerBio";
+import PlayerTableHistory from "@/components/pinball/player/PlayerTableHistory";
+import PlayerSeasonChart from "@/components/pinball/player/PlayerSeasonChart";
+import PlayerPositionChart from "@/components/pinball/player/PlayerPositionChart";
 
 async function getData(username) {
   try {
@@ -41,8 +42,28 @@ async function getData(username) {
     userSeasonDetails.numberOfPlayers = seasonWeeksData[0].scores.length;
     userSeasonDetails.position = sortedUsernames.indexOf(username) + 1;
 
+    const userSeasonData = seasonWeeksData.map((week) => ({
+      ...week,
+      scores: week.scores.filter((score) => score.username === username),
+    }));
+
+    const userPositionData = positionWeeksData.map((week) => ({
+      ...week,
+      score: week.scores.find((score) => score.username === username)?.score,
+      points: week.scores.find((score) => score.username === username)?.points,
+      position: week.scores.find((score) => score.username === username)
+        ?.position,
+      numberOfParticipants: week.scores.length,
+    }));
+
     return {
-      props: { user, userPositionDetails, userSeasonDetails },
+      props: {
+        user,
+        userPositionDetails,
+        userPositionData,
+        userSeasonDetails,
+        userSeasonData,
+      },
     };
   } catch (error) {
     console.error(error);
@@ -52,17 +73,34 @@ async function getData(username) {
 
 export default async function PlayerProfile({ username }) {
   const { props } = await getData(username);
-  const { user, userPositionDetails, userSeasonDetails } = props;
+  const {
+    user,
+    userPositionDetails,
+    userPositionData,
+    userSeasonDetails,
+    userSeasonData,
+  } = props;
 
-  // TODO: show table history
   // TODO: show participation streak
   // TODO: show participation rate over past 52 weeks
   return (
-    <div className="flex flex-wrap w-full gap-8 p-4 items-start">
-      <PlayerBio user={user} />
-      <div className="flex flex-wrap pl-16 md:pl-4 gap-8 items-start">
-        <PlayerSeasonStats userSeasonDetails={userSeasonDetails} />
-        <PlayerWeekStats userPositionDetails={userPositionDetails} />
+    <div className="grid grid-cols-1 md:grid-cols-5 xl:grid-cols-10 w-full gap-4">
+      <div className="flex flex-col xl:col-span-2">
+        <PlayerBio
+          user={user}
+          userPositionDetails={userPositionDetails}
+          userSeasonDetails={userSeasonDetails}
+        />
+      </div>
+      <div className="md:col-span-2 xl:col-span-3">
+        <PlayerTableHistory weeksData={userPositionData} />
+      </div>
+      <div className="flex flex-col md:col-span-2 xl:col-span-5 items-center gap-2">
+        <PlayerSeasonChart weeksData={userSeasonData} />
+        <PlayerPositionChart
+          weeksData={userPositionData}
+          username={user.username}
+        />
       </div>
     </div>
   );
