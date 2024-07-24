@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { PlayerSummaryData } from "@/lib/pinball/PlayerStats";
+import PlayerSummaryData from "@/lib/pinball/PlayerStats";
 import PlayerBio from "@/components/pinball/player/PlayerBio";
 import PlayerSummary from "@/components/pinball/player/PlayerSummary";
 import PlayerHistory from "@/components/pinball/player/PlayerHistory";

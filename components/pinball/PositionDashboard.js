@@ -1,7 +1,7 @@
 import _ from "lodash";
 import PositionChart from "@/components/pinball/PositionChart";
 import PositionLeaderboard from "@/components/pinball/PositionLeaderboard";
-import LeaderboardStats from "@/lib/pinball/PlayerStats";
+import LeaderboardStats from "@/lib/pinball/LeaderboardStats";
 
 async function getData() {
   try {
