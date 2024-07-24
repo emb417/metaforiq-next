@@ -105,9 +105,9 @@ export default function PositionChart({ weeksData, topPlayers }) {
       data: weeksData.map((item) => ({
         x: item.weekNumber,
         y: getScores(item, [username])[0]?.position || null,
-        r: Math.max(item.scores.length / 5, 4),
+        r: Math.max(item.numberOfPlayers / 5, 4),
         score: getScores(item, [username])[0]?.score || null,
-        participants: item.scores.length,
+        participants: item.numberOfPlayers,
         table: item.table,
         periodStart: item.periodStart,
         periodEnd: item.periodEnd,
@@ -123,12 +123,9 @@ export default function PositionChart({ weeksData, topPlayers }) {
 
   return (
     <div className="flex flex-col items-center w-full">
-      <div className="text-center text-red-700 mb-4 sm:hidden">
-        Rotate screen for better view.
-      </div>
-      <div className="flex justify-center w-full mb-4">
+      <div className="flex justify-center w-full mb-4 gap-2">
         <Select
-          className="min-w-[250px] p-1 rounded-xl border-2 border-teal-950"
+          className="min-w-[250px] min-h-12 p-1 rounded-xl border-2 border-teal-950"
           mode="multiple"
           tagRender={({ label, value }) =>
             tagRender({
@@ -149,13 +146,13 @@ export default function PositionChart({ weeksData, topPlayers }) {
           value={selectedUsernames}
         />
         <button
-          className="bg-red-700 text-white px-2 m-2 rounded min-w-[max-content] self-center hover:bg-red-500 duration-300"
+          className="bg-red-700 text-white px-2 h-8 rounded min-w-[max-content] self-center hover:bg-red-500 duration-300"
           onClick={() => setSelectedUsernames([])}
         >
           Clear All
         </button>
       </div>
-      <div className="flex w-full sm:h-dvh justify-center">
+      <div className="flex w-full justify-center">
         <Chart
           options={positionOptions}
           data={data}

@@ -86,17 +86,12 @@ export default function PinballChart({ weeksData }) {
   }, [weeksData, usernameOptions]);
 
   return (
-    <div className="flex flex-col items-center w-full">
-      <div className="text-center text-red-700 mb-4 sm:hidden">
-        Rotate screen for better view.
-      </div>
-      <div className="w-full h-dvh">
+      <div className="w-full">
         <Chart
           options={seasonOptions}
           data={data}
           className="bg-slate-900 rounded-2xl border-2 border-teal-950"
         />
       </div>
-    </div>
   );
 }

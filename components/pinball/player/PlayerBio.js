@@ -8,12 +8,12 @@ export default function PlayerBio({
   userSeasonDetails,
 }) {
   return (
-    <div className="flex flex-col sm:flex-row md:flex-col w-full text-white text-xl gap-4">
-      <div className="flex items-center gap-2">
+    <div className="flex flex-col sm:flex-row sm:grid sm:grid-cols-4 md:grid-cols-1 md:flex-col w-full text-white text-xl gap-4">
+      <div className="flex items-center gap-2 pl-2">
         <Image
           src={user.userAvatarUrl}
-          width={48}
-          height={48}
+          width={58}
+          height={58}
           alt={user.username}
           className="rounded-full"
         />
@@ -25,8 +25,10 @@ export default function PlayerBio({
           </div>
         </div>
       </div>
-        <PlayerSeasonStats userSeasonDetails={userSeasonDetails} />
+      <PlayerSeasonStats userSeasonDetails={userSeasonDetails} />
+      <div className="col-span-1 sm:col-span-2 md:col-span-1">
         <PlayerWeekStats userPositionDetails={userPositionDetails} />
+      </div>
     </div>
   );
 }

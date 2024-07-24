@@ -1,13 +1,15 @@
-export default function PlayerTableHistory({ weeksData }) {
+export default function PlayerHistory({ weeksData }) {
   return (
-    <div className="flex flex-col text-white items-start gap-4">
-      <div className="flex text-2xl">Table History</div>
+    <div className="flex flex-col text-white items-start gap-2">
+      <div className="flex text-xl pl-1">Player History</div>
       {weeksData.slice(1).map((weekData, index) => (
         <div
           key={index}
-          className="flex flex-col w-full border-l-2 border-r-2 border-teal-950 px-2"
+          className={`flex flex-col w-full border-2 rounded-xl border-teal-950 px-2 ${
+            index % 2 === 0 ? "bg-slate-900" : ""
+          }`}
         >
-          <div className="flex gap-4">
+          <div className="flex gap-2">
             <div className="truncate">
               {weekData.weekNumber}. {weekData.table}
             </div>
