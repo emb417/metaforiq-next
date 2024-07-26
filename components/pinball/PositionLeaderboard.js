@@ -25,11 +25,13 @@ export default function PositionLeaderboard({ weekData }) {
     <div className="flex flex-col items-center text-white">
       <div>Week #{weekData.weekNumber}</div>
       <div className="text-xl mb-2">{weekData.table}</div>
-      {weekData.scores.map((score) => (
+      {weekData.scores.map((score, index) => (
         <Link
           href={`/pinball/player/${score.username}`}
           key={score.username}
-          className="flex items-center gap-2 mb-1 justify-left border-2 border-teal-950 rounded-lg px-1 w-full bg-slate-900 hover:text-teal-300 hover:bg-slate-950 duration-300"
+          className={`flex items-center gap-2 mb-1 justify-left border-2 border-teal-950 rounded-xl px-1 w-full ${
+            index % 2 === 0 ? "bg-slate-900" : "bg-slate-800"
+          } hover:text-teal-300 hover:bg-slate-950 duration-300`}
         >
           <div className="flex items-center ml-1">
             <span
@@ -43,9 +45,11 @@ export default function PositionLeaderboard({ weekData }) {
             {score.position}.
           </div>
           <div className="truncate">{score.username}</div>
-          <div className="ml-auto mr-1">
-            {score.score.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-            &nbsp;({score.points})
+          <div className="ml-auto mr-1 flex gap-4 flex-row items-center">
+            <div className="text-teal-300 text-sm">
+              {score.score.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            </div>
+            <div className="text-xl">{score.points}</div>
           </div>
         </Link>
       ))}

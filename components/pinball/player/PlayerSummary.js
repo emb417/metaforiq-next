@@ -25,24 +25,24 @@ export default function PlayerSummary({ user }) {
         </PlayerSummaryItem>
       </PlayerSummaryPane>
       <PlayerSummaryPane title="Annual Summary">
-          <PlayerSummaryItem title="Best Result">
-            P{user.annualBestResult}{" "}
-            <span className="text-sm">
-              of {user.annualBestResultNumberOfPlayers}
-            </span>
-          </PlayerSummaryItem>
-          <PlayerSummaryItem title="Games Played">
-            {user.annualGamesPlayed}
-          </PlayerSummaryItem>
-          <PlayerSummaryItem title="Win Percentage">
-            {user.annualWinPercentage}%
-          </PlayerSummaryItem>
-          <PlayerSummaryItem title="Over-Performed">
-            <span className="text-sm">{user.annualOverPerformedTable}</span>
-          </PlayerSummaryItem>
-          <PlayerSummaryItem title="Under-Performed">
-            <span className="text-sm">{user.annualUnderPerformedTable}</span>
-          </PlayerSummaryItem>
+        <PlayerSummaryItem title="Best Result">
+          P{user.annualBestResult}{" "}
+          <span className="text-sm">
+            of {user.annualBestResultNumberOfPlayers}
+          </span>
+        </PlayerSummaryItem>
+        <PlayerSummaryItem title="Games Played">
+          {user.annualGamesPlayed}
+        </PlayerSummaryItem>
+        <PlayerSummaryItem title="Win Percentage">
+          {user.annualWinPercentage}%
+        </PlayerSummaryItem>
+        <PlayerSummaryItem title="Over-Performed">
+          <span className="text-sm">{user.annualOverPerformedTable}</span>
+        </PlayerSummaryItem>
+        <PlayerSummaryItem title="Under-Performed">
+          <span className="text-sm">{user.annualUnderPerformedTable}</span>
+        </PlayerSummaryItem>
       </PlayerSummaryPane>
     </div>
   );

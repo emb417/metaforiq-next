@@ -1,7 +1,7 @@
-import _ from "lodash";
 import SeasonChart from "@/components/pinball/SeasonChart";
 import SeasonLeaderboard from "@/components/pinball/SeasonLeaderboard";
 import LeaderboardStats from "@/lib/pinball/LeaderboardStats";
+import { userWinPercentage } from "@/lib/pinball/PlayerStats";
 
 async function getData() {
   try {
@@ -10,9 +10,20 @@ async function getData() {
     });
     const data = await response.json();
 
-    const { seasonWeeksData } = LeaderboardStats(data);
-
-    return { props: { weeksData: seasonWeeksData } };
+    return {
+      props: {
+        weeksData: LeaderboardStats(data).seasonWeeksData.map((weekData) => ({
+          ...weekData,
+          scores: weekData.scores.map((score, index) => ({
+            ...score,
+            winPercentage: userWinPercentage(
+              LeaderboardStats(data).seasonWeeksData,
+              score.username
+            ),
+          })),
+        })),
+      },
+    };
   } catch (error) {
     console.error(error);
     return { props: { message: "Server Error" } };
@@ -24,10 +35,10 @@ export default async function SeasonDashboard() {
   const { weeksData } = props;
   return (
     <div className="grid grid-cols-12 mb-14 gap-4 w-full">
-      <div className="col-span-12 sm:col-span-4 md:col-span-3 xl:col-span-2">
+      <div className="col-span-12 sm:col-span-5 md:col-span-4 xl:col-span-3">
         <SeasonLeaderboard weeksData={weeksData} />
       </div>
-      <div className="mt-10 col-span-12 sm:col-span-8 md:col-span-9 xl:col-span-10">
+      <div className="mt-10 col-span-12 sm:col-span-7 md:col-span-8 xl:col-span-9">
         <SeasonChart weeksData={weeksData} />
       </div>
     </div>

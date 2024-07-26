@@ -3,7 +3,13 @@ import Image from "next/image";
 
 export default function SeasonLeaderboard({ weeksData }) {
   const sortedUsernames = weeksData[0].scores
-    .sort((a, b) => b.cumulativePoints - a.cumulativePoints)
+    .sort((a, b) => {
+      const cumulativePointsDiff = b.cumulativePoints - a.cumulativePoints;
+      if (cumulativePointsDiff !== 0) {
+        return cumulativePointsDiff;
+      }
+      return b.winPercentage - a.winPercentage;
+    })
     .map((user) => user.username);
 
   return (
@@ -16,7 +22,9 @@ export default function SeasonLeaderboard({ weeksData }) {
         <Link
           href={`/pinball/player/${username}`}
           key={username}
-          className="flex items-center gap-2 mb-1 text-white justify-left border-2 border-teal-950 rounded-full pr-2 w-full bg-slate-900 hover:text-teal-300 hover:bg-slate-950 duration-300"
+          className={`flex items-center gap-2 mb-1 text-white justify-left border-2 border-teal-950 rounded-full pr-2 w-full ${
+            index % 2 === 0 ? "bg-slate-900" : "bg-slate-800"
+          } hover:text-teal-300 hover:bg-slate-950 duration-300`}
         >
           <div className="flex items-center gap-2">
             {weeksData[0].scores.find((score) => score.username === username)
@@ -38,11 +46,20 @@ export default function SeasonLeaderboard({ weeksData }) {
             {index + 1}.
           </div>
           <div className="truncate">{username}</div>
-          <div className="ml-auto mr-1">
-            {
-              weeksData[0].scores.find((score) => score.username === username)
-                .cumulativePoints
-            }
+          <div className="ml-auto mr-1 flex flex-row items-center gap-4">
+            <div className="text-xs text-teal-300">
+              {
+                weeksData[0].scores.find((score) => score.username === username)
+                  .winPercentage
+              }
+              %
+            </div>
+            <div className="mr-1 text-xl">
+              {
+                weeksData[0].scores.find((score) => score.username === username)
+                  .cumulativePoints
+              }
+            </div>
           </div>
         </Link>
       ))}

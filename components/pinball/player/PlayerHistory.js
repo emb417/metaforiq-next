@@ -6,7 +6,7 @@ export default function PlayerHistory({ weeksData }) {
         <div
           key={index}
           className={`flex flex-col w-full border-2 rounded-xl border-teal-950 px-2 ${
-            index % 2 === 0 ? "bg-slate-900" : ""
+            index % 2 === 0 ? "bg-slate-900" : "bg-slate-800"
           }`}
         >
           <div className="flex gap-2">
@@ -16,7 +16,9 @@ export default function PlayerHistory({ weeksData }) {
             <div className="ml-auto min-w-[max-content]">
               {weekData.score ? (
                 <span className="text-teal-300">
-                  {weekData.score.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  {weekData.score
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </span>
               ) : (
                 <span className="text-gray-500">No Score</span>
@@ -34,7 +36,11 @@ export default function PlayerHistory({ weeksData }) {
               )}
             </div>
             <div className="flex ml-auto">
-              {weekData.points ? `${weekData.points} ${weekData.points > 1 ? "Points" : "Point"}` : "0 Points"}
+              {weekData.points
+                ? `${weekData.points} ${
+                    weekData.points > 1 ? "Points" : "Point"
+                  }`
+                : "0 Points"}
             </div>
           </div>
         </div>
@@ -42,4 +48,3 @@ export default function PlayerHistory({ weeksData }) {
     </div>
   );
 }
-
