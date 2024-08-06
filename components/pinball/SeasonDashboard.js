@@ -1,7 +1,6 @@
 import SeasonChart from "@/components/pinball/SeasonChart";
 import SeasonLeaderboard from "@/components/pinball/SeasonLeaderboard";
 import LeaderboardStats from "@/lib/pinball/LeaderboardStats";
-import { userWinPercentage } from "@/lib/pinball/PlayerStats";
 
 async function getData() {
   try {
@@ -10,18 +9,11 @@ async function getData() {
     });
     const data = await response.json();
 
+    const { seasonWeeksData } = LeaderboardStats(data);
+
     return {
       props: {
-        weeksData: LeaderboardStats(data).seasonWeeksData.map((weekData) => ({
-          ...weekData,
-          scores: weekData.scores.map((score, index) => ({
-            ...score,
-            winPercentage: userWinPercentage(
-              LeaderboardStats(data).seasonWeeksData,
-              score.username
-            ),
-          })),
-        })),
+        weeksData: seasonWeeksData,
       },
     };
   } catch (error) {

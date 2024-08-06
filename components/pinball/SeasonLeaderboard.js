@@ -8,7 +8,7 @@ export default function SeasonLeaderboard({ weeksData }) {
       if (cumulativePointsDiff !== 0) {
         return cumulativePointsDiff;
       }
-      return b.winPercentage - a.winPercentage;
+      return b.seasonWinPercentage - a.seasonWinPercentage;
     })
     .map((user) => user.username);
 
@@ -50,7 +50,7 @@ export default function SeasonLeaderboard({ weeksData }) {
             <div className="text-xs text-teal-300">
               {
                 weeksData[0].scores.find((score) => score.username === username)
-                  .winPercentage
+                  .seasonWinPercentage
               }
               %
             </div>

@@ -1,15 +1,11 @@
 import Image from "next/image";
-import PlayerSeasonStats from "@/components/pinball/player/PlayerSeasonStats";
-import PlayerWeekStats from "@/components/pinball/player/PlayerWeekStats";
+import { CgInfo } from "react-icons/cg";
+import { Tooltip } from "antd";
 
-export default function PlayerBio({
-  user,
-  userPositionDetails,
-  userSeasonDetails,
-}) {
+export default function PlayerBio({ user }) {
   return (
-    <div className="flex flex-col sm:flex-row sm:grid sm:grid-cols-4 md:grid-cols-1 md:flex-col w-full text-white text-xl gap-4">
-      <div className="flex items-center gap-2 pl-2">
+    <div className="flex flex-wrap sm:max-w-[max-content] text-white text-xl gap-4 sm:gap-8 border-2 border-teal-950 rounded-full bg-slate-900">
+      <div className="flex items-center gap-2 min-w-[max-content]">
         <Image
           src={user.userAvatarUrl}
           width={58}
@@ -18,16 +14,30 @@ export default function PlayerBio({
           className="rounded-full"
         />
         <div className="flex flex-col">
-          <div className="flex">{user.username}</div>
+          <div className="flex text-sm">{user.username}</div>
           <div className="flex text-teal-300 gap-1">
-            {user.rollingAveragePosition && `P${user.rollingAveragePosition}`}
-            {user.rollingAveragePosition && <div className="text-sm">Avg.</div>}
+            <Tooltip title="Rolling Average Position">{user.rollingAveragePosition && `P${user.rollingAveragePosition}`}</Tooltip>
           </div>
         </div>
       </div>
-      <PlayerSeasonStats userSeasonDetails={userSeasonDetails} />
-      <div className="col-span-1 sm:col-span-2 md:col-span-1">
-        <PlayerWeekStats userPositionDetails={userPositionDetails} />
+      <div className="flex flex-col items-center pr-2 xs:pr-4 md:pr-6 py-1">
+        <div className="text-teal-300">
+          {user.annualGamesPlayedPercentage <= 0.5 ? (
+            <div className="inline-flex items-center gap-1 text-lg">
+              No Rank{" "}
+              <Tooltip
+                title={`To be ranked you need to play more than 50% of the weeks over the past year; play ${Math.floor(
+                  27 - user.annualGamesPlayedPercentage * 52
+                )} more weeks.`}
+              >
+                <CgInfo className="text-white" />
+              </Tooltip>
+            </div>
+          ) : (
+            <div>Rank {user.annualRank}</div>
+          )}
+        </div>
+        <div className="text-white text-sm"><Tooltip title="Annual Win Percentage">{user.annualWinPercentage}%</Tooltip></div>
       </div>
     </div>
   );

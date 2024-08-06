@@ -1,7 +1,7 @@
 import PositionLeaderboard from "@/components/pinball/PositionLeaderboard";
+import RankLeaderboard from "@/components/pinball/RankLeaderboard";
 import SeasonLeaderboard from "@/components/pinball/SeasonLeaderboard";
 import LeaderboardStats from "@/lib/pinball/LeaderboardStats";
-import { userWinPercentage } from "@/lib/pinball/PlayerStats";
 
 async function getData() {
   try {
@@ -12,18 +12,10 @@ async function getData() {
 
     const { positionWeeksData, seasonWeeksData } = LeaderboardStats(data);
 
-    const enrichedSeasonWeeksData = seasonWeeksData.map((weekData) => ({
-      ...weekData,
-      scores: weekData.scores.map((score, index) => ({
-        ...score,
-        winPercentage: userWinPercentage(seasonWeeksData, score.username),
-      })),
-    }));
-
     return {
       props: {
         positionWeeksData,
-        seasonWeeksData: enrichedSeasonWeeksData,
+        seasonWeeksData,
       },
     };
   } catch (error) {
@@ -36,12 +28,15 @@ export default async function Leaderboards() {
   const { props } = await getData();
   const { positionWeeksData, seasonWeeksData } = props;
   return (
-    <div className="grid grid-cols-10 gap-8 mb-14 max-w-3xl">
-      <div className="col-span-10 sm:col-span-5">
+    <div className="grid grid-cols-12 gap-8 mb-14 max-w-6xl">
+      <div className="col-span-12 sm:col-span-6 md:col-span-4">
         <SeasonLeaderboard weeksData={seasonWeeksData} />
       </div>
-      <div className="col-span-10 sm:col-span-5">
+      <div className="col-span-12 sm:col-span-6 md:col-span-4">
         <PositionLeaderboard weekData={positionWeeksData[0]} />
+      </div>
+      <div className="col-span-12 sm:col-span-6 md:col-span-4">
+        <RankLeaderboard weeksData={positionWeeksData} />
       </div>
     </div>
   );

@@ -1,31 +1,19 @@
 import { Suspense } from "react";
-import { MdLeaderboard } from "react-icons/md";
+import { GiPinballFlipper } from "react-icons/gi";
 import PageTitle from "@/components/nav/PageTitle";
 import SubNav from "@/components/nav/SubNav";
 import PlayerProfile from "@/components/pinball/player/PlayerProfile";
 
-const metadata = {
+export const metadata = {
   title: "Player Profile",
 };
 
 const navItems = [
   {
     id: 1,
-    icon: <MdLeaderboard />,
+    icon: <GiPinballFlipper />,
     text: "Pinball Leaderboards",
     href: "/pinball",
-  },
-  {
-    id: 2,
-    icon: "",
-    text: "VPC Competition Corner",
-    href: "https://virtualpinballchat.com/#/weekly-rankings/competition-corner",
-  },
-  {
-    id: 3,
-    icon: "",
-    text: "VPC High Score Corner",
-    href: "https://virtualpinballchat.com/#/high-score-corner",
   },
 ];
 
