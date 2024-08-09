@@ -7,6 +7,7 @@ import PlayerHistory from "@/components/pinball/player/PlayerHistory";
 import PlayerAnnualInsights from "@/components/pinball/player/PlayerAnnualInsights";
 import PlayerSeasonChart from "@/components/pinball/player/PlayerSeasonChart";
 import PlayerPositionChart from "@/components/pinball/player/PlayerPositionChart";
+import { redirect } from "next/navigation";
 
 async function getPlayerSummaryData(username) {
   try {
@@ -29,6 +30,10 @@ export default async function PlayerProfile({ username }) {
     userSeasonSummary,
     userSeasonData,
   } = await getPlayerSummaryData(username);
+
+  if (!user) {
+    redirect("/pinball");
+  }
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-6 xl:grid-cols-10 w-full gap-4">
