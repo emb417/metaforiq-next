@@ -16,7 +16,7 @@ export default function PlayerBio({ user }) {
         <div className="flex flex-col">
           <div className="flex text-sm">{user.username}</div>
           <div className="flex text-teal-300 gap-1">
-            <Tooltip title="Rolling Average Position">{user.rollingAveragePosition && `P${user.rollingAveragePosition}`}</Tooltip>
+          {user.rollingAveragePosition && `P${user.rollingAveragePosition}`}<Tooltip title="Rolling Average Position"><CgInfo className="text-sm text-white" /></Tooltip>
           </div>
         </div>
       </div>
