@@ -8,7 +8,7 @@ export default function PlayerSeasonInsights({ user }) {
         title="Season 5 Insights"
         className="flex flex-row items-center"
       >
-        <PlayerSummaryItem title="Best Game to Average" className="p-2">
+        <PlayerSummaryItem title="Best Game to Average">
           <span className="text-sm">
             P{user.seasonBestPerformancePosition} of{" "}
             {user.seasonBestPerformancePlayers}
@@ -16,7 +16,7 @@ export default function PlayerSeasonInsights({ user }) {
             {user.seasonBestPerformanceTable}
           </span>
         </PlayerSummaryItem>
-        <PlayerSummaryItem title="Worst Game to Average" className="p-2">
+        <PlayerSummaryItem title="Worst Game to Average">
           <span className="text-sm">
             P{user.seasonWorstPerformancePosition} of{" "}
             {user.seasonWorstPerformancePlayers}
