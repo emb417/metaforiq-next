@@ -18,6 +18,7 @@ export default function PlayerSeasonRivals({
         <PlayerSummaryItem title="Points Rivals">
           {sortedRivalsByPoints.map((username, index) => (
             <SeasonLeaderboardItem
+              key={username}
               username={username}
               data={userSeasonRivalsByPoints}
               index={index}
@@ -27,6 +28,7 @@ export default function PlayerSeasonRivals({
         <PlayerSummaryItem title="Win Percentage Rivals">
           {sortedRivalsByWinPercentage.map((username, index) => (
             <SeasonLeaderboardItem
+              key={username}
               username={username}
               data={userSeasonRivalsByWinPercentage}
               index={index}

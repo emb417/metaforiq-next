@@ -10,7 +10,7 @@ export default function SeasonLeaderboard({ weeksData }) {
         Season {data.season} - Week {data.currentSeasonWeekNumber}
       </div>
       {players.map((username, index) => (
-      <SeasonLeaderboardItem username={username} data={data} index={index} />
+      <SeasonLeaderboardItem key={username} username={username} data={data} index={index} />
       ))}
     </div>
   );
