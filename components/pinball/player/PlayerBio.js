@@ -4,7 +4,7 @@ import { Tooltip } from "antd";
 
 export default function PlayerBio({ user }) {
   return (
-    <div className="flex flex-wrap sm:max-w-[max-content] text-white text-xl gap-4 sm:gap-8 border-2 border-teal-950 rounded-full bg-slate-900">
+    <div className="flex flex-row sm:max-w-[max-content] text-white text-xl gap-4 sm:gap-8 border-2 border-teal-950 rounded-full bg-slate-900">
       <div className="flex items-center gap-2 min-w-[max-content]">
         <Image
           src={user.userAvatarUrl}
@@ -20,7 +20,7 @@ export default function PlayerBio({ user }) {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center pr-2 xs:pr-4 md:pr-6 py-1">
+      <div className="flex flex-col w-full items-center pr-2 xs:pr-4 md:pr-6 py-1">
         <div className="text-teal-300">
           {user.annualGamesPlayedPercentage <= 0.5 ? (
             <div className="inline-flex items-center gap-1 text-lg">
