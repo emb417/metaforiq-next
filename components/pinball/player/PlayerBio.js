@@ -4,7 +4,7 @@ import { Tooltip } from "antd";
 
 export default function PlayerBio({ user }) {
   return (
-    <div className="flex flex-row sm:max-w-[max-content] text-white text-xl gap-4 sm:gap-8 border-2 border-teal-950 rounded-full bg-slate-900">
+    <div className="flex flex-row w-full sm:w-1/2 md:w-1/3 min-w-[max-content] text-white text-xl gap-4 sm:gap-8 border-2 border-teal-950 rounded-full bg-slate-900">
       <div className="flex items-center gap-2 min-w-[max-content]">
         <Image
           src={user.userAvatarUrl}
