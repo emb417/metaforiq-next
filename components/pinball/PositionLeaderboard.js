@@ -24,7 +24,7 @@ export default function PositionLeaderboard({ weekData }) {
   return (
     <div className="flex flex-col items-center text-white">
       <div>Week #{weekData.weekNumber}</div>
-      <div className="text-xl mb-2">{weekData.table}</div>
+      <div className="text-xl text-center mb-2">{weekData.table}</div>
       {weekData.scores.map((score, index) => (
         <Link
           href={`/pinball/player/${score.username}`}
