@@ -29,13 +29,13 @@ export default async function Leaderboards() {
   const { positionWeeksData, seasonWeeksData } = props;
   return (
     <div className="grid grid-cols-12 gap-8 mb-14 max-w-6xl">
-      <div className="col-span-12 sm:col-span-6 md:col-span-4">
+      <div className="col-span-12 sm:col-span-6 md:col-span-5 xl:col-span-4">
         <RankLeaderboard weeksData={positionWeeksData} />
       </div>
-      <div className="col-span-12 sm:col-span-6 md:col-span-4">
+      <div className="col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-5 xl:col-span-4">
         <WeeklyLeaderboard weekData={positionWeeksData[0]} />
       </div>
-      <div className="col-span-12 sm:col-span-6 md:col-span-4">
+      <div className="col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-5 xl:col-span-4">
         <SeasonLeaderboard weeksData={seasonWeeksData} />
       </div>
     </div>
