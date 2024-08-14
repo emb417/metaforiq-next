@@ -19,8 +19,8 @@ const navItems = [
   {
     id: 2,
     icon: <GiPositionMarker />,
-    href: "/pinball/position",
-    text: "Position Trends",
+    href: "/pinball/weekly",
+    text: "Weekly Leaderboard",
   },
 ];
 

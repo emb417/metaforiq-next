@@ -3,10 +3,10 @@ import { GiPinballFlipper, GiPositionMarker } from "react-icons/gi";
 import { MdLeaderboard } from "react-icons/md";
 import PageTitle from "@/components/nav/PageTitle";
 import SubNav from "@/components/nav/SubNav";
-import SeasonDashboard from "@/components/pinball/SeasonDashboard";
+import WeeklyDashboard from "@/components/pinball/WeeklyDashboard";
 
 export const metadata = {
-  title: "Season Leaderboard",
+  title: "Weekly Leaderboard",
 };
 
 const navItems = [
@@ -18,29 +18,29 @@ const navItems = [
   },
   {
     id: 2,
-    icon: <GiPositionMarker />,
-    href: "/pinball/weekly",
-    text: "Weekly Leaderboard",
+    icon: <MdLeaderboard />,
+    href: "/pinball/season",
+    text: "Season Leaderboard",
   },
 ];
 
-export default function SeasonPage() {
+export default function WeeklyPage() {
   return (
     <div className="flex flex-wrap w-full px-4">
       <div className="flex flex-wrap w-full mb-4 items-center">
         <PageTitle>
-          <MdLeaderboard /> {metadata.title}
+          <GiPositionMarker /> {metadata.title}
         </PageTitle>
         <SubNav navItems={navItems} />
       </div>
       <Suspense
         fallback={
           <div className="w-full text-2xl text-white flex justify-center items-center">
-            Loading Season Leaderboard...
+            Weekly Leaderboard Trends...
           </div>
         }
       >
-        <SeasonDashboard />
+        <WeeklyDashboard />
       </Suspense>
     </div>
   );

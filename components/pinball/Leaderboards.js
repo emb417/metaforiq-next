@@ -1,7 +1,7 @@
-import PositionLeaderboard from "@/components/pinball/PositionLeaderboard";
-import RankLeaderboard from "@/components/pinball/RankLeaderboard";
-import SeasonLeaderboard from "@/components/pinball/SeasonLeaderboard";
 import LeaderboardStats from "@/lib/pinball/LeaderboardStats";
+import SeasonLeaderboard from "@/components/pinball/SeasonLeaderboard";
+import WeeklyLeaderboard from "@/components/pinball/WeeklyLeaderboard";
+import RankLeaderboard from "@/components/pinball/RankLeaderboard";
 
 async function getData() {
   try {
@@ -30,13 +30,13 @@ export default async function Leaderboards() {
   return (
     <div className="grid grid-cols-12 gap-8 mb-14 max-w-6xl">
       <div className="col-span-12 sm:col-span-6 md:col-span-4">
-        <SeasonLeaderboard weeksData={seasonWeeksData} />
-      </div>
-      <div className="col-span-12 sm:col-span-6 md:col-span-4">
-        <PositionLeaderboard weekData={positionWeeksData[0]} />
-      </div>
-      <div className="col-span-12 sm:col-span-6 md:col-span-4">
         <RankLeaderboard weeksData={positionWeeksData} />
+      </div>
+      <div className="col-span-12 sm:col-span-6 md:col-span-4">
+        <WeeklyLeaderboard weekData={positionWeeksData[0]} />
+      </div>
+      <div className="col-span-12 sm:col-span-6 md:col-span-4">
+        <SeasonLeaderboard weeksData={seasonWeeksData} />
       </div>
     </div>
   );
