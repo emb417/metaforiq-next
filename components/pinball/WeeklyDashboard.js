@@ -27,7 +27,7 @@ export default async function WeeklyDashboard() {
       <div className="col-span-12 sm:col-span-8 md:col-span-6 lg:col-span-4 xl:col-span-3">
         <WeeklyLeaderboard weekData={weeksData[0]} />
       </div>
-      <div className="col-span-12 sm:col-span-12 md:col-span-12 lg:col-span-8 xl:col-span-9">
+      <div className="invisible sm:visible col-span-12 sm:col-span-12 md:col-span-12 lg:col-span-8 xl:col-span-9">
         <WeeklyChart
           weeksData={weeksData}
           topPlayers={_.take(_.map(weeksData[0].scores, "username"), 3)}

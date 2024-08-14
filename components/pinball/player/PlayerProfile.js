@@ -59,7 +59,7 @@ export default async function PlayerProfile({ username }) {
         <PlayerHistory weeksData={userPositionData} />
         <PlayerAnnualInsights user={user} />
       </div>
-      <div className="flex flex-col lg:col-span-6 xl:col-span-5 2xl:col-span-6 items-center gap-2">
+      <div className="flex flex-col invisible sm:visible  lg:col-span-6 xl:col-span-5 2xl:col-span-6 items-center gap-2">
         <PlayerSeasonChart weeksData={userSeasonData} />
         <PlayerPositionChart
           weeksData={userPositionData}
