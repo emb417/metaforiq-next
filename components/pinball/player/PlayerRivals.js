@@ -12,9 +12,9 @@ export default function PlayerRivals({ playerRivals }) {
             <Link
               key={index}
               href={`/pinball/player/${rival.username}`}
-              className="flex flex-row gap-2 text-white text-sm border-2 border-teal-950 rounded-full bg-slate-900"
+              className="flex flex-row gap-3 text-white text-sm border-2 border-teal-950 rounded-full bg-slate-900"
             >
-              <div className="flex items-center gap-1 pr-2 col-span-2">
+              <div className="flex items-center gap-2 pr-2 col-span-2">
                 <Image
                   src={rival.userAvatarUrl}
                   width={32}
@@ -22,6 +22,7 @@ export default function PlayerRivals({ playerRivals }) {
                   alt={rival.username}
                   className="rounded-full"
                 />
+                <span className="text-lg">{rival.rank}.</span>
                 <span className="truncate">{rival.username}</span>
               </div>
               <div className="flex justify-end items-center ml-auto">
@@ -39,10 +40,10 @@ export default function PlayerRivals({ playerRivals }) {
                   </span>
                 </Tooltip>
                 <span className="w-8 h-8">
-                  {index === 0 && (
+                  {index < 2 && (
                     <CgChevronUpO className="text-green-500 w-8 h-8" />
                   )}
-                  {index === 1 && (
+                  {index === 2 && (
                     <CgChevronDownO className="text-red-500 w-8 h-8" />
                   )}
                 </span>

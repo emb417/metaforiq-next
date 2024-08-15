@@ -36,7 +36,7 @@ export default function PinballPage() {
       <div className="flex w-full justify-center items-start">
         <Suspense
           fallback={
-            <div className="w-full text-2xl text-white flex justify-center items-center">
+            <div className="w-full text-2xl text-white text-center flex justify-center items-center">
               Loading Pinball Leaderboards...
             </div>
           }

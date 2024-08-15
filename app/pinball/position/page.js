@@ -35,7 +35,7 @@ export default function PositionPage() {
       </div>
       <Suspense
         fallback={
-          <div className="w-full text-2xl text-white flex justify-center items-center">
+          <div className="w-full text-2xl text-white text-center flex justify-center items-center">
             Loading Position Trends...
           </div>
         }
