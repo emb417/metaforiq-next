@@ -29,8 +29,8 @@ export default async function Leaderboards() {
   const { props } = await getData();
   const { rankedPlayers, positionWeeksData, seasonWeeksData } = props;
   return (
-    <div className="grid grid-cols-12 gap-8 mb-14 max-w-6xl">
-      <div className="col-span-12 sm:col-span-6 md:col-span-6 xl:col-span-4">
+    <div className="grid grid-cols-12 gap-8 mb-14 max-w-7xl">
+      <div className="col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-5 xl:col-span-4">
         <RankLeaderboard rankedPlayers={rankedPlayers} />
       </div>
       <div className="col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-5 xl:col-span-4">
