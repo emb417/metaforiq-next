@@ -12,7 +12,7 @@ import {
   LinearScale,
   Tooltip,
 } from "chart.js";
-import positionOptions from "@/lib/pinball/PlayerPositionChartOptions";
+import positionOptions from "@/lib/pinball/PositionChartOptions";
 
 ChartJS.register(
   Title,
