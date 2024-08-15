@@ -3,28 +3,16 @@ import Image from "next/image";
 import { CgInfo } from "react-icons/cg";
 import { Tooltip } from "antd";
 
-export default function RankLeaderboard({ weeksData }) {
-  const sortedUsers = Array.from(
-    weeksData
-      .flatMap((week) => week.scores)
-      .reduce((acc, user) => {
-        if (user.gamesPlayedPercentage > 0.50 && !acc.has(user.username)) {
-          acc.set(user.username, {
-            username: user.username,
-            userAvatarUrl: user.userAvatarUrl,
-            winPercentage: user.winPercentage,
-          });
-        }
-        return acc;
-      }, new Map()).values()
-  ).sort((a, b) => b.winPercentage - a.winPercentage);
-
+export default function RankLeaderboard({ rankedPlayers }) {
   return (
     <div className="flex flex-wrap items-center justify-center">
       <div className="flex mb-2 text-xl text-white">
-        Annual Rankings <Tooltip title="To be ranked you need to play more than 50% of the weeks over the past year."><CgInfo className="text-sm text-teal-300" /></Tooltip>
+        Annual Rankings{" "}
+        <Tooltip title="To be ranked you need to play more than 50% of the weeks over the past year.">
+          <CgInfo className="text-sm text-teal-300" />
+        </Tooltip>
       </div>
-      {sortedUsers.map((user, index) => (
+      {rankedPlayers.map((user, index) => (
         <Link
           href={`/pinball/player/${user.username}`}
           key={user.username}
@@ -40,10 +28,16 @@ export default function RankLeaderboard({ weeksData }) {
               alt={user.username}
               className="rounded-full"
             />
-            {index + 1}.
+            {user.rank}.
           </div>
           <div className="truncate">{user.username}</div>
           <div className="ml-auto mr-1 flex flex-row items-center gap-4">
+            <div className="flex text-sm text-teal-300">
+              P{user.rollingAveragePosition}
+              <Tooltip title="Rolling Average Position">
+                <CgInfo className="text-white text-xs" />
+              </Tooltip>
+            </div>
             <div className="text-lg">{user.winPercentage}%</div>
           </div>
         </Link>

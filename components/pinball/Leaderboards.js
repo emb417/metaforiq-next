@@ -10,10 +10,11 @@ async function getData() {
     });
     const data = await response.json();
 
-    const { positionWeeksData, seasonWeeksData } = LeaderboardStats(data);
+    const { rankedPlayers, positionWeeksData, seasonWeeksData } = LeaderboardStats(data);
 
     return {
       props: {
+        rankedPlayers,
         positionWeeksData,
         seasonWeeksData,
       },
@@ -26,11 +27,11 @@ async function getData() {
 
 export default async function Leaderboards() {
   const { props } = await getData();
-  const { positionWeeksData, seasonWeeksData } = props;
+  const { rankedPlayers, positionWeeksData, seasonWeeksData } = props;
   return (
     <div className="grid grid-cols-12 gap-8 mb-14 max-w-6xl">
       <div className="col-span-12 sm:col-span-6 md:col-span-5 xl:col-span-4">
-        <RankLeaderboard weeksData={positionWeeksData} />
+        <RankLeaderboard rankedPlayers={rankedPlayers} />
       </div>
       <div className="col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-5 xl:col-span-4">
         <WeeklyLeaderboard weekData={positionWeeksData[0]} />
