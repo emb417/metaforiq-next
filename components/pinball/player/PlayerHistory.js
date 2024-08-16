@@ -5,7 +5,7 @@ export default function PlayerHistory({ weeksData }) {
       <hr className="w-full border-1 border-teal-950" />
       <div
         id="scrollableDiv"
-        className="flex flex-col w-full h-[474px] overflow-auto gap-1"
+        className="flex flex-col w-full h-[336px] overflow-auto gap-1"
       >
           {weeksData.map((weekData, index) => (
             <div
