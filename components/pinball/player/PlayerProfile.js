@@ -46,13 +46,13 @@ export default async function PlayerProfile({ username }) {
           <PlayerBio user={user} userSeasonSummary={userSeasonSummary} />
           <PlayerRivals playerRivals={playerRivals} />
         </div>
+        <PlayerHistory weeksData={userPositionData} />
         <PlayerSeasonRivals
           userSeasonRivalsByWinPercentage={userSeasonRivalsByWinPercentage}
           userSeasonRivalsByPoints={userSeasonRivalsByPoints}
         />
-        <PlayerHistory weeksData={userPositionData} />
       </div>
-      <div className="flex flex-col lg:col-span-6 xl:col-span-5 2xl:col-span-6 items-center gap-2">
+      <div className="flex flex-col lg:col-span-6 xl:col-span-5 2xl:col-span-6 items-center gap-4">
         <PlayerPositionChart
           weeksData={userPositionData}
           username={user.username}
