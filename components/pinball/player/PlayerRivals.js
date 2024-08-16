@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function PlayerRivals({ playerRivals }) {
   return (
-    <div className="flex flex-col gap-2 w-full sm:w-2/3 md:w-full">
+    <div className="flex flex-col gap-2 w-full">
       {playerRivals.map(
         (rival, index) =>
           rival.username && (
