@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { CgInfo, CgChevronUpO, CgChevronDownO } from "react-icons/cg";
+import { CgInfo, CgChevronDoubleUpO, CgChevronUpO, CgChevronDownO } from "react-icons/cg";
 import { Tooltip } from "antd";
 import Link from "next/link";
 
@@ -40,7 +40,10 @@ export default function PlayerRivals({ playerRivals }) {
                   </span>
                 </Tooltip>
                 <span className="w-8 h-8">
-                  {index < 2 && (
+                  {index === 0 && (
+                    <CgChevronDoubleUpO className="text-green-500 w-8 h-8" />
+                  )}
+                  {index === 1 && (
                     <CgChevronUpO className="text-green-500 w-8 h-8" />
                   )}
                   {index === 2 && (
