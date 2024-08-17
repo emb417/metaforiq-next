@@ -1,23 +1,31 @@
 import { CgChevronUpO, CgSoftwareUpload } from "react-icons/cg";
 import { GiRibbonMedal } from "react-icons/gi";
+import Link from "next/link";
 
 export default function PlayerHistory({ weeksData }) {
   return (
     <div className="flex flex-col w-full text-white items-start gap-1 border-2 border-teal-950 rounded-xl px-2 py-1">
       <div className="flex w-full">
         <div className="flex items-center text-sm pl-1">
-          Competition History
+          <Link href="/pinball/weekly">Competition History</Link>
         </div>
         {!weeksData[0].score && (
           <div className="flex items-center ml-auto text-xs">Post a Score</div>
         )}
         {weeksData[0].score && weeksData[0].nextScore && (
-          <div className="flex flex-col items-center ml-auto text-xs">
-            <div className="flex items-center">P{weeksData[0].nextPosition}. {weeksData[0].nextPlayer}</div>
-            <div className="text-teal-300">
-              {weeksData[0].nextScore.toLocaleString()}
+          <Link
+            href={`/pinball/player/${weeksData[0].nextPlayer}`}
+            className="flex items-center ml-auto"
+          >
+            <div className="flex flex-col items-center text-xs">
+              <div className="flex items-center">
+                P{weeksData[0].nextPosition}. {weeksData[0].nextPlayer}
+              </div>
+              <div className="text-teal-300">
+                {weeksData[0].nextScore.toLocaleString()}
+              </div>
             </div>
-          </div>
+          </Link>
         )}
         {weeksData[0].score && !weeksData[0].nextScore && (
           <div className="flex flex-row items-center ml-auto text-xs">
