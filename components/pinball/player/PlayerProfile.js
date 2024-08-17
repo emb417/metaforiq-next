@@ -42,9 +42,11 @@ export default async function PlayerProfile({ username }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-6 xl:grid-cols-12 2xl:grid-cols-12 w-full gap-4">
       <div className="flex flex-col lg:col-span-5 xl:col-span-7 2xl:col-span-6 gap-4">
-        <div className="flex grid grid-cols-1 sm:grid-cols-2 items-center gap-4">
+        <div className="flex grid grid-cols-1 sm:grid-cols-2 items-center gap-2">
           <PlayerBio user={user} userSeasonSummary={userSeasonSummary} />
-          <PlayerRivals playerRivals={playerRivals} />
+          {playerRivals.some((rival) => rival !== undefined) && (
+            <PlayerRivals playerRivals={playerRivals} />
+          )}
         </div>
         <PlayerHistory weeksData={userPositionData} />
         <PlayerSeasonRivals
