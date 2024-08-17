@@ -15,7 +15,14 @@ export default function PlayerHistory({ weeksData }) {
           <Link href="/pinball/weekly">Competition History</Link>
         </div>
         {!weeksData[0].score && (
-          <div className="flex items-center ml-auto text-xs">Post a Score</div>
+          <div className="flex items-center ml-auto text-xs">
+            <Link
+              href="https://discord.com/channels/652274650524418078/720381436842213397"
+              target="_blank"
+            >
+              Post a Score
+            </Link>
+          </div>
         )}
         {weeksData[0].score && weeksData[0].nextScore && (
           <div className="flex flex-col items-center ml-auto text-xs">
@@ -42,7 +49,12 @@ export default function PlayerHistory({ weeksData }) {
         )}
         {!weeksData[0].score && (
           <div className="flex items-center pl-1 text-xl">
-            <CgSoftwareUpload className="text-red-500 animate-pulse" />
+            <Link
+              href="https://discord.com/channels/652274650524418078/720381436842213397"
+              target="_blank"
+            >
+              <CgSoftwareUpload className="text-red-500 animate-pulse" />
+            </Link>
           </div>
         )}
         {weeksData[0].score && weeksData[0].nextScore && (
