@@ -12,7 +12,7 @@ export default function PlayerHistory({ weeksData }) {
     <div className="flex flex-col w-full text-white items-start gap-1 border-2 border-teal-950 rounded-xl px-2 py-1">
       <div className="flex w-full">
         <div className="flex items-center text-sm pl-1">
-          <Link href="/pinball/weekly">Competition History</Link>
+          <Link href="/pinball/history">Weekly History</Link>
         </div>
         {!weeksData[0].score && (
           <div className="flex items-center ml-auto text-xs">
@@ -81,40 +81,42 @@ export default function PlayerHistory({ weeksData }) {
               index % 2 === 0 ? "bg-slate-900" : "bg-slate-800"
             }`}
           >
-            <div className="flex gap-2">
-              <div className="truncate text-sm">
-                {weekData.weekNumber}. {weekData.table}
+            <Link href={`/pinball/history?week=${weekData.weekNumber}`}>
+              <div className="flex gap-2">
+                <div className="truncate text-sm">
+                  {weekData.weekNumber}. {weekData.table}
+                </div>
+                <div className="ml-auto min-w-[max-content] text-sm">
+                  {weekData.score ? (
+                    <span className="text-teal-300">
+                      {weekData.score
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    </span>
+                  ) : (
+                    <span className="text-gray-500">No Score</span>
+                  )}
+                </div>
               </div>
-              <div className="ml-auto min-w-[max-content] text-sm">
-                {weekData.score ? (
-                  <span className="text-teal-300">
-                    {weekData.score
-                      .toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                  </span>
-                ) : (
-                  <span className="text-gray-500">No Score</span>
-                )}
+              <div className="flex gap-2 items-start">
+                <div className="">
+                  {weekData.position ? (
+                    <span className="text-teal-300">
+                      P{weekData.position} of {weekData.numberOfParticipants}
+                    </span>
+                  ) : (
+                    <span className="text-gray-500">No Position</span>
+                  )}
+                </div>
+                <div className="flex ml-auto">
+                  {weekData.points
+                    ? `${weekData.points} ${
+                        weekData.points > 1 ? "Points" : "Point"
+                      }`
+                    : "0 Points"}
+                </div>
               </div>
-            </div>
-            <div className="flex gap-2 items-start">
-              <div className="">
-                {weekData.position ? (
-                  <span className="text-teal-300">
-                    P{weekData.position} of {weekData.numberOfParticipants}
-                  </span>
-                ) : (
-                  <span className="text-gray-500">No Position</span>
-                )}
-              </div>
-              <div className="flex ml-auto">
-                {weekData.points
-                  ? `${weekData.points} ${
-                      weekData.points > 1 ? "Points" : "Point"
-                    }`
-                  : "0 Points"}
-              </div>
-            </div>
+            </Link>
           </div>
         ))}
         <div className="flex justify-center items-center text-2xl sticky bottom-0">
