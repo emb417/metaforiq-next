@@ -1,6 +1,11 @@
-import { CgChevronUpO, CgSoftwareUpload } from "react-icons/cg";
-import { GiRibbonMedal } from "react-icons/gi";
 import Link from "next/link";
+import {
+  CgChevronDoubleDownO,
+  CgChevronUpO,
+  CgSoftwareUpload,
+} from "react-icons/cg";
+import { GiRibbonMedal } from "react-icons/gi";
+import { Tooltip } from "antd";
 
 export default function PlayerHistory({ weeksData }) {
   return (
@@ -17,6 +22,7 @@ export default function PlayerHistory({ weeksData }) {
             href={`/pinball/player/${weeksData[0].nextPlayer}`}
             className="flex items-center ml-auto"
           >
+            <Tooltip title={`Only ${(weeksData[0].nextScore-weeksData[0].score).toLocaleString()} more points!`}>
             <div className="flex flex-col items-center text-xs">
               <div className="flex items-center">
                 P{weeksData[0].nextPosition}. {weeksData[0].nextPlayer}
@@ -25,6 +31,7 @@ export default function PlayerHistory({ weeksData }) {
                 {weeksData[0].nextScore.toLocaleString()}
               </div>
             </div>
+            </Tooltip>
           </Link>
         )}
         {weeksData[0].score && !weeksData[0].nextScore && (
@@ -37,12 +44,16 @@ export default function PlayerHistory({ weeksData }) {
         )}
         {!weeksData[0].score && (
           <div className="flex items-center pl-1 text-xl">
-            <CgSoftwareUpload className="text-red-500" />
+            <CgSoftwareUpload className="text-red-500 animate-pulse" />
           </div>
         )}
         {weeksData[0].score && weeksData[0].nextScore && (
-          <div className="flex items-center pl-1 text-xl">
-            <CgChevronUpO className="text-green-500" />
+          <div className="flex items-center pl-1 text-2xl">
+            <Tooltip title={`Only ${(weeksData[0].nextScore-weeksData[0].score).toLocaleString()} more points!`}>
+            <Link href={`/pinball/player/${weeksData[0].nextPlayer}`}>
+              <CgChevronUpO className="text-green-500 animate-pulse" />
+            </Link>
+            </Tooltip>
           </div>
         )}
       </div>
@@ -59,10 +70,10 @@ export default function PlayerHistory({ weeksData }) {
             }`}
           >
             <div className="flex gap-2">
-              <div className="truncate">
+              <div className="truncate text-sm">
                 {weekData.weekNumber}. {weekData.table}
               </div>
-              <div className="ml-auto min-w-[max-content]">
+              <div className="ml-auto min-w-[max-content] text-sm">
                 {weekData.score ? (
                   <span className="text-teal-300">
                     {weekData.score
@@ -74,7 +85,7 @@ export default function PlayerHistory({ weeksData }) {
                 )}
               </div>
             </div>
-            <div className="flex gap-2 items-end">
+            <div className="flex gap-2 items-start">
               <div className="">
                 {weekData.position ? (
                   <span className="text-teal-300">
@@ -94,6 +105,11 @@ export default function PlayerHistory({ weeksData }) {
             </div>
           </div>
         ))}
+        <div className="flex justify-center items-center text-2xl sticky bottom-0">
+          <Tooltip title="Scroll Down for More">
+            <CgChevronDoubleDownO className="text-teal-600 animate-bounce" />
+          </Tooltip>
+        </div>
       </div>
     </div>
   );
