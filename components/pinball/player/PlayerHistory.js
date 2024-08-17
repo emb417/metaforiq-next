@@ -18,21 +18,25 @@ export default function PlayerHistory({ weeksData }) {
           <div className="flex items-center ml-auto text-xs">Post a Score</div>
         )}
         {weeksData[0].score && weeksData[0].nextScore && (
-          <Link
-            href={`/pinball/player/${weeksData[0].nextPlayer}`}
-            className="flex items-center ml-auto"
-          >
-            <Tooltip title={`Only ${(weeksData[0].nextScore-weeksData[0].score).toLocaleString()} more points!`}>
-            <div className="flex flex-col items-center text-xs">
-              <div className="flex items-center">
+          <div className="flex flex-col items-center ml-auto text-xs">
+            <div className="flex items-center">
+              <Link
+                href={`/pinball/player/${weeksData[0].nextPlayer}`}
+                className="flex items-center"
+              >
                 P{weeksData[0].nextPosition}. {weeksData[0].nextPlayer}
-              </div>
-              <div className="text-teal-300">
-                {weeksData[0].nextScore.toLocaleString()}
-              </div>
+              </Link>
             </div>
-            </Tooltip>
-          </Link>
+            <div className="text-teal-300">
+              <Tooltip
+                title={`Only ${(
+                  weeksData[0].nextScore - weeksData[0].score
+                ).toLocaleString()} more points!`}
+              >
+                {weeksData[0].nextScore.toLocaleString()}
+              </Tooltip>
+            </div>
+          </div>
         )}
         {weeksData[0].score && !weeksData[0].nextScore && (
           <div className="flex flex-row items-center ml-auto text-xs">
@@ -49,10 +53,12 @@ export default function PlayerHistory({ weeksData }) {
         )}
         {weeksData[0].score && weeksData[0].nextScore && (
           <div className="flex items-center pl-1 text-2xl">
-            <Tooltip title={`Only ${(weeksData[0].nextScore-weeksData[0].score).toLocaleString()} more points!`}>
-            <Link href={`/pinball/player/${weeksData[0].nextPlayer}`}>
+            <Tooltip
+              title={`Only ${(
+                weeksData[0].nextScore - weeksData[0].score
+              ).toLocaleString()} more points!`}
+            >
               <CgChevronUpO className="text-green-500 animate-pulse" />
-            </Link>
             </Tooltip>
           </div>
         )}
