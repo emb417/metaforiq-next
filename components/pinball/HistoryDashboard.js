@@ -17,7 +17,7 @@ async function getData() {
   }
 }
 
-export default async function HistoryDashboard({week}) {
+export default async function HistoryDashboard() {
   const { props } = await getData();
   const { weeksData } = props;
   return <HistoryLeaderboards weeksData={weeksData} />;
