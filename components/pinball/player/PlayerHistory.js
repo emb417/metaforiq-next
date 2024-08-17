@@ -19,23 +19,17 @@ export default function PlayerHistory({ weeksData }) {
         )}
         {weeksData[0].score && weeksData[0].nextScore && (
           <div className="flex flex-col items-center ml-auto text-xs">
-            <div className="flex items-center">
-              <Link
-                href={`/pinball/player/${weeksData[0].nextPlayer}`}
-                className="flex items-center"
-              >
+            <Link
+              href={`/pinball/player/${weeksData[0].nextPlayer}`}
+              className="flex flex-col items-center"
+            >
+              <div className="flex items-center">
                 P{weeksData[0].nextPosition}. {weeksData[0].nextPlayer}
-              </Link>
-            </div>
-            <div className="text-teal-300">
-              <Tooltip
-                title={`Only ${(
-                  weeksData[0].nextScore - weeksData[0].score
-                ).toLocaleString()} more points!`}
-              >
+              </div>
+              <div className="text-teal-300">
                 {weeksData[0].nextScore.toLocaleString()}
-              </Tooltip>
-            </div>
+              </div>
+            </Link>
           </div>
         )}
         {weeksData[0].score && !weeksData[0].nextScore && (
