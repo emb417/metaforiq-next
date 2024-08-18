@@ -29,28 +29,36 @@ export default function WeeklyLeaderboard({ weekData }) {
         <Link
           href={`/pinball/player/${score.username}`}
           key={score.username}
-          className={`flex items-center gap-2 mb-1 justify-left border-2 border-teal-950 rounded-xl px-1 w-full ${
+          className={`flex flex-col items-center mb-1 justify-left rounded-xl px-1 w-full ${
             index % 2 === 0 ? "bg-slate-900" : "bg-slate-800"
           } hover:text-teal-300 hover:bg-slate-950 duration-300`}
         >
-          <div className="flex items-center ml-1">
-            <span
-              className="w-4 h-4 mr-2 rounded-full"
-              style={{
-                backgroundColor: userColors.find(
-                  (user) => user.value === score.username
-                ).color,
-              }}
-            ></span>
-            {score.position}.
-          </div>
-          <div className="truncate">{score.username}</div>
-          <div className="ml-auto mr-1 flex gap-4 flex-row items-center">
-            <div className="text-teal-300 text-sm">
-              {score.score.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          <div className="flex flex-row gap-2 justify-left w-full items-center">
+            <div className="flex gap-2 items-center">
+              <span
+                className="w-4 h-4 rounded-full"
+                style={{
+                  backgroundColor: userColors.find(
+                    (user) => user.value === score.username
+                  ).color,
+                }}
+              ></span>
+              {score.position}.
             </div>
-            <div className="text-xl">{score.points}</div>
+            <div className="truncate">{score.username}</div>
+            <div className="flex flex-row gap-3 items-center ml-auto">
+              <div className="text-teal-300 text-sm">
+                {score.score.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              </div>
+              <div className="text-xl">{score.points}</div>
+            </div>
           </div>
+          <hr
+            style={{
+              width: score.score === 0 ? "100%" : `${(score.score / weekData.scores[0].score) * 100}%`,
+            }}
+            className="mr-auto border-t-4 border-gray-400 pb-1"
+          />
         </Link>
       ))}
     </div>
