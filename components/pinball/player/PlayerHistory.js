@@ -77,7 +77,7 @@ export default function PlayerHistory({ weeksData }) {
         {weeksData.map((weekData, index) => (
           <div
             key={index}
-            className={`flex flex-col w-full border-2 rounded-xl border-teal-950 px-2 ${
+            className={`flex flex-col w-full rounded-xl px-2 pt-1 ${
               index % 2 === 0 ? "bg-slate-900" : "bg-slate-800"
             }`}
           >

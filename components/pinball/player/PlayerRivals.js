@@ -12,7 +12,7 @@ export default function PlayerRivals({ playerRivals }) {
             <Link
               key={index}
               href={`/pinball/player/${rival.username}`}
-              className="flex flex-row gap-1 text-white text-sm border-2 border-teal-950 rounded-full bg-slate-900 hover:text-teal-300 hover:bg-slate-950 duration-300"
+              className="flex flex-row gap-1 text-white text-sm rounded-full bg-slate-900 hover:text-teal-300 hover:bg-slate-950 duration-300"
             >
               <div className="flex items-center gap-2 pr-2 col-span-2">
                 <Image

@@ -125,7 +125,7 @@ export default function WeeklyChart({ weeksData, topPlayers }) {
     <div className="flex flex-col items-center w-full">
       <div className="flex justify-center w-full mb-4 gap-2">
         <Select
-          className="min-w-[250px] min-h-12 p-1 rounded-xl border-2 border-teal-950"
+          className="min-w-[250px] min-h-12 p-1 rounded-xl"
           mode="multiple"
           tagRender={({ label, value }) =>
             tagRender({
@@ -156,7 +156,7 @@ export default function WeeklyChart({ weeksData, topPlayers }) {
         <Chart
           options={positionOptions}
           data={data}
-          className="bg-slate-900 rounded-2xl border-2 border-teal-950"
+          className="bg-slate-900 rounded-2xl"
         />
       </div>
     </div>

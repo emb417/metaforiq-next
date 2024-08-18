@@ -87,7 +87,7 @@ export default function PositionChart({ weeksData, username }) {
         <Chart
           options={positionOptions}
           data={data}
-          className="bg-slate-900 rounded-2xl border-2 border-teal-950"
+          className="bg-slate-900 rounded-2xl"
         />
     </div>
   );

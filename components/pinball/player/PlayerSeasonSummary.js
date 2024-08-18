@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function PlayerSummary({ user, userSeasonSummary }) {
   return (
-    <div className="flex flex-row gap-3 border-2 rounded-full px-2 border-teal-950 bg-slate-950 items-center w-full">
+    <div className="flex flex-row gap-3 rounded-full px-2 bg-slate-900 items-center w-full">
       <div className="text-sm text-white">
         <Link href="/pinball/season">Season 5</Link>
       </div>

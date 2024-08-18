@@ -16,7 +16,7 @@ export default function RankLeaderboard({ rankedPlayers }) {
         <Link
           href={`/pinball/player/${user.username}`}
           key={user.username}
-          className={`flex items-center gap-2 mb-1 text-white justify-left border-2 border-teal-950 rounded-full pr-2 w-full ${
+          className={`flex items-center gap-2 mb-1 text-white justify-left rounded-full pr-2 w-full ${
             index % 2 === 0 ? "bg-slate-900" : "bg-slate-800"
           } hover:text-teal-300 hover:bg-slate-950 duration-300`}
         >

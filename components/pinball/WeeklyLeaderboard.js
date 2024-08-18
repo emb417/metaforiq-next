@@ -29,7 +29,7 @@ export default function WeeklyLeaderboard({ weekData }) {
         <Link
           href={`/pinball/player/${score.username}`}
           key={score.username}
-          className={`flex flex-col items-center mb-1 justify-left rounded-xl px-1 w-full ${
+          className={`flex flex-col items-center mb-1 justify-left rounded-xl px-2 w-full ${
             index % 2 === 0 ? "bg-slate-900" : "bg-slate-800"
           } hover:text-teal-300 hover:bg-slate-950 duration-300`}
         >
@@ -50,7 +50,7 @@ export default function WeeklyLeaderboard({ weekData }) {
               <div className="text-teal-300 text-sm">
                 {score.score.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
               </div>
-              <div className="text-xl">{score.points}</div>
+              <div className="text-xl mr-1">{score.points}</div>
             </div>
           </div>
           <hr

@@ -90,7 +90,7 @@ export default function PinballChart({ weeksData }) {
         <Chart
           options={seasonOptions}
           data={data}
-          className="bg-slate-900 rounded-2xl border-2 border-teal-950"
+          className="bg-slate-900 rounded-2xl"
         />
       </div>
   );

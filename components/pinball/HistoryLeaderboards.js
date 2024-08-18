@@ -61,7 +61,7 @@ export default function HistoryLeaderboards({ weeksData }) {
               <Link
                 href={`/pinball/player/${score.username}`}
                 key={score.username}
-                className={`flex items-center gap-2 justify-left border-2 border-teal-950 rounded-full pr-1 w-full ${
+                className={`flex items-center gap-2 justify-left rounded-full pr-1 w-full ${
                   scoreIndex % 2 === 0 ? "bg-slate-900" : "bg-slate-800"
                 } hover:text-teal-300 hover:bg-slate-950 duration-300`}
               >
