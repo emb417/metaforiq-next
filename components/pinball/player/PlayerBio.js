@@ -50,10 +50,12 @@ export default function PlayerBio({ user, userSeasonSummary }) {
           </div>
         </div>
       </div>
-      <PlayerSeasonSummary
+      {userSeasonSummary && (
+        <PlayerSeasonSummary
           user={user}
           userSeasonSummary={userSeasonSummary}
         />
+      )}
     </div>
   );
 }
