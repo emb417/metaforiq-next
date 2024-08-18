@@ -98,6 +98,15 @@ export default function PlayerHistory({ weeksData }) {
                   )}
                 </div>
               </div>
+              <hr
+                style={{
+                  width:
+                  weekData.scores[0].score === 0
+                      ? "100%"
+                      : `${(weekData.score / weekData.scores[0].score) * 100}%`,
+                }}
+                className="mr-auto border-t-4 border-gray-400"
+              />
               <div className="flex gap-2 items-start">
                 <div className="">
                   {weekData.position ? (
