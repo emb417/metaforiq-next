@@ -31,8 +31,8 @@ export default function HistoryPage() {
       </div>
       <Suspense
         fallback={
-          <div className="w-full text-2xl text-white text-center flex justify-center items-center">
-            Weekly Leaderboard Trends...
+          <div className="w-full text-2xl text-white text-center flex justify-center items-center animate-pulse">
+            Loading {metadata.title}...
           </div>
         }
       >

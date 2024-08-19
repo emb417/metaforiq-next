@@ -41,7 +41,7 @@ export default function OnOrderPage() {
         <SubNav navItems={navItems} />
       </div>
       <Suspense
-        fallback={<div className="text-2xl text-white m-8">Loading...</div>}
+        fallback={<div className="text-2xl text-white m-8 animate-pulse">Loading...</div>}
       >
         <OnOrderItems />
       </Suspense>

@@ -35,8 +35,8 @@ export default function SeasonPage() {
       </div>
       <Suspense
         fallback={
-          <div className="w-full text-2xl text-white text-center flex justify-center items-center">
-            Loading Season Leaderboard...
+          <div className="w-full text-2xl text-white text-center flex justify-center items-center animate-pulse">
+            Loading {metadata.title}...
           </div>
         }
       >

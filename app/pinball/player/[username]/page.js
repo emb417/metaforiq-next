@@ -28,8 +28,8 @@ export default function PlayerProfilePage({ params }) {
       <div className="flex w-full justify-center items-start">
         <Suspense
           fallback={
-            <div className="w-full text-2xl text-white text-center flex justify-center items-center">
-              Loading User Details Page for {username}...
+            <div className="w-full text-2xl text-white text-center flex justify-center items-center animate-pulse">
+              Loading {metadata.title} for {username}...
             </div>
           }
         >
