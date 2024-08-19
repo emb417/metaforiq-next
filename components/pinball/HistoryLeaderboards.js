@@ -23,13 +23,13 @@ export default function HistoryLeaderboards({ weeksData }) {
   return (
     <div
       id="scrollableDiv"
-      className="flex flex-row w-full gap-2 text-white pb-4 mb-4 border-b border-teal-950 overflow-auto"
+      className="flex flex-row w-full gap-4 text-white pb-4 mb-4 border-b border-teal-950 overflow-auto"
     >
       {weeksData.map((weekData) => (
         <div
           key={weekData.weekNumber}
           id={weekData.weekNumber}
-          className="flex flex-col gap-1 items-center w-[500px]"
+          className="flex flex-col gap-1 items-center min-w-[300px] max-w-[300px]"
         >
           <div
             className={`flex flex-col p-2 w-full h-[120px] justify-center rounded-3xl ${
