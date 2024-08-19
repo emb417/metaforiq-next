@@ -41,13 +41,13 @@ export default function PlayerRivals({ playerRivals }) {
                 </Tooltip>
                 <span className="w-8 h-8">
                   {index === 0 && (
-                    <CgChevronDoubleUpO className="text-green-500 w-8 h-8" />
+                    <Tooltip title="Ranked 2 Places Higher"><CgChevronDoubleUpO className="text-green-500 w-8 h-8" /></Tooltip>
                   )}
                   {index === 1 && (
-                    <CgChevronUpO className="text-green-500 w-8 h-8" />
+                    <Tooltip title="Ranked 1 Place Higher"><CgChevronUpO className="text-green-500 w-8 h-8" /></Tooltip>
                   )}
                   {index === 2 && (
-                    <CgChevronDownO className="text-red-500 w-8 h-8" />
+                    <Tooltip title="Ranked 1 Place Lower"><CgChevronDownO className="text-red-500 w-8 h-8" /></Tooltip>
                   )}
                 </span>
               </div>
