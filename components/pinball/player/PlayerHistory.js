@@ -98,15 +98,28 @@ export default function PlayerHistory({ weeksData }) {
                   )}
                 </div>
               </div>
-              <hr
-                style={{
-                  width:
-                  weekData.scores[0].score === 0
-                      ? "100%"
-                      : `${(weekData.score / weekData.scores[0].score) * 100}%`,
-                }}
-                className="mr-auto border-t-4 border-gray-400"
-              />
+              <Tooltip
+                title={`${
+                  Number.isNaN(
+                    (weekData.score / weekData.scores[0].score) * 100
+                  )
+                    ? 0
+                    : Math.round((weekData.score / weekData.scores[0].score) * 100)
+                }% to 1st Place`}
+                placement="topRight"
+              >
+                <hr
+                  style={{
+                    width:
+                      weekData.scores[0].score === 0
+                        ? "100%"
+                        : `${
+                            (weekData.score / weekData.scores[0].score) * 100
+                          }%`,
+                  }}
+                  className={`mr-auto ${!weekData.score ? "border-t-0" : "border-t-4 border-gray-400"}`}
+                />
+              </Tooltip>
               <div className="flex gap-2 items-start">
                 <div className="">
                   {weekData.position ? (

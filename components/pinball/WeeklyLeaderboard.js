@@ -1,6 +1,7 @@
 import { useMemo } from "react";
-import colors from "@/lib/pinball/Colors";
 import Link from "next/link";
+import { Tooltip } from "antd";
+import colors from "@/lib/pinball/Colors";
 
 export default function WeeklyLeaderboard({ weekData }) {
   const usernames = useMemo(() => {
@@ -53,12 +54,26 @@ export default function WeeklyLeaderboard({ weekData }) {
               <div className="text-xl mr-1">{score.points}</div>
             </div>
           </div>
-          <hr
-            style={{
-              width: score.score === 0 ? "100%" : `${(score.score / weekData.scores[0].score) * 100}%`,
-            }}
-            className="mr-auto border-t-4 border-gray-400 pb-1"
-          />
+          <Tooltip
+            title={`${
+              Number.isNaN((score.score / weekData.scores[0].score) * 100)
+                ? 0
+                : Math.round((score.score / weekData.scores[0].score) * 100)
+            }% to 1st Place`}
+            placement="topRight"
+          >
+            <hr
+              style={{
+                width:
+                  weekData.scores[0].score === 0
+                    ? "100%"
+                    : `${(score.score / weekData.scores[0].score) * 100}%`,
+              }}
+              className={`mr-auto pb-1 ${
+                !score.score ? "border-t-0" : "border-t-4 border-gray-400"
+              }`}
+            />
+          </Tooltip>
         </Link>
       ))}
     </div>
