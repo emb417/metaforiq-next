@@ -16,6 +16,7 @@ export default function WishListAddItem() {
         id="inputTitle"
         name="inputTitle"
         placeholder="title"
+        autoComplete="off"
         className="min-w-lg bg-slate-950 px-2 py-1 rounded-lg border-2 border-teal-950"
       />
       <button type="submit">

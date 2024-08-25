@@ -9,6 +9,7 @@ export default function WishListRemoveItem({ index, title }) {
         type="text"
         id="inputTitle"
         name="inputTitle"
+        autoComplete="off"
         defaultValue={title}
       />
       <button type="submit">

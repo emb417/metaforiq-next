@@ -24,6 +24,7 @@ export default function LoginForm() {
             id="username"
             name="username"
             placeholder="username"
+            autoComplete="username"
             className="w-full bg-slate-950 p-1 rounded-lg border-2 border-teal-950 text-center"
           />
         </div>
@@ -37,6 +38,7 @@ export default function LoginForm() {
             id="password"
             name="password"
             placeholder="password"
+            autoComplete="current-password"
             className="w-full bg-slate-950 p-1 rounded-lg border-2 border-teal-950 text-center"
           />
         </div>
