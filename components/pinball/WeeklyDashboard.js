@@ -6,7 +6,7 @@ import WeeklyChart from "@/components/pinball/WeeklyChart";
 async function getData() {
   try {
     const response = await fetch(`${process.env.VPC_API_URL}`, {
-      next: { revalidate: 300 },
+      next: { revalidate: 0 },
     });
     const data = await response.json();
 

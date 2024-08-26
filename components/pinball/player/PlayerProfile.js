@@ -13,7 +13,7 @@ import PlayerPositionChart from "@/components/pinball/player/PlayerPositionChart
 async function getPlayerSummaryData(username) {
   try {
     const response = await fetch(`${process.env.VPC_API_URL}`, {
-      next: { revalidate: 300 },
+      next: { revalidate: 0 },
     });
     const data = await response.json();
 
