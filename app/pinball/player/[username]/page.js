@@ -12,7 +12,7 @@ const navItems = [
   {
     id: 1,
     icon: <GiPinballFlipper />,
-    text: "Pinball Leaderboards",
+    text: "Leaderboards",
     href: "/pinball",
   },
 ];

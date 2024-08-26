@@ -1,7 +1,8 @@
 
 import { Suspense } from "react";
 import { CgCalendar } from "react-icons/cg";
-import { GiPinballFlipper } from "react-icons/gi";
+import { GiPinballFlipper, GiPositionMarker } from "react-icons/gi";
+import { MdLeaderboard } from "react-icons/md";
 import PageTitle from "@/components/nav/PageTitle";
 import SubNav from "@/components/nav/SubNav";
 import HistoryDashboard from "@/components/pinball/HistoryDashboard";
@@ -16,6 +17,18 @@ const navItems = [
     icon: <GiPinballFlipper />,
     href: "/pinball",
     text: "Leaderboards",
+  },
+  {
+    id: 2,
+    icon: <MdLeaderboard />,
+    href: "/pinball/season",
+    text: "Season",
+  },
+  {
+    id: 3,
+    icon: <GiPositionMarker />,
+    href: "/pinball/weekly",
+    text: "Weekly",
   },
 ];
 
