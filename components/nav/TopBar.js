@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import {
   GiHeavyRain,
@@ -22,12 +23,6 @@ export default function Navbar() {
   const navItems = [
     {
       id: 1,
-      icon: <GiBrain />,
-      href: "/",
-      text: "Home",
-    },
-    {
-      id: 2,
       icon: <GiHeavyRain />,
       href: "/force-rain",
       text: "Force Rain",
@@ -50,7 +45,10 @@ export default function Navbar() {
     <div className="bg-slate-950 border-b border-b-teal-950 flex justify-start items-start max-w-full mx-auto text-white uppercase sans">
       {/* Logo */}
       <h1 className="text-3xl font-bold text-teal-300 pl-4 p-1">
-        <Link href="/">MetaForIQ</Link>
+        <Link href="/" className="flex items-center gap-1">
+          <Image src="/icon.png" alt="MetaForIQ Logo" width={30} height={30} />
+          <span className="text-xl">MetaForIQ</span>
+        </Link>
       </h1>
 
       {/* Desktop Navigation */}
@@ -66,7 +64,7 @@ export default function Navbar() {
       </ul>
 
       {/* Mobile Navigation Icon */}
-      <div onClick={handleNav} className="block sm:hidden pr-4 pt-3 ml-auto">
+      <div onClick={handleNav} className="block sm:hidden pr-4 pt-2 ml-auto">
         {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
       </div>
 
@@ -80,7 +78,19 @@ export default function Navbar() {
       >
         {/* Mobile Logo */}
         <h1 className="w-full uppercase text-3xl font-bold text-teal-300 pl-4 py-1">
-          <Link href="/" onClick={handleNav}>MetaForIQ</Link>
+          <Link
+            href="/"
+            onClick={handleNav}
+            className="flex items-center gap-1"
+          >
+            <Image
+              src="/icon.png"
+              alt="MetaForIQ Logo"
+              width={30}
+              height={30}
+            />
+            <span className="text-xl">MetaForIQ</span>
+          </Link>
         </h1>
 
         {/* Mobile Navigation Items */}
