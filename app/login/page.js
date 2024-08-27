@@ -8,7 +8,7 @@ const metadata = {
 
 export default function LoginPage() {
   return (
-    <div>
+    <div className="flex flex-wrap w-full px-4">
       <PageTitle><GiKeyLock />{metadata.title}</PageTitle>
       <LoginForm />
     </div>
