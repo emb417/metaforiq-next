@@ -29,7 +29,7 @@ export default function HistoryLeaderboards({ weeksData }) {
         <div
           key={weekData.weekNumber}
           id={weekData.weekNumber}
-          className="flex flex-col gap-1 items-center min-w-[300px] max-w-[300px]"
+          className="flex flex-col gap-1 items-center min-w-[320px] max-w-[320px]"
         >
           <div
             className={`flex flex-col p-2 w-full h-[120px] justify-center rounded-3xl ${
