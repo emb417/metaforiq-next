@@ -72,7 +72,7 @@ export default function PlayerHistory({ weeksData }) {
       <hr className="w-full pb-1 border-1 border-teal-950" />
       <div
         id="scrollableDiv"
-        className="flex flex-col w-full h-[336px] overflow-auto gap-1"
+        className="flex flex-col w-full h-[242px] overflow-auto gap-1"
       >
         {weeksData.map((weekData, index) => (
           <div
@@ -104,7 +104,9 @@ export default function PlayerHistory({ weeksData }) {
                     (weekData.score / weekData.scores[0].score) * 100
                   )
                     ? 0
-                    : Math.round((weekData.score / weekData.scores[0].score) * 100)
+                    : Math.round(
+                        (weekData.score / weekData.scores[0].score) * 100
+                      )
                 }% to 1st Place`}
                 placement="topRight"
               >
@@ -117,7 +119,11 @@ export default function PlayerHistory({ weeksData }) {
                             (weekData.score / weekData.scores[0].score) * 100
                           }%`,
                   }}
-                  className={`mr-auto ${!weekData.score ? "border-t-0" : "border-t-4 border-gray-400"}`}
+                  className={`mr-auto ${
+                    !weekData.score
+                      ? "border-t-0"
+                      : "border-t-4 border-gray-400"
+                  }`}
                 />
               </Tooltip>
               <div className="flex gap-2 items-start">

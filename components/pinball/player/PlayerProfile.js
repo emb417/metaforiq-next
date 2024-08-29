@@ -7,8 +7,7 @@ import PlayerSeasonRivals from "@/components/pinball/player/PlayerSeasonRivals";
 import PlayerSeasonInsights from "@/components/pinball/player/PlayerSeasonInsights";
 import PlayerHistory from "@/components/pinball/player/PlayerHistory";
 import PlayerAnnualInsights from "@/components/pinball/player/PlayerAnnualInsights";
-import PlayerSeasonChart from "@/components/pinball/player/PlayerSeasonChart";
-import PlayerPositionChart from "@/components/pinball/player/PlayerPositionChart";
+import PlayerCharts from "@/components/pinball/player/PlayerCharts";
 
 async function getPlayerSummaryData(username) {
   try {
@@ -32,7 +31,6 @@ export default async function PlayerProfile({ username }) {
     userSeasonSummary,
     userSeasonRivalsByWinPercentage,
     userSeasonRivalsByPoints,
-    userSeasonData,
   } = await getPlayerSummaryData(username);
 
   if (!user) {
@@ -55,13 +53,9 @@ export default async function PlayerProfile({ username }) {
         />
       </div>
       <div className="flex flex-col lg:col-span-6 xl:col-span-5 2xl:col-span-6 items-center gap-4">
-        <PlayerPositionChart
-          weeksData={userPositionData}
-          username={user.username}
-        />
-        <PlayerAnnualInsights user={user} />
         <PlayerSeasonInsights user={user} />
-        <PlayerSeasonChart weeksData={userSeasonData} />
+        <PlayerAnnualInsights user={user} />
+        <PlayerCharts weeksData={userPositionData} username={user.username} />
       </div>
     </div>
   );
