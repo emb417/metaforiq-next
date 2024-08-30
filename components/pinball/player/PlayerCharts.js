@@ -64,11 +64,13 @@ function getScores(item, selectedUsernames) {
       position: score.position,
       score: score.score,
       rollingAveragePosition: score.rollingAveragePosition,
+      annualWinPercentage: score.annualWinPercentage,
     }));
 }
 
 export default function PlayerCharts({ weeksData, username }) {
   const [selectedDatasets, setSelectedDatasets] = useState([
+    "winPercentageDatasets",
     "rollingAverageDatasets",
     "positionDatasets",
   ]);
@@ -78,8 +80,12 @@ export default function PlayerCharts({ weeksData, username }) {
   const selectedDatasetsOptions = useMemo(() => {
     return [
       {
+        value: "winPercentageDatasets",
+        label: "Win %",
+      },
+      {
         value: "rollingAverageDatasets",
-        label: "Rolling Average",
+        label: "Rolling Avg.",
       },
       {
         value: "positionDatasets",
@@ -109,11 +115,17 @@ export default function PlayerCharts({ weeksData, username }) {
   useEffect(() => {
     const rollingAverageDatasets = selectedUsernames.map((username) => ({
       type: "line",
+      yAxisID: "y",
       label: username,
       data: weeksData.map((item) => {
         return {
           x: item.weekNumber,
           y: getScores(item, [username])[0]?.rollingAveragePosition || null,
+          position: getScores(item, [username])[0]?.position || null,
+          table: item.table,
+          week: item.weekNumber,
+          periodStart: item.periodStart,
+          periodEnd: item.periodEnd,
         };
       }),
       backgroundColor: selectOptions.find((option) => option.value === username)
@@ -126,8 +138,10 @@ export default function PlayerCharts({ weeksData, username }) {
       pointStyle: "triangle",
       rotation: 270,
     }));
+
     const positionDatasets = selectedUsernames.map((username) => ({
       type: "bubble",
+      yAxisID: "y",
       label: username,
       data: weeksData.map((item) => ({
         x: item.weekNumber,
@@ -136,19 +150,51 @@ export default function PlayerCharts({ weeksData, username }) {
         score: getScores(item, [username])[0]?.score || null,
         participants: item.numberOfPlayers,
         table: item.table,
+        week: item.weekNumber,
         periodStart: item.periodStart,
         periodEnd: item.periodEnd,
       })),
       backgroundColor: selectOptions.find((option) => option.value === username)
         ?.color,
-      hoverRadius: 8,
+      hoverRadius: 5,
       pointStyle: "circle",
       rotation: 0,
     }));
 
-    const datasets = selectedDatasets.includes("rollingAverageDatasets")
-      ? rollingAverageDatasets
+    const winPercentageDatasets = selectedUsernames.map((username) => ({
+      type: "line",
+      yAxisID: "y2",
+      label: username,
+      data: weeksData.map((item) => {
+        return {
+          x: item.weekNumber,
+          y: getScores(item, [username])[0]?.annualWinPercentage || null,
+          winPercentage:
+            getScores(item, [username])[0]?.annualWinPercentage || null,
+          table: item.table,
+          week: item.weekNumber,
+          periodStart: item.periodStart,
+          periodEnd: item.periodEnd,
+        };
+      }),
+      backgroundColor: selectOptions.find((option) => option.value === username)
+        ?.color,
+      borderColor: selectOptions.find((option) => option.value === username)
+        ?.color,
+      borderWidth: 2,
+      radius: 6,
+      hoverRadius: 10,
+      hoverBorderWidth: 2,
+      pointStyle: "cross",
+      rotation: 45,
+    }));
+
+    const datasets = selectedDatasets.includes("winPercentageDatasets")
+      ? winPercentageDatasets
       : [];
+    if (selectedDatasets.includes("rollingAverageDatasets")) {
+      datasets.push(...rollingAverageDatasets);
+    }
     if (selectedDatasets.includes("positionDatasets")) {
       datasets.push(...positionDatasets);
     }
@@ -158,8 +204,10 @@ export default function PlayerCharts({ weeksData, username }) {
 
   return (
     <div className="flex flex-col w-full text-white items-start gap-1 border-2 border-teal-950 rounded-xl px-2 pt-1 pb-2">
-      <div className="flex flex-col sm:flex-row w-full gap-2 items-center py-1">
-        <div className="flex min-w-[max-content] text-sm">Annual Charts</div>
+      <div className="flex flex-col sm:flex-row w-full gap-2 py-1">
+        <div className="flex min-w-[max-content] text-sm items-center">
+          Annual Charts
+        </div>
         <Select
           {...selectSharedProps}
           tagRender={({ label, value }) =>
