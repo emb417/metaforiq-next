@@ -63,6 +63,7 @@ export default function PlayerHistory({ weeksData }) {
               title={`Only ${(
                 weeksData[0].nextScore - weeksData[0].score
               ).toLocaleString()} more points!`}
+              color="rgba(15, 23, 42, 0.9)"
             >
               <CgChevronUpO className="text-green-500 animate-pulse" />
             </Tooltip>

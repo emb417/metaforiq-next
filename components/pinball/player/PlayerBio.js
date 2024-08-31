@@ -18,7 +18,11 @@ export default function PlayerBio({ user, userSeasonSummary }) {
           <div className="flex flex-col">
             <div className="flex text-sm">{user.username}</div>
             <div className="flex text-teal-300 gap-1 justify-center">
-              <Tooltip title="Rolling Average Position" className="flex">
+              <Tooltip
+                title="Rolling Average Position"
+                className="flex"
+                color="rgba(15, 23, 42, 0.8)"
+              >
                 {user.rollingAveragePosition &&
                   `P${user.rollingAveragePosition}`}
                 <CgInfo className="text-sm text-white" />
@@ -35,6 +39,7 @@ export default function PlayerBio({ user, userSeasonSummary }) {
                   title={`To be ranked you need to play more than 50% of the weeks over the past year; play ${Math.floor(
                     27 - user.annualGamesPlayedPercentage * 52
                   )} more weeks.`}
+                  color="rgba(15, 23, 42, 0.8)"
                 >
                   <CgInfo className="text-white" />
                 </Tooltip>

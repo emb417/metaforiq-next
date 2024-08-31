@@ -8,7 +8,10 @@ export default function RankLeaderboard({ rankedPlayers }) {
     <div className="flex flex-wrap items-center justify-center">
       <div className="flex mb-2 text-xl text-white">
         Annual Rankings{" "}
-        <Tooltip title="To be ranked you need to play more than 50% of the weeks over the past year.">
+        <Tooltip
+          title="To be ranked you need to play more than 50% of the weeks over the past year."
+          color="rgba(15, 23, 42, 0.8)"
+        >
           <CgInfo className="text-sm text-teal-300" />
         </Tooltip>
       </div>
