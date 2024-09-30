@@ -12,8 +12,6 @@ This project uses a .env file for a few use cases:
     * SECRET_KEY=[32 random characters]
 1. Virtual Pinball Chat API
     * VPC_API_URL=[API URL]
-1. (Optional) Google Tag Manager ID
-    * NEXT_PUBLIC_GTM_ID=[Container ID]
 
 Install and run the development server:
 

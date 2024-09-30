@@ -10,7 +10,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/third-parties": "^14.2.3",
     "antd": "^5.17.4",
     "chart.js": "^4.4.3",
     "dotenv": "^16.4.5",
