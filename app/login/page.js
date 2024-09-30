@@ -4,6 +4,9 @@ import { GiKeyLock } from "react-icons/gi";
 
 const metadata = {
   title: "Login",
+  alternates: {
+    canonical: "/login",
+  }
 };
 
 export default function LoginPage() {

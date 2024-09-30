@@ -8,6 +8,9 @@ import Leaderboards from "@/components/pinball/Leaderboards";
 
 export const metadata = {
   title: "Pinball Leaderboards",
+  alternates: {
+    canonical: "/pinball",
+  }
 };
 
 const navItems = [

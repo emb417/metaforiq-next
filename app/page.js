@@ -2,6 +2,9 @@ import Messages from "@/components/canvas/Messages";
 
 export const metadata = {
   title: "Metaforiq Home",
+  alternates: {
+    canonical: "/",
+  }
 };
 
 const welcomeMessages = [

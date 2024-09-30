@@ -8,6 +8,9 @@ import SeasonDashboard from "@/components/pinball/SeasonDashboard";
 
 export const metadata = {
   title: "Season Leaderboard",
+  alternates: {
+    canonical: "/pinball/season",
+  }
 };
 
 const navItems = [

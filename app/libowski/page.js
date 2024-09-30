@@ -12,6 +12,9 @@ import LoginForm from "@/components/auth/LoginForm";
 export const metadata = {
   title: "Libowski",
   subTitle: "The Library Dude",
+  alternates: {
+    canonical: "/libowski",
+  }
 };
 
 const navItems = [

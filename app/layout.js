@@ -2,6 +2,10 @@ import TopBar from "@/components/nav/TopBar";
 import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 
+export const metadata = {
+  metadataBase: new URL('https://www.metaforiq.com'),
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">

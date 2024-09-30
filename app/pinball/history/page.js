@@ -9,6 +9,9 @@ import HistoryDashboard from "@/components/pinball/HistoryDashboard";
 
 export const metadata = {
   title: "Weekly History",
+  alternates: {
+    canonical: "/pinball/history",
+  }
 };
 
 const navItems = [

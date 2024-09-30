@@ -4,9 +4,16 @@ import PageTitle from "@/components/nav/PageTitle";
 import SubNav from "@/components/nav/SubNav";
 import PlayerProfile from "@/components/pinball/player/PlayerProfile";
 
-export const metadata = {
-  title: "Player Profile",
-};
+export async function generateMetadata({ params }) {
+  const username = params.username;
+
+  return {
+    title: "Player Profile",
+    alternates: {
+      canonical: `/pinball/player/${username}`,
+    },
+  }
+}
 
 const navItems = [
   {
@@ -22,14 +29,14 @@ export default function PlayerProfilePage({ params }) {
   return (
     <div className="flex flex-wrap w-full px-4 mb-14">
       <div className="flex flex-wrap w-full mb-4 items-center">
-        <PageTitle>{metadata.title}</PageTitle>
+        <PageTitle>Player Profile</PageTitle>
         <SubNav navItems={navItems} />
       </div>
       <div className="flex w-full justify-center items-start">
         <Suspense
           fallback={
             <div className="w-full text-2xl text-white text-center flex justify-center items-center animate-pulse">
-              Loading {metadata.title} for {username}...
+              Loading Player Profile for {username}...
             </div>
           }
         >

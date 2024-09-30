@@ -3,6 +3,9 @@ import ForceRainOnCanvas from "@/components/force-rain/ForceRainOnCanvas";
 
 export const metadata = {
   title: "Force Rain",
+  alternates: {
+    canonical: "/force-rain",
+  }
 };
 
 const helpMessages = [

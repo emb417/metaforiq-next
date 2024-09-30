@@ -8,6 +8,9 @@ import WeeklyDashboard from "@/components/pinball/WeeklyDashboard";
 
 export const metadata = {
   title: "Weekly Leaderboard",
+  alternates: {
+    canonical: "/pinball/weekly",
+  }
 };
 
 const navItems = [
