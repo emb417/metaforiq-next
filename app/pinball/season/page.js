@@ -8,6 +8,7 @@ import SeasonDashboard from "@/components/pinball/SeasonDashboard";
 
 export const metadata = {
   title: "Season Leaderboard",
+  description: "VPC Season Leaderboard",
   alternates: {
     canonical: "/pinball/season",
   }

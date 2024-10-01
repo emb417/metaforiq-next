@@ -8,6 +8,7 @@ import WishListItems from "@/components/libowski/wish-list/WishListItems";
 
 export const metadata = {
   title: "Wish List",
+  description: "Library Wish List",
   alternates: {
     canonical: "/libowski/wish-list",
   }

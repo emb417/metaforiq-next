@@ -8,6 +8,7 @@ import Leaderboards from "@/components/pinball/Leaderboards";
 
 export const metadata = {
   title: "Pinball Leaderboards",
+  description: "VPC Pinball Leaderboards",
   alternates: {
     canonical: "/pinball",
   }

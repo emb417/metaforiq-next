@@ -9,6 +9,7 @@ import HistoryDashboard from "@/components/pinball/HistoryDashboard";
 
 export const metadata = {
   title: "Weekly History",
+  description: "VPC Weekly History",
   alternates: {
     canonical: "/pinball/history",
   }

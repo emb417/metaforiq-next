@@ -11,6 +11,7 @@ import LoginForm from "@/components/auth/LoginForm";
 
 export const metadata = {
   title: "Libowski",
+  description: "The Library Dude",
   subTitle: "The Library Dude",
   alternates: {
     canonical: "/libowski",

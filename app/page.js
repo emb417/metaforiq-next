@@ -1,7 +1,8 @@
 import Messages from "@/components/canvas/Messages";
 
 export const metadata = {
-  title: "Metaforiq Home",
+  title: "Metaforiq",
+  description: "A personal portfolio of projects.",
   alternates: {
     canonical: "/",
   }

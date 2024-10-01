@@ -9,6 +9,7 @@ export async function generateMetadata({ params }) {
 
   return {
     title: "Player Profile",
+    description: `VPC Player Profile for ${username}`,
     alternates: {
       canonical: `/pinball/player/${username}`,
     },

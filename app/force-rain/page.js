@@ -3,6 +3,7 @@ import ForceRainOnCanvas from "@/components/force-rain/ForceRainOnCanvas";
 
 export const metadata = {
   title: "Force Rain",
+  description: "A digital rain with controls to change color, gravity, and 3d effects.",
   alternates: {
     canonical: "/force-rain",
   }

@@ -7,6 +7,7 @@ import OnOrderItems from "@/components/libowski/on-order/OnOrderItems";
 
 export const metadata = {
   title: "Recent On Orders",
+  description: "Library Recent On Orders",
   alternates: {
     canonical: "/libowski/on-order",
   }

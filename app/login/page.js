@@ -4,6 +4,7 @@ import { GiKeyLock } from "react-icons/gi";
 
 const metadata = {
   title: "Login",
+  description: "Login",
   alternates: {
     canonical: "/login",
   }

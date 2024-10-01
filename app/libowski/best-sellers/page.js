@@ -7,6 +7,7 @@ import BestSellerItems from "@/components/libowski/best-sellers/BestSellerItems"
 
 export const metadata = {
   title: "Recent Best Sellers",
+  description: "Library Recent Best Sellers",
   alternates: {
     canonical: "/libowski/best-sellers",
   }
