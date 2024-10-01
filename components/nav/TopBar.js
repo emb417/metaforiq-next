@@ -79,7 +79,7 @@ export default function Navbar() {
         }
       >
         {/* Mobile Logo */}
-        <li>
+        <li key="Home">
           <h1 className="w-full uppercase text-3xl font-bold text-teal-300 pl-4 py-1">
             <Link
               href="/"
@@ -99,7 +99,7 @@ export default function Navbar() {
 
         {/* Mobile Navigation Items */}
         {navItems.map((item) => (
-          <li>
+          <li key={item.id}>
             <Link
               key={item.id}
               href={item.href}
