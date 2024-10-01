@@ -54,12 +54,14 @@ export default function Navbar() {
       {/* Desktop Navigation */}
       <ul className="hidden sm:flex items-center px-4 ml-auto">
         {navItems.map((item) => (
-          <Link key={item.id} href={item.href}>
-            <li className="flex items-center cursor-pointer duration-300 hover:text-teal-300 min-w-[max-content] p-2 gap-1">
-              {item.icon}
-              {item.text}
-            </li>
-          </Link>
+          <li key={item.id}>
+            <Link href={item.href}>
+              <div className="flex items-center cursor-pointer duration-300 hover:text-teal-300 min-w-[max-content] p-2 gap-1">
+                {item.icon}
+                {item.text}
+              </div>
+            </Link>
+          </li>
         ))}
       </ul>
 
@@ -77,35 +79,39 @@ export default function Navbar() {
         }
       >
         {/* Mobile Logo */}
-        <h1 className="w-full uppercase text-3xl font-bold text-teal-300 pl-4 py-1">
-          <Link
-            href="/"
-            onClick={handleNav}
-            className="flex items-center gap-1"
-          >
-            <Image
-              src="/icon.png"
-              alt="MetaForIQ Logo"
-              width={30}
-              height={30}
-            />
-            <span className="text-xl">MetaForIQ</span>
-          </Link>
-        </h1>
+        <li>
+          <h1 className="w-full uppercase text-3xl font-bold text-teal-300 pl-4 py-1">
+            <Link
+              href="/"
+              onClick={handleNav}
+              className="flex items-center gap-1"
+            >
+              <Image
+                src="/icon.png"
+                alt="MetaForIQ Logo"
+                width={30}
+                height={30}
+              />
+              <span className="text-xl">MetaForIQ</span>
+            </Link>
+          </h1>
+        </li>
 
         {/* Mobile Navigation Items */}
         {navItems.map((item) => (
-          <Link
-            key={item.id}
-            href={item.href}
-            onClick={handleNav}
-            className="flex my-4 text-xl cursor-pointer duration-300 hover:text-teal-300"
-          >
-            <li className="flex ml-4 items-center gap-x-1 min-w-[max-content]">
-              {item.icon}
-              {item.text}
-            </li>
-          </Link>
+          <li>
+            <Link
+              key={item.id}
+              href={item.href}
+              onClick={handleNav}
+              className="flex my-4 text-xl cursor-pointer duration-300 hover:text-teal-300"
+            >
+              <div className="flex ml-4 items-center gap-x-1 min-w-[max-content]">
+                {item.icon}
+                {item.text}
+              </div>
+            </Link>
+          </li>
         ))}
       </ul>
     </div>
