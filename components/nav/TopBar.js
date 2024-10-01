@@ -1,14 +1,10 @@
 "use client";
+
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import {
-  GiHeavyRain,
-  GiPinballFlipper,
-  GiBlackball,
-  GiBrain,
-} from "react-icons/gi";
+import { GiHeavyRain, GiPinballFlipper, GiBlackball } from "react-icons/gi";
 
 export default function Navbar() {
   // State to manage the navbar's visibility
@@ -80,7 +76,7 @@ export default function Navbar() {
       >
         {/* Mobile Logo */}
         <li key="Home">
-          <h1 className="w-full uppercase text-3xl font-bold text-teal-300 pl-4 py-1">
+          <h1 className="w-full uppercase text-3xl font-bold text-teal-300 pl-4 pt-1 pb-2">
             <Link
               href="/"
               onClick={handleNav}
@@ -104,9 +100,9 @@ export default function Navbar() {
               key={item.id}
               href={item.href}
               onClick={handleNav}
-              className="flex my-4 text-xl cursor-pointer duration-300 hover:text-teal-300"
+              className="flex text-xl cursor-pointer duration-300 hover:text-teal-300"
             >
-              <div className="flex ml-4 items-center gap-x-1 min-w-[max-content]">
+              <div className="flex px-5 py-2 items-center gap-x-1 min-w-[max-content]">
                 {item.icon}
                 {item.text}
               </div>
