@@ -4,7 +4,7 @@ import { authenticate } from "@/actions/actions";
 export default function LoginForm() {
   const referer = headers().headers.referer;
   return (
-    <div className="flex flex-col items-center justify-center w-full m-4 text-white">
+    <div className="flex flex-col items-center justify-center w-full p-4 text-white">
       {referer && referer.includes("/login") && (
         <p className="text-red-500 text-center font-bold mb-4">
           Invalid credentials.

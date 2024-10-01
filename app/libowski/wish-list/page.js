@@ -47,7 +47,7 @@ export default function WishListPage() {
       </div>
       <WishListAddItem />
       <Suspense
-        fallback={<div className="text-2xl text-white m-8 animate-pulse">Loading...</div>}
+        fallback={<div className="text-2xl text-white p-8 animate-pulse">Loading...</div>}
       >
         <WishListItems />
       </Suspense>

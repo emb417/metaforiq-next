@@ -58,7 +58,7 @@ export default async function Items() {
           ))}
         </div>
       ) : (
-        <p className="text-white m-8">No titles recently ordered.</p>
+        <p className="text-white p-8">No titles recently ordered.</p>
       )}
     </div>
   );
