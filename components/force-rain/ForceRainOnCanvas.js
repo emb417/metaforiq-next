@@ -80,7 +80,7 @@ export default function ForceRainOnCanvas({
     if (!canvas) {
       return;
     }
-    canvas.setAttribute("height", window.innerHeight);
+    canvas.setAttribute("height", window.innerHeight - 41);
     canvas.setAttribute("width", window.innerWidth);
     const columns = makeColumns(canvas.height);
 

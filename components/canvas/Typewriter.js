@@ -23,7 +23,7 @@ export default function Canvas({
     }
 
     canvas.setAttribute("style", `z-index: ${zIndex}; background: ${bgColor};`);
-    canvas.setAttribute("height", window.innerHeight);
+    canvas.setAttribute("height", window.innerHeight - 41);
     canvas.setAttribute("width", window.innerWidth);
 
     const context = canvas.getContext("2d");
