@@ -9,7 +9,9 @@ export default function RankLeaderboard({ rankedPlayers }) {
       <div className="flex mb-2 text-xl text-white">
         Annual Rankings{" "}
         <Tooltip
-          title="To be ranked you need to play more than 50% of the weeks over the past year."
+          title="To be ranked you need to play more than 50% of the weeks over the past year.
+          The ranking is based on win percentage over the past year.
+          The P value is your rolling average final weekly position from the last 13 weeks."
           color="rgba(15, 23, 42, 0.8)"
         >
           <CgInfo className="text-sm text-teal-300" />
@@ -19,29 +21,30 @@ export default function RankLeaderboard({ rankedPlayers }) {
         <Link
           href={`/pinball/player/${user.username}`}
           key={user.username}
-          className={`flex items-center gap-2 mb-1 text-white justify-left rounded-full pr-2 w-full ${
+          className={`flex flex-col items-center mb-1 pr-2 justify-left rounded-full w-full text-white text-md ${
             index % 2 === 0 ? "bg-slate-900" : "bg-slate-800"
           } hover:text-teal-300 hover:bg-slate-950 duration-300`}
         >
-          <div className="flex items-center gap-2">
-            <Image
-              src={user.userAvatarUrl}
-              width={32}
-              height={32}
-              alt={user.username}
-              className="rounded-full"
-            />
-            {user.rank}.
-          </div>
-          <div className="truncate">{user.username}</div>
-          <div className="ml-auto mr-1 flex flex-row items-center gap-4">
-            <div className="flex text-sm text-teal-300">
-              P{user.rollingAveragePosition}
-              <Tooltip title="Rolling Average Position">
-                <CgInfo className="text-white text-xs" />
-              </Tooltip>
+          <div className="flex flex-row gap-2 justify-left w-full items-center">
+            <div className="flex gap-2 items-center">
+              <span className="w-6 h-6 rounded-full">
+                <Image
+                  src={user.userAvatarUrl}
+                  width={32}
+                  height={32}
+                  alt={user.username}
+                  className="rounded-full"
+                />
+              </span>
+              {user.rank}.
             </div>
-            <div className="text-lg">{user.winPercentage}%</div>
+            <div className="truncate">{user.username}</div>
+            <div className="flex flex-row gap-3 items-center ml-auto">
+              <div className="flex text-sm text-teal-300">
+                P{user.rollingAveragePosition}
+              </div>
+              <div className="text-lg">{user.winPercentage}%</div>
+            </div>
           </div>
         </Link>
       ))}
