@@ -1,5 +1,4 @@
 import LeaderboardStats from "@/lib/pinball/LeaderboardStats";
-import SeasonLeaderboard from "@/components/pinball/SeasonLeaderboard";
 import WeeklyLeaderboard from "@/components/pinball/WeeklyLeaderboard";
 import RankLeaderboard from "@/components/pinball/RankLeaderboard";
 
