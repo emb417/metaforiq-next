@@ -1,9 +1,8 @@
 import Image from "next/image";
 import { CgInfo } from "react-icons/cg";
 import { Tooltip } from "antd";
-import PlayerSeasonSummary from "@/components/pinball/player/PlayerSeasonSummary";
 
-export default function PlayerBio({ user, userSeasonSummary }) {
+export default function PlayerBio({ user }) {
   return (
     <div className="flex flex-col gap-2">
       <div className="flex flex-row w-full text-white text-xl gap-4 sm:gap-8 rounded-full bg-slate-900">
@@ -55,12 +54,6 @@ export default function PlayerBio({ user, userSeasonSummary }) {
           </div>
         </div>
       </div>
-      {userSeasonSummary && (
-        <PlayerSeasonSummary
-          user={user}
-          userSeasonSummary={userSeasonSummary}
-        />
-      )}
     </div>
   );
 }
