@@ -31,12 +31,6 @@ const navItems = [
     href: "/libowski/best-sellers",
     text: "Recent Best Sellers",
   },
-  {
-    id: 3,
-    icon: <CgPlayList />,
-    href: "/libowski/wish-list",
-    text: "Wish List",
-  },
 ];
 
 export default function LibowskiPage() {

@@ -16,18 +16,12 @@ export const metadata = {
 const navItems = [
   {
     id: 1,
-    icon: <GiBlackball />,
-    href: "/libowski",
-    text: "Libowski",
-  },
-  {
-    id: 2,
     icon: <GiSmallFire/>,
     href: "/libowski/best-sellers",
     text: "Recent Best Sellers",
   },
   {
-    id: 3,
+    id: 2,
     icon: <CgPlayList/>,
     href: "/libowski/wish-list",
     text: "Wish List",
