@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { CgPlayList } from "react-icons/cg";
-import { GiBlackball, GiSmallFire, GiPayMoney } from "react-icons/gi";
+import { GiSmallFire, GiPayMoney } from "react-icons/gi";
 import PageTitle from "@/components/nav/PageTitle";
 import SubNav from "@/components/nav/SubNav";
 import BestSellerItems from "@/components/libowski/best-sellers/BestSellerItems";

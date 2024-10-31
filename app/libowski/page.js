@@ -1,4 +1,3 @@
-import { CgPlayList } from "react-icons/cg";
 import {
   GiBlackball,
   GiBowlingPin,
