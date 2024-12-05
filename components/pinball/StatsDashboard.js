@@ -4,7 +4,7 @@ import StatsTable from "@/components/pinball/StatsTable";
 async function getData() {
   try {
     const response = await fetch(`${process.env.VPC_API_URL}`, {
-      next: { revalidate: 0 },
+      next: { revalidate: 1800 },
     });
     const data = await response.json();
 
