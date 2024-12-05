@@ -1,7 +1,5 @@
 import { Suspense } from "react";
-import { CgCalendar } from "react-icons/cg";
-import { MdLeaderboard } from "react-icons/md";
-import { GiPinballFlipper, GiPositionMarker } from "react-icons/gi";
+import { GiAncientColumns, GiHistogram, GiPinballFlipper, GiChart, GiProgression, GiTrophiesShelf } from "react-icons/gi";
 import PageTitle from "@/components/nav/PageTitle";
 import SubNav from "@/components/nav/SubNav";
 import Leaderboards from "@/components/pinball/Leaderboards";
@@ -17,21 +15,21 @@ export const metadata = {
 const navItems = [
   {
     id: 1,
-    icon: <MdLeaderboard />,
+    icon: <GiChart className="text-xl" />,
     href: "/pinball/season",
     text: "Season",
   },
   {
     id: 2,
-    icon: <GiPositionMarker />,
-    href: "/pinball/weekly",
-    text: "Weekly",
+    icon: <GiAncientColumns className="text-xl" />,
+    href: "/pinball/history",
+    text: "History",
   },
   {
     id: 3,
-    icon: <CgCalendar />,
-    href: "/pinball/history",
-    text: "History",
+    icon: <GiProgression className="text-2xl" />,
+    href: "/pinball/stats",
+    text: "Stats",
   },
 ];
 

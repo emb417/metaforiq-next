@@ -1,7 +1,5 @@
 import { Suspense } from "react";
-import { CgCalendar } from "react-icons/cg";
-import { GiPinballFlipper, GiPositionMarker } from "react-icons/gi";
-import { MdLeaderboard } from "react-icons/md";
+import { GiAncientColumns, GiChart } from "react-icons/gi";
 import PageTitle from "@/components/nav/PageTitle";
 import SubNav from "@/components/nav/SubNav";
 import SeasonDashboard from "@/components/pinball/SeasonDashboard";
@@ -17,19 +15,7 @@ export const metadata = {
 const navItems = [
   {
     id: 1,
-    icon: <GiPinballFlipper />,
-    href: "/pinball",
-    text: "Leaderboards",
-  },
-  {
-    id: 2,
-    icon: <GiPositionMarker />,
-    href: "/pinball/weekly",
-    text: "Weekly",
-  },
-  {
-    id: 3,
-    icon: <CgCalendar />,
+    icon: <GiAncientColumns className="text-xl" />,
     href: "/pinball/history",
     text: "History",
   },
@@ -40,7 +26,7 @@ export default function SeasonPage() {
     <div className="flex flex-wrap w-full px-4">
       <div className="flex flex-wrap w-full mb-4 items-center">
         <PageTitle>
-          <MdLeaderboard /> {metadata.title}
+          <GiChart /> {metadata.title}
         </PageTitle>
         <SubNav navItems={navItems} />
       </div>

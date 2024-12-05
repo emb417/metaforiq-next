@@ -1,6 +1,6 @@
 import SeasonChart from "@/components/pinball/SeasonChart";
 import SeasonLeaderboard from "@/components/pinball/SeasonLeaderboard";
-import LeaderboardStats from "@/lib/pinball/LeaderboardStats";
+import SeasonStats from "@/lib/pinball/SeasonStats";
 
 async function getData() {
   try {
@@ -9,7 +9,7 @@ async function getData() {
     });
     const data = await response.json();
 
-    const { seasonWeeksData } = LeaderboardStats(data);
+    const seasonWeeksData = SeasonStats(data);
 
     return {
       props: {

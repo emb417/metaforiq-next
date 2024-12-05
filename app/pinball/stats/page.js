@@ -1,46 +1,32 @@
 import { Suspense } from "react";
-import { CgCalendar } from "react-icons/cg";
-import { GiPinballFlipper, GiPositionMarker } from "react-icons/gi";
-import { MdLeaderboard } from "react-icons/md";
+import { GiAncientColumns, GiProgression } from "react-icons/gi";
 import PageTitle from "@/components/nav/PageTitle";
 import SubNav from "@/components/nav/SubNav";
-import WeeklyDashboard from "@/components/pinball/WeeklyDashboard";
+import StatsDashboard from "@/components/pinball/StatsDashboard";
 
 export const metadata = {
-  title: "Weekly Leaderboard",
-  description: "VPC Weekly Leaderboard",
+  title: "Annual Stats",
+  description: "VPC Annual Stats",
   alternates: {
-    canonical: "/pinball/weekly",
-  }
+    canonical: "/pinball/stats",
+  },
 };
 
 const navItems = [
   {
     id: 1,
-    icon: <GiPinballFlipper />,
-    href: "/pinball",
-    text: "Leaderboards",
-  },
-  {
-    id: 2,
-    icon: <MdLeaderboard />,
-    href: "/pinball/season",
-    text: "Season",
-  },
-  {
-    id: 3,
-    icon: <CgCalendar />,
+    icon: <GiAncientColumns className="text-xl" />,
     href: "/pinball/history",
     text: "History",
   },
 ];
 
-export default function WeeklyPage() {
+export default function StatsPage() {
   return (
     <div className="flex flex-wrap w-full px-4">
       <div className="flex flex-wrap w-full mb-4 items-center">
         <PageTitle>
-          <GiPositionMarker /> {metadata.title}
+          <GiProgression /> {metadata.title}
         </PageTitle>
         <SubNav navItems={navItems} />
       </div>
@@ -51,7 +37,7 @@ export default function WeeklyPage() {
           </div>
         }
       >
-        <WeeklyDashboard />
+        <StatsDashboard />
       </Suspense>
     </div>
   );

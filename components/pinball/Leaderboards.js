@@ -7,15 +7,15 @@ async function getData() {
     const response = await fetch(`${process.env.VPC_API_URL}`, {
       next: { revalidate: 0 },
     });
+    
     const data = await response.json();
 
-    const { rankedPlayers, positionWeeksData, seasonWeeksData } = LeaderboardStats(data);
+    const { rankedPlayers, positionWeeksData } = LeaderboardStats(data);
 
     return {
       props: {
         rankedPlayers,
         positionWeeksData,
-        seasonWeeksData,
       },
     };
   } catch (error) {
@@ -26,7 +26,7 @@ async function getData() {
 
 export default async function Leaderboards() {
   const { props } = await getData();
-  const { rankedPlayers, positionWeeksData, seasonWeeksData } = props;
+  const { rankedPlayers, positionWeeksData } = props;
   return (
     <div className="grid grid-cols-12 gap-8 mb-14 max-w-5xl">
       <div className="col-span-12 sm:col-span-6">
