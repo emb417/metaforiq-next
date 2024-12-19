@@ -4,7 +4,7 @@ import HistoryLeaderboards from "@/components/pinball/HistoryLeaderboards";
 async function getData() {
   try {
     const response = await fetch(`${process.env.VPC_API_URL}`, {
-      next: { revalidate: 0 },
+      next: { revalidate: 300 },
     });
     const data = await response.json();
 

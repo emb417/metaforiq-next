@@ -5,7 +5,7 @@ import SeasonStats from "@/lib/pinball/SeasonStats";
 async function getData() {
   try {
     const response = await fetch(`${process.env.VPC_API_URL}`, {
-      next: { revalidate: 0 },
+      next: { revalidate: 300 },
     });
     const data = await response.json();
 
