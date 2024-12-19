@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { GiAncientColumns, GiHistogram, GiPinballFlipper, GiChart, GiProgression, GiTrophiesShelf } from "react-icons/gi";
+import { GiAncientColumns, GiPinballFlipper, GiChart, GiProgression } from "react-icons/gi";
 import PageTitle from "@/components/nav/PageTitle";
 import SubNav from "@/components/nav/SubNav";
 import Leaderboards from "@/components/pinball/Leaderboards";
