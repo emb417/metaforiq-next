@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { GiAncientColumns, GiProgression } from "react-icons/gi";
 import PageTitle from "@/components/nav/PageTitle";
 import SubNav from "@/components/nav/SubNav";
-import StatsDashboard from "@/components/pinball/StatsDashboard";
+import StatsDashboard from "@/components/pinball/AnnualStatsDashboard";
 
 export const metadata = {
   title: "Annual Stats",
