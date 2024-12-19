@@ -10,46 +10,46 @@ export default function PlayerSummary({ user }) {
         className="flex flex-col md:flex-row items-center md:items-start"
       >
         <PlayerSummaryItem title="Best Game to Average">
-          {user.annualBestPerformanceWeek !== 0 && (
+          {user.annualBestPerformance.week !== 0 && (
             <Link
-              href={`/pinball/history?week=${user.annualBestPerformanceWeek}`}
+              href={`/pinball/history?week=${user.annualBestPerformance.week}`}
             >
               <span className="text-sm">
-                P{user.annualBestPerformancePosition} of{" "}
-                {user.annualBestPerformancePlayers}
+                P{user.annualBestPerformance.position} of{" "}
+                {user.annualBestPerformance.players}
                 <span className="text-white"> | </span>
-                {user.annualBestPerformanceTable}
+                {user.annualBestPerformance.table}
               </span>
             </Link>
           )}
-          {user.annualBestPerformanceWeek === 0 && (
+          {user.annualBestPerformance.week === 0 && (
             <span className="text-sm">
-              P{user.annualBestPerformancePosition} of{" "}
-              {user.annualBestPerformancePlayers}
+              P{user.annualBestPerformance.position} of{" "}
+              {user.annualBestPerformance.players}
               <span className="text-white"> | </span>
-              {user.annualBestPerformanceTable}
+              {user.annualBestPerformance.table}
             </span>
           )}
         </PlayerSummaryItem>
         <PlayerSummaryItem title="Worst Game to Average">
-          {user.annualWorstPerformanceWeek !== 0 && (
+          {user.annualWorstPerformance.week !== 0 && (
             <Link
-              href={`/pinball/history?week=${user.annualWorstPerformanceWeek}`}
+              href={`/pinball/history?week=${user.annualWorstPerformance.week}`}
             >
               <span className="text-sm">
-                P{user.annualWorstPerformancePosition} of{" "}
-                {user.annualWorstPerformancePlayers}
+                P{user.annualWorstPerformance.position} of{" "}
+                {user.annualWorstPerformance.players}
                 <span className="text-white"> | </span>
-                {user.annualWorstPerformanceTable}
+                {user.annualWorstPerformance.table}
               </span>
             </Link>
           )}
-          {user.annualWorstPerformanceWeek === 0 && (
+          {user.annualWorstPerformance.week === 0 && (
             <span className="text-sm">
-              P{user.annualWorstPerformancePosition} of{" "}
-              {user.annualWorstPerformancePlayers}
+              P{user.annualWorstPerformance.position} of{" "}
+              {user.annualWorstPerformance.players}
               <span className="text-white"> | </span>
-              {user.annualWorstPerformanceTable}
+              {user.annualWorstPerformance.table}
             </span>
           )}
         </PlayerSummaryItem>
