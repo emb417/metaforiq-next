@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 import { Input, Button, Select, Table } from "antd";
 import { FilterOutlined } from "@ant-design/icons";
 
@@ -71,6 +72,7 @@ function StatsTable({ playerStats }) {
               </Button>
             </div>
           ),
+          render: (text) => <Link href={`/pinball/player/${text}`}>{text}</Link>,
         },
       ],
     },
@@ -256,3 +258,4 @@ function StatsTable({ playerStats }) {
 }
 
 export default StatsTable;
+
