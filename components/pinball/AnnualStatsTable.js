@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import PlayerImage from "@/components/pinball/player/PlayerImage";
 import { Input, Button, Select, Table } from "antd";
 import { FilterOutlined } from "@ant-design/icons";
 
@@ -72,7 +73,19 @@ function StatsTable({ playerStats }) {
               </Button>
             </div>
           ),
-          render: (text) => <Link href={`/pinball/player/${text}`}>{text}</Link>,
+          render: (text, record) => (
+            <Link href={`/pinball/player/${text}`}>
+              <div className="flex items-center">
+                <PlayerImage
+                  src={record.userAvatarUrl}
+                  alt={record.username}
+                  width={16}
+                  height={16}
+                />
+                <div className="truncate pl-1">{text}</div>
+              </div>
+            </Link>
+          ),
         },
       ],
     },
