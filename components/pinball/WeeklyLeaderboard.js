@@ -1,57 +1,72 @@
-import { useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Tooltip } from "antd";
-import colors from "@/lib/pinball/Colors";
+import LeaderboardTitleCard from "@/components/pinball/LeaderboardTitleCard";
 
-export default function WeeklyLeaderboard({ weekData }) {
-  const usernames = useMemo(() => {
-    const usernamesSet = new Set(
-      weekData.scores.flatMap((score) => score.username)
-    );
-    return Array.from(usernamesSet);
-  }, [weekData]);
-
-  const userColors = useMemo(() => {
-    return usernames.reduce((acc, username, index) => {
-      const color = colors[index % 20];
-      return acc.concat({
-        value: username,
-        label: username,
-        color,
-      });
-    }, []);
-  }, [usernames]);
+export default function WeeklyLeaderboard({ weekData, vpsData }) {
 
   return (
-    <div className="flex flex-col items-center text-white">
-      <div>Week #{weekData.weekNumber}</div>
-      <div className="text-xl text-center mb-2 px-4">{weekData.table}</div>
+    <div className="flex flex-col items-center text-slate-200">
+      <LeaderboardTitleCard
+        imageUrl={vpsData.b2sFiles[0].imgUrl}
+        table={weekData.table}
+        weekNumber={weekData.weekNumber}
+        periodStart={weekData.periodStart}
+        periodEnd={weekData.periodEnd}
+        priority
+      >
+        <div className="text-sm">Week #{weekData.weekNumber}</div>
+        {weekData.periodStart &&
+          weekData.periodEnd &&
+          weekData.periodStart !== "0NaN-aN-aN" && (
+            <div className="text-sm">
+              {new Date(weekData.periodStart).toLocaleDateString(undefined, {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })}
+              {" to "}
+              {new Date(weekData.periodEnd).toLocaleDateString(undefined, {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })}
+            </div>
+          )}
+        <Link
+          href={`https://virtual-pinball-spreadsheet.web.app/game/${weekData.vpsId}/`}
+          target="_blank"
+        >
+          <div className="text-xl">{weekData.table}</div>
+          <div className="text-xs">VPS ID {weekData.vpsId}</div>
+        </Link>
+      </LeaderboardTitleCard>
       {weekData.scores.map((score, index) => (
         <Link
-          href={`/pinball/player/${score.username}`}
+          href={`https://virtualpinballchat.com:8443/player/${score.username}`}
+          target="_blank"
           key={score.username}
           className={`flex flex-col items-center mb-1 justify-left rounded-xl px-2 w-full ${
             index % 2 === 0 ? "bg-slate-900" : "bg-slate-800"
-          } hover:text-teal-300 hover:bg-slate-950 duration-300`}
+          } hover:bg-slate-700 duration-300`}
         >
-          <div className="flex flex-row gap-2 justify-left w-full items-center">
-            <div className="flex gap-2 items-center">
-              <span
-                className="w-4 h-4 rounded-full"
-                style={{
-                  backgroundColor: userColors.find(
-                    (user) => user.value === score.username
-                  ).color,
-                }}
-              ></span>
-              {score.position}.
-            </div>
-            <div className="truncate">{score.username}</div>
+          <div className="flex flex-row gap-1 justify-left w-full items-center">
+              <div className="flex items-center justify-center text-teal-300">{score.position}.</div>
+              <div className="flex rounded-full items-center">
+                <Image
+                  src={score.userAvatarUrl}
+                  width={20}
+                  height={20}
+                  alt={score.username}
+                  className="rounded-full"
+                />
+              </div>
+              <span className="text-md text-slate-300 truncate">{score.username}</span>
             <div className="flex flex-row gap-3 items-center ml-auto">
               <div className="text-teal-300 text-sm">
                 {score.score.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
               </div>
-              <div className="text-xl mr-1">{score.points}</div>
+              <div className="text-xl text-slate-100 mr-1">{score.points}</div>
             </div>
           </div>
           <Tooltip
@@ -70,7 +85,7 @@ export default function WeeklyLeaderboard({ weekData }) {
                     : `${(score.score / weekData.scores[0].score) * 100}%`,
               }}
               className={`mr-auto pb-1 ${
-                !score.score ? "border-t-0" : "border-t-4 border-gray-400"
+                !score.score ? "border-t-0" : "border-t-4 border-slate-400"
               }`}
             />
           </Tooltip>

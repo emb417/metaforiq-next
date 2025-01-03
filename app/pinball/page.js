@@ -1,7 +1,8 @@
 import { Suspense } from "react";
-import { GiAncientColumns, GiPinballFlipper, GiChart, GiProgression } from "react-icons/gi";
+import Link from "next/link";
+import Image from "next/image";
+import { GiPinballFlipper } from "react-icons/gi";
 import PageTitle from "@/components/nav/PageTitle";
-import SubNav from "@/components/nav/SubNav";
 import Leaderboards from "@/components/pinball/Leaderboards";
 
 export const metadata = {
@@ -12,27 +13,6 @@ export const metadata = {
   }
 };
 
-const navItems = [
-  {
-    id: 1,
-    icon: <GiChart className="text-xl" />,
-    href: "/pinball/season",
-    text: "Season",
-  },
-  {
-    id: 2,
-    icon: <GiAncientColumns className="text-xl" />,
-    href: "/pinball/history",
-    text: "History",
-  },
-  {
-    id: 3,
-    icon: <GiProgression className="text-2xl" />,
-    href: "/pinball/stats",
-    text: "Stats",
-  },
-];
-
 export default function PinballPage() {
   return (
     <div className="flex flex-wrap w-full px-4">
@@ -40,7 +20,14 @@ export default function PinballPage() {
         <PageTitle>
           <GiPinballFlipper /> {metadata.title}
         </PageTitle>
-        <SubNav navItems={navItems} />
+        <Link
+          href="https://virtualpinballchat.com:8443"
+          target="_blank"
+          className="flex gap-1 ml-auto p-2 min-w-[max-content] text-lg text-white items-center hover:text-teal-300 duration-300 cursor-pointer"
+        >
+          <Image src="/vpc.png" width={48} height={48} alt="Virtual Pinball Chat" />
+          Virtual Pinball Chat
+        </Link>
       </div>
       <div className="flex w-full justify-center items-start">
         <Suspense
