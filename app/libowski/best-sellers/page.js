@@ -30,7 +30,7 @@ const navItems = [
 
 export default function BestSellersPage() {
   return (
-    <div className="flex flex-wrap w-full px-4 mb-14">
+    <div className="flex flex-wrap w-full px-4">
       <div className="flex flex-wrap w-full items-center mb-4">
         <PageTitle>
           <GiSmallFire />

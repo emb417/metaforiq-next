@@ -14,6 +14,12 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "contentcafe2.btol.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };
