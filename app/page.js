@@ -17,7 +17,6 @@ const welcomeMessages = [
 const inspirationalMessages = [
   // from:sw:tcw
   "great leaders inspire greatness in others",
-  "great leaders inspire greatness in others",
   "belief is not a matter of choice, but of conviction",
   "easy is the path to wisdom for those not blinded by ego",
   "a plan is only as good as those who see it through",
@@ -96,14 +95,14 @@ export default function HomePage() {
         fontSize={20}
         messages={welcomeMessages}
         messageInterval={12000}
-        x={50}
+        x={30}
         y={30}
         zIndex={20}
       />
       <Messages
         id="main"
         bgColor="transparent"
-        fontSize={36}
+        fontSize={30}
         messages={inspirationalMessages}
         zIndex={10}
       />

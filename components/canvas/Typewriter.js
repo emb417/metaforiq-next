@@ -40,9 +40,9 @@ export default function Canvas({
     context.font = `small-caps ${fontSize}px sans-serif`;
     const lineHeight = fontSize * 1.2;
 
-    const startX = x === 0 ? window.innerWidth * 0.2 : x;
+    const startX = x === 0 ? window.innerWidth * 0.1 : x;
     const startY = y === 0 ? window.innerHeight * 0.3 : y;
-    const endX = window.innerWidth * 0.7;
+    const endX = window.innerWidth * 0.9;
 
     // sets initial x/y for typing
     let cursorX = startX;
