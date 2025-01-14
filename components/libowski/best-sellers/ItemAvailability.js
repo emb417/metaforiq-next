@@ -13,7 +13,7 @@ export default function Availability({ itemId, availability }) {
   };
 
   return (
-    <div className="grid grid-cols-3 gap-2">
+    <div className="grid grid-rows-4 gap-1">
       {Object.keys(availability || {}).map((availId) => {
         const avail = availability[availId];
         const location =
@@ -33,7 +33,7 @@ export default function Availability({ itemId, availability }) {
             key={availId}
           >
             <div
-              className="flex min-w-[max-content] items-center justify-center rounded-lg border-2 border-teal-950 text-white uppercase hover:bg-slate-700 hover:text-teal-300 hover:border-teal-300 duration-300"
+              className="flex px-1 min-w-[max-content] items-center justify-center rounded-lg border border-teal-900 text-white text-sm uppercase hover:bg-slate-700 hover:text-teal-300 hover:border-teal-300 duration-300"
             >
               {location} {formatTime(timeSinceNotifyDate)}
             </div>

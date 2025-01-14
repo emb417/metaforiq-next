@@ -32,24 +32,21 @@ export default function Item({ item }) {
               {item.publicationYear.substring(0, 4) ?? ""} {item.format ?? ""}{" "}
               {item.edition ?? ""}
             </p>
-            {item.updateDate ? (
+            {item.updateDate && item.type !== "on order" ? (
               <p className="text-gray-400 text-xs">
-                Updated: {new Date(item.updateDate * 1000).toLocaleString()}
+                Updated: {new Date(item.updateDate * 1000).toLocaleString().replace(/:\d{2}\s/,' ')}
               </p>
             ) : null}
             {item.notifyDate ? (
               <p className="text-gray-400 text-xs">
-                Notified: {new Date(item.notifyDate * 1000).toLocaleString()}
+                Notified: {new Date(item.updateDate * 1000).toLocaleString().replace(/:\d{2}\s/,' ')}
               </p>
             ) : null}
           </div>
-          {item.availability && (
-            <ItemAvailability
-              itemId={item.id}
-              availability={item.availability}
-            />
-          )}
         </div>
+        {item.availability && (
+          <ItemAvailability itemId={item.id} availability={item.availability} />
+        )}
       </div>
     </Link>
   );
