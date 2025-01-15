@@ -8,7 +8,7 @@ export default function Availability({ itemId, availability }) {
     const remainingHours = hours % 24;
     const formattedDays = days > 0 ? `${days}d ` : "";
     const formattedHours = remainingHours > 0 ? `${remainingHours}h ` : "";
-    const formattedMinutes = minutes < 100 ? `${minutes}m ` : "";
+    const formattedMinutes = remainingMinutes < 60 ? `${remainingMinutes}m ` : "";
     return formattedDays + formattedHours + formattedMinutes;
   };
 
