@@ -8,7 +8,7 @@ async function getData() {
     const response = await fetch(
       `${process.env.VPC_BASE_URL}${process.env.VPC_API_PATH}`,
       {
-        next: { revalidate: 300 },
+        next: { revalidate: 0 },
       }
     );
 

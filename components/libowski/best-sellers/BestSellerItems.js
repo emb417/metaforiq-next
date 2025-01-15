@@ -3,7 +3,7 @@ async function getData() {
   try {
     const response = await fetch(
       `${process.env.LIBOWSKI_API_URL}/all-best-sellers`,
-      { next: { revalidate: 300 } }
+      { next: { revalidate: 0 } }
     );
     const data = await response.json();
 
