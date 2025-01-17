@@ -8,17 +8,7 @@ async function getData() {
       );
       const data = await response.json();
   
-      const sortedItems = [...data]
-        .sort((a, b) => (b.updateDate || 0) - (a.updateDate || 0))
-        .sort((a, b) => {
-          const aHasAvailability = Object.keys(a.availability || {}).length > 0;
-          const bHasAvailability = Object.keys(b.availability || {}).length > 0;
-          if (aHasAvailability && !bHasAvailability) return -1;
-          if (!aHasAvailability && bHasAvailability) return 1;
-          return 0;
-        });
-  
-      return { props: { items: sortedItems } };
+      return { props: { items: data } };
     } catch (error) {
       console.error(error);
       return { props: { items: [] } };
