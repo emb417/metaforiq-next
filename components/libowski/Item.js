@@ -2,25 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import ItemAvailability from "@/components/libowski/best-sellers/ItemAvailability";
 import { Tooltip } from "antd";
+import { MdOutlineDescription } from "react-icons/md";
 
 export default function Item({ item }) {
-  const yearFormatEdition = `${item.publicationYear.substring(0, 4)} ${
-    item.format || ""
-  } ${item.edition || ""}`;
-
   return (
-    <Link
-      href={item.url}
-      target="_blank"
-      rel="noreferrer"
-      className="group w-full p-2 rounded-lg border-2 border-teal-950 hover:border-teal-300 bg-slate-950 hover:bg-slate-900 duration-300"
-    >
+    <div className="group w-full p-2 rounded-lg border-2 border-teal-950 hover:border-teal-300 bg-slate-950 hover:bg-slate-900 duration-300">
       <div className="flex flex-row items-center justify-center gap-2 w-full h-full">
-        <Tooltip
-          title={item.description}
-          color="rgba(41, 37, 36, 0.8)"
-          placement="bottom"
-        >
+        <Link href={item.url} target="_blank" rel="noreferrer">
           <Image
             src={
               item.image ??
@@ -32,20 +20,36 @@ export default function Item({ item }) {
             priority
             className="w-[64px] h-[84px] bg-slate-900 rounded group-hover:bg-slate-800 duration-300"
           />
-        </Tooltip>
+        </Link>
         <div className="flex flex-row w-full h-full">
           <div className="flex flex-col w-full justify-end pb-2">
-            <Tooltip
-              title={item.description}
-              color="rgba(41, 37, 36, 0.8)"
-              placement="bottom"
-            >
-              <div className="text-white">{item.title}</div>
-            </Tooltip>
+            <div className="text-white">
+              <Link href={item.url} target="_blank" rel="noreferrer">
+                {item.title}
+              </Link>
+            </div>
             {item.subtitle ? (
-              <div className="text-white text-sm">{item.subtitle}</div>
+              <div className="text-white text-sm">
+                <Link href={item.url} target="_blank" rel="noreferrer">
+                  {item.subtitle}
+                </Link>
+              </div>
             ) : null}
-            <div className="text-teal-300 text-xs">{yearFormatEdition}</div>
+            <div className="flex flex-row gap-1 text-teal-300 text-xs items-center">
+              {item.publicationYear.substring(0, 4)} {item.format || ""}{" "}
+              {item.description && (
+                <Tooltip
+                  title={item.description}
+                  color="rgba(41, 37, 36, 0.8)"
+                  placement="bottom"
+                >
+                  <MdOutlineDescription className="text-lg" />
+                </Tooltip>
+              )}
+            </div>
+            {item.edition && (
+              <div className="text-white text-xs">{item.edition}</div>
+            )}
             {item.updateDate && item.type !== "on order" ? (
               <div className="text-gray-400 text-xs">
                 {new Date(item.updateDate * 1000)
@@ -71,6 +75,6 @@ export default function Item({ item }) {
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
