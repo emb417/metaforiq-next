@@ -3,6 +3,7 @@ import { CgPlayList } from "react-icons/cg";
 import { GiSmallFire, GiPayMoney } from "react-icons/gi";
 import PageTitle from "@/components/nav/PageTitle";
 import SubNav from "@/components/nav/SubNav";
+import LoadingMessage from "@/components/nav/LoadingMessage";
 import WishListAddItem from "@/components/libowski/wish-list/WishListAddItem";
 import WishListItems from "@/components/libowski/wish-list/WishListItems";
 
@@ -41,7 +42,7 @@ export default function WishListPage() {
       </div>
       <WishListAddItem />
       <Suspense
-        fallback={<div className="text-2xl text-white p-8 animate-pulse">Loading...</div>}
+        fallback={<LoadingMessage message={`Loading ${metadata.title}...`} />}
       >
         <WishListItems />
       </Suspense>

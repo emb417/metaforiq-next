@@ -3,6 +3,7 @@ import { CgPlayList } from "react-icons/cg";
 import { GiSmallFire, GiPayMoney } from "react-icons/gi";
 import PageTitle from "@/components/nav/PageTitle";
 import SubNav from "@/components/nav/SubNav";
+import LoadingMessage from "@/components/nav/LoadingMessage";
 import BestSellersPane from "@/components/libowski/best-sellers/BestSellersPane";
 
 export const metadata = {
@@ -39,7 +40,7 @@ export default function BestSellersPage() {
         <SubNav navItems={navItems} />
       </div>
       <Suspense
-        fallback={<div className="text-2xl text-white p-8 animate-pulse">Loading...</div>}
+        fallback={<LoadingMessage message={`Loading ${metadata.title}...`} />}
       >
         <BestSellersPane />
       </Suspense>

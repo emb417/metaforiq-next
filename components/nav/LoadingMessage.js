@@ -13,7 +13,7 @@ export default function LoadingMessage({ message = "Loading..." }) {
       <div className="text-center text-4xl text-white animate-pulse">
         {message}
       </div>
-      <div className="text-center text-xs text-teal-300">
+      <div className="text-center text-sm text-teal-300">
         metaforiq-next v{process.env.npm_package_version}
       </div>
     </div>
