@@ -23,7 +23,7 @@ export default function BestSellersItems({ items }) {
   filteredItems =
     filterValue === ""
       ? items
-      : items.filter((item) => item.title.includes(filterValue));
+      : items.filter((item) => item.title.toLowerCase().includes(filterValue.toLowerCase()));
 
   let sortedItems = filteredItems;
   sortedItems =
