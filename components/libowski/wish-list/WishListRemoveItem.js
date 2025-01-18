@@ -1,5 +1,5 @@
 import { removeWishListItem } from "@/actions/actions";
-import { GiTrashCan } from "react-icons/gi";
+import { MdOutlinePlaylistRemove } from "react-icons/md";
 
 export default function WishListRemoveItem({ index, title }) {
   return (
@@ -13,7 +13,9 @@ export default function WishListRemoveItem({ index, title }) {
         defaultValue={title}
       />
       <button type="submit">
-        <GiTrashCan className="text-5xl text-amber-500 hover:text-red-500 duration-300 cursor-pointer pb-1" />
+        <div className="text-2xl text-white cursor-pointer rounded-full p-1 border-2 border-teal-950 bg-slate-950 hover:text-red-500 hover:border-red-500 hover:bg-slate-800 duration-300">
+          <MdOutlinePlaylistRemove />
+        </div>
       </button>
     </form>
   );
