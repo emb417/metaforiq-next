@@ -22,7 +22,8 @@ export default function RankLeaderboard({ recentPlayerStats }) {
             title="To be ranked you need to play at least 7 weeks out of the past 13 weeks,
             i.e., more than 50% of the weeks. The ranking is based on win percentage and
             the P value is your average final weekly position from the last 13 weeks."
-            color="rgba(41, 37, 36, 0.8)"
+            color="rgba(30, 41, 59, 0.8)"
+            placement="top"
           >
             <CgInfo className="text-sm text-teal-300" />
           </Tooltip>

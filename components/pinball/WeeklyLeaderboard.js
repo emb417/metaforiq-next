@@ -76,6 +76,7 @@ export default function WeeklyLeaderboard({ weekData, vpsData }) {
                 : Math.round((score.score / weekData.scores[0].score) * 100)
             }% to 1st Place`}
             placement="topRight"
+            color="rgba(2, 6, 31, 0.8)"
           >
             <hr
               style={{
