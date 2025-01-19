@@ -17,15 +17,15 @@ export const metadata = {
 const navItems = [
   {
     id: 1,
-    icon: <GiPayMoney />,
-    href: "/libowski/on-order",
-    text: "Recent On Orders",
-  },
-  {
-    id: 2,
     icon: <CgPlayList />,
     href: "/libowski/wish-list",
     text: "Wish List",
+  },
+  {
+    id: 2,
+    icon: <GiPayMoney />,
+    href: "/libowski/on-order",
+    text: "Recent On Orders",
   },
 ];
 
