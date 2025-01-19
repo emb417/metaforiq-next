@@ -34,7 +34,7 @@ export default function Availability({ itemId, availability }) {
             key={availId}
           >
             <div
-              className="flex px-1 min-w-[max-content] items-center justify-center rounded-lg border border-teal-900 text-white text-xs uppercase cursor-default hover:bg-slate-700 hover:text-teal-300 hover:border-teal-300 duration-300"
+              className="flex px-1 min-w-[max-content] items-center justify-center rounded-lg border border-teal-950 text-white text-xs uppercase cursor-default hover:bg-slate-700 hover:text-teal-300 hover:border-teal-300 duration-300"
             >
               {location} {formatTime(timeSinceNotifyDate)}
             </div>

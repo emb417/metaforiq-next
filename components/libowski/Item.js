@@ -12,7 +12,7 @@ import {
 
 export default function Item({ item }) {
   return (
-    <div className="group w-full p-2 rounded-lg border-2 border-teal-950 hover:border-teal-300 bg-slate-950 hover:bg-slate-900 duration-300">
+    <div className="group w-full p-1 rounded-lg border-2 border-teal-950 hover:border-teal-300 bg-slate-950 hover:bg-slate-900 duration-300">
       <div className="flex flex-row items-center justify-center gap-2 w-full h-full">
         <Link href={item.url} target="_blank" rel="noreferrer">
           <Image
@@ -71,7 +71,7 @@ export default function Item({ item }) {
               </div>
             ) : null}
           </div>
-          <div className="flex flex-col gap-1 items-end">
+          <div className="flex flex-col gap-1 w-full items-end">
             {item.availability && (
               <ItemAvailability
                 itemId={item.id}
