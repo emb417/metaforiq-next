@@ -71,7 +71,7 @@ export default function Item({ item }) {
               </div>
             ) : null}
           </div>
-          <div className="flex flex-col items-end">
+          <div className="flex flex-col gap-1 items-end">
             {item.availability && (
               <ItemAvailability
                 itemId={item.id}
