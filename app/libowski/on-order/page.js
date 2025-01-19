@@ -4,7 +4,7 @@ import { GiSmallFire, GiPayMoney } from "react-icons/gi";
 import PageTitle from "@/components/nav/PageTitle";
 import SubNav from "@/components/nav/SubNav";
 import LoadingMessage from "@/components/nav/LoadingMessage";
-import OnOrderItems from "@/components/libowski/on-order/OnOrderItems";
+import OnOrderPane from "@/components/libowski/on-order/OnOrderPane";
 
 export const metadata = {
   title: "Recent On Orders",
@@ -32,7 +32,7 @@ const navItems = [
 export default function OnOrderPage() {
   return (
     <div className="flex flex-wrap w-full px-4">
-      <div className="flex flex-wrap w-full items-center mb-4">
+      <div className="flex flex-wrap w-full items-center">
         <PageTitle>
           <GiPayMoney />
           {metadata.title}
@@ -42,7 +42,7 @@ export default function OnOrderPage() {
       <Suspense
         fallback={<LoadingMessage message={`Loading ${metadata.title}...`} />}
       >
-        <OnOrderItems />
+        <OnOrderPane />
       </Suspense>
     </div>
   );

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { addWishListItem, removeWishListItem } from "@/actions/actions";
-import ItemAvailability from "@/components/libowski/best-sellers/ItemAvailability";
+import ItemAvailability from "@/components/libowski/ItemAvailability";
 import { Tooltip } from "antd";
 import {
   MdOutlineDescription,
@@ -28,7 +28,7 @@ export default function Item({ item }) {
           />
         </Link>
         <div className="flex flex-row w-full h-full">
-          <div className="flex flex-col w-full justify-end pb-2">
+          <div className="flex flex-col gap-x-1 w-full justify-end pb-2">
             <div className="text-white">
               <Link href={item.url} target="_blank" rel="noreferrer">
                 {item.title}

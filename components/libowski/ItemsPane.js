@@ -15,7 +15,7 @@ const SortMethodButton = ({ sortMethod, setSortMethod, children, value }) => (
   </button>
 );
 
-export default function BestSellersItems({ items }) {
+export default function ItemsPane({ items }) {
   const [filterValue, setFilterValue] = useState("");
   const [sortMethod, setSortMethod] = useState("recent");
 

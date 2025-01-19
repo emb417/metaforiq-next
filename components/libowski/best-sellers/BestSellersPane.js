@@ -1,4 +1,4 @@
-import BestSellersItems from "@/components/libowski/best-sellers/BestSellersItems";
+import ItemsPane from "@/components/libowski/ItemsPane";
 
 async function getData() {
     try {
@@ -30,5 +30,5 @@ async function getData() {
 export default async function BestSellersPane() {
     const { props } = await getData();
     const { items } = props;
-    return <BestSellersItems items={items} />;
+    return <ItemsPane items={items} />;
 }
