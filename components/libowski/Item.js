@@ -56,20 +56,11 @@ export default function Item({ item }) {
             {item.edition && (
               <div className="text-white text-xs">{item.edition}</div>
             )}
-            {item.updateDate && item.type !== "on order" ? (
-              <div className="text-gray-400 text-xs">
-                {new Date(item.updateDate * 1000)
-                  .toLocaleString()
-                  .replace(/:\d{2}\s/, " ")}
-              </div>
-            ) : null}
-            {item.notifyDate ? (
-              <div className="text-gray-400 text-xs">
-                {new Date(item.updateDate * 1000)
-                  .toLocaleString()
-                  .replace(/:\d{2}\s/, " ")}
-              </div>
-            ) : null}
+            <div className="text-gray-400 text-xs">
+              {new Date(item.createDate * 1000)
+                .toLocaleString()
+                .replace(/:\d{2}\s/, " ")}
+            </div>
           </div>
           <div className="flex flex-col gap-1 w-full items-end">
             {item.availability && (
@@ -90,7 +81,11 @@ export default function Item({ item }) {
                   </Tooltip>
                 </div>
               ) : (
-                <form action={addWishListItem} key={item.title} className="flex w-8 h-8 justify-center items-center text-xl text-white rounded-full border border-teal-950 bg-slate-950 cursor-pointer hover:bg-slate-700 hover:border-green-500 hover:text-green-500 duration-300">
+                <form
+                  action={addWishListItem}
+                  key={item.title}
+                  className="flex w-8 h-8 justify-center items-center text-xl text-white rounded-full border border-teal-950 bg-slate-950 cursor-pointer hover:bg-slate-700 hover:border-green-500 hover:text-green-500 duration-300"
+                >
                   <input
                     required
                     type="text"
@@ -101,13 +96,13 @@ export default function Item({ item }) {
                     readOnly
                   />
                   <button type="submit">
-                      <Tooltip
-                        title="Add to wish list."
-                        placement="top"
-                        color="rgba(30, 41, 59, 0.8)"
-                      >
-                        <MdOutlinePlaylistAdd />
-                      </Tooltip>
+                    <Tooltip
+                      title="Add to wish list."
+                      placement="top"
+                      color="rgba(30, 41, 59, 0.8)"
+                    >
+                      <MdOutlinePlaylistAdd />
+                    </Tooltip>
                   </button>
                 </form>
               )}
@@ -126,13 +121,13 @@ export default function Item({ item }) {
                     defaultValue={item.title}
                   />
                   <button type="submit">
-                      <Tooltip
-                        title="Remove from wish list."
-                        placement="top"
-                        color="rgba(30, 41, 59, 0.8)"
-                      >
-                        <MdOutlinePlaylistRemove />
-                      </Tooltip>
+                    <Tooltip
+                      title="Remove from wish list."
+                      placement="top"
+                      color="rgba(30, 41, 59, 0.8)"
+                    >
+                      <MdOutlinePlaylistRemove />
+                    </Tooltip>
                   </button>
                 </form>
               )}
