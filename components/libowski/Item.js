@@ -1,8 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
+import { addWishListItem, removeWishListItem } from "@/actions/actions";
 import ItemAvailability from "@/components/libowski/best-sellers/ItemAvailability";
 import { Tooltip } from "antd";
-import { MdOutlineDescription } from "react-icons/md";
+import {
+  MdOutlineDescription,
+  MdOutlinePlaylistAdd,
+  MdOutlinePlaylistAddCheck,
+  MdOutlinePlaylistRemove,
+} from "react-icons/md";
 
 export default function Item({ item }) {
   return (
@@ -40,10 +46,10 @@ export default function Item({ item }) {
               {item.description && (
                 <Tooltip
                   title={item.description}
-                  color="rgba(41, 37, 36, 0.8)"
-                  placement="bottom"
+                  color="rgba(30, 41, 59, 0.8)"
+                  placement="right"
                 >
-                  <MdOutlineDescription className="text-lg" />
+                  <MdOutlineDescription className="text-lg hover:text-white" />
                 </Tooltip>
               )}
             </div>
@@ -65,13 +71,72 @@ export default function Item({ item }) {
               </div>
             ) : null}
           </div>
-          <div className="flex flex-row justify-end">
+          <div className="flex flex-col items-end">
             {item.availability && (
               <ItemAvailability
                 itemId={item.id}
                 availability={item.availability}
               />
             )}
+            <div className="flex flex-row gap-1 h-full items-end justify-end">
+              {item.onWishList ? (
+                <div className="text-xl text-white p-1 rounded-full border border-teal-950 bg-slate-950 cursor-default hover:bg-slate-700 hover:border-green-500 hover:text-green-500 duration-300">
+                  <Tooltip
+                    title="On wish list."
+                    placement="top"
+                    color="rgba(30, 41, 59, 0.8)"
+                  >
+                    <MdOutlinePlaylistAddCheck />
+                  </Tooltip>
+                </div>
+              ) : (
+                <form action={addWishListItem} key={item.title} className="flex w-8 h-8 justify-center items-center text-xl text-white rounded-full border border-teal-950 bg-slate-950 cursor-pointer hover:bg-slate-700 hover:border-green-500 hover:text-green-500 duration-300">
+                  <input
+                    required
+                    type="text"
+                    id="inputTitle"
+                    name="inputTitle"
+                    value={item.title}
+                    hidden
+                    readOnly
+                  />
+                  <button type="submit">
+                      <Tooltip
+                        title="Add to wish list."
+                        placement="top"
+                        color="rgba(30, 41, 59, 0.8)"
+                      >
+                        <MdOutlinePlaylistAdd />
+                      </Tooltip>
+                  </button>
+                </form>
+              )}
+              {item.onWishList && (
+                <form
+                  action={removeWishListItem}
+                  key={item.id}
+                  className="flex w-8 h-8 justify-center items-center text-xl text-white rounded-full border border-teal-950 bg-slate-950 cursor-pointer hover:bg-slate-700 hover:border-red-500 hover:text-red-500 duration-300"
+                >
+                  <input
+                    hidden
+                    type="text"
+                    id="inputTitle"
+                    name="inputTitle"
+                    autoComplete="off"
+                    defaultValue={item.title}
+                  />
+                  <button type="submit">
+                      <Tooltip
+                        title="Remove from wish list."
+                        placement="top"
+                        color="rgba(30, 41, 59, 0.8)"
+                      >
+                        <MdOutlinePlaylistRemove />
+                      </Tooltip>
+                  </button>
+                </form>
+              )}
+            </div>
           </div>
         </div>
       </div>

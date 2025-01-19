@@ -2,11 +2,23 @@ import BestSellersItems from "@/components/libowski/best-sellers/BestSellersItem
 
 async function getData() {
     try {
-      const response = await fetch(
+      const bestSellersResponse = await fetch(
         `${process.env.LIBOWSKI_API_URL}/all-best-sellers`,
         { next: { revalidate: 0 } }
       );
-      const data = await response.json();
+      const bestSellersData = await bestSellersResponse.json();
+
+      const wishlistResponse = await fetch(`${process.env.LIBOWSKI_API_URL}/wish-list`, {
+        next: { revalidate: 0 },
+      });
+      const wishlistData = await wishlistResponse.json();
+
+      const data = bestSellersData.map((item) => {
+        return {
+          ...item,
+          onWishList: wishlistData.some((wishlistTitle) => wishlistTitle === item.title),
+        };
+      });
   
       return { props: { items: data } };
     } catch (error) {

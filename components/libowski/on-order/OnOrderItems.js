@@ -2,11 +2,24 @@ import Item from "@/components/libowski/Item";
 
 async function getData() {
   try {
-    const response = await fetch(
+    const bestSellersResponse = await fetch(
       `${process.env.LIBOWSKI_API_URL}/all-on-order`,
       { next: { revalidate: 0 } }
     );
-    const data = await response.json();
+    const bestSellersData = await bestSellersResponse.json();
+
+    const wishlistResponse = await fetch(`${process.env.LIBOWSKI_API_URL}/wish-list`, {
+      next: { revalidate: 0 },
+    });
+    const wishlistData = await wishlistResponse.json();
+
+    const data = bestSellersData.map((item) => {
+      return {
+        ...item,
+        onWishList: wishlistData.some((wishlistTitle) => wishlistTitle === item.title),
+      };
+    });
+
     if (!data || data.length === 0) {
       return { props: { items: [] } };
     }
