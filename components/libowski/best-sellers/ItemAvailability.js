@@ -13,7 +13,7 @@ export default function Availability({ itemId, availability }) {
   };
 
   return (
-    <div className="grid grid-rows-4 gap-1">
+    <div className="flex flex-col gap-1">
       {Object.keys(availability || {}).map((availId) => {
         const avail = availability[availId];
         const location =
@@ -29,11 +29,12 @@ export default function Availability({ itemId, availability }) {
         return (
           <Tooltip
             title={`${avail.location} as of ${notifyDate.toLocaleString()}`}
-            placement="bottom"
+            placement="left"
+            color="rgba(30, 41, 59, 0.8)"
             key={availId}
           >
             <div
-              className="flex px-1 min-w-[max-content] items-center justify-center rounded-lg border border-teal-900 text-white text-xs uppercase hover:bg-slate-700 hover:text-teal-300 hover:border-teal-300 duration-300"
+              className="flex px-1 min-w-[max-content] items-center justify-center rounded-lg border border-teal-900 text-white text-xs uppercase cursor-default hover:bg-slate-700 hover:text-teal-300 hover:border-teal-300 duration-300"
             >
               {location} {formatTime(timeSinceNotifyDate)}
             </div>
