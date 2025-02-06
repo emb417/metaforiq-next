@@ -71,7 +71,7 @@ export default function Item({ item }) {
             )}
             <div className="flex flex-row gap-1 h-full items-end justify-end">
               {item.onWishList ? (
-                <div className="text-xl text-white p-1 rounded-full border border-teal-950 bg-slate-950 cursor-default hover:bg-slate-700 hover:border-green-500 hover:text-green-500 duration-300">
+                <div className="text-xl text-green-500 p-1 rounded-full border border-teal-950 bg-slate-950 cursor-default hover:bg-slate-700 hover:border-green-500 hover:text-green-500 duration-300">
                   <Tooltip
                     title="On wish list."
                     placement="top"
