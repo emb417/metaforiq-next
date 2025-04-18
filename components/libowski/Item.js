@@ -42,7 +42,7 @@ export default function Item({ item }) {
               </div>
             ) : null}
             <div className="flex flex-row gap-1 text-teal-300 text-xs items-center">
-              {item.publicationYear.substring(0, 4)} {item.format || ""}{" "}
+              {item.publicationYear && item.publicationYear.substring(0, 4)} {item.format || ""}{" "}
               {item.description && (
                 <Tooltip
                   title={item.description}
