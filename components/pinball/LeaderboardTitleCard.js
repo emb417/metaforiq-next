@@ -11,7 +11,7 @@ export default function LeaderboardTitleCard({
       <Image
         src={
           imageUrl ??
-          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPkF9f+DwAB4AFSb/p0HAAAAABJRU5ErkJggg=="
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEkAAAA3CAYAAABAW2dtAAAAYUlEQVR42u3QIQEAMAgAsJPgkg707wcNcLgtwuJn9WMVkiRJkiRJkiRJSJIkSZIkSZKQJEmSJEmSJEnSIEmSJEmSJElCkiRJkiRJkoQkSZIkSZIkSRKSJEmSJEmSJCRJOjAlaUgxksvLMgAAAABJRU5ErkJggg=="
         }
         width={imageUrl ? 292 : 292}
         height={imageUrl ? 292 : 220}
