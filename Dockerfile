@@ -19,7 +19,16 @@ WORKDIR /app
 # Install native dependencies for the 'sharp' image processing library.
 # This is a critical step to prevent the build error on ARM architectures.
 # We use 'apk' since we're using an Alpine-based image.
-RUN apk add --no-cache vips-dev
+RUN apk add --no-cache \
+    build-base \
+    vips-dev \
+    cairo-dev \
+    pango-dev \
+    jpeg-dev \
+    giflib-dev \
+    tiff-dev \
+    libpng-dev \
+    libxml2-dev
 
 # Copy package.json and package-lock.json first to leverage Docker's layer caching.
 # This ensures that npm dependencies are only re-installed when these files change.
