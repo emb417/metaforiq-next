@@ -16,24 +16,11 @@ ENV LIBOWSKI_API_URL=$LIBOWSKI_API_URL
 # run in this directory unless otherwise specified.
 WORKDIR /app
 
-# Install native dependencies for the 'sharp' image processing library.
-# This is a critical step to prevent the build error on ARM architectures.
-# We use 'apk' since we're using an Alpine-based image.
-# These libraries are required for the `sharp` dependency to build correctly.
-RUN apk add --no-cache \
-    build-base \
-    vips-dev \
-    cairo-dev \
-    pango-dev \
-    jpeg-dev \
-    giflib-dev \
-    tiff-dev \
-    libpng-dev \
-    libxml2-dev \
-    libstdc++
-
-# Tell sharp to skip the global CLI check, which fails in the QEMU emulator.
-ENV SHARP_IGNORE_GLOBAL_CLI_CHECK=1
+# Tell npm to use the pre-built binaries for sharp.
+# This prevents the build from failing due to native compilation issues in the
+# QEMU emulation layer.
+ENV npm_config_arch=arm64
+ENV npm_config_platform=linux
 
 # Copy package.json and package-lock.json first to leverage Docker's layer caching.
 # This ensures that npm dependencies are only re-installed when these files change.
