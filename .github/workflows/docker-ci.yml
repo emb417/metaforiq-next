@@ -35,3 +35,4 @@ jobs:
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/metaforiq-next:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/metaforiq-next:${{ github.sha }}
+          platforms: linux/amd64,linux/arm64
