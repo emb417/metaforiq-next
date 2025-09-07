@@ -5,12 +5,13 @@ import { GiPinballFlipper } from "react-icons/gi";
 import PageTitle from "@/components/nav/PageTitle";
 import Leaderboards from "@/components/pinball/Leaderboards";
 
+export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Pinball Leaderboards",
   description: "VPC Pinball Leaderboards",
   alternates: {
     canonical: "/pinball",
-  }
+  },
 };
 
 export default function PinballPage() {
@@ -25,7 +26,12 @@ export default function PinballPage() {
           target="_blank"
           className="flex gap-1 ml-auto p-2 min-w-[max-content] text-lg text-white items-center hover:text-teal-300 duration-300 cursor-pointer"
         >
-          <Image src="/vpc.png" width={48} height={48} alt="Virtual Pinball Chat" />
+          <Image
+            src="/vpc.png"
+            width={48}
+            height={48}
+            alt="Virtual Pinball Chat"
+          />
           Virtual Pinball Chat
         </Link>
       </div>
