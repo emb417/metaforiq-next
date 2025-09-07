@@ -24,7 +24,9 @@ const nextConfig = {
     ],
   },
   rewrites: async () => {
-    if (process.env.NEXT_PUBLIC_BUILD_ENV) {
+    // Check for the LIBOWSKI_API_URL which is set as a build argument
+    // in the Dockerfile. If it's a placeholder, we are in the build phase.
+    if (process.env.LIBOWSKI_API_URL === "http://localhost:8080") {
       return {
         fallback: [
           {
@@ -34,6 +36,7 @@ const nextConfig = {
         ],
       };
     }
+    // At runtime, use the correct API service name.
     return {
       fallback: [
         {
