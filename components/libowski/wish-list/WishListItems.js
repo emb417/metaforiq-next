@@ -1,6 +1,13 @@
 import WishListRemoveItem from "@/components/libowski/wish-list/WishListRemoveItem";
 
 const getData = async () => {
+  // Check if we are in the build environment by looking for the placeholder URL.
+  // This prevents the build from failing if the API is not available.
+  if (process.env.LIBOWSKI_API_URL === "http://localhost:8080") {
+    // Return a mock or empty data set to allow the build to succeed.
+    return { props: { items: [] } };
+  }
+
   try {
     const response = await fetch(`${process.env.LIBOWSKI_API_URL}/wish-list`, {
       next: { revalidate: 0 },

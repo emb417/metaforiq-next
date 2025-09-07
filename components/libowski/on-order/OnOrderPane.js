@@ -1,6 +1,13 @@
 import ItemsPane from "@/components/libowski/ItemsPane";
 
 async function getData() {
+  // Check if we are in the build environment by looking for the placeholder URL.
+  // This prevents the build from failing if the API is not available.
+  if (process.env.LIBOWSKI_API_URL === "http://localhost:8080") {
+    // Return a mock or empty data set to allow the build to succeed.
+    return { props: { items: [] } };
+  }
+
   try {
     const onOrderResponse = await fetch(
       `${process.env.LIBOWSKI_API_URL}/all-on-order`,
@@ -8,15 +15,20 @@ async function getData() {
     );
     const onOrderData = await onOrderResponse.json();
 
-    const wishlistResponse = await fetch(`${process.env.LIBOWSKI_API_URL}/wish-list`, {
-      next: { revalidate: 0 },
-    });
+    const wishlistResponse = await fetch(
+      `${process.env.LIBOWSKI_API_URL}/wish-list`,
+      {
+        next: { revalidate: 0 },
+      }
+    );
     const wishlistData = await wishlistResponse.json();
 
     const data = onOrderData.map((item) => {
       return {
         ...item,
-        onWishList: wishlistData.some((wishlistTitle) => wishlistTitle === item.title),
+        onWishList: wishlistData.some(
+          (wishlistTitle) => wishlistTitle === item.title
+        ),
       };
     });
 
@@ -31,5 +43,5 @@ export default async function Items() {
   const { props } = await getData();
   const { items } = props;
 
-    return <ItemsPane items={items} />;
+  return <ItemsPane items={items} />;
 }
