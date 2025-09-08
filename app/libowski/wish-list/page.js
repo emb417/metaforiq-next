@@ -7,12 +7,13 @@ import LoadingMessage from "@/components/nav/LoadingMessage";
 import WishListAddItem from "@/components/libowski/wish-list/WishListAddItem";
 import WishListItems from "@/components/libowski/wish-list/WishListItems";
 
+export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Wish List",
   description: "Library Wish List",
   alternates: {
     canonical: "/libowski/wish-list",
-  }
+  },
 };
 
 const navItems = [

@@ -6,12 +6,13 @@ import SubNav from "@/components/nav/SubNav";
 import LoadingMessage from "@/components/nav/LoadingMessage";
 import BestSellersPane from "@/components/libowski/best-sellers/BestSellersPane";
 
+export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Recent Best Sellers",
   description: "Library Recent Best Sellers",
   alternates: {
     canonical: "/libowski/best-sellers",
-  }
+  },
 };
 
 const navItems = [

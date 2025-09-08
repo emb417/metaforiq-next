@@ -6,24 +6,25 @@ import SubNav from "@/components/nav/SubNav";
 import LoadingMessage from "@/components/nav/LoadingMessage";
 import OnOrderPane from "@/components/libowski/on-order/OnOrderPane";
 
+export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Recent On Orders",
   description: "Library Recent On Orders",
   alternates: {
     canonical: "/libowski/on-order",
-  }
+  },
 };
 
 const navItems = [
   {
     id: 1,
-    icon: <CgPlayList/>,
+    icon: <CgPlayList />,
     href: "/libowski/wish-list",
     text: "Wish List",
   },
   {
     id: 2,
-    icon: <GiSmallFire/>,
+    icon: <GiSmallFire />,
     href: "/libowski/best-sellers",
     text: "Recent Best Sellers",
   },
