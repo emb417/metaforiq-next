@@ -23,28 +23,9 @@ const nextConfig = {
       },
     ],
   },
-  rewrites: async () => {
-    // Check for the LIBOWSKI_API_URL which is set as a build argument
-    // in the Dockerfile. If it's a placeholder, we are in the build phase.
-    if (process.env.LIBOWSKI_API_URL === "http://localhost:8080") {
-      return {
-        fallback: [
-          {
-            source: "/api/:path*",
-            destination: "http://localhost:8080",
-          },
-        ],
-      };
-    }
-    // At runtime, use the correct API service name.
-    return {
-      fallback: [
-        {
-          source: "/api/:path*",
-          destination: "http://metaforiq-node:8008/:path*",
-        },
-      ],
-    };
+  // Expose the version number to the client-side bundle.
+  env: {
+    APP_VERSION: process.env.npm_package_version,
   },
 };
 

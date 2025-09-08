@@ -14,7 +14,7 @@ export default function LoadingMessage({ message = "Loading..." }) {
         {message}
       </div>
       <div className="text-center text-sm text-teal-300">
-        metaforiq-next v{process.env.npm_package_version}
+        metaforiq-next v{process.env.APP_VERSION}
       </div>
     </div>
   );
