@@ -4,10 +4,7 @@
 # STAGE 1: The Builder Stage
 # This stage installs all dependencies and builds the Next.js application.
 # -----------------------------------------------------------
-# We use the official Node.js 22 LTS (Long Term Support) image.
-# The "bullseye-slim" variant is chosen for its compatibility with native dependencies
-# while still maintaining a small footprint.
-FROM node:24 AS builder
+FROM arm64v8/node:24-slim AS builder
 
 # Add a build argument for the API URL.
 ARG LIBOWSKI_API_URL=http://localhost:8080
@@ -45,7 +42,7 @@ RUN NEXT_TELEMETRY_DISABLED=1 npm run build
 # This stage uses a much smaller, non-development-focused Node.js image to run
 # the production application, reducing the final image size and attack surface.
 # -----------------------------------------------------------
-FROM node:24 AS runner
+FROM arm64v8/node:24-slim AS runner
 
 # Set the working directory.
 WORKDIR /app
