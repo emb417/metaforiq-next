@@ -5,8 +5,9 @@
 # This stage installs all dependencies and builds the Next.js application.
 # -----------------------------------------------------------
 # We use the official Node.js 22 LTS (Long Term Support) image.
-# The "alpine" variant is chosen to keep the image size as small as possible.
-FROM node:22-alpine AS builder
+# The "bullseye-slim" variant is chosen for its compatibility with native dependencies
+# while still maintaining a small footprint.
+FROM node:25-slim AS builder
 
 # Add a build argument for the API URL.
 ARG LIBOWSKI_API_URL=http://localhost:8080
@@ -16,11 +17,12 @@ ENV LIBOWSKI_API_URL=$LIBOWSKI_API_URL
 # run in this directory unless otherwise specified.
 WORKDIR /app
 
-# Tell npm to use the pre-built binaries for sharp.
-# This prevents the build from failing due to native compilation issues in the
-# QEMU emulation layer.
-ENV npm_config_arch=arm64
-ENV npm_config_platform=linux
+# Install native dependencies for the 'sharp' image processing library.
+# This is a critical step to prevent the build error on ARM architectures.
+# We use 'apt-get' since we're using a Debian-based image.
+# These libraries are required for the `sharp` dependency to build correctly.
+RUN apt-get update && apt-get install -y \
+    libvips-dev
 
 # Copy package.json and package-lock.json first to leverage Docker's layer caching.
 # This ensures that npm dependencies are only re-installed when these files change.
@@ -43,7 +45,7 @@ RUN NEXT_TELEMETRY_DISABLED=1 npm run build
 # This stage uses a much smaller, non-development-focused Node.js image to run
 # the production application, reducing the final image size and attack surface.
 # -----------------------------------------------------------
-FROM node:22-alpine AS runner
+FROM node:25-slim AS runner
 
 # Set the working directory.
 WORKDIR /app
