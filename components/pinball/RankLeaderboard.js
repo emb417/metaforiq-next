@@ -7,7 +7,7 @@ export default function RankLeaderboard({ recentPlayerStats }) {
   return (
     <div className="flex flex-wrap items-center justify-center">
       <div className="flex flex-col mb-2 items-center">
-        <Link href="https://virtualpinballchat.com:8443" target="_blank">
+        <Link href="https://virtualpinballchat.com" target="_blank">
           <Image
             src="/vpc.png"
             width={168}
@@ -34,7 +34,7 @@ export default function RankLeaderboard({ recentPlayerStats }) {
         .sort((a, b) => a.rank - b.rank)
         .map((user, index) => (
           <Link
-            href={`https://virtualpinballchat.com:8443/player/${user.username}`}
+            href={`https://virtualpinballchat.com/player/${user.username}`}
             target="_blank"
             key={user.username}
             className={`flex flex-col items-center mb-1 px-2 justify-left rounded-full w-full text-md ${

@@ -22,7 +22,7 @@ export default function PinballPage() {
           <GiPinballFlipper /> {metadata.title}
         </PageTitle>
         <Link
-          href="https://virtualpinballchat.com:8443"
+          href="https://virtualpinballchat.com"
           target="_blank"
           className="flex gap-1 ml-auto p-2 min-w-[max-content] text-lg text-white items-center hover:text-teal-300 duration-300 cursor-pointer"
         >

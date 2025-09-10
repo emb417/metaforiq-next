@@ -4,7 +4,6 @@ import { Tooltip } from "antd";
 import LeaderboardTitleCard from "@/components/pinball/LeaderboardTitleCard";
 
 export default function WeeklyLeaderboard({ weekData, vpsData }) {
-
   return (
     <div className="flex flex-col items-center text-slate-200">
       <LeaderboardTitleCard
@@ -43,7 +42,7 @@ export default function WeeklyLeaderboard({ weekData, vpsData }) {
       </LeaderboardTitleCard>
       {weekData.scores.map((score, index) => (
         <Link
-          href={`https://virtualpinballchat.com:8443/player/${score.username}`}
+          href={`https://virtualpinballchat.com/player/${score.username}`}
           target="_blank"
           key={score.username}
           className={`flex flex-col items-center mb-1 justify-left rounded-xl px-2 w-full ${
@@ -51,17 +50,21 @@ export default function WeeklyLeaderboard({ weekData, vpsData }) {
           } hover:bg-slate-700 duration-300`}
         >
           <div className="flex flex-row gap-1 justify-left w-full items-center">
-              <div className="flex items-center justify-center text-teal-300">{score.position}.</div>
-              <div className="flex rounded-full items-center">
-                <Image
-                  src={score.userAvatarUrl}
-                  width={20}
-                  height={20}
-                  alt={score.username}
-                  className="rounded-full"
-                />
-              </div>
-              <span className="text-md text-slate-300 truncate">{score.username}</span>
+            <div className="flex items-center justify-center text-teal-300">
+              {score.position}.
+            </div>
+            <div className="flex rounded-full items-center">
+              <Image
+                src={score.userAvatarUrl}
+                width={20}
+                height={20}
+                alt={score.username}
+                className="rounded-full"
+              />
+            </div>
+            <span className="text-md text-slate-300 truncate">
+              {score.username}
+            </span>
             <div className="flex flex-row gap-3 items-center ml-auto">
               <div className="text-teal-300 text-sm">
                 {score.score.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
