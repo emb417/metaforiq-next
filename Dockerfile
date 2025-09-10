@@ -6,10 +6,6 @@
 # -----------------------------------------------------------
 FROM node:24-slim AS builder
 
-# Add a build argument for the API URL.
-ARG LIBOWSKI_API_URL=http://localhost:8080
-ENV LIBOWSKI_API_URL=$LIBOWSKI_API_URL
-
 # Set the working directory inside the container. All subsequent commands will
 # run in this directory unless otherwise specified.
 WORKDIR /app
