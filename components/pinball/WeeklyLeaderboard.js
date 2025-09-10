@@ -42,7 +42,7 @@ export default function WeeklyLeaderboard({ weekData, vpsData }) {
       </LeaderboardTitleCard>
       {weekData.scores.map((score, index) => (
         <Link
-          href={`https://virtualpinballchat.com/player/${score.username}`}
+          href={`https://virtualpinballchat.com:8443/player/${score.username}`}
           target="_blank"
           key={score.username}
           className={`flex flex-col items-center mb-1 justify-left rounded-xl px-2 w-full ${
