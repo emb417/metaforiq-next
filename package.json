@@ -1,6 +1,6 @@
 {
   "name": "metaforiq-next",
-  "version": "3.27.30",
+  "version": "3.27.31",
   "type": "module",
   "private": true,
   "scripts": {
