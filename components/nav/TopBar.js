@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import { GiHeavyRain, GiPinballFlipper, GiBlackball } from "react-icons/gi";
+import { GiHeavyRain, GiBlackball } from "react-icons/gi";
 
 export default function Navbar() {
   // State to manage the navbar's visibility
@@ -22,12 +22,6 @@ export default function Navbar() {
       icon: <GiHeavyRain />,
       href: "/force-rain",
       text: "Force Rain",
-    },
-    {
-      id: 3,
-      icon: <GiPinballFlipper />,
-      href: "/pinball",
-      text: "Pinball",
     },
     {
       id: 4,

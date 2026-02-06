@@ -1,6 +1,6 @@
 # Metaforiq.com
 
-Personal portfolio and app to demo fun projects: canvas typewriter, canvas force rain matrix style, virtual pinball league data visualizations and libowski chat bot.
+Personal portfolio and app to demo fun projects: canvas typewriter, canvas force rain matrix style visualizations and libowski chat bot.
 
 ## Getting Started with Local Development
 
