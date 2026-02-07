@@ -1,0 +1,9 @@
+.logo {
+  content: url('/logo-light.png');
+}
+
+@media (prefers-color-scheme: dark) {
+  .logo {
+    content: url('/logo-dark.png');
+  }
+}

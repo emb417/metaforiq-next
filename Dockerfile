@@ -49,8 +49,8 @@ USER node
 # The Next.js app needs specific files to run. We copy them from the builder stage.
 # We only copy the files that are absolutely necessary.
 # We no longer need to copy node_modules separately as they are part of the standalone build.
-COPY --from=builder --chown=node:node /app/.next/standalone ./
-COPY --from=builder --chown=node:node /app/.next/static ./.next/static
+COPY --from=builder --chown=node:node /app/.next/standalone ./ 
+COPY --from=builder --chown=node:node /app/.next/static ./.next/static 
 COPY --from=builder --chown=node:node /app/public ./public
 
 # Expose the port on which the Next.js application will listen.

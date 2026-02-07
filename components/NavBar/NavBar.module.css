@@ -1,0 +1,63 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Use global .container + local .inner */
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  width: 100%;
+}
+
+/* Logo */
+.logoWrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* Desktop nav */
+.navLinks {
+  display: none; /* mobile hidden */
+}
+
+@media (min-width: 768px) {
+  .navLinks {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+}
+
+.link {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  transition: color 0.15s ease;
+}
+
+.link:hover {
+  color: var(--color-brand);
+}
+
+/* CTA button */
+.cta {
+  background: var(--color-action-primary);
+  color: var(--color-text-inverse);
+  padding: 10px 24px;
+  border-radius: 9999px;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--color-action-primary) 20%, transparent);
+}
+
+.cta:hover {
+  background: var(--color-action-primary-hover);
+}

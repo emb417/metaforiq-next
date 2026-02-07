@@ -1,0 +1,269 @@
+/* -------------------------------------------------------
+   Global Reset
+------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* -------------------------------------------------------
+   Design Tokens — Light Mode
+   (Mapped directly from your Tailwind palette)
+------------------------------------------------------- */
+
+:root {
+  /* -------------------------
+     Cream (Warm Neutrals)
+  ------------------------- */
+  --cream-50:  #FFFCF8;
+  --cream-100: #FFF9F0;
+  --cream-200: #FCEFD9;
+  --cream-300: #F9E5C2;
+  --cream-400: #F5D9A8;
+  --cream-500: #F0CC8E;
+  --cream-600: #E8B86A;
+  --cream-700: #DFA246;
+  --cream-800: #C98A2A;
+  --cream-900: #A56F1F;
+
+  /* -------------------------
+     Teal (Brand)
+  ------------------------- */
+  --teal-50:  #E0F4F3;
+  --teal-100: #B3E4E1;
+  --teal-200: #80D2CD;
+  --teal-300: #4DBFB8;
+  --teal-400: #26AFA7;
+  --teal-500: #009F96;
+  --teal-600: #007F78;
+  --teal-700: #005F5A;
+  --teal-800: #004B49;
+  --teal-900: #00312F;
+
+  /* -------------------------
+     Charcoal (Neutral Grayscale)
+  ------------------------- */
+  --charcoal-50:  #F5F5F5;
+  --charcoal-100: #E1E1E1;
+  --charcoal-200: #CFCFCF;
+  --charcoal-300: #B1B1B1;
+  --charcoal-400: #757575;
+  --charcoal-500: #4A4A4A;
+  --charcoal-600: #3C3C3C;
+  --charcoal-700: #333333;
+  --charcoal-800: #1F1F1F;
+  --charcoal-900: #141414;
+
+  /* -------------------------
+     Terracotta (Secondary Action)
+  ------------------------- */
+  --terracotta-50:  #FCEDE9;
+  --terracotta-100: #F8D7D0;
+  --terracotta-200: #F1B4A8;
+  --terracotta-300: #E98F80;
+  --terracotta-400: #E2725B;
+  --terracotta-500: #C85F4C;
+  --terracotta-600: #A94C3D;
+  --terracotta-700: #8C3A2F;
+  --terracotta-800: #6F2921;
+  --terracotta-900: #521913;
+
+  /* -------------------------
+     Sienna (Primary Action)
+  ------------------------- */
+  --sienna-50:  #F7EDE8;
+  --sienna-100: #EFD9CF;
+  --sienna-200: #E1B7A3;
+  --sienna-300: #D39577;
+  --sienna-400: #C4754F;
+  --sienna-500: #A0522D;
+  --sienna-600: #874426;
+  --sienna-700: #6D361F;
+  --sienna-800: #542817;
+  --sienna-900: #3B1B10;
+
+  /* -------------------------
+     Semantic Tokens
+  ------------------------- */
+
+  /* Surfaces */
+  --color-bg: var(--cream-100);
+  --color-surface: var(--cream-200);
+  --color-surface-muted: var(--cream-300);
+  --color-surface-hover: var(--cream-400);
+
+  /* Text */
+  --color-text: var(--charcoal-700);
+  --color-text-secondary: var(--charcoal-500);
+  --color-text-muted: var(--charcoal-400);
+  --color-text-inverse: var(--cream-50);
+
+  /* Brand */
+  --color-brand: var(--teal-800);
+  --color-brand-light: var(--teal-400);
+  --color-brand-hover: var(--teal-700);
+
+  /* Actions */
+  --color-action-primary: var(--sienna-500);
+  --color-action-primary-hover: var(--sienna-600);
+
+  --color-action-secondary: var(--terracotta-400);
+  --color-action-secondary-hover: var(--terracotta-500);
+
+  /* Borders */
+  --color-border: var(--charcoal-100);
+  --color-border-strong: var(--sienna-700);
+
+  /* Status */
+  --color-status-success: var(--teal-300);
+  --color-status-warning: var(--cream-400);
+  --color-status-danger: var(--terracotta-500);
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
+
+  /* Typography */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+}
+
+/* -------------------------------------------------------
+   Dark Mode — Semantic Tokens
+------------------------------------------------------- */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Surfaces */
+    --color-bg: var(--charcoal-900);
+    --color-surface: var(--charcoal-800);
+    --color-surface-muted: var(--charcoal-700);
+    --color-surface-hover: var(--charcoal-600);
+
+    /* Text */
+    --color-text: var(--cream-50);
+    --color-text-secondary: var(--charcoal-300);
+    --color-text-muted: var(--charcoal-400);
+    --color-text-inverse: var(--charcoal-900);
+
+    /* Brand */
+    --color-brand: var(--teal-300);
+    --color-brand-hover: var(--teal-200);
+
+    /* Actions */
+    --color-action-primary: var(--sienna-400);
+    --color-action-primary-hover: var(--sienna-300);
+
+    --color-action-secondary: var(--terracotta-400);
+    --color-action-secondary-hover: var(--terracotta-300);
+
+    /* Borders */
+    --color-border: var(--charcoal-700);
+    --color-border-strong: var(--sienna-700);
+  }
+}
+
+/* -------------------------------------------------------
+   Global Utilities
+   (Shared primitives used across components)
+------------------------------------------------------- */
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 900;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* Accessibility */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Layout Helpers */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Global Animations */
+@keyframes pulse {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.4;
+    transform: scale(0.98);
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+.hidden {
+  display: none !important;
+}

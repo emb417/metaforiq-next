@@ -1,17 +1,25 @@
-import TopBar from "@/components/nav/TopBar";
-import "./globals.css";
+import NavBar from "@/components/NavBar/NavBar";
+import Footer from "@/components/Footer/Footer";
+import "@/app/styles/globals.css";
 
 export const metadata = {
-  metadataBase: new URL('https://www.metaforiq.com'),
+  metadataBase: new URL("https://www.metaforiq.com"),
+  icons: {
+    icon: [
+      { url: "/logo-light.png", media: "(prefers-color-scheme: light)" },
+      { url: "/logo-dark.png", media: "(prefers-color-scheme: dark)" },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-black">
-        <TopBar />
+      <body>
+        <NavBar />
         {children}
+        <Footer />
       </body>
     </html>
   );
-};
+}
