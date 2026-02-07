@@ -1,24 +1,9 @@
 .section {
-  padding: 6rem 2rem;
   background: var(--color-surface);
 }
 
-/* Use global .container + local .inner */
-/* .inner { */
-  /* No layout primitives here — only contextual behavior */
-/* } */
-
 .header {
   margin-bottom: var(--space-10);
-}
-
-.kicker {
-  font-size: var(--font-size-sm);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--color-brand);
-  margin-bottom: var(--space-2);
 }
 
 .title {

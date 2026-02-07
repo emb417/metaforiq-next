@@ -2,11 +2,11 @@ import styles from "@/components/Expertise/Expertise.module.css";
 
 export default function Expertise() {
   return (
-    <section id="expertise" className={styles.section}>
+    <section id="expertise" className={`section-padding ${styles.section}`}>
       <div className={`container ${styles.inner}`}>
         {/* Left Column */}
         <div className={styles.left}>
-          <h2 className={styles.kicker}>Technical Depth</h2>
+          <h2 className="kicker">Technical Depth</h2>
 
           <h3 className={styles.title}>
             Judgment at the Intersection of Product and Engineering

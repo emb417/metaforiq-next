@@ -1,7 +1,6 @@
 .section {
   position: relative;
   background: var(--color-surface-muted);
-  padding: 6rem 1rem;
   overflow: hidden;
 }
 
@@ -49,8 +48,12 @@
   left: 50%;
   width: 800px;
   height: 800px;
-  transform: translate(-50%, 50%);
-  background: var(--teal-700);
+  transform: translate(-50%, 20%);
+  background: radial-gradient(
+    circle at bottom center,
+    var(--color-action-primary),
+    transparent 70%
+  );
   border-radius: 50%;
   filter: blur(100px);
   opacity: 0.3;

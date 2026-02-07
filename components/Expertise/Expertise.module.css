@@ -1,5 +1,4 @@
 .section {
-  padding: 6rem 1rem;
   background: var(--color-bg);
 }
 
@@ -18,14 +17,6 @@
 }
 
 /* Left Column */
-.kicker {
-  font-size: var(--font-size-sm);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--color-brand);
-  margin-bottom: var(--space-2);
-}
 
 .title {
   font-size: var(--font-size-2xl);

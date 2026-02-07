@@ -2,9 +2,11 @@ import styles from "@/components/Hero/Hero.module.css";
 
 export default function Hero() {
   return (
-    <header className={styles.hero}>
+    <header className={`section-padding ${styles.hero}`}>
       <div className={`container ${styles.inner}`}>
-        <div className={styles.badge}>Software Product Consulting</div>
+        <div className={`kicker ${styles.badge}`}>
+          Software Product Consulting
+        </div>
 
         <h1 className={styles.title}>
           Turning Ambiguity into{" "}
@@ -18,15 +20,6 @@ export default function Hero() {
           product work across AI-enabled capabilities, data platforms, and B2B
           SaaS.
         </p>
-
-        <div className={styles.actions}>
-          <a href="mailto:eric@metaforiq.com" className={styles.cta}>
-            Work with MetaforIQ
-          </a>
-          <p className={styles.experience}>
-            20+ years of building for Best Buy, Nike, Vevo, and Dell.
-          </p>
-        </div>
       </div>
 
       {/* Decorative background */}

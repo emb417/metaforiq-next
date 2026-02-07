@@ -1,6 +1,6 @@
 .footer {
   background: var(--color-bg);
-  padding: 2rem 1rem;
+  /* padding: 2rem 1rem; removed as global section-padding is used */
   border-top: 1px solid var(--color-border);
 }
 

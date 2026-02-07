@@ -3,10 +3,10 @@ import ServiceCard from "@/components/Services/ServiceCard";
 
 export default function Services() {
   return (
-    <section id="services" className={styles.section}>
-      <div className={styles.container}>
+    <section id="services" className={`section-padding ${styles.section}`}>
+      <div className="container">
         <div className={styles.header}>
-          <h2 className={styles.kicker}>Consulting Services</h2>
+          <h2 className="kicker">Consulting Services</h2>
           <h3 className={styles.title}>
             How we help you move from idea to impact.
           </h3>

@@ -2,7 +2,7 @@ import styles from "@/components/CTASection/CTASection.module.css";
 
 export default function CTASection() {
   return (
-    <section className={styles.section}>
+    <section className={`section-padding ${styles.section}`}>
       <div className={`container ${styles.inner}`}>
         <h2 className={styles.title}>Ready to Build What’s Next?</h2>
 
@@ -11,7 +11,7 @@ export default function CTASection() {
           leadership to drive discovery, alignment, and delivery, let’s talk.
         </p>
 
-        <a href="mailto:eric@metaforiq.com" className={styles.cta}>
+        <a href="mailto:eric@metaforiq.com" className="btn btn-surface">
           Start the Conversation
         </a>
       </div>
