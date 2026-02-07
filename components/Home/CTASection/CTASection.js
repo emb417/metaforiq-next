@@ -1,4 +1,4 @@
-import styles from "@/components/CTASection/CTASection.module.css";
+import styles from "@/components/Home/CTASection/CTASection.module.css";
 
 export default function CTASection() {
   return (

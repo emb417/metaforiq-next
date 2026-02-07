@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "@/components/LoadingMessage/LoadingMessage.module.css";
+import styles from "@/components/Common/LoadingMessage/LoadingMessage.module.css";
 
 export default function LoadingMessage({ message = "Loading..." }) {
   return (

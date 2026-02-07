@@ -1,4 +1,4 @@
-import styles from "@/components/Footer/Footer.module.css";
+import styles from "@/components/Common/Footer/Footer.module.css";
 
 export default function Footer() {
   return (
@@ -15,11 +15,14 @@ export default function Footer() {
           </div>
 
           <nav className={styles.nav}>
-            <a href="#services" className={styles.link}>
+            <a href="/services" className={styles.link}>
               Services
             </a>
-            <a href="#expertise" className={styles.link}>
+            <a href="/expertise" className={styles.link}>
               Expertise
+            </a>
+            <a href="/about" className={styles.link}>
+              About
             </a>
             <a href="mailto:eric@metaforiq.com" className={styles.link}>
               Contact
