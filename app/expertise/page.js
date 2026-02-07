@@ -27,6 +27,8 @@ export default function ExpertisePage() {
             choose deliberately.
           </p>
         </div>
+        {/* Decorative background */}
+        <div className={styles.bgDecor} />
       </header>
 
       <Philosophy />

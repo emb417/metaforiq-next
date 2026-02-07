@@ -93,9 +93,9 @@
   right: 0;
   width: 80%;
   height: 100%;
-  transform: translate(-25%, -25%);
+  transform: translate(25%, -25%);
   background: radial-gradient(
-    circle at top left,
+    circle at top right,
     var(--color-action-primary),
     transparent 70%
   );

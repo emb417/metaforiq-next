@@ -25,6 +25,8 @@ export default function AboutPage() {
             delivery.
           </p>
         </div>
+        {/* Decorative background */}
+        <div className={styles.bgDecor} />
       </header>
 
       <ProfessionalStory />

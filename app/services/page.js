@@ -74,6 +74,8 @@ export default function ServicesPage() {
             assumptions early, and focus effort where it matters most.
           </p>
         </div>
+        {/* Decorative background */}
+        <div className={styles.bgDecor} />
       </header>
 
       <WhoIsThisFor />
