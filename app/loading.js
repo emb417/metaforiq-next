@@ -1,4 +1,4 @@
-import LoadingMessage from "@/components/Common/LoadingMessage/LoadingMessage";
+import LoadingMessage from "@/components/App/LoadingMessage/LoadingMessage";
 
 export default function Loading() {
   return <LoadingMessage />;

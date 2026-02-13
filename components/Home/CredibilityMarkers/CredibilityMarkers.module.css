@@ -1,0 +1,122 @@
+.section {
+  background: var(--color-surface);
+}
+
+.title {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-12);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+  margin-bottom: var(--space-16);
+}
+
+@media (max-width: 1200px) {
+  .statsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statCard {
+  background: var(--color-bg);
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  border: 1px solid var(--color-border);
+  position: relative; /* For tooltip positioning */
+  cursor: help;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-brand);
+}
+
+.statValue {
+  font-size: 2.5rem; /* Slightly smaller to accommodate more cards */
+  font-weight: 900;
+  color: var(--color-brand);
+  line-height: 1;
+  margin-bottom: var(--space-2);
+}
+
+.statLabel {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  background: var(--color-text);
+  color: var(--color-bg);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  width: 200px;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+  box-shadow: var(--shadow-lg);
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--color-text) transparent transparent transparent;
+}
+
+.statCard:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-20px);
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: var(--space-8);
+  font-size: var(--font-size-lg);
+}
+
+.industries {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.industryTag {
+  background: var(--color-brand);
+  color: var(--color-text-inverse);
+  padding: var(--space-2) var(--space-6);
+  border-radius: 999px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}

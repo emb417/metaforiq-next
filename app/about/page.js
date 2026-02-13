@@ -1,57 +1,34 @@
-import Link from "next/link";
-import ProfessionalStory from "@/components/About/ProfessionalStory";
-import CredibilityMarkers from "@/components/About/CredibilityMarkers";
-import PersonalNote from "@/components/About/PersonalNote";
-import styles from "./AboutPage.module.css";
+import Hero from "@/components/App/Hero/Hero";
+import ProfessionalStory from "@/components/About/ProfessionalStory/ProfessionalStory";
+import PersonalNote from "@/components/About/PersonalNote/PersonalNote";
+import Mindset from "@/components/About/Mindset/Mindset";
+import ValuesAndPreferences from "@/components/About/ValuesAndPreferences/ValuesAndPreferences";
+import CTASection from "@/components/App/CTASection/CTASection";
 
 export const metadata = {
   title: "About | Eric Brousseau",
   description:
-    "The professional story and track record of Eric Brousseau, a Principal Product Leader with 25+ years of experience.",
+    "The professional story of Eric Brousseau, a Principal Product Leader with 25+ years of experience.",
 };
 
 export default function AboutPage() {
   return (
-    <main className={styles.main}>
-      <header className={`section-padding ${styles.header}`}>
-        <div className="container">
-          <h1 className="kicker">About</h1>
-          <h2 className={styles.heroTitle}>
-            Pragmatic leadership for complex product challenges.
-          </h2>
-          <p className={styles.heroLead}>
-            I help organizations bridge the gap between technical potential and
-            business impact. No fluff, just evidence-led direction and hands-on
-            delivery.
-          </p>
-        </div>
-        {/* Decorative background */}
-        <div className={styles.bgDecor} />
-      </header>
-
+    <main className="main">
+      <Hero
+        kicker="About"
+        titleIntro="A systems thinker for"
+        titleAccent="the context-driven era."
+        subtitle="I find the synergy of user needs and technical capability to delight customers. By integrating the 'what' of data with the 'why' of metadata, I help realize the full potential of products through evidence-led decisions."
+      />
       <ProfessionalStory />
-      <CredibilityMarkers />
       <PersonalNote />
-
-      <section className={`section-padding ${styles.ctaSection}`}>
-        <div className="container">
-          <div className={styles.ctaCard}>
-            <h3>Looking for a seasoned perspective?</h3>
-            <p>
-              I’m currently taking on select advisory and project-based
-              engagements.
-            </p>
-            <div className={styles.ctaActions}>
-              <Link
-                href="mailto:eric@metaforiq.com"
-                className="btn btn-primary btn-lg"
-              >
-                Start a conversation
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Mindset />
+      <ValuesAndPreferences />
+      <CTASection
+        title="Let's Talk"
+        buttonText="Email me."
+        buttonLink="mailto:eric@metaforiq.com"
+      />
     </main>
   );
 }

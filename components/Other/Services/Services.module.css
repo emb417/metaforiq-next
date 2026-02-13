@@ -1,0 +1,34 @@
+.section {
+  background: var(--color-bg);
+}
+
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto var(--space-16);
+}
+
+.title {
+  font-size: var(--font-size-4xl);
+  margin-bottom: var(--space-6);
+  line-height: 1.1;
+}
+
+.description {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+}
+
+.serviceDetailWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  margin-top: var(--space-20);
+}
