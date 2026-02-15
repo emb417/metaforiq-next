@@ -1,14 +1,17 @@
-import Hero from "@/components/App/Hero/Hero";
-import ProfessionalStory from "@/components/About/ProfessionalStory/ProfessionalStory";
+import Hero from "@/components/Common/Hero/Hero";
+import Expertise from "@/components/About/Expertise/Expertise";
+import TechnicalDepth from "@/components/About/TechnicalDepth/TechnicalDepth";
 import PersonalNote from "@/components/About/PersonalNote/PersonalNote";
 import Mindset from "@/components/About/Mindset/Mindset";
-import ValuesAndPreferences from "@/components/About/ValuesAndPreferences/ValuesAndPreferences";
-import CTASection from "@/components/App/CTASection/CTASection";
+import Values from "@/components/About/Values/Values";
+import Preferences from "@/components/About/Preferences/Preferences";
+import CTASection from "@/components/Common/CTASection/CTASection";
+import Quote from "@/components/About/Quote/Quote";
 
 export const metadata = {
   title: "About | Eric Brousseau",
   description:
-    "The professional story of Eric Brousseau, a Principal Product Leader with 25+ years of experience.",
+    "The mindset, values, and leadership philosophy of Eric Brousseau, a Principal Product Leader.",
 };
 
 export default function AboutPage() {
@@ -17,16 +20,20 @@ export default function AboutPage() {
       <Hero
         kicker="About"
         titleIntro="A systems thinker for"
-        titleAccent="the context-driven era."
-        subtitle="I find the synergy of user needs and technical capability to delight customers. By integrating the 'what' of data with the 'why' of metadata, I help realize the full potential of products through evidence-led decisions."
+        titleAccent="the context-driven AI era."
+        subtitle="Principal Product Leader with 20+ years of experience driving the discovery and delivery of data, AI/ML, and UX platform capabilities across B2B SaaS and B2C digital products."
       />
-      <ProfessionalStory />
-      <PersonalNote />
+      <Quote />
       <Mindset />
-      <ValuesAndPreferences />
+      <Values />
+      <Preferences />
+      <Expertise />
+      <TechnicalDepth />
+      <PersonalNote />
       <CTASection
-        title="Let's Talk"
-        buttonText="Email me."
+        title="Seeking High-Leverage Impact"
+        subtitle="I am looking to lead the discovery and delivery of transformative AI-enabled capabilities."
+        buttonText="Let's Connect"
         buttonLink="mailto:eric@metaforiq.com"
       />
     </main>

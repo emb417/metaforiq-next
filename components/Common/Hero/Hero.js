@@ -1,5 +1,5 @@
 import styles from "./Hero.module.css";
-import Avatar from "@/components/App/Avatar/Avatar";
+import Avatar from "@/components/Common/Avatar/Avatar";
 
 export default function Hero({ kicker, titleIntro, titleAccent, subtitle }) {
   return (

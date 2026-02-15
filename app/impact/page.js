@@ -1,6 +1,6 @@
-import Hero from "@/components/App/Hero/Hero";
+import Hero from "@/components/Common/Hero/Hero";
 import Outcomes from "@/components/Impact/Outcomes/Outcomes";
-import CTASection from "@/components/App/CTASection/CTASection";
+import CTASection from "@/components/Common/CTASection/CTASection";
 
 export const metadata = {
   title: "Impact | Eric Brousseau",
@@ -15,12 +15,12 @@ export default function ImpactPage() {
         kicker="Impact"
         titleIntro="Technical Complexity to"
         titleAccent="Business Outcomes"
-        subtitle="From AI/ML innovations to zero-to-one product introductions, I leverage systems thinking to identify unmet needs within complex technical environments. I combine deep technical fluency and hands-on prototyping with scientific rigor to launch new products and accelerate growth."
+        subtitle="I lead the transformation of complex technical challenges into products that delight customers and drive business outcomes. By applying systems thinking to organizational and technical siloes, I connect vision and execution to define categories and scale businesses."
       />
       <Outcomes />
       <CTASection
         title="Beyond the Results"
-        subtitle="Explore the mindset, values, and technical preferences that guide me."
+        subtitle="Explore the mindset, values, and perspectives that guide me."
         buttonText="About"
         buttonLink="/about"
       />

@@ -1,6 +1,6 @@
-import styles from "./ContinuousLoop.module.css";
+import styles from "./ProductLoop.module.css";
 
-export default function ContinuousLoop() {
+export default function ProductLoop() {
   const steps = [
     {
       icon: (
@@ -91,11 +91,11 @@ export default function ContinuousLoop() {
   return (
     <section className={`section-padding ${styles.section}`}>
       <div className="container">
-        <h2 className={styles.title}>The Continuous Learning Loop</h2>
+        <h2 className={styles.title}>The Product Loop</h2>
         <div className={styles.subtitle}>
-          A cycle of perpetual validation that secures customer value and
-          business outcomes by strengthening product-market fit through
-          disciplined iteration.
+          A cycle of perpetual validation of customer value driving business
+          outcomes by strengthening product-market fit through purposeful
+          iteration.
         </div>
         <div className={styles.grid}>
           {steps.map((step, index) => (

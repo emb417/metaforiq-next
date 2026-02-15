@@ -4,28 +4,33 @@ export default function Mindset() {
   return (
     <section className={`section-padding ${styles.section}`}>
       <div className="container">
-        <h2 className={styles.sectionTitle}>Mindset</h2>
+        <div className={styles.header}>
+          <h2 className="kicker">The Mindset</h2>
+          <h3 className={styles.tagline}>Signals & Systems</h3>
+        </div>
         <div className={styles.grid}>
-          <div className={styles.block}>
-            <h3>Help Others</h3>
+          <div className={styles.largeCard}>
+            <h3>Intellectual Humility & Curiosity</h3>
             <p>
-              We are all here to help others, our colleagues, our friends, our
-              family. The best way to help others is to educate yourself so you
-              can teach others or take responsibility to offload their
-              stressors. We should strive to share responsibility and knowledge
-              across team members and across teams. We are all in this together,
-              one symbiotic living system of people.
+              I believe the only constant in product is change. What worked in
+              the past may not work now because the context, the technology, and
+              the market have shifted. I treat my intuition as a starting point
+              and lean into a curiosity about the end-to-end process to find
+              where a problem actually resides today. By maintaining this
+              humility, I de-risk complex initiatives and ensure we are solving
+              for the broader market opportunities that drive true innovation.
             </p>
           </div>
-          <div className={styles.block}>
-            <h3>System Thinking</h3>
+          <div className={styles.largeCard}>
+            <h3>Synthesizing Local and Global Impact</h3>
             <p>
-              People systems (see above) and process systems; while optimizing
-              for local maxima, be aware of any trade offs with the global
-              maxima or adjacent locals. Take a step back to look at the whole
-              system, look upstream and downstream. Seek to understand the value
-              of each step, the expected outcome of each, how they all fit
-              together in one end to end process system.
+              Systems thinking is the ability to execute on local metrics
+              without sacrificing the global vision. I focus on understanding
+              how individual product interactions and usage patterns ripple
+              through the entire ecosystem. By recognizing the connection
+              between creating demand and capturing value, I ensure that
+              immediate tactical wins consistently strengthen the long-term
+              viability of the product.
             </p>
           </div>
         </div>

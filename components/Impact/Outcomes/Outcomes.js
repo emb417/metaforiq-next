@@ -9,107 +9,106 @@ export default function Outcomes() {
       context:
         "Early-stage AdMarTech fragmentation where eCommerce sites relied on dozens of disparate analytics and marketing vendors.",
       opportunity:
-        "Remove the structural bottleneck between marketing intent and engineering execution. I saw the potential to transform a consultancy into a scalable SaaS product.",
-      role: "VP of Technology",
+        "I saw the potential to remove the structural bottleneck between marketing intent and engineering execution. The challenge was to transform an analytics consultancy into a scalable SaaS business.",
+      role: "Generalist",
       outcome:
-        "Spearheaded the launch of a first-of-its-kind platform that abstracted away the code. This created the 'Tag Management' category, allowing marketing teams to deploy pixels in minutes and defining a new industry standard.",
+        "Spearheaded the launch of a first-of-its-kind platform that abstracted away the code. This created the Tag Management category, allowing marketing teams to deploy pixels in minutes and establishing a new global industry standard.",
     },
     {
       company: "Nike",
-      title:
-        "NEO: Nike.com's Proprietary Experimentation and Optimization Service",
+      title: "NEO: Proprietary Nike Experimentation and Optimization Service",
       badges: ["Zero-to-One", "Proprietary Systems"],
       context:
-        "A global digital ecosystem requiring high-integrity validation for features across diverse demographics.",
+        "A global digital ecosystem requiring high-integrity validation for features across diverse demographics within a complex technical environment.",
       opportunity:
-        "Move beyond off-the-shelf testing tools that couldn't handle Nike’s specialized technical telemetry or provide the necessary rigor for high-stakes bets.",
-      role: "Director of Product, Nike.com & Analytics",
+        "Standard client-side testing tools were limited to cosmetic 'look and feel' changes. I saw a gap in our ability to test and target deeper server-side functionality, new workflows, and core business logic.",
+      role: "Principal Product Manager and Developer",
       outcome:
-        "Architected and scaled a custom experimentation framework. This shifted the organizational culture from gut-feel to 95% statistical confidence on all major product releases.",
+        "Led the discovery and delivery of a proprietary service enabling request-scoped server-side enabled experimentation. This shifted the culture from front-end styling to high-impact functional testing and business logic validation.",
     },
     {
       company: "Nike",
       title: "DREAMS: Digital Real-time Analytics Monitoring System",
       badges: ["Zero-to-One", "High-Velocity Systems"],
       context:
-        "High-velocity global product launches where site traffic and transactional volume spike instantly requiring war rooms of experts supporting systems failing under load with zero visibility into what's happening in-the-moment.",
+        "High-velocity global product launches where site traffic and transactional volume spike instantly, historically requiring war rooms of experts to manage system failures with limited in-the-moment visibility.",
       opportunity:
-        "Create a low-latency system specifically for observing 'hype' drops and other in-the-moment events. Standard observability tools lacked the real-time insights required to predict and mitigate failures.",
-      role: "Director of Product, Nike.com & Analytics",
+        "Standard observability tools suffered from high-latency data lags, making it impossible to mitigate failures during the critical minutes of a 'hype' drop. I saw the need for a dedicated, low-latency telemetry system designed specifically for non-linear load spikes.",
+      role: "Principal Product Manager",
       outcome:
-        "Launched the DREAMS platform to initially address the needs for low-latency monitoring. This established a dedicated infrastructure that can be evolved into automated system scaling or recovery during Nike's most critical global launch windows.",
+        "Discovered and delivered the DREAMS platform, providing real-time visibility into high-velocity launch windows. This transformed the operational culture from reactive firefighting to proactive mitigation, establishing the foundational infrastructure for automated system recovery and scaling.",
     },
     {
       company: "Nike",
-      title: "DREAMS: Personalization and Recommendations",
+      title: "DREAMS: Real-Time Personalization & Recommendations",
       badges: ["AI/ML", "Optimization"],
       context:
-        "Nike.com was a passive catalog of products with only static content placement and no personalization.",
+        "Nike.com operated as a passive product catalog with static content placement, lacking the ability to respond to individual user intent in real-time.",
       opportunity:
-        "Harness live traffic signals to drive real-time cross-sell and upsell. Legacy analytics latency wasn't able to act on in-the-moment decisions leaving revenue demand opportunity on the table.",
-      role: "Director of Product, Nike.com & Analytics",
+        "I recognized that the low-latency telemetry built for system monitoring could be harnessed for commerce. Legacy analytics were too slow to trigger in-the-moment cross-sell and upsell, leaving significant revenue demand uncaptured during high-intent sessions.",
+      role: "Director of Product",
       outcome:
-        "Expanded DREAMS to include personalization and recommendations. This empowered customer-facing affinity recommendations that adapted to live traffic signals.",
+        "Discovered and delivered an expansion of the DREAMS architecture to power real-time affinity recommendations. This transformed the site from a static catalog into an adaptive experience that reacted to live traffic signals, directly recapturing lost revenue opportunity.",
     },
     {
       company: "Nike",
-      title: "Sports Science & Athlete Clinic Experience",
+      title: "Sports Science & Elite Athlete Lab Experience",
       badges: ["Zero-to-One", "Data Platforms"],
       context:
-        "The intersection of elite athletic performance science and product design for fit and protection.",
+        "The intersection of elite athletic performance science and product design. Kinesiology lab telemetry was historically siloed in legacy formats, limiting the ability to apply holistic insights to product fit and protection.",
       opportunity:
-        "Bridge the gap between dozens of siloed lab-based physiological data sets captured in spreadsheets. The opportunity to share study results across teams would provide for holistic insights and recomendations to the product design teams.",
-      role: "Director of Product, Nike.com & Analytics",
+        "I was brought in to architect the transition from disconnected research spreadsheets to a unified digital ecosystem. The challenge was to modernize the technical stack while designing a high-integrity UX for the athlete lab experience.",
+      role: "Expert Solutions Architect and Product Manager",
       outcome:
-        "Led the development of a sports science data platform and athlete clinic experience. This zero-to-one initiative consolidated the storage of complex physiological telemetry into a shared data platform and transpiled algorithms written in SAS & R into higher performing Python for real-time data capture and analysis.",
+        "Led the architectural delivery of a centralized sports science data platform. This zero-to-one initiative involved transpiling legacy SAS and R algorithms into high-performance Python, creating a shared data platform that connected lab research and product design.",
     },
     {
       company: "Vevo",
       title: "Next-Gen OTT/CTV Platform Launch",
       badges: ["Zero-to-One", "Media Systems"],
       context:
-        "The shift in media consumption from YouTube-centric viewing to direct Connected TV (CTV) and living-room experiences.",
+        "A critical shift in media consumption as viewers migrated from YouTube-centric discovery to direct Connected TV (CTV) and living-room experiences.",
       opportunity:
-        "Establish an owned-and-operated distribution layer to capture direct-to-consumer data and gain monetization control.",
+        "Relying solely on third-party distribution created a 'data blind spot' and limited monetization. We needed to architect an owned-and-operated distribution layer to capture direct-to-consumer signals and secure our presence in the CTV landscape.",
       role: "VP of Product & Engineering",
       outcome:
-        "Architected and launched Vevo's first linear programming platform. This established a direct data loop and secured the brand's presence in the living room engagement space.",
+        "Led the architectural delivery and launch of Vevo’s first linear programming platform. This established a proprietary first-party data loop and transformed Vevo from a content provider into a direct-to-consumer media network with full monetization control.",
     },
     {
       company: "Vevo",
       title: "First-of-its-Kind Content Intelligence",
       badges: ["AI/ML", "Category Innovation"],
       context:
-        "Vevo manages the world’s largest premium music video library, distributing across a global OTT and CTV footprint.",
+        "Vevo manages the world’s largest premium music video library. Maintaining a robust supply chain of content delivery requires high-velocity content operations.",
       opportunity:
-        "Transition from a legacy manual supply chain to a discovery-driven engine by identifying that automated metadata was the key to unlocking time-to-market.",
+        "The legacy manual supply chain had a massive bottleneck with metadata enrichment taking days. Collaborating with data science, we discovered that automating the tagging of content metadata via computer vision, NLP, and 3rd-party APIs was the only way to unlock true time-to-market speed.",
       role: "VP of Product & Engineering",
       outcome:
-        "Architected an automated supply chain using computer vision pipelines for genre and affinity tagging. This modernized the platform, scaling content operations 100x, reducing time-to-market from days to minutes.",
+        "Delivered an automated content intelligence pipeline using AI/ML for metadata tagging. This modernized the primary supply chain bottleneck, scaling content operations 100x and reducing time to market from days to minutes.",
     },
     {
       company: "Dell Technologies",
       title: "Unified AIOps User Intelligence",
-      badges: ["Systems Thinking", "Enterprise B2B"],
+      badges: ["Systems Thinking", "Data Engineering"],
       context:
-        "CloudIQ and Moogsoft AIOps were two distinct, siloed systems part of the same end-to-end user journey. Customer data was fragmented across separate systems owned by different functions.",
+        "The AIOps ecosystem, CloudIQ and Moogsoft, existed as siloed platforms with fragmented customer telemetry, leaving a massive gap in our understanding of the end-to-end user journey.",
       opportunity:
-        "Synthesize holistic customer intelligence data across disconnected platforms to provide a unified view of the product experience.",
+        "I recognized that optimizing the product experience required bridging these disconnected streams. The challenge was to synthesize hundreds of disparate data features into a unified perspective on product health and adoption.",
       role: "Principal Product Manager",
       outcome:
-        "Spearheaded the integration of Google Analytics and Pendo across the ecosystem. Pulled together disparate data streams into a unified user intelligence platform. This delivered a cohesive user intelligence platform, enabling product management to see between the lines of siloed data.",
+        "Led the discovery and delivery of a unified intelligence layer. Assisted by LLMs, I developed a Python framework for automated data ingestion that transformed raw telemetry from several disparate sources into a centralized intelligence system for identifying systemic friction.",
     },
     {
       company: "Dell Technologies",
       title: "Predictive AI & Explainable Insights",
-      badges: ["AI/ML", "Enterprise B2B"],
+      badges: ["AI/ML", "Predictive Analytics"],
       context:
-        "CloudIQ observability supports a global base of 20,000+ enterprise storage and infrastructure accounts.",
+        "CloudIQ observability supports a global base of 20,000+ enterprise infrastructure accounts, generating massive, high-velocity telemetry streams.",
       opportunity:
-        "Identify the 'why' behind customer churn buried in massive telemetry streams where standard metrics failed to provide actionable intelligence.",
+        "Standard metrics failed to signal the 'why' behind customer churn. I identified the need for a predictive model that could decode complex behaviors into a window of opportunity for intervention before a customer reached the point of no return.",
       role: "Principal Product Manager",
       outcome:
-        "Developed explainable algorithms that decoded complex customer behaviors into actionable insights. This identified the window of opportunity to activate new strategies and shift from reactive to proactive customer success.",
+        "Developed an explainable segmentation model using unsupervised ML (e.g., k-means, DBSCAN, GMM) to identify latent user patterns in time-series data. By tuning for segment similarity and dispersion variance, I transformed multi-dimensional customer behaviors into high-integrity churn signals. This enabled the organization to shift from instinct to actionable insight, pinpointing the windows of opportunity for strategic intervention.",
     },
   ];
   return (

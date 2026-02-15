@@ -1,0 +1,21 @@
+.section {
+  background-color: var(--color-surface-muted);
+}
+
+.container {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
+}
+
+.quoteText {
+  font-size: 1.5rem;
+  line-height: 1.7;
+  font-style: italic;
+  color: var(--color-text);
+  margin-top: 0;
+  margin-bottom: 0;
+}

@@ -23,8 +23,7 @@ export default function CredibilityMarkers() {
     {
       label: "Content Ops Scale",
       value: "100x",
-      detail:
-        "Scaled computer vision tagging models and affinity playlisting algorithms at Vevo.",
+      detail: "Scaled AI/ML tagging models and content algorithms at Vevo.",
     },
     {
       label: "Annual Revenue Demand",

@@ -10,7 +10,7 @@ export default function Footer() {
               Metafor<span className={styles.logoAccent}>IQ</span>
             </a>
             <p className={styles.copy}>
-              &copy; {new Date().getFullYear()} MetaforIQ LLC.
+              &copy; {new Date().getFullYear()} MetaforIQ
             </p>
           </div>
 
