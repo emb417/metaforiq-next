@@ -9,9 +9,9 @@ import CTASection from "@/components/Common/CTASection/CTASection";
 import Quote from "@/components/About/Quote/Quote";
 
 export const metadata = {
-  title: "About | Eric Brousseau",
+  title: "About | MetaforIQ",
   description:
-    "The mindset, values, and leadership philosophy of Eric Brousseau, a Principal Product Leader.",
+    "A deep dive into the mindset, technical expertise, and personal values of Eric Brousseau.",
 };
 
 export default function AboutPage() {

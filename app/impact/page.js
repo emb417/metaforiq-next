@@ -3,9 +3,9 @@ import Outcomes from "@/components/Impact/Outcomes/Outcomes";
 import CTASection from "@/components/Common/CTASection/CTASection";
 
 export const metadata = {
-  title: "Impact | Eric Brousseau",
+  title: "Impact | MetaforIQ",
   description:
-    "The professional impact of Eric Brousseau, a Principal Product Leader with 25+ years of experience.",
+    "Exploring the professional impact of Eric Brousseau. A proven track record of driving business outcomes and product-market fit.",
 };
 
 export default function ImpactPage() {
