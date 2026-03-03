@@ -8,7 +8,10 @@ export const metadata = {
     icon: [
       { url: "/logo-light.png", media: "(prefers-color-scheme: light)" },
       { url: "/logo-dark.png", media: "(prefers-color-scheme: dark)" },
+      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
     ],
+
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
 };
 
