@@ -5,7 +5,7 @@ export default function LoadingMessage({ message = "Loading..." }) {
   return (
     <div className={styles.wrapper}>
       <Image
-        src="/icon.png"
+        src="/apple-touch-icon.png"
         width={128}
         height={128}
         alt={message}
