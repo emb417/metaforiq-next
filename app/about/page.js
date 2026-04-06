@@ -21,7 +21,12 @@ export default function AboutPage() {
         kicker="About"
         titleIntro="A systems thinker for"
         titleAccent="the context-driven AI era."
-        subtitle="Principal Product Leader with 20+ years of experience driving the discovery and delivery of data, AI/ML, and UX platform capabilities across B2B SaaS and B2C digital products."
+        subtitle="The bottleneck is shifting away from the velocity of development to the quality 
+        of the bets being made. A systems thinker accelerates this process by using generative and 
+        agentic technologies to map the complex dependencies between market signals, 
+        technical constraints, and customer behavior at a scale that was previously impossible.
+        By translating these complex patterns into a clear, shared reality, a leader provides the 
+        high-level clarity necessary for collective success."
       />
       <Quote />
       <Mindset />
