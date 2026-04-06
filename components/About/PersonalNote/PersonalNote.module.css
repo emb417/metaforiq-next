@@ -24,3 +24,11 @@
   font-style: italic;
   margin-bottom: var(--space-6);
 }
+
+.link {
+  color: var(--color-brand);
+}
+
+.link:hover {
+  text-decoration: underline;
+}
