@@ -30,7 +30,7 @@ export default function NavBar() {
         <div className={styles.inner}>
           <div className={styles.logoWrapper}>
             <a href="/" onClick={() => setMenuOpen(false)}>
-              <Logo width={80} height={80} alt="MetaforIQ Logo" />
+              <Logo width={72} height={72} alt="MetaforIQ Logo" />
             </a>
           </div>
 
