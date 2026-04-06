@@ -37,6 +37,7 @@
 }
 
 .grid > *:first-child {
+  align-self: start;
   justify-self: center;
   width: 100%;
   max-width: 300px;
