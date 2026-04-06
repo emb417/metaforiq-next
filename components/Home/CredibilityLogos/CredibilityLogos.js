@@ -1,3 +1,6 @@
+"use client";
+
+import { use, useEffect, useState } from "react";
 import styles from "./CredibilityLogos.module.css";
 
 export default function CredibilityLogos() {
@@ -11,6 +14,16 @@ export default function CredibilityLogos() {
     { name: "Dell Technologies", className: styles.dell },
   ];
 
+  const [hoveredIndex, setHoveredIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHoveredIndex((prev) => (prev + 1) % logos.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [logos.length]);
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
@@ -19,10 +32,12 @@ export default function CredibilityLogos() {
           brands
         </p>
         <div className={styles.logoGrid}>
-          {logos.map((logo) => (
+          {logos.map((logo, index) => (
             <div
               key={logo.name}
-              className={`${styles.logo} ${logo.className}`}
+              className={`${styles.logo} ${logo.className} ${
+                index === hoveredIndex ? styles.hovered : ""
+              }`}
               aria-label={logo.name}
             >
               {logo.name}

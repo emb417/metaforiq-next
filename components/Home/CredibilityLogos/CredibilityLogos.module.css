@@ -28,7 +28,10 @@
 }
 
 .logo {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
   font-size: var(--font-size-3xl);
   font-weight: 800;
   color: var(--color-text-inverse);
@@ -36,7 +39,8 @@
   white-space: nowrap;
 }
 
-.logo:hover {
+.logo:hover,
+.logo.hovered {
   opacity: 1;
   transform: translateY(-2px);
 }
@@ -45,52 +49,75 @@
   .logoGrid {
     gap: var(--space-2) var(--space-4);
   }
-  
+
   .logo {
     font-size: var(--font-size-lg);
   }
 }
 
-.nike { 
-  font-style: italic; 
-  text-transform: uppercase; 
+.nike {
+  font-style: italic;
+  text-transform: uppercase;
   font-weight: 900;
   letter-spacing: -0.05em;
 }
-.nike:hover {
-  color: #EA553B;
+.nike:hover,
+.nike.hovered {
+  color: #ea553b;
 }
 
-.dell { 
-  font-weight: 700; 
-  letter-spacing: -0.02em; 
+.dell {
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
-.dell:hover {
+.dell:hover,
+.dell.hovered {
   color: #0672cb;
 }
-.vevo { 
+
+.vevo {
   font-family: Arial, Helvetica, sans-serif;
-  text-transform: lowercase; 
-  font-weight: 900; 
+  text-transform: lowercase;
+  font-weight: 900;
 }
-.vevo:hover {
+.vevo:hover,
+.vevo.hovered {
   color: #000000;
 }
-.tealium { 
-  font-weight: 300; 
-  letter-spacing: 0.05em; 
+
+@media (prefers-color-scheme: dark) {
+  .vevo:hover,
+  .vevo.hovered {
+    color: #ffffff;
+  }
+}
+
+.tealium {
+  font-weight: 300;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
-.tealium:hover {
-  color: #68D8D5;
+.tealium:hover,
+.tealium.hovered {
+  color: #68d8d5;
 }
-.bestbuy { 
+
+.bestbuy {
   font-weight: 900;
   font-style: italic;
   letter-spacing: -0.05em;
 }
-.bestbuy:hover {
+
+.bestbuy:hover,
+.bestbuy.hovered {
   color: #0046be;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bestbuy:hover,
+  .bestbuy.hovered {
+    color: #fff200;
+  }
 }
 
 .newRelic {
@@ -99,16 +126,29 @@
   text-transform: lowercase;
   letter-spacing: 0.02em;
 }
-.newRelic:hover {
+.newRelic:hover,
+.newRelic.hovered {
   color: #1ce783;
 }
 
 .moogsoft {
-  font-family: Work Sans, system-ui, -apple-system, sans-serif;
+  font-family:
+    Work Sans,
+    system-ui,
+    -apple-system,
+    sans-serif;
   font-weight: 900;
   text-transform: lowercase;
   letter-spacing: 0.05em;
 }
-.moogsoft:hover {
+.moogsoft:hover,
+.moogsoft.hovered {
   color: #273879;
+}
+
+@media (prefers-color-scheme: dark) {
+  .moogsoft:hover,
+  .moogsoft.hovered {
+    color: #ffffff;
+  }
 }
