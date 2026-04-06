@@ -36,8 +36,8 @@ export default function AboutPage() {
       <TechnicalDepth />
       <PersonalNote />
       <CTASection
-        title="Seeking High-Leverage Impact"
-        subtitle="I am looking to lead the discovery and delivery of transformative AI-enabled capabilities."
+        title="Like Minded?"
+        subtitle="I love meeting new people, learning new things, and sharing my knowledge."
         buttonText="Let's Connect"
         buttonLink="mailto:eric@metaforiq.com"
       />
