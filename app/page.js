@@ -7,9 +7,8 @@ import ProductLoop from "@/components/Home/ProductLoop/ProductLoop";
 import CTASection from "@/components/Common/CTASection/CTASection";
 
 export const metadata = {
-  title: "MetaforIQ | Eric Brousseau | Principal Product Leader",
-  description:
-    "The professional site of Eric Brousseau, a Principal Product Leader with 20+ years of experience in data, AI/ML, and UX platform capabilities across B2B SaaS and B2C products.",
+  title: "MetaforIQ | Eric Brousseau",
+  description: "The professional site of Eric Brousseau.",
 };
 
 export default function HomePage() {
