@@ -15,7 +15,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .image {
@@ -33,16 +33,16 @@
 }
 
 .name {
-  font-size: var(--font-size-lg); /* Slightly larger font for the name */
+  font-size: var(--font-size-lg);
   font-weight: 700;
   color: var(--color-text);
-  margin-bottom: 0; /* Remove bottom margin as establishment is removed */
+  margin-bottom: 0;
 }
 
 .socialLinks {
   display: flex;
-  gap: var(--space-4); /* Spacing between icons */
-  margin-top: var(--space-3); /* Space above icons */
+  gap: var(--space-4);
+  margin-top: var(--space-3);
 }
 
 .icon {
@@ -50,6 +50,24 @@
   transition: color 0.3s ease;
 }
 
-.icon:hover {
-  color: var(--color-action-primary);
+.linkedin:hover {
+  color: #0077b5;
+}
+
+.github:hover {
+  color: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  .github:hover {
+    color: #ffffff;
+  }
+}
+
+.goodreads:hover {
+  color: var(--cream-500);
+}
+
+.email:hover {
+  color: #f44336;
 }
