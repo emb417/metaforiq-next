@@ -18,37 +18,24 @@ export default function Expertise() {
             personalized omni-channel experiences, real-time analytics, and
             AI/ML pipelines. My leadership has delivered automated video
             ratings, genre affinity modeling, and intelligent content workflows.
-            I thrive in fast-moving, emerging spaces where quantitative and
-            qualitative evidence guides product direction.
           </p>
           <p className={styles.description}>
             Operating at the intersection of product, design, and engineering, I
             drive product-market fit discovery, define long-term product
             strategy, and collaborate with cross-functional partners to design,
-            deliver and operate new capabilities. My recent work includes
-            building explainable customer segmentation models, applying
-            generative AI to product workflows, and generating ML-driven
-            insights for customer-facing experiences.
+            deliver and operate new capabilities. Communication and
+            collaboration are the keys to success.
           </p>
           <p className={styles.description}>
-            I am seeking a high-leverage Principal Product Manager or hands-on
-            Product Leader role where I can lead the discovery of new AI-enabled
-            capabilities within environments that value experimentation,
-            evidence-based product judgment, and outcome-based learning.
+            The following perspectives from my partners highlight my commitment
+            to evidence-led decision-making and my ability to translate complex
+            architecture into business value.
           </p>
         </div>
 
         {/* Right Column */}
         <div className={styles.right}>
-          <h4 className={styles.rightTitle}>Recommendations</h4>
-
-          <p className={styles.rightDescription}>
-            Product leadership exists at the intersection of strategic vision
-            and technical execution. These perspectives from my partners
-            highlight my commitment to evidence-led decision-making and my
-            ability to translate complex architecture into business value.
-          </p>
-
+          <h4 className={styles.rightTitle}>LinkedIn Recommendations</h4>
           <div className={styles.quotes}>
             <div className={styles.quote}>
               “While many product leaders rely on instinct alone, Eric treats
