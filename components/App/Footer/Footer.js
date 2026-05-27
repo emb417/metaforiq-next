@@ -21,7 +21,11 @@ export default function Footer() {
             <a href="/about" className={styles.link}>
               About
             </a>
-            <a href="mailto:eric@metaforiq.com" className={styles.link}>
+            <a 
+              href="mailto:eric@metaforiq.com" 
+              className={styles.link}
+              onClick={() => trackEvent('contact_click', 'Conversion', 'Footer')}
+            >
               Contact
             </a>
           </nav>

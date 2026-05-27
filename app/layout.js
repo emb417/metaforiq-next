@@ -1,5 +1,6 @@
 import NavBar from "@/components/App/NavBar/NavBar";
 import Footer from "@/components/App/Footer/Footer";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "@/app/styles/globals.css";
 
 export const metadata = {
@@ -22,6 +23,9 @@ export default function RootLayout({ children }) {
         <NavBar />
         {children}
         <Footer />
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        )}
       </body>
     </html>
   );

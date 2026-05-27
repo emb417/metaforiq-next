@@ -31,6 +31,8 @@ COPY . .
 # Build the Next.js application for production.
 # NEXT_TELEMETRY_DISABLED=1 prevents Next.js from collecting anonymous telemetry data.
 # The next build command will now generate a 'standalone' folder.
+ARG NEXT_PUBLIC_GA_MEASUREMENT_ID
+ENV NEXT_PUBLIC_GA_MEASUREMENT_ID=$NEXT_PUBLIC_GA_MEASUREMENT_ID
 RUN NEXT_TELEMETRY_DISABLED=1 npm run build
 
 # -----------------------------------------------------------

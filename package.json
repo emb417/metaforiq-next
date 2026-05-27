@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@next/third-parties": "^16.2.6",
     "antd": "^6.2.3",
     "dotenv": "^16.4.5",
     "jose": "^6.1.3",

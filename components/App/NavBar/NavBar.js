@@ -42,7 +42,11 @@ export default function NavBar() {
             <a href="/about" className={styles.link}>
               About
             </a>
-            <a href="mailto:eric@metaforiq.com" className="btn btn-primary">
+            <a 
+              href="mailto:eric@metaforiq.com" 
+              className="btn btn-primary"
+              onClick={() => trackEvent('contact_click', 'Conversion', 'NavBar Desktop')}
+            >
               Contact
             </a>
           </div>
