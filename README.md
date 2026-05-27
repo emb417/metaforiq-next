@@ -1,10 +1,5 @@
 # MetaforIQ.com
 
-MetaforIQ is a consulting and software development company based in the
-United States. We specialize in the discovery and delivery of AI-enabled
-capabilities, data platforms, and B2B SaaS solutions. We translate ambiguous
-business problems into clear, actionable insights and solutions.
-
 The site is built with **Next.js 16**, a fully custom **CSS Modules + Design
 Token** system (no Tailwind), and deployed via a Docker‑based workflow.
 
