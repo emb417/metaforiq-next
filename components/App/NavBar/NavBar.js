@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { trackEvent } from "@/lib/analytics";
 import Logo from "@/components/App/Logo/Logo";
 import styles from "./NavBar.module.css";
 
