@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { trackEvent } from "@/lib/analytics";
 import styles from "./CTASection.module.css";
