@@ -13,7 +13,7 @@ export default function Footer() {
               Metafor<span className={styles.logoAccent}>IQ</span>
             </a>
             <p className={styles.copy}>
-              &copy; {new Date().getFullYear()} MetaforIQ
+              &copy; {new Date().getFullYear()} METAFORIQ LLC
             </p>
           </div>
 
@@ -24,10 +24,12 @@ export default function Footer() {
             <a href="/about" className={styles.link}>
               About
             </a>
-            <a 
-              href="mailto:eric@metaforiq.com" 
+            <a
+              href="mailto:eric@metaforiq.com"
               className={styles.link}
-              onClick={() => trackEvent('contact_click', 'Conversion', 'Footer')}
+              onClick={() =>
+                trackEvent("contact_click", "Conversion", "Footer")
+              }
             >
               Contact
             </a>
