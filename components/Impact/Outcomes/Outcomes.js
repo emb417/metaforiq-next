@@ -24,17 +24,22 @@ export default function Outcomes({
 
   const outcomesData = [
     {
-      company: "Tealium",
-      years: "2010-2012",
-      title: "Defining the Tag Management Category",
-      badges: ["Zero-to-One", "Innovation", "B2B"],
+      company: "Best Buy",
+      years: "2005-2010",
+      title: "Founding the Innovation Team",
+      badges: [
+        "Zero-to-One",
+        "Experimentation and Optimization",
+        "B2C",
+        "Innovation",
+      ],
       context:
-        "Early-stage AdMarTech fragmentation where eCommerce sites relied on dozens of disparate analytics and marketing vendors.",
+        "The company's initial shift to digital retail, where data-driven decision making was not yet a standard operating model.",
       opportunity:
-        "I saw the potential to remove the structural bottleneck between marketing intent and engineering execution. The challenge was to transform an analytics consultancy into a scalable SaaS business.",
-      role: "Generalist",
+        "I saw an opportunity in how the ecommerce department approached marketing, content management, and customer behavioral analysis. I started a dedicated team to pioneer high-leverage technical capabilities.",
+      role: "Architect",
       outcome:
-        "Spearheaded the launch of a first-of-its-kind platform that abstracted away the code. This created the Tag Management category, allowing marketing teams to deploy pixels in minutes and establishing a new global industry standard.",
+        "Founded the Innovation Team and pioneered foundational capabilities in A/B testing, real-time product affinity, and automated marketing. This established the enterprise's data-driven operating model and fundamentally changed how decisions were made at scale.",
     },
     {
       company: "Nike",
@@ -145,6 +150,46 @@ export default function Outcomes({
       outcome:
         "Developed an explainable segmentation model using unsupervised ML (e.g., k-means, DBSCAN, GMM) to identify latent user patterns in time-series data. By tuning for segment similarity and dispersion variance, I transformed multi-dimensional customer behaviors into high-integrity churn signals. This enabled the organization to shift from instinct to actionable insight, pinpointing the windows of opportunity for strategic intervention.",
     },
+    {
+      company: "Moogsoft",
+      years: "2022-2023",
+      title: "Pivot to SaaS and Modernized Product Operating Model",
+      badges: ["B2B", "Innovation"],
+      context:
+        "A legacy on-premise perpetual licensing model that needed to evolve into a cloud-based SaaS recurring revenue model to maintain market competitiveness.",
+      opportunity:
+        "I saw the need to modernize the product operating model and lead the strategic pivot to SaaS, which would not only increase recurring revenue but also make the company an attractive acquisition target.",
+      role: "VP of Product & Design",
+      outcome:
+        "Implemented outcome-based roadmapping and discovery processes, reducing cycle times and accelerating customer value delivery by 2x. Orchestrated the delivery of key enterprise AIOps capabilities, ultimately resulting in a successful acquisition by Dell Technologies.",
+    },
+    {
+      company: "New Relic",
+      years: "2021-2022",
+      title: "OpenTelemetry Organizational Strategy",
+      badges: ["B2B", "Innovation"],
+      context:
+        "A complex observability ecosystem managing multiple product departments including Onboarding, IAM, and Developer Experience.",
+      opportunity:
+        "There was a critical need for a unified organizational structure and strategy around OpenTelemetry to standardize telemetry across the platform.",
+      role: "Senior Director of Product Management",
+      outcome:
+        "Led the cross-functional design of the OpenTelemetry organizational structure and strategy, delivering the final framework to executive leadership to unify the telemetry approach.",
+    },
+    {
+      company: "Tealium",
+
+      years: "2010-2012",
+      title: "Defining the Tag Management Category",
+      badges: ["Zero-to-One", "Innovation", "B2B"],
+      context:
+        "Early-stage AdMarTech fragmentation where eCommerce sites relied on dozens of disparate analytics and marketing vendors.",
+      opportunity:
+        "I saw the potential to remove the structural bottleneck between marketing intent and engineering execution. The challenge was to transform an analytics consultancy into a scalable SaaS business.",
+      role: "Generalist",
+      outcome:
+        "Spearheaded the launch of a first-of-its-kind platform that abstracted away the code. This created the Tag Management category, allowing marketing teams to deploy pixels in minutes and establishing a new global industry standard.",
+    },
   ];
 
   const companies = [...new Set(outcomesData.map((o) => o.company))];
@@ -183,7 +228,7 @@ export default function Outcomes({
       Nike: logoStyles.nike,
       Vevo: logoStyles.vevo,
       "New Relic": logoStyles.newRelic,
-      moogsoft: logoStyles.moogsoft,
+      Moogsoft: logoStyles.moogsoft,
       "Dell Technologies": logoStyles.dell,
     };
     return mapping[company] || "";
