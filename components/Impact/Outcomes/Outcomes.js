@@ -1,12 +1,13 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 import styles from "./Outcomes.module.css";
 import logoStyles from "@/components/Home/CredibilityLogos/CredibilityLogos.module.css";
 
 export default function Outcomes({ company: activeCompany, badge: activeBadge }) {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const sectionRef = useRef(null);
 
   useEffect(() => {
