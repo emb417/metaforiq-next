@@ -1,9 +1,24 @@
-import styles from "./Outcomes.module.css";
+"use client";
 
-export default function Outcomes() {
+import { useRouter } from "next/navigation";
+import { useEffect, useRef } from "react";
+import styles from "./Outcomes.module.css";
+import logoStyles from "@/components/Home/CredibilityLogos/CredibilityLogos.module.css";
+
+export default function Outcomes({ company: activeCompany, badge: activeBadge }) {
+  const router = useRouter();
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    if (activeCompany || activeBadge) {
+      sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [activeCompany, activeBadge]);
+
   const outcomesData = [
     {
       company: "Tealium",
+      years: "2010-2012",
       title: "Defining the Tag Management Category",
       badges: ["Zero-to-One", "Category Innovation"],
       context:
@@ -16,6 +31,7 @@ export default function Outcomes() {
     },
     {
       company: "Nike",
+      years: "2012-2013",
       title: "NEO: Proprietary Nike Experimentation and Optimization Service",
       badges: ["Zero-to-One", "Proprietary Systems"],
       context:
@@ -28,6 +44,7 @@ export default function Outcomes() {
     },
     {
       company: "Nike",
+      years: "2014-2015",
       title: "DREAMS: Digital Real-time Analytics Monitoring System",
       badges: ["Zero-to-One", "High-Velocity Systems"],
       context:
@@ -40,6 +57,7 @@ export default function Outcomes() {
     },
     {
       company: "Nike",
+      years: "2015-2016",
       title: "DREAMS: Real-Time Personalization & Recommendations",
       badges: ["AI/ML", "Optimization"],
       context:
@@ -52,6 +70,7 @@ export default function Outcomes() {
     },
     {
       company: "Nike",
+      years: "2016-2018",
       title: "Sports Science & Elite Athlete Lab Experience",
       badges: ["Zero-to-One", "Data Platforms"],
       context:
@@ -64,6 +83,7 @@ export default function Outcomes() {
     },
     {
       company: "Vevo",
+      years: "2020",
       title: "Next-Gen OTT/CTV Platform Launch",
       badges: ["Zero-to-One", "Media Systems"],
       context:
@@ -76,6 +96,7 @@ export default function Outcomes() {
     },
     {
       company: "Vevo",
+      years: "2021",
       title: "First-of-its-Kind Content Intelligence",
       badges: ["AI/ML", "Category Innovation"],
       context:
@@ -88,6 +109,7 @@ export default function Outcomes() {
     },
     {
       company: "Dell Technologies",
+      years: "2023-2024",
       title: "Unified AIOps User Intelligence",
       badges: ["Systems Thinking", "Data Engineering"],
       context:
@@ -100,6 +122,7 @@ export default function Outcomes() {
     },
     {
       company: "Dell Technologies",
+      years: "2024-2025",
       title: "Predictive AI & Explainable Insights",
       badges: ["AI/ML", "Predictive Analytics"],
       context:
@@ -111,20 +134,95 @@ export default function Outcomes() {
         "Developed an explainable segmentation model using unsupervised ML (e.g., k-means, DBSCAN, GMM) to identify latent user patterns in time-series data. By tuning for segment similarity and dispersion variance, I transformed multi-dimensional customer behaviors into high-integrity churn signals. This enabled the organization to shift from instinct to actionable insight, pinpointing the windows of opportunity for strategic intervention.",
     },
   ];
+
+  const companies = [...new Set(outcomesData.map((o) => o.company))];
+  const allBadges = [...new Set(outcomesData.flatMap((o) => o.badges || []))];
+
+  const handleFilterChange = (key, value) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (params.get(key) === value) {
+      params.delete(key);
+    } else {
+      params.set(key, value);
+    }
+    router.push(`?${params.toString()}`, { scroll: false });
+  };
+
+  const sortOutcomes = (data) => {
+    return [...data].sort((a, b) => {
+      const yearA = parseInt(a.years.split("-")[1] || a.years);
+      const yearB = parseInt(b.years.split("-")[1] || b.years);
+      return yearB - yearA;
+    });
+  };
+
+  const filteredOutcomes = sortOutcomes(outcomesData).filter((o) => {
+    const matchesCompany = !activeCompany || o.company === activeCompany;
+    const matchesBadge = !activeBadge || o.badges?.includes(activeBadge);
+    return matchesCompany && matchesBadge;
+  });
+
+  const getCompanyLogoClass = (company) => {
+    const mapping = {
+      "Best Buy": logoStyles.bestbuy,
+      "Tealium": logoStyles.tealium,
+      "Nike": logoStyles.nike,
+      "Vevo": logoStyles.vevo,
+      "New Relic": logoStyles.newRelic,
+      "moogsoft": logoStyles.moogsoft,
+      "Dell Technologies": logoStyles.dell,
+    };
+    return mapping[company] || "";
+  };
+
   return (
-    <section className={`section-padding ${styles.section}`}>
+    <section ref={sectionRef} className={`section-padding ${styles.section}`}>
       <div className="container">
         <h2 className={styles.sectionTitle}>Outcomes</h2>
 
+        <div className={styles.filterSection}>
+          <div className={styles.filterLabel}>Filter by Company</div>
+          <div className={styles.logoFilterGrid}>
+            {companies.map((company) => (
+              <div
+                key={company}
+                className={`${styles.logoFilterItem} ${getCompanyLogoClass(company)} ${
+                  activeCompany === company ? `${styles.active} ${logoStyles.hovered}` : ""
+                }`}
+                onClick={() => handleFilterChange("company", company)}
+              >
+                {company}
+              </div>
+            ))}
+          </div>
+          <div className={styles.filterLabel}>Filter by Badge</div>
+          <div className={styles.badgeFilterGrid}>
+            {allBadges.map((badge) => (
+              <div
+                key={badge}
+                className={`${styles.badgeFilterItem} ${activeBadge === badge ? styles.active : ""}`}
+                onClick={() => handleFilterChange("badge", badge)}
+              >
+                {badge}
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className={styles.list}>
-          {outcomesData.map((o, i) => (
+          {filteredOutcomes.map((o, i) => (
             <div
               key={i}
               className={`${styles.case} ${i % 2 !== 0 ? styles.mutedBackground : ""}`}
             >
               <div className={styles.caseHeader}>
                 <div className={styles.meta}>
-                  <span className={styles.company}>{o.company}</span>
+                  <div className={styles.companyGroup}>
+                    <span className={`${styles.companyLogo} ${getCompanyLogoClass(o.company)} ${logoStyles.hovered}`}>
+                      {o.company}
+                    </span>
+                    <span className={styles.years}>{o.years}</span>
+                  </div>
                   {/* Badge Loop */}
                   <div className={styles.badgeContainer}>
                     {o.badges?.map((badge, bi) => (

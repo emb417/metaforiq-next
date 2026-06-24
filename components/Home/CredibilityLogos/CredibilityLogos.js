@@ -1,6 +1,7 @@
 "use client";
 
 import { use, useEffect, useState } from "react";
+import Link from "next/link";
 import styles from "./CredibilityLogos.module.css";
 
 export default function CredibilityLogos() {
@@ -33,15 +34,20 @@ export default function CredibilityLogos() {
         </p>
         <div className={styles.logoGrid}>
           {logos.map((logo, index) => (
-            <div
+            <Link
               key={logo.name}
-              className={`${styles.logo} ${logo.className} ${
-                index === hoveredIndex ? styles.hovered : ""
-              }`}
-              aria-label={logo.name}
+              href={`/impact?company=${encodeURIComponent(logo.name)}`}
+              className={styles.logoLink}
             >
-              {logo.name}
-            </div>
+              <div
+                className={`${styles.logo} ${logo.className} ${
+                  index === hoveredIndex ? styles.hovered : ""
+                }`}
+                aria-label={logo.name}
+              >
+                {logo.name}
+              </div>
+            </Link>
           ))}
         </div>
       </div>
