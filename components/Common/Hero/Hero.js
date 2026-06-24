@@ -18,8 +18,6 @@ export default function Hero({ kicker, titleIntro, titleAccent, subtitle }) {
         </div>
       </div>
 
-      {/* Decorative background */}
-      <div className={styles.bgDecor} />
     </header>
   );
 }

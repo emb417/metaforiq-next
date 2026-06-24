@@ -1,6 +1,44 @@
 .header {
-  background: var(--color-bg);
-  padding-top: var(--space-6); /* Reduce top padding */
+  position: relative;
+  overflow: hidden;
+  background-image: 
+    linear-gradient(
+      color-mix(in srgb, var(--color-bg), transparent 30%), 
+      color-mix(in srgb, var(--color-bg), transparent 30%)
+    ), 
+    url("/hero-light.png");
+  background-size: cover;
+  background-position: center;
+  background-color: var(--color-bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  .header {
+    background-image: 
+      linear-gradient(
+        color-mix(in srgb, var(--color-bg), transparent 30%), 
+        color-mix(in srgb, var(--color-bg), transparent 30%)
+      ), 
+      url("/hero-dark.png");
+  }
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  transform: translate(0%, -25%);
+  background: radial-gradient(
+    circle at top right,
+    var(--color-action-primary),
+    transparent 70%
+  );
+  filter: blur(80px);
+  opacity: 0.3;
+  z-index: -1;
 }
 
 /* Title */
@@ -18,7 +56,7 @@
 /* Subtitle */
 .subtitle {
   font-size: clamp(1.25rem, 2vw, 1.75rem);
-  color: var(--color-text-secondary);
+  color: var(--color-text);
   max-width: 36rem;
   margin-bottom: var(--space-10);
 }
@@ -48,22 +86,4 @@
     grid-template-columns: 1fr;
     gap: var(--space-8);
   }
-}
-
-/* Decorative gradient */
-.bgDecor {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  transform: translate(0%, -25%);
-  background: radial-gradient(
-    circle at top right,
-    var(--color-action-primary),
-    transparent 70%
-  );
-  filter: blur(80px);
-  opacity: 0.3;
-  z-index: 0;
 }

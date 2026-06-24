@@ -15,9 +15,9 @@ export default function HomePage() {
   return (
     <main className="main">
       <Hero
-        kicker="Product Vision to Operations"
-        titleIntro="Maximize"
-        titleAccent="Continuous Learning"
+        kicker="Fractional Product Leadership"
+        titleIntro="Maximize Continuous Learning"
+        titleAccent="To Drive Sustained Growth"
         subtitle="Product wins are the result of high-quality feedback loops embedded throughout the product lifecycle. Success stems from a culture of cross-functional collaboration that transforms collective learning into validated customer value and measurable business outcomes."
       />
       <CredibilityLogos />

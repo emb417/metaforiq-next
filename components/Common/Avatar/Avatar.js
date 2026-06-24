@@ -15,6 +15,7 @@ export default function Avatar() {
       </div>
       <div className={styles.caption}>
         <p className={styles.name}>Eric Brousseau</p>
+        <p className={styles.name}>MetaforIQ Founder</p>
         <div className={styles.socialLinks}>
           <a
             href="https://www.linkedin.com/in/emb417/"

@@ -16,8 +16,15 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
   background: var(--color-bg);
   color: var(--color-text);
   text-rendering: optimizeLegibility;
@@ -38,72 +45,72 @@ a {
   /* -------------------------
      Cream (Warm Neutrals)
   ------------------------- */
-  --cream-50:  #FFFCF8;
-  --cream-100: #FFF9F0;
-  --cream-200: #FCEFD9;
-  --cream-300: #F9E5C2;
-  --cream-400: #F5D9A8;
-  --cream-500: #F0CC8E;
-  --cream-600: #E8B86A;
-  --cream-700: #DFA246;
-  --cream-800: #C98A2A;
-  --cream-900: #A56F1F;
+  --cream-50: #fffcf8;
+  --cream-100: #fff9f0;
+  --cream-200: #fcefd9;
+  --cream-300: #f9e5c2;
+  --cream-400: #f5d9a8;
+  --cream-500: #f0cc8e;
+  --cream-600: #e8b86a;
+  --cream-700: #dfa246;
+  --cream-800: #c98a2a;
+  --cream-900: #a56f1f;
 
   /* -------------------------
      Teal (Brand)
   ------------------------- */
-  --teal-50:  #E0F4F3;
-  --teal-100: #B3E4E1;
-  --teal-200: #80D2CD;
-  --teal-300: #4DBFB8;
-  --teal-400: #26AFA7;
-  --teal-500: #009F96;
-  --teal-600: #007F78;
-  --teal-700: #005F5A;
-  --teal-800: #004B49;
-  --teal-900: #00312F;
+  --teal-50: #e0f4f3;
+  --teal-100: #b3e4e1;
+  --teal-200: #80d2cd;
+  --teal-300: #4dbfb8;
+  --teal-400: #26afa7;
+  --teal-500: #009f96;
+  --teal-600: #007f78;
+  --teal-700: #005f5a;
+  --teal-800: #004b49;
+  --teal-900: #00312f;
 
   /* -------------------------
      Charcoal (Neutral Grayscale)
   ------------------------- */
-  --charcoal-50:  #F5F5F5;
-  --charcoal-100: #E1E1E1;
-  --charcoal-200: #CFCFCF;
-  --charcoal-300: #B1B1B1;
+  --charcoal-50: #f5f5f5;
+  --charcoal-100: #e1e1e1;
+  --charcoal-200: #cfcfcf;
+  --charcoal-300: #b1b1b1;
   --charcoal-400: #757575;
-  --charcoal-500: #4A4A4A;
-  --charcoal-600: #3C3C3C;
+  --charcoal-500: #4a4a4a;
+  --charcoal-600: #3c3c3c;
   --charcoal-700: #333333;
-  --charcoal-800: #1F1F1F;
+  --charcoal-800: #1f1f1f;
   --charcoal-900: #141414;
 
   /* -------------------------
      Terracotta (Secondary Action)
   ------------------------- */
-  --terracotta-50:  #FCEDE9;
-  --terracotta-100: #F8D7D0;
-  --terracotta-200: #F1B4A8;
-  --terracotta-300: #E98F80;
-  --terracotta-400: #E2725B;
-  --terracotta-500: #C85F4C;
-  --terracotta-600: #A94C3D;
-  --terracotta-700: #8C3A2F;
-  --terracotta-800: #6F2921;
+  --terracotta-50: #fcede9;
+  --terracotta-100: #f8d7d0;
+  --terracotta-200: #f1b4a8;
+  --terracotta-300: #e98f80;
+  --terracotta-400: #e2725b;
+  --terracotta-500: #c85f4c;
+  --terracotta-600: #a94c3d;
+  --terracotta-700: #8c3a2f;
+  --terracotta-800: #6f2921;
   --terracotta-900: #521913;
 
   /* -------------------------
      Sienna (Primary Action)
   ------------------------- */
-  --sienna-50:  #F7EDE8;
-  --sienna-100: #EFD9CF;
-  --sienna-200: #E1B7A3;
-  --sienna-300: #D39577;
-  --sienna-400: #C4754F;
-  --sienna-500: #A0522D;
+  --sienna-50: #f7ede8;
+  --sienna-100: #efd9cf;
+  --sienna-200: #e1b7a3;
+  --sienna-300: #d39577;
+  --sienna-400: #c4754f;
+  --sienna-500: #a0522d;
   --sienna-600: #874426;
-  --sienna-700: #6D361F;
+  --sienna-700: #6d361f;
   --sienna-800: #542817;
-  --sienna-900: #3B1B10;
+  --sienna-900: #3b1b10;
 
   /* -------------------------
      Semantic Tokens
@@ -217,12 +224,13 @@ a {
    (Shared primitives used across components)
 ------------------------------------------------------- */
 
-main {
-  padding-top: var(--nav-height);
-}
-
 /* Typography Defaults */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 900;
   color: var(--color-text);
   letter-spacing: -0.02em;
@@ -303,7 +311,8 @@ p {
 .btn-primary {
   background: var(--color-action-primary);
   color: var(--color-text-inverse);
-  box-shadow: 0 8px 24px color-mix(in srgb, var(--color-action-primary) 20%, transparent);
+  box-shadow: 0 8px 24px
+    color-mix(in srgb, var(--color-action-primary) 20%, transparent);
 }
 
 .btn-primary:hover {
@@ -314,7 +323,8 @@ p {
 .btn-surface {
   background: var(--color-surface);
   color: var(--color-action-primary);
-  box-shadow: 0 8px 24px color-mix(in srgb, var(--color-surface) 40%, transparent);
+  box-shadow: 0 8px 24px
+    color-mix(in srgb, var(--color-surface) 40%, transparent);
 }
 
 .btn-surface:hover {
