@@ -5,14 +5,20 @@ import { useEffect, useRef } from "react";
 import styles from "./Outcomes.module.css";
 import logoStyles from "@/components/Home/CredibilityLogos/CredibilityLogos.module.css";
 
-export default function Outcomes({ company: activeCompany, badge: activeBadge }) {
+export default function Outcomes({
+  company: activeCompany,
+  badge: activeBadge,
+}) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const sectionRef = useRef(null);
 
   useEffect(() => {
     if (activeCompany || activeBadge) {
-      sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      sectionRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   }, [activeCompany, activeBadge]);
 
@@ -21,7 +27,7 @@ export default function Outcomes({ company: activeCompany, badge: activeBadge })
       company: "Tealium",
       years: "2010-2012",
       title: "Defining the Tag Management Category",
-      badges: ["Zero-to-One", "Category Innovation"],
+      badges: ["Zero-to-One", "Innovation", "B2B"],
       context:
         "Early-stage AdMarTech fragmentation where eCommerce sites relied on dozens of disparate analytics and marketing vendors.",
       opportunity:
@@ -34,7 +40,7 @@ export default function Outcomes({ company: activeCompany, badge: activeBadge })
       company: "Nike",
       years: "2012-2013",
       title: "NEO: Proprietary Nike Experimentation and Optimization Service",
-      badges: ["Zero-to-One", "Proprietary Systems"],
+      badges: ["Zero-to-One", "Experimentation and Optimization", "B2C"],
       context:
         "A global digital ecosystem requiring high-integrity validation for features across diverse demographics within a complex technical environment.",
       opportunity:
@@ -47,7 +53,7 @@ export default function Outcomes({ company: activeCompany, badge: activeBadge })
       company: "Nike",
       years: "2014-2015",
       title: "DREAMS: Digital Real-time Analytics Monitoring System",
-      badges: ["Zero-to-One", "High-Velocity Systems"],
+      badges: ["Zero-to-One", "AI/ML", "B2C"],
       context:
         "High-velocity global product launches where site traffic and transactional volume spike instantly, historically requiring war rooms of experts to manage system failures with limited in-the-moment visibility.",
       opportunity:
@@ -60,7 +66,12 @@ export default function Outcomes({ company: activeCompany, badge: activeBadge })
       company: "Nike",
       years: "2015-2016",
       title: "DREAMS: Real-Time Personalization & Recommendations",
-      badges: ["AI/ML", "Optimization"],
+      badges: [
+        "Zero-to-One",
+        "AI/ML",
+        "Experimentation and Optimization",
+        "B2C",
+      ],
       context:
         "Nike.com operated as a passive product catalog with static content placement, lacking the ability to respond to individual user intent in real-time.",
       opportunity:
@@ -73,7 +84,7 @@ export default function Outcomes({ company: activeCompany, badge: activeBadge })
       company: "Nike",
       years: "2016-2018",
       title: "Sports Science & Elite Athlete Lab Experience",
-      badges: ["Zero-to-One", "Data Platforms"],
+      badges: ["Zero-to-One", "AI/ML"],
       context:
         "The intersection of elite athletic performance science and product design. Kinesiology lab telemetry was historically siloed in legacy formats, limiting the ability to apply holistic insights to product fit and protection.",
       opportunity:
@@ -86,7 +97,7 @@ export default function Outcomes({ company: activeCompany, badge: activeBadge })
       company: "Vevo",
       years: "2020",
       title: "Next-Gen OTT/CTV Platform Launch",
-      badges: ["Zero-to-One", "Media Systems"],
+      badges: ["Zero-to-One", "B2C"],
       context:
         "A critical shift in media consumption as viewers migrated from YouTube-centric discovery to direct Connected TV (CTV) and living-room experiences.",
       opportunity:
@@ -99,7 +110,7 @@ export default function Outcomes({ company: activeCompany, badge: activeBadge })
       company: "Vevo",
       years: "2021",
       title: "First-of-its-Kind Content Intelligence",
-      badges: ["AI/ML", "Category Innovation"],
+      badges: ["Zero-to-One", "AI/ML", "Innovation"],
       context:
         "Vevo manages the world’s largest premium music video library. Maintaining a robust supply chain of content delivery requires high-velocity content operations.",
       opportunity:
@@ -112,7 +123,7 @@ export default function Outcomes({ company: activeCompany, badge: activeBadge })
       company: "Dell Technologies",
       years: "2023-2024",
       title: "Unified AIOps User Intelligence",
-      badges: ["Systems Thinking", "Data Engineering"],
+      badges: ["Zero-to-One", "AI/ML", "B2B"],
       context:
         "The AIOps ecosystem, CloudIQ and Moogsoft, existed as siloed platforms with fragmented customer telemetry, leaving a massive gap in our understanding of the end-to-end user journey.",
       opportunity:
@@ -125,7 +136,7 @@ export default function Outcomes({ company: activeCompany, badge: activeBadge })
       company: "Dell Technologies",
       years: "2024-2025",
       title: "Predictive AI & Explainable Insights",
-      badges: ["AI/ML", "Predictive Analytics"],
+      badges: ["AI/ML", "Predictive Analytics", "B2B"],
       context:
         "CloudIQ observability supports a global base of 20,000+ enterprise infrastructure accounts, generating massive, high-velocity telemetry streams.",
       opportunity:
@@ -144,6 +155,8 @@ export default function Outcomes({ company: activeCompany, badge: activeBadge })
     if (params.get(key) === value) {
       params.delete(key);
     } else {
+      if (key === "company") params.delete("badge");
+      if (key === "badge") params.delete("company");
       params.set(key, value);
     }
     router.push(`?${params.toString()}`, { scroll: false });
@@ -166,11 +179,11 @@ export default function Outcomes({ company: activeCompany, badge: activeBadge })
   const getCompanyLogoClass = (company) => {
     const mapping = {
       "Best Buy": logoStyles.bestbuy,
-      "Tealium": logoStyles.tealium,
-      "Nike": logoStyles.nike,
-      "Vevo": logoStyles.vevo,
+      Tealium: logoStyles.tealium,
+      Nike: logoStyles.nike,
+      Vevo: logoStyles.vevo,
       "New Relic": logoStyles.newRelic,
-      "moogsoft": logoStyles.moogsoft,
+      moogsoft: logoStyles.moogsoft,
       "Dell Technologies": logoStyles.dell,
     };
     return mapping[company] || "";
@@ -188,7 +201,9 @@ export default function Outcomes({ company: activeCompany, badge: activeBadge })
               <div
                 key={company}
                 className={`${styles.logoFilterItem} ${getCompanyLogoClass(company)} ${
-                  activeCompany === company ? `${styles.active} ${logoStyles.hovered}` : ""
+                  activeCompany === company
+                    ? `${styles.active} ${logoStyles.hovered}`
+                    : ""
                 }`}
                 onClick={() => handleFilterChange("company", company)}
               >
@@ -219,7 +234,9 @@ export default function Outcomes({ company: activeCompany, badge: activeBadge })
               <div className={styles.caseHeader}>
                 <div className={styles.meta}>
                   <div className={styles.companyGroup}>
-                    <span className={`${styles.companyLogo} ${getCompanyLogoClass(o.company)} ${logoStyles.hovered}`}>
+                    <span
+                      className={`${styles.companyLogo} ${getCompanyLogoClass(o.company)} ${logoStyles.hovered}`}
+                    >
                       {o.company}
                     </span>
                     <span className={styles.years}>{o.years}</span>
