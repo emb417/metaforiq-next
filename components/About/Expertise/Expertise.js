@@ -20,11 +20,11 @@ export default function Expertise() {
             ratings, genre affinity modeling, and intelligent content workflows.
           </p>
           <p className={styles.description}>
-            Operating at the intersection of product, design, and engineering, I
-            drive product-market fit discovery, define long-term product
-            strategy, and collaborate with cross-functional partners to design,
-            deliver and operate new capabilities. Communication and
-            collaboration are the keys to success.
+            I sit where product, design, and engineering meet. My focus is finding
+            product-market fit, setting the long-term direction, and working
+            closely with cross-functional partners to bring new capabilities from
+            idea to reality — and keep them running. None of it works without
+            strong communication and real collaboration.
           </p>
           <p className={styles.description}>
             The following perspectives from my partners highlight my commitment
