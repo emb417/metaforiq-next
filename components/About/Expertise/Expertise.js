@@ -15,16 +15,17 @@ export default function Expertise() {
           <p className={styles.description}>
             Throughout my career, I’ve founded teams and pioneered
             first-of-their-kind platforms, including A/B testing systems,
-            personalized omni-channel experiences, real-time analytics, and
-            AI/ML pipelines. My leadership has delivered automated video
-            ratings, genre affinity modeling, and intelligent content workflows.
+            personalized omni-channel experiences, real-time analytics, AI/ML
+            pipelines, and agentic workflows. My leadership has delivered
+            automated video ratings, genre affinity modeling, intelligent
+            content workflows, and shared second brains.
           </p>
           <p className={styles.description}>
-            I sit where product, design, and engineering meet. My focus is finding
-            product-market fit, setting the long-term direction, and working
-            closely with cross-functional partners to bring new capabilities from
-            idea to reality — and keep them running. None of it works without
-            strong communication and real collaboration.
+            Context is what turns ideas into capabilities, whether it's aligning
+            cross-functional partners around a strategy or giving agents the
+            goals and guardrails to execute independently. My focus is finding
+            product-market fit and setting the long-term direction, then working
+            closely with the people and systems that bring it to reality.
           </p>
           <p className={styles.description}>
             The following perspectives from my partners highlight my commitment
