@@ -21,12 +21,7 @@ export default function AboutPage() {
         kicker="About"
         titleIntro="A systems thinker for"
         titleAccent="the context-driven AI era."
-        subtitle="The bottleneck is shifting away from the velocity of development to the quality 
-        of the bets being made. A systems thinker accelerates this process by using generative and 
-        agentic technologies to map the complex dependencies between market signals, 
-        technical constraints, and customer behavior at a scale that was previously impossible.
-        By translating these complex patterns into a clear, shared reality, a leader provides the 
-        high-level clarity necessary for collective success."
+        subtitle="The bottleneck is shifting away from the velocity of development to the quality of the bets being made. A systems thinker accelerates this process using agentic workflows to map the complex dependencies between market signals, technical constraints, and customer behavior at a scale that was previously impossible. Freed from mapping the patterns directly, a leader applies insight, intuition, and taste to translate them into the clarity necessary for collective success."
       />
       <Quote />
       <Mindset />
