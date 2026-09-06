@@ -211,27 +211,33 @@ const steps = [
     desc: "The loop is completed by evaluating how the product performs in a real-world environment. By synthesizing quantitative usage data with qualitative insights from surveys and interviews, the actual user experience is measured against the initial hypothesis to calibrate the next sequence of strategic product bets.",
     details: (
       <div className={styles.detailContent}>
-        <h3>Check the Data Against Reality</h3>
+        <h3>Let Agents Watch the Signals</h3>
         <p>
           Usage numbers show what happened; interviews and surveys explain why.
-          Both should be weighed together before drawing conclusions about what
-          to prioritize next.
+          Agents can watch the quantitative and qualitative signals
+          continuously, surfacing patterns and anomalies for people to apply
+          insight and intuition to.
         </p>
-        <h3>Close the Loop</h3>
+        <h3>Close the Loop Through the Second Brain</h3>
         <p>
-          Operational signals like error rates, churn, adoption should feed
-          directly back into the discovery backlog, not sit in a dashboard no
-          one revisits.
+          Operational signals like error rates, churn, and adoption feed
+          directly into the second brain, alongside the reasoning behind past
+          decisions. Agents surface what those signals suggest as new
+          opportunities worth exploring, so a signal reaching the next brief
+          already carries the context of what was tried before and why.
         </p>
         <h3>Validate the Outcome</h3>
         <p>
-          The real test isn't whether the feature shipped,it's whether user
-          behavior actually changed the way the original hypothesis predicted.
+          The real test is whether user behavior changed the way the original
+          hypothesis predicted. Agents can flag the moment behavior diverges
+          from prediction, giving people the judgment call sooner.
         </p>
         <h3>Shift From Learning to Scaling</h3>
         <p>
           Once something's validated, the focus moves from proving it works to
-          making it efficient to run at scale.
+          making it efficient to run at scale. As agents take on more of that
+          scaling work, human attention moves to the next validated question
+          worth exploring.
         </p>
       </div>
     ),
