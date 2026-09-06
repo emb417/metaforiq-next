@@ -122,44 +122,71 @@ const steps = [
     desc: "Execution is focused on high-integrity delivery and the rapid deployment of incremental value. The primary focus is maintaining the strategic intent of the solution throughout the build cycle, leveraging incremental improvements to accelerate time-to-learning and gather empirical feedback.",
     details: (
       <div className={styles.detailContent}>
-        <h3>Collaborate</h3>
+        <h3>Direct the Work</h3>
         <p>
-          Product Managers bring the team together to define and sequence
-          milestones and tasks, then step back to let the team execute.
+          Everyone moves from executing the work to directing and judging what
+          comes back. What gets handed to an agent is a goal and its guardrails,
+          instead of step by step instructions. Some guardrails are perpetual,
+          encoded once into the skills and instructions an agent works from.
+          Others only make sense in the moment, applied during review when a
+          specific case calls for a bespoke judgment.
         </p>
         <ul>
-          <li>Clarify, coordinate, and review the work as it's defined</li>
           <li>
-            Do only as much upfront design as needed to start; avoid heavy
-            planning before there's anything to learn from
+            Write goals an agent can act on without checking in constantly
           </li>
-          <li>Default to small chunks, even when it feels like too little</li>
           <li>
-            Share the brief widely when starting something new, so feedback
-            comes early instead of late
+            Separate guardrails that apply across tasks from ones that only make
+            sense in context
+          </li>
+          <li>
+            Let agents generate more than one direction where the cost of
+            divergence is low
+          </li>
+          <li>
+            Save the knowledge and its guardrails to the second brain, so agents
+            and people draw from the same source
           </li>
         </ul>
-        <h3>Coordinate</h3>
+        <h3>Diverge, Then Converge</h3>
         <p>
-          Regular check-ins surface risks and blockers before they compound, and
-          help the team resolve decisions it's stuck on. These check-ins work
-          best around natural breaks — first thing in the morning, lunch,
-          standup — so people aren't pulled out of deep work.
+          Cheap execution means more directions can be explored before
+          committing to one. Real alternatives surface first, then converge on
+          the version that holds up best once insight, intuition, and taste are
+          applied.
+        </p>
+        <h3>Coordinate Through Review</h3>
+        <p>
+          Agents flag a guardrail the moment they hit one. Coordination happens
+          as ongoing review: what did the work produce, where did it hit a
+          guardrail, and what needs a human's judgment before it moves forward.
+          Scheduled check-ins remain the place for decisions people work through
+          together.
         </p>
         <ul>
-          <li>Visualize work on a kanban board that reflects a one-way flow</li>
           <li>
-            Standardize task descriptions so status is easy to scan at a glance
-          </li>
-          <li>Optimize for finishing work, not starting more of it</li>
-          <li>
-            Track cycle time and throughput for consistency, not just speed
+            Track how much is awaiting review alongside how much is being built
           </li>
           <li>
-            Cap work-in-progress, e.g., column limit ≈ engineer count × 0.8
+            Cap what's in flight based on how much can be reviewed with real
+            attention
           </li>
-          <li>Revisit process every few weeks to inspect and adjust</li>
+          <li>
+            Let the second brain carry the shared context agents and people both
+            draw from and add to
+          </li>
+          <li>
+            Revisit guardrails and instructions regularly, the same way process
+            gets revisited today
+          </li>
         </ul>
+        <h3>The Time Shift Is the Win</h3>
+        <p>
+          Review volume may grow as execution gets cheaper. Time that was spent
+          writing and building shifts to reading and judging, where quality
+          actually comes from. Even without a net reduction in hours, that shift
+          alone is the improvement.
+        </p>
       </div>
     ),
   },
