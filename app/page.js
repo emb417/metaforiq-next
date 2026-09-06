@@ -16,9 +16,9 @@ export default function HomePage() {
     <main className="main">
       <Hero
         kicker="Fractional Product Leadership"
-        titleIntro="Maximize Continuous Learning"
-        titleAccent="To Drive Sustained Growth"
-        subtitle="Product wins are the result of high-quality feedback loops embedded throughout the product lifecycle. Success stems from a culture of cross-functional collaboration that transforms collective learning into validated customer value and measurable business outcomes."
+        titleIntro="Context to Execute"
+        titleAccent="Intuition to Decide"
+        subtitle="The agentic era shifts the bottleneck from execution to human judgment. Giving agents the context, goals, and guardrails to execute independently increases the throughput of human judgment, freeing knowledge workers for more insight, intuition, and taste."
       />
       <CredibilityLogos />
       <CredibilityMarkers />
