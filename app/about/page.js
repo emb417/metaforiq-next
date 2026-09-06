@@ -20,7 +20,7 @@ export default function AboutPage() {
         kicker="About"
         titleIntro="A systems thinker for"
         titleAccent="the context-driven AI era."
-        subtitle="The bottleneck is shifting away from the velocity of development to the judgment applied to what's discovered. A systems thinker accelerates this process using agentic workflows to map how information flows between agents and humans, drawing on customer behavior, system signals, and external context to surface the highest-quality opportunities. Freed from execution, everyone brings their own insight, intuition, and taste to the opportunities, and that diversity of judgment drives the best outcomes."
+        subtitle="The bottleneck is shifting away from the velocity of development to the judgment applied to what's discovered. As a systems thinker, I see agentic workflows mapping how information flows between agents and humans, drawing on customer behavior, system signals, and external context to surface the highest-quality opportunities. Freed from execution, everyone brings their own insight, intuition, and taste to those opportunities, and that diversity of judgment drives the best outcomes."
       />
       <Mindset />
       <Values />
@@ -37,4 +37,3 @@ export default function AboutPage() {
     </main>
   );
 }
-
