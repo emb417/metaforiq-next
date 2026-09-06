@@ -7,26 +7,24 @@ export default function Preferences() {
         <h2 className={styles.sectionTitle}>Preferences</h2>
         <div className={styles.grid}>
           <div className={styles.block}>
+            <h3>Apply First Principles</h3>
+            <p>
+              I lead by setting goals and guardrails at whatever elevation I'm
+              operating from, then trusting the people and agents closer to the
+              work to translate them further down. In an environment where the
+              tools for building software change faster than any roadmap can
+              account for, elevation is defined by scope, how much a decision
+              touches.
+            </p>
+          </div>
+          <div className={styles.block}>
             <h3>The Scientific Method</h3>
             <p>
               I treat product strategy as a series of testable hypotheses. My
               process is rooted in disciplined experimentation, where we
               identify our riskiest assumptions and design lean tests to
-              validate them. By shifting from a culture of requirements to a
-              culture of experiments, I help the team reduce uncertainty and
-              build products that are backed by evidence and real-world
-              performance.
-            </p>
-          </div>
-          <div className={styles.block}>
-            <h3>Management by Principles</h3>
-            <p>
-              I lead through shared principles that empower teams to operate
-              with high agency and alignment. By prioritizing a sustainable flow
-              of work, I ensure the team maintains a steady state of continuous
-              discovery and delivery. This approach reduces cognitive thrash and
-              protects our collective focus, allowing us to stay responsive to
-              new insights while maintaining a high standard of craft.
+              validate them. With the pace of AI tooling changing this fast,
+              evidence is what lets us build with confidence.
             </p>
           </div>
           <div className={styles.block}>
@@ -38,7 +36,7 @@ export default function Preferences() {
               continuous iteration, I prioritize generating the real-world
               evidence required to refine our direction. By shortening the loop
               between hypothesis and reality, we transform assumptions into the
-              insights needed to build truly impactful products.
+              insights needed to build impactful products.
             </p>
           </div>
         </div>
