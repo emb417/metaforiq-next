@@ -6,7 +6,6 @@ import Mindset from "@/components/About/Mindset/Mindset";
 import Values from "@/components/About/Values/Values";
 import Preferences from "@/components/About/Preferences/Preferences";
 import CTASection from "@/components/Common/CTASection/CTASection";
-import Quote from "@/components/About/Quote/Quote";
 
 export const metadata = {
   title: "About | MetaforIQ",
@@ -28,7 +27,6 @@ export default function AboutPage() {
         By translating these complex patterns into a clear, shared reality, a leader provides the 
         high-level clarity necessary for collective success."
       />
-      <Quote />
       <Mindset />
       <Values />
       <Preferences />
@@ -44,3 +42,4 @@ export default function AboutPage() {
     </main>
   );
 }
+
