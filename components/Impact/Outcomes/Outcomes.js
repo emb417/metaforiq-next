@@ -25,6 +25,32 @@ export default function Outcomes({
   const outcomesData = [
     {
       company: "Best Buy",
+      years: "2026-Present",
+      title: "Cross-Team Knowledge Infrastructure",
+      badges: ["Zero-to-One", "AI/ML", "Innovation"],
+      context:
+        "Best Buy's Digital, Analytics, and Technology organization had product and engineering knowledge scattered across teams, with no shared system for capturing how work actually gets done.",
+      opportunity:
+        "Agentic workflows had proven themselves in engineering, but knowledge work hadn't caught up. I saw the chance to build a shared second brain, contributed to by product and engineering teams alike, that could turn one team's practice into infrastructure for the whole org.",
+      role: "Fractional Product & Engineering Leader (via MetaforIQ)",
+      outcome:
+        "Established a cross-team second brain built on agentic workflows, now adopted by other teams as a template for their own way of working, turning one team's knowledge into a force multiplier across the organization.",
+    },
+    {
+      company: "Best Buy",
+      years: "2026-Present",
+      title: "Agentic & Developer Experience Measurement",
+      badges: ["AI/ML", "Predictive Analytics", "B2B"],
+      context:
+        "As AI tooling rolled out across product and engineering teams, DAT had no consistent way to measure its actual impact, only fragmented, activity-level signals.",
+      opportunity:
+        "I saw the need for a measurement strategy that could separate genuine outcomes from adoption noise, spanning tool usage, delivery velocity, and developer sentiment.",
+      role: "Fractional Product & Engineering Leader (via MetaforIQ)",
+      outcome:
+        "Delivered a measurement strategy for AI's impact on the software delivery lifecycle, spanning AI tool usage depth, PR velocity, lead time, and DXI survey data, laying the foundation for an executive-level Agentic and Developer Experience dashboard.",
+    },
+    {
+      company: "Best Buy",
       years: "2005-2010",
       title: "Founding the Innovation Team",
       badges: [
