@@ -25,6 +25,32 @@ export default function Outcomes({
   const outcomesData = [
     {
       company: "Best Buy",
+      years: "2026-Present",
+      title: "Cross-Team Knowledge Infrastructure",
+      badges: ["Zero-to-One", "AI/ML", "Innovation"],
+      context:
+        "Knowledge workers across product and engineering were using tools like M365 Copilot for tasks like drafting emails and summarizing conversations, with context added only in the moment, at the point of prompting.",
+      opportunity:
+        "Working agentically requires agents to have context, and context added only during prompting is never enough, and never persists. I saw a shared, persistent second brain as a prerequisite for agentic work, something to build before anything else.",
+      role: "Fractional Product & Engineering Leader (via MetaforIQ)",
+      outcome:
+        "Built a cross-team second brain that product and engineering teams contribute to directly. Early demonstrations of what it enables are generating demand and inspiring other teams to explore this way of working.",
+    },
+    {
+      company: "Best Buy",
+      years: "2026-Present",
+      title: "Agentic & Developer Experience Measurement",
+      badges: ["AI/ML", "Predictive Analytics", "B2B"],
+      context:
+        "As agentic tooling reaches product and engineering teams, the new agent harnesses and workflows generate telemetry that hadn't existed before, with no framework yet to interpret it.",
+      opportunity:
+        "I saw the chance to treat agentic adoption as a diffusion curve, segmenting teams into cohorts by their level of agentic usage so coaching and support could be targeted to each cohort's stage.",
+      role: "Fractional Product & Engineering Leader (via MetaforIQ)",
+      outcome:
+        "Defined the measurement dimensions, AI tool usage depth, PR velocity, lead time, and DXI survey data, that will anchor an executive-level Agentic and Developer Experience dashboard and a cohort-based coaching strategy.",
+    },
+    {
+      company: "Best Buy",
       years: "2005-2010",
       title: "Founding the Innovation Team",
       badges: [
